@@ -1,0 +1,28 @@
+---
+import { byggerPaa, forerTil, maalUrl, tomByggerPaa, tomForerTil, trinnLabel, type Maal } from '../lib/data';
+interface Props { maal: Maal; open?: boolean }
+const { maal, open = false } = Astro.props;
+const opp = byggerPaa(maal);
+const ned = forerTil(maal);
+const seksjoner = [
+  { tittel: 'Bygger på', liste: opp, tom: tomByggerPaa(maal) },
+  { tittel: 'Fører til', liste: ned, tom: tomForerTil(maal) },
+];
+---
+<details class="chain" open={open}>
+  <summary>Bygger på og fører til</summary>
+  {seksjoner.map((s) => (
+    <div class="sec">
+      <h4>{s.tittel}</h4>
+      {s.liste.length ? (
+        <ol>
+          {s.liste.map((m) => (
+            <li class="d"><small>{m.kode}, {trinnLabel(m.fag, m.trinn)}</small><a href={maalUrl(m)}>{m.forklaring}</a></li>
+          ))}
+        </ol>
+      ) : (
+        <p class="none">{s.tom}</p>
+      )}
+    </div>
+  ))}
+</details>

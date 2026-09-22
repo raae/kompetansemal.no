@@ -1,0 +1,24 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Goal from '../../../components/Goal.astro';
+import { ALLE_FAG, fagUrl, kjerneelementerForFag, type Fag, type Maal } from '../../../lib/data';
+
+export function getStaticPaths() {
+  return ALLE_FAG.flatMap((fag) =>
+    kjerneelementerForFag(fag).map((ke) => ({ params: { fag: fag.slug, slug: ke.slug }, props: { fag, navn: ke.navn, maal: ke.maal } })),
+  );
+}
+interface Props { fag: Fag; navn: string; maal: Maal[] }
+const { fag, navn, maal } = Astro.props;
+---
+<Base title={`${navn} – kjerneelement i ${fag.navn.toLowerCase()}`} description={`${maal.length} kompetansemål i ${fag.navn.toLowerCase()} med kjerneelementet «${navn}», på tvers av trinn.`} fag={fag.key}>
+  <section style={`--fag:var(--${fag.key})`}>
+    <div class="filterbar">
+      <p class="kicker">Kjerneelement i {fag.navn}</p>
+      <h2 style="color:var(--fag)">{navn}</h2>
+      <p>{maal.length} mål fordelt på trinn.</p>
+      <a class="clear" href={fagUrl(fag)}>Tilbake til {fag.navn}</a>
+    </div>
+    <ol class="goals">{maal.map((m) => <Goal maal={m} visTrinn />)}</ol>
+  </section>
+</Base>
