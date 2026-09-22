@@ -19,6 +19,6 @@ const { fag, gruppe } = Astro.props;
         {fag.grupper.map((g) => <li><a href={gruppeUrl(fag, g)} aria-current={g.slug === gruppe.slug ? 'page' : undefined}>{g.label}</a></li>)}
       </ul>
     </div>
-    <GruppeInnhold fag={fag} gruppe={gruppe} />
+    <GruppeInnhold gruppe={gruppe} />
   </section>
 </Base>

@@ -19,6 +19,6 @@ const { fag } = Astro.props;
         {fag.grupper.map((g) => <li><a href={`#${g.slug}`}>{g.label}</a></li>)}
       </ul>
     </div>
-    {fag.grupper.map((g) => <GruppeInnhold fag={fag} gruppe={g} medGruppeOverskrift />)}
+    {fag.grupper.map((g) => <GruppeInnhold gruppe={g} medGruppeOverskrift />)}
   </section>
 </Base>

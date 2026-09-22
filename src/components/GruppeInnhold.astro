@@ -1,13 +1,12 @@
 ---
 import Goal from './Goal.astro';
-import type { Fag, Gruppe } from '../lib/data';
+import type { Gruppe } from '../lib/data';
 interface Props {
-  fag: Fag;
   gruppe: Gruppe;
   /** På fagsiden (alle trinn) får gruppa egen overskrift med anker. */
   medGruppeOverskrift?: boolean;
 }
-const { fag, gruppe, medGruppeOverskrift = false } = Astro.props;
+const { gruppe, medGruppeOverskrift = false } = Astro.props;
 // Andre fag enn matte har ett trinnavsnitt per gruppe, med samme navn som gruppa.
 // Da holder én overskrift. Matte har flere trinn per gruppe og får underoverskrifter.
 const flereTrinn = gruppe.trinn.length > 1;
