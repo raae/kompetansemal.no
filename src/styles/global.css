@@ -101,7 +101,11 @@ li.goal,article.goal{background:var(--card);border:1px solid var(--rule);border-
 
 /* Forsiden: fagvalg */
 .fagliste{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr))}
-.fagliste li{background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--c);border-radius:4px 14px 14px 4px;padding:.8rem 1rem}
+.fagliste li.fagkort{position:relative;background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--c);border-radius:4px 14px 14px 4px;padding:.8rem 1rem}
+.fagliste li.fagkort:hover{border-color:var(--c)}
+/* Hele kortet er klikkbart via lenken i overskriften, trinnknappene ligger oppå. */
+.fagliste a.hele::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.fagliste .grupper{position:relative;z-index:1}
 .fagliste h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:1.35rem;margin:0 0 .3rem;color:var(--c)}
 .fagliste h3 a{text-decoration:none}
 .fagliste .n{font-size:.85rem;color:var(--muted);margin:0 0 .5rem}

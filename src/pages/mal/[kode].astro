@@ -4,7 +4,7 @@ import Goal from '../../components/Goal.astro';
 import { alleMaal, fagUrl, gruppeForMaal, gruppeUrl, maalUrl, naboer, trinnLabel, udirUrl, type Maal } from '../../lib/data';
 
 export function getStaticPaths() {
-  return alleMaal().map((maal) => ({ params: { kode: maal.kode }, props: { maal } }));
+  return alleMaal().map((maal) => ({ params: { kode: maal.kode.toLowerCase() }, props: { maal } }));
 }
 interface Props { maal: Maal }
 const { maal } = Astro.props;

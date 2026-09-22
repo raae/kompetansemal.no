@@ -105,7 +105,8 @@ export function udirUrl(m: Maal): string {
 }
 
 export function maalUrl(m: Maal): string {
-  return `/mal/${m.kode}/`;
+  // Små bokstaver: Netlify gjør URL-er små og sender store til små med 301.
+  return `/mal/${m.kode.toLowerCase()}/`;
 }
 
 export function gruppeForMaal(m: Maal): { fag: Fag; gruppe: Gruppe } {
