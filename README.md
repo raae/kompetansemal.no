@@ -46,21 +46,22 @@ Andre ting å vite:
 
 - `etter-aarstrinn` på kompetansemålsettene er feil for minst ett sett (KV1076, naturfag etter 4. trinn, står som årstrinn 5). Skriptet bruker tittelen som fasit og advarer ved avvik.
 - Én `bygger-paa`-kobling (KM13336 → KM266) peker utenfor grunnskolen og filtreres bort.
-- Rundt 100 mål har Udirs egen «Begrepsforklaring / didaktisk støtte». Den lagres som `udir_forklaring` i `udir.json`, men vises ikke ennå.
+- 98 mål har Udirs egen «Begrepsforklaring / didaktisk støtte». Den lagres som `udir_forklaring` i `udir.json` og vises som «Udir forklarer:» i kortet.
 
 ## Sider
 
 | Rute | Hva |
 |---|---|
 | `/` | Forside med søk og fagvalg |
-| `/[fag]/[gruppe]/` | Målene i et fag for en trinngruppe, f.eks. `/matte/5-7/`. `/[fag]/` sender videre til første gruppe. |
+| `/[fag]/` | Alle målene i et fag, med hopp til hver trinngruppe |
+| `/[fag]/[gruppe]/` | Målene i et fag for én trinngruppe, f.eks. `/matte/5-7/` |
 | `/mal/[kode]/` | Ett mål, med «Bygger på og fører til» åpent og lenker til forrige og neste |
 | `/kjerneelement/[fag]/[slug]/` | Alle mål i faget med kjerneelementet |
 | `/tema/[slug]/` | Alle mål i alle fag med det tverrfaglige temaet |
 | `/sok.json` | Søkeindeks for søket på klientsiden |
 
-Trinngrupper: 1–2, 3–4, 5–7 og 8–10. KRLE og mat og helse har ikke mål etter 2. trinn og får 1–4, 5–7 og 8–10.
+Trinngrupper: 1–2, 3–4, 5–7 og 8–10. KRLE og mat og helse har ikke mål etter 2. trinn og får 1–4, 5–7 og 8–10. Matte har mål per trinn og merkes «5. trinn». Andre fag merkes med gruppa, f.eks. «5.–7. trinn».
 
 ## Netlify
 
-`netlify.toml` bygger med `npm run build` til `dist/` på Node 22. `public/_redirects` (skrives av `prebuild`) sender `/[fag]` videre til første trinngruppe. Sitemap og `robots.txt` bruker punycode-formen `xn--kompetanseml-3cb.no`.
+`netlify.toml` bygger med `npm run build` til `dist/` på Node 22. Sitemap og `robots.txt` bruker punycode-formen `xn--kompetanseml-3cb.no`.

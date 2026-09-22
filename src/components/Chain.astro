@@ -17,7 +17,7 @@ const seksjoner = [
       {s.liste.length ? (
         <ol>
           {s.liste.map((m) => (
-            <li class="d"><small>{m.kode}, {trinnLabel(m.fag, m.trinn, false)}</small><a href={maalUrl(m)}>{m.forklaring}</a></li>
+            <li class="d"><small>{m.kode}, {trinnLabel(m.fag, m.trinn)}</small><a href={maalUrl(m)}>{m.forklaring}</a></li>
           ))}
         </ol>
       ) : (

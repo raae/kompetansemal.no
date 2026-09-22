@@ -1,12 +1,12 @@
 ---
-import { ALLE_FAG, gruppeUrl } from '../lib/data';
+import { ALLE_FAG, fagUrl } from '../lib/data';
 interface Props { aktiv?: string }
 const { aktiv } = Astro.props;
 ---
 <nav class="fag" aria-label="Fag">
   <div class="wrap">
     {ALLE_FAG.map((f) => (
-      <a href={gruppeUrl(f, f.grupper[0])} style={`--c:var(--${f.key})`} aria-current={aktiv === f.key ? 'page' : undefined}>{f.navn}<small>{f.antall}</small></a>
+      <a href={fagUrl(f)} style={`--c:var(--${f.key})`} aria-current={aktiv === f.key ? 'page' : undefined}>{f.navn}<small>{f.antall}</small></a>
     ))}
   </div>
 </nav>

@@ -1,6 +1,6 @@
 ---
 import Chain from './Chain.astro';
-import { fagMedKey, gruppeUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel, type Maal } from '../lib/data';
+import { fagMedKey, fagUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel, type Maal } from '../lib/data';
 interface Props {
   maal: Maal;
   /** Vis fagnavn oppe til høyre (på tvers av fag). */
@@ -23,10 +23,11 @@ const harTags = maal.kjerneelementer.length + maal.tverrfaglige_temaer.length > 
       {alene ? maal.kode : <a href={maalUrl(maal)} title="Åpne dette målet på egen side">{maal.kode}</a>}
       {visTrinn && <span> {trinnLabel(maal.fag, maal.trinn)}</span>}
     </span>
-    {visFag && <a class="fagtag" href={gruppeUrl(fag, fag.grupper[0])}>{fag.navn}</a>}
+    {visFag && <a class="fagtag" href={fagUrl(fag)}>{fag.navn}</a>}
   </div>
   <p class="plain">{maal.forklaring}</p>
   <p class="udir"><b>Udir sier:</b> {maal.udir}</p>
+  {maal.udir_forklaring && <p class="udir"><b>Udir forklarer:</b> {maal.udir_forklaring}</p>}
   {maal.ideer.length > 0 && (
     <>
       <h4>Idéer til aktiviteter</h4>

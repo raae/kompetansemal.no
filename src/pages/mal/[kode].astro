@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Goal from '../../components/Goal.astro';
-import { alleMaal, gruppeForMaal, gruppeUrl, maalUrl, naboer, trinnLabel, udirUrl, type Maal } from '../../lib/data';
+import { alleMaal, fagUrl, gruppeForMaal, gruppeUrl, maalUrl, naboer, trinnLabel, udirUrl, type Maal } from '../../lib/data';
 
 export function getStaticPaths() {
   return alleMaal().map((maal) => ({ params: { kode: maal.kode }, props: { maal } }));
@@ -10,18 +10,19 @@ interface Props { maal: Maal }
 const { maal } = Astro.props;
 const { fag, gruppe } = gruppeForMaal(maal);
 const { forrige, neste } = naboer(maal);
+const trinn = trinnLabel(maal.fag, maal.trinn);
 ---
-<Base title={`${maal.kode}: ${maal.forklaring}`} description={`${fag.navn}, ${trinnLabel(maal.fag, maal.trinn, false)}. Udir sier: ${maal.udir}.`} fag={fag.key}>
+<Base title={`${maal.kode}: ${maal.forklaring}`} description={`${fag.navn}, ${trinn}. Udir sier: ${maal.udir}.`} fag={fag.key}>
   <section style={`--fag:var(--${fag.key})`}>
-    <p class="crumbs"><a href={gruppeUrl(fag, fag.grupper[0])}>{fag.navn}</a> › <a href={gruppeUrl(fag, gruppe)}>{gruppe.label}</a> › {trinnLabel(maal.fag, maal.trinn)}</p>
+    <p class="crumbs"><a href={fagUrl(fag)}>{fag.navn}</a> › <a href={gruppeUrl(fag, gruppe)}>{gruppe.label}</a>{trinn !== gruppe.label && <> › {trinn}</>}</p>
     <div class="fagHead">
       <h2>{maal.kode}</h2>
-      <p>{fag.navn}, {trinnLabel(maal.fag, maal.trinn, false)}. <a href={udirUrl(maal)} target="_blank" rel="noopener">Les hos Udir</a></p>
+      <p>{fag.navn}, {trinn}. <a href={udirUrl(maal)} target="_blank" rel="noopener">Les hos Udir</a></p>
     </div>
     <Goal maal={maal} aapen alene />
     <nav class="pn" aria-label="Forrige og neste mål">
-      {forrige && <a href={maalUrl(forrige)} rel="prev"><small>← Forrige, {trinnLabel(forrige.fag, forrige.trinn, false)}</small>{forrige.forklaring}</a>}
-      {neste && <a class="neste" href={maalUrl(neste)} rel="next"><small>Neste, {trinnLabel(neste.fag, neste.trinn, false)} →</small>{neste.forklaring}</a>}
+      {forrige && <a href={maalUrl(forrige)} rel="prev"><small>← Forrige, {trinnLabel(forrige.fag, forrige.trinn)}</small>{forrige.forklaring}</a>}
+      {neste && <a class="neste" href={maalUrl(neste)} rel="next"><small>Neste, {trinnLabel(neste.fag, neste.trinn)} →</small>{neste.forklaring}</a>}
     </nav>
   </section>
 </Base>

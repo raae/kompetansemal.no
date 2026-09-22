@@ -136,3 +136,7 @@ footer{border-top:1px solid var(--rule);color:var(--muted);font-size:.9rem}
 footer .wrap{padding-top:1.2rem;padding-bottom:2rem}
 footer p{margin:.3rem 0}
 @media (prefers-reduced-motion:no-preference){ li.goal{transition:border-color .15s} }
+h4.trinn{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.1rem;margin:1.4rem 0 .6rem;display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+h4.trinn a{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.9rem;color:var(--muted)}
+h3.trinn{scroll-margin-top:5.5rem}
+.trinn .under{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.95rem;color:var(--muted)}

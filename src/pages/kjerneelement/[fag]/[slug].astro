@@ -1,7 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import Goal from '../../../components/Goal.astro';
-import { ALLE_FAG, gruppeUrl, kjerneelementerForFag, type Fag, type Maal } from '../../../lib/data';
+import { ALLE_FAG, fagUrl, kjerneelementerForFag, type Fag, type Maal } from '../../../lib/data';
 
 export function getStaticPaths() {
   return ALLE_FAG.flatMap((fag) =>
@@ -17,7 +17,7 @@ const { fag, navn, maal } = Astro.props;
       <p class="kicker">Kjerneelement i {fag.navn}</p>
       <h2 style="color:var(--fag)">{navn}</h2>
       <p>{maal.length} mål fordelt på trinn.</p>
-      <a class="clear" href={gruppeUrl(fag, fag.grupper[0])}>Tilbake til {fag.navn}</a>
+      <a class="clear" href={fagUrl(fag)}>Tilbake til {fag.navn}</a>
     </div>
     <ol class="goals">{maal.map((m) => <Goal maal={m} visTrinn />)}</ol>
   </section>

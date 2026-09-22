@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Goal from '../../components/Goal.astro';
-import { ALLE_FAG, gruppeUrl, tverrfagligeTemaer, type Maal } from '../../lib/data';
+import { ALLE_FAG, fagUrl, tverrfagligeTemaer, type Maal } from '../../lib/data';
 
 export function getStaticPaths() {
   return tverrfagligeTemaer().map((t) => ({ params: { slug: t.slug }, props: { navn: t.navn, maal: t.maal } }));
@@ -18,7 +18,7 @@ const perFag = ALLE_FAG.map((f) => ({ fag: f, antall: maal.filter((m) => m.fag =
       <p>{maal.length} mål.</p>
       <a class="clear" href="/">Tilbake til forsiden</a>
       <ul class="fagcount">
-        {perFag.map(({ fag, antall }) => <li style={`--c:var(--${fag.key})`}><a href={gruppeUrl(fag, fag.grupper[0])}>{fag.navn} {antall}</a></li>)}
+        {perFag.map(({ fag, antall }) => <li style={`--c:var(--${fag.key})`}><a href={fagUrl(fag)}>{fag.navn} {antall}</a></li>)}
       </ul>
     </div>
     <ol class="goals">{maal.map((m) => <Goal maal={m} visFag visTrinn />)}</ol>

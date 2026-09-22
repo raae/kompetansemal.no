@@ -6,7 +6,6 @@
   "description": "Alle kompetansemål i grunnskolen på vanlig norsk",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/skriv-redirects.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",

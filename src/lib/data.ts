@@ -88,11 +88,17 @@ export function fagMedSlug(s: string): Fag | undefined {
   return ALLE_FAG.find((f) => f.slug === s);
 }
 
-/** «5. trinn» i matte, «Etter 7. trinn» i andre fag. */
-export function trinnLabel(fag: FagKey, trinn: number, stor = true): string {
+/** «5. trinn» i matte. I andre fag navnet på trinngruppa målet gjelder for, f.eks. «5.–7. trinn». */
+export function trinnLabel(fag: FagKey, trinn: number): string {
   if (fag === 'MAT') return `${trinn}. trinn`;
-  return `${stor ? 'Etter' : 'etter'} ${trinn}. trinn`;
+  const gruppe = grupperForTrinn(TRINN_PER_FAG[fag]).find((g) => trinn >= g.fra && trinn <= g.til);
+  return gruppe ? gruppe.label : `${trinn}. trinn`;
 }
+
+/** Hvilke trinn hvert fag har mål på. */
+const TRINN_PER_FAG: Record<string, number[]> = Object.fromEntries(
+  FAG.map((f) => [f.key, [...new Set(ALLE.filter((m) => m.fag === f.key).map((m) => m.trinn))].sort((a, b) => a - b)]),
+);
 
 export function udirUrl(m: Maal): string {
   return `https://www.udir.no/lk20/${m.laereplan.toLowerCase()}/kompetansemaal-og-vurdering/${m.kompetansemaalsett.toLowerCase()}`;
@@ -106,6 +112,10 @@ export function gruppeForMaal(m: Maal): { fag: Fag; gruppe: Gruppe } {
   const fag = fagMedKey(m.fag)!;
   const gruppe = fag.grupper.find((g) => m.trinn >= g.fra && m.trinn <= g.til)!;
   return { fag, gruppe };
+}
+
+export function fagUrl(fag: Fag): string {
+  return `/${fag.slug}/`;
 }
 
 export function gruppeUrl(fag: Fag, gruppe: Gruppe): string {
@@ -193,7 +203,7 @@ function sorter(a: Maal, b: Maal): number {
 function lagFag(): Fag[] {
   return FAG.map((f) => {
     const maal = ALLE.filter((m) => m.fag === f.key);
-    const trinnMedMaal = [...new Set(maal.map((m) => m.trinn))].sort((a, b) => a - b);
+    const trinnMedMaal = TRINN_PER_FAG[f.key];
     const grupper: Gruppe[] = grupperForTrinn(trinnMedMaal).map((g) => {
       const iGruppe = maal.filter((m) => m.trinn >= g.fra && m.trinn <= g.til);
       const trinn = [...new Set(iGruppe.map((m) => m.trinn))].sort((a, b) => a - b).map((t) => {

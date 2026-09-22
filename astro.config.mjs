@@ -1,12 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { fagRedirects } from './src/lib/ruter.mjs';
 
 export default defineConfig({
   site: 'https://kompetansemål.no',
   output: 'static',
   trailingSlash: 'always',
   integrations: [sitemap()],
-  redirects: fagRedirects,
 });

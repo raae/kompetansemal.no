@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Goal from '../../components/Goal.astro';
-import { ALLE_FAG, gruppeUrl, type Fag, type Gruppe } from '../../lib/data';
+import GruppeInnhold from '../../components/GruppeInnhold.astro';
+import { ALLE_FAG, fagUrl, gruppeUrl, type Fag, type Gruppe } from '../../lib/data';
 
 export function getStaticPaths() {
   return ALLE_FAG.flatMap((fag) => fag.grupper.map((gruppe) => ({ params: { fag: fag.slug, gruppe: gruppe.slug }, props: { fag, gruppe } })));
@@ -12,17 +12,13 @@ const { fag, gruppe } = Astro.props;
 <Base title={`${fag.navn} ${gruppe.label}`} description={`${gruppe.maal.length} kompetansemål i ${fag.navn.toLowerCase()} for ${gruppe.label}, forklart på vanlig norsk.`} fag={fag.key}>
   <section style={`--fag:var(--${fag.key})`}>
     <div class="fagHead">
-      <h2>{fag.navn}</h2>
+      <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
       <p>{fag.note}</p>
       <ul class="jump" aria-label="Trinn">
+        <li><a href={fagUrl(fag)}>Alle trinn</a></li>
         {fag.grupper.map((g) => <li><a href={gruppeUrl(fag, g)} aria-current={g.slug === gruppe.slug ? 'page' : undefined}>{g.label}</a></li>)}
       </ul>
     </div>
-    {gruppe.trinn.map((t) => (
-      <>
-        <h3 class="trinn" id={`trinn-${t.trinn}`}>{t.label}<a href={t.udirUrl} target="_blank" rel="noopener">Les hos Udir</a></h3>
-        <ol class="goals">{t.maal.map((m) => <Goal maal={m} />)}</ol>
-      </>
-    ))}
+    <GruppeInnhold fag={fag} gruppe={gruppe} />
   </section>
 </Base>

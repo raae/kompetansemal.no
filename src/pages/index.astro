@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { ALLE_FAG, alleMaal, gruppeUrl, tverrfagligeTemaer, temaUrl } from '../lib/data';
+import { ALLE_FAG, alleMaal, fagUrl, gruppeUrl, tverrfagligeTemaer, temaUrl } from '../lib/data';
 const antall = alleMaal().length;
 const temaer = tverrfagligeTemaer();
 ---
@@ -10,7 +10,7 @@ const temaer = tverrfagligeTemaer();
   <ul class="fagliste">
     {ALLE_FAG.map((f) => (
       <li style={`--c:var(--${f.key})`}>
-        <h3><a href={gruppeUrl(f, f.grupper[0])}>{f.navn}</a></h3>
+        <h3><a href={fagUrl(f)}>{f.navn}</a></h3>
         <p class="n">{f.antall} mål</p>
         <ul class="grupper">
           {f.grupper.map((g) => <li><a href={gruppeUrl(f, g)}>{g.label}</a></li>)}
