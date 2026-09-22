@@ -4,7 +4,7 @@ import Goal from '../../components/Goal.astro';
 import { alleMaal, fagUrl, gruppeForMaal, gruppeUrl, maalUrl, naboer, trinnLabel, udirUrl, type Maal } from '../../lib/data';
 
 export function getStaticPaths() {
-  return alleMaal().map((maal) => ({ params: { kode: maal.kode }, props: { maal } }));
+  return alleMaal().map((maal) => ({ params: { kode: maal.kode.toLowerCase() }, props: { maal } }));
 }
 interface Props { maal: Maal }
 const { maal } = Astro.props;
@@ -12,7 +12,7 @@ const { fag, gruppe } = gruppeForMaal(maal);
 const { forrige, neste } = naboer(maal);
 const trinn = trinnLabel(maal.fag, maal.trinn);
 ---
-<Base title={`${maal.kode}: ${maal.forklaring}`} description={`${fag.navn}, ${trinn}. Udir sier: ${maal.udir}.`} fag={fag.key}>
+<Base title={`${maal.kode}: ${maal.forklaring}`} description={`${fag.navn}, ${trinn}. Udir sier: ${maal.udir}.`}>
   <section style={`--fag:var(--${fag.key})`}>
     <p class="crumbs"><a href={fagUrl(fag)}>{fag.navn}</a> › <a href={gruppeUrl(fag, gruppe)}>{gruppe.label}</a>{trinn !== gruppe.label && <> › {trinn}</>}</p>
     <div class="fagHead">

@@ -42,12 +42,6 @@ h1 .q{display:inline-block;background:var(--paper);padding:0 .1em;margin-left:-.
 .search{flex:1 1 14rem;display:flex}
 .search input{width:100%;font:inherit;padding:.5rem .9rem;border:2px solid var(--ink);border-radius:999px;background:var(--card);color:var(--ink)}
 
-nav.fag{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--rule);padding-top:env(safe-area-inset-top,0px)}
-nav.fag .wrap{display:flex;flex-wrap:wrap;gap:.45rem;padding-top:.7rem;padding-bottom:.7rem}
-nav.fag a{flex:0 0 auto;text-decoration:none;font:inherit;font-weight:700;font-size:.95rem;color:var(--ink);background:var(--card);
-  border:1px solid var(--rule);border-left:7px solid var(--c);border-radius:4px 10px 10px 4px;padding:.35rem .75rem .35rem .6rem}
-nav.fag a[aria-current]{background:var(--c);color:var(--paper);border-color:var(--c)}
-nav.fag a small{font-weight:400;opacity:.75;margin-left:.3rem}
 
 main{padding:1.6rem 0 3rem}
 .fagHead h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,7vw,2.8rem);line-height:1;margin:.2rem 0 .5rem;color:var(--fag)}
@@ -107,7 +101,11 @@ li.goal,article.goal{background:var(--card);border:1px solid var(--rule);border-
 
 /* Forsiden: fagvalg */
 .fagliste{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr))}
-.fagliste li{background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--c);border-radius:4px 14px 14px 4px;padding:.8rem 1rem}
+.fagliste li.fagkort{position:relative;background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--c);border-radius:4px 14px 14px 4px;padding:.8rem 1rem}
+.fagliste li.fagkort:hover{border-color:var(--c)}
+/* Hele kortet er klikkbart via lenken i overskriften, trinnknappene ligger oppå. */
+.fagliste a.hele::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.fagliste .grupper{position:relative;z-index:1}
 .fagliste h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:1.35rem;margin:0 0 .3rem;color:var(--c)}
 .fagliste h3 a{text-decoration:none}
 .fagliste .n{font-size:.85rem;color:var(--muted);margin:0 0 .5rem}
@@ -138,5 +136,5 @@ footer p{margin:.3rem 0}
 @media (prefers-reduced-motion:no-preference){ li.goal{transition:border-color .15s} }
 h4.trinn{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.1rem;margin:1.4rem 0 .6rem;display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
 h4.trinn a{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.9rem;color:var(--muted)}
-h3.trinn{scroll-margin-top:5.5rem}
+h3.trinn{scroll-margin-top:1rem}
 .trinn .under{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.95rem;color:var(--muted)}
