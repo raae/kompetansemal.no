@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xn--kompetanseml-3cb.no/sitemap-index.xml

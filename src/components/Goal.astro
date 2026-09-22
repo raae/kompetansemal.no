@@ -1,0 +1,47 @@
+---
+import Chain from './Chain.astro';
+import { fagMedKey, gruppeUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel, type Maal } from '../lib/data';
+interface Props {
+  maal: Maal;
+  /** Vis fagnavn oppe til høyre (på tvers av fag). */
+  visFag?: boolean;
+  /** Vis trinn ved siden av koden (når lista går på tvers av trinn). */
+  visTrinn?: boolean;
+  /** «Bygger på og fører til» åpen som standard. */
+  aapen?: boolean;
+  /** Rendres som <article> i stedet for <li>, og koden er ikke lenke. */
+  alene?: boolean;
+}
+const { maal, visFag = false, visTrinn = false, aapen = false, alene = false } = Astro.props;
+const fag = fagMedKey(maal.fag)!;
+const Tag = alene ? 'article' : 'li';
+const harTags = maal.kjerneelementer.length + maal.tverrfaglige_temaer.length > 0;
+---
+<Tag class="goal" style={`--fag:var(--${fag.key})`} id={alene ? undefined : maal.kode}>
+  <div class="meta">
+    <span class="code">
+      {alene ? maal.kode : <a href={maalUrl(maal)} title="Åpne dette målet på egen side">{maal.kode}</a>}
+      {visTrinn && <span> {trinnLabel(maal.fag, maal.trinn)}</span>}
+    </span>
+    {visFag && <a class="fagtag" href={gruppeUrl(fag, fag.grupper[0])}>{fag.navn}</a>}
+  </div>
+  <p class="plain">{maal.forklaring}</p>
+  <p class="udir"><b>Udir sier:</b> {maal.udir}</p>
+  {maal.ideer.length > 0 && (
+    <>
+      <h4>Idéer til aktiviteter</h4>
+      <ul class="ideas">{maal.ideer.map((i) => <li>{i}</li>)}</ul>
+    </>
+  )}
+  {harTags && (
+    <ul class="tags">
+      {maal.kjerneelementer.map((ke) => (
+        <li><a href={kjerneelementUrl(fag, ke)} title={`Vis alle mål i ${fag.navn} med dette kjerneelementet`}>{ke}</a></li>
+      ))}
+      {maal.tverrfaglige_temaer.map((t) => (
+        <li><a class="tv" href={temaUrl(t)} title="Vis alle mål i alle fag med dette temaet">{t}</a></li>
+      ))}
+    </ul>
+  )}
+  <Chain maal={maal} open={aapen} />
+</Tag>

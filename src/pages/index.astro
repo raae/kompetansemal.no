@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { ALLE_FAG, alleMaal, gruppeUrl, tverrfagligeTemaer, temaUrl } from '../lib/data';
+const antall = alleMaal().length;
+const temaer = tverrfagligeTemaer();
+---
+<Base description={`Alle ${antall} kompetansemål i grunnskolen, 1.–10. trinn, oversatt til vanlig norsk. Med idéer til aktiviteter for 5.–7. trinn.`} kompakt={false}>
+  <p class="lede" slot="lede">Alle kompetansemålene i grunnskolen, 1.–10. trinn, oversatt til vanlig norsk. Idéer til aktiviteter finnes foreløpig for 5.–7. trinn. Forklaringene og idéene er laget med KI og kan inneholde feil.</p>
+  <h2 class="visually-hidden">Velg fag</h2>
+  <ul class="fagliste">
+    {ALLE_FAG.map((f) => (
+      <li style={`--c:var(--${f.key})`}>
+        <h3><a href={gruppeUrl(f, f.grupper[0])}>{f.navn}</a></h3>
+        <p class="n">{f.antall} mål</p>
+        <ul class="grupper">
+          {f.grupper.map((g) => <li><a href={gruppeUrl(f, g)}>{g.label}</a></li>)}
+        </ul>
+      </li>
+    ))}
+  </ul>
+  <section class="om">
+    <h2>Tverrfaglige temaer</h2>
+    <p>
+      De tre tverrfaglige temaene går på tvers av fagene:{' '}
+      {temaer.map((t, i) => <><a href={temaUrl(t.navn)}>{t.navn}</a> ({t.maal.length} mål){i < temaer.length - 1 ? ', ' : '.'}</>)}
+    </p>
+  </section>
+  <section class="om">
+    <h2>Om siden</h2>
+    <p>Udirs læreplantekster er tunge å lese. Her er hvert kompetansemål skrevet om til én setning på vanlig norsk, med Udirs egen tekst rett under, så du kan sjekke selv.</p>
+    <p>Forklaringene og idéene til aktiviteter er laget med hjelp av kunstig intelligens (KI). De er ikke fra Udir, og de kan inneholde feil. Bruk dem som en hjelp til å forstå målet, ikke som en fasit. Udirs egen tekst står alltid rett under forklaringen.</p>
+    <p>Siden er laget for foreldre, hjemmeskolefamilier og andre som leter etter kompetansemål.</p>
+  </section>
+</Base>

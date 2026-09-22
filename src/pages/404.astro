@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { ALLE_FAG, gruppeUrl } from '../lib/data';
+---
+<Base title="Fant ikke siden" description="Siden finnes ikke.">
+  <div class="fagHead">
+    <h2>Fant ikke siden</h2>
+    <p>Siden du lette etter finnes ikke. Kanskje lenken er feil, eller så er målet flyttet.</p>
+  </div>
+  <p>Prøv søket øverst, gå til <a href="/">forsiden</a>, eller velg et fag:</p>
+  <ul class="jump">
+    {ALLE_FAG.map((f) => <li><a href={gruppeUrl(f, f.grupper[0])}>{f.navn}</a></li>)}
+  </ul>
+</Base>

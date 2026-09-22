@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import Goal from '../../components/Goal.astro';
+import { ALLE_FAG, gruppeUrl, tverrfagligeTemaer, type Maal } from '../../lib/data';
+
+export function getStaticPaths() {
+  return tverrfagligeTemaer().map((t) => ({ params: { slug: t.slug }, props: { navn: t.navn, maal: t.maal } }));
+}
+interface Props { navn: string; maal: Maal[] }
+const { navn, maal } = Astro.props;
+const perFag = ALLE_FAG.map((f) => ({ fag: f, antall: maal.filter((m) => m.fag === f.key).length })).filter((x) => x.antall);
+---
+<Base title={`${navn} – tverrfaglig tema`} description={`${maal.length} kompetansemål i alle fag med det tverrfaglige temaet «${navn}».`}>
+  <section>
+    <div class="filterbar">
+      <p class="kicker">Tverrfaglig tema i alle fag</p>
+      <h2>{navn}</h2>
+      <p>{maal.length} mål.</p>
+      <a class="clear" href="/">Tilbake til forsiden</a>
+      <ul class="fagcount">
+        {perFag.map(({ fag, antall }) => <li style={`--c:var(--${fag.key})`}><a href={gruppeUrl(fag, fag.grupper[0])}>{fag.navn} {antall}</a></li>)}
+      </ul>
+    </div>
+    <ol class="goals">{maal.map((m) => <Goal maal={m} visFag visTrinn />)}</ol>
+  </section>
+</Base>

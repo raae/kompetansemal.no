@@ -1,0 +1,2628 @@
+{
+  "KM13228": {
+    "forklaring": "Du sorterer tall og ting i grupper og ser at det kan gjøres på flere måter.",
+    "ideer": []
+  },
+  "KM13229": {
+    "forklaring": "Du leter etter tall og telling i lek, natur, bilder, musikk og bøker.",
+    "ideer": []
+  },
+  "KM13241": {
+    "forklaring": "Du viser tall på mange måter – som siffer, ord, tegning og ting – og bytter mellom dem.",
+    "ideer": []
+  },
+  "KM13230": {
+    "forklaring": "Du teller forover og bakover, fra ulike tall og med ulike hopp, og ser mønstre.",
+    "ideer": []
+  },
+  "KM13231": {
+    "forklaring": "Du vet hva partall og oddetall er og utforsker hvordan de oppfører seg.",
+    "ideer": []
+  },
+  "KM13232": {
+    "forklaring": "Du forstår enere, tiere og hundrere og kan vise dem med tegning og ting.",
+    "ideer": []
+  },
+  "KM13233": {
+    "forklaring": "Du plasserer tall på tallinjen og bruker den til å regne.",
+    "ideer": []
+  },
+  "KM13234": {
+    "forklaring": "Du lager og løser pluss- og minusoppgaver fra lek og hverdag.",
+    "ideer": []
+  },
+  "KM13235": {
+    "forklaring": "Du vet at rekkefølgen ikke spiller noen rolle når du plusser, og bruker det til å regne smart.",
+    "ideer": []
+  },
+  "KM13242": {
+    "forklaring": "Du forstår at likhetstegnet betyr «er like mye som» på begge sider.",
+    "ideer": []
+  },
+  "KM13236": {
+    "forklaring": "Du finner det som gjentar seg i mønstre og lager egne mønstre.",
+    "ideer": []
+  },
+  "KM13237": {
+    "forklaring": "Du finner former rundt deg, tegner dem og sorterer dem etter hvordan de ser ut.",
+    "ideer": []
+  },
+  "KM13240": {
+    "forklaring": "Du måler lengde og vekt, først med skritt og klosser, så med meter og kilo.",
+    "ideer": []
+  },
+  "KM13238": {
+    "forklaring": "Du bruker kalender og klokke, både med visere og digital.",
+    "ideer": []
+  },
+  "KM13239": {
+    "forklaring": "Du lager og følger regler og steg-for-steg-instruksjoner i lek og spill.",
+    "ideer": []
+  },
+  "KM13243": {
+    "forklaring": "Du velger lure måter å plusse og minuse på når du løser oppgaver.",
+    "ideer": []
+  },
+  "KM13244": {
+    "forklaring": "Du ser at pluss og minus henger sammen, og bruker det når du regner.",
+    "ideer": []
+  },
+  "KM13245": {
+    "forklaring": "Du forstår gange som å telle grupper med like mange.",
+    "ideer": []
+  },
+  "KM13254": {
+    "forklaring": "Du dobler og halverer for å regne raskere.",
+    "ideer": []
+  },
+  "KM13246": {
+    "forklaring": "Du lager og løser gange- og deleoppgaver fra lek og hverdag.",
+    "ideer": []
+  },
+  "KM13247": {
+    "forklaring": "Du viser gangestykker med tall, tekst, tabeller, tegning og ting.",
+    "ideer": []
+  },
+  "KM13248": {
+    "forklaring": "Du bruker regneregler for gange til å regne smart, for eksempel at 4 · 7 = 7 · 4.",
+    "ideer": []
+  },
+  "KM13249": {
+    "forklaring": "Du bruker =, < og > til å sammenligne tall og mengder.",
+    "ideer": []
+  },
+  "KM13250": {
+    "forklaring": "Du utforsker likevekt, som på en vippe eller skålvekt, med tall, tegning og ting.",
+    "ideer": []
+  },
+  "KM13253": {
+    "forklaring": "Du måler flater, først med ark eller fliser, så med kvadratmeter.",
+    "ideer": []
+  },
+  "KM13251": {
+    "forklaring": "Du plasserer og finner punkter i et koordinatsystem.",
+    "ideer": []
+  },
+  "KM13252": {
+    "forklaring": "Du lager og følger instruksjoner i spill med koordinatsystem, som «senk slagskipet».",
+    "ideer": []
+  },
+  "KM13255": {
+    "forklaring": "Du deler ting opp i praktiske situasjoner – både «hvor mange får hver» og «hvor mange grupper blir det».",
+    "ideer": []
+  },
+  "KM13256": {
+    "forklaring": "Du utforsker deling med tall, tekst, tegning og ting.",
+    "ideer": []
+  },
+  "KM13257": {
+    "forklaring": "Du har flere måter å dele på og kan forklare dem.",
+    "ideer": []
+  },
+  "KM13258": {
+    "forklaring": "Du ser hvordan pluss, minus, gange og dele henger sammen.",
+    "ideer": []
+  },
+  "KM13259": {
+    "forklaring": "Du gjør overslag, forklarer hvordan du tenker og sjekker om svar virker rimelige.",
+    "ideer": []
+  },
+  "KM13260": {
+    "forklaring": "Du lager regnestykker til hverdagssituasjoner – og finner situasjoner som passer til et regnestykke.",
+    "ideer": []
+  },
+  "KM13261": {
+    "forklaring": "Du beskriver former og figurer med vinkler, kanter, hjørner og flater.",
+    "ideer": []
+  },
+  "KM13264": {
+    "forklaring": "Du måler hvor mye noe rommer, med kopper og liter.",
+    "ideer": []
+  },
+  "KM13262": {
+    "forklaring": "Du finner mønstre og strukturer i lek og spill.",
+    "ideer": []
+  },
+  "KM13263": {
+    "forklaring": "Du lager oppskrifter for datamaskiner (algoritmer) med variabler, «hvis» og gjentakelser.",
+    "ideer": []
+  },
+  "KM13265": {
+    "forklaring": "Du ser at en halv, 0,5 og 50 % er samme sak, og kan vise det med tegning, tall og ting.",
+    "ideer": [
+      "Del en pizza eller sjokoladeplate og skriv hver bit som brøk, desimaltall og prosent.",
+      "Lag et plakat-«oversettelsesark»: 1/4 = 0,25 = 25 %."
+    ]
+  },
+  "KM13266": {
+    "forklaring": "Du forstår at en brøk kan være en bit av noe helt, en del av en gruppe, en deling og et punkt på tallinjen.",
+    "ideer": [
+      "Tegn en tallinje på gulvet med maskeringstape og plasser 1/2, 1/4 og 3/4.",
+      "Hvor mange av 12 kjeks er 1/3? Del dem opp på et fat."
+    ]
+  },
+  "KM13267": {
+    "forklaring": "Du kan vise samme brøk på mange måter: som tall, i ord, som tegning og med ting – og bytte mellom dem.",
+    "ideer": [
+      "Lag et memory-spill der kortene viser samme brøk på ulike måter.",
+      "Finn brøker i en oppskrift og tegn dem som målebeger."
+    ]
+  },
+  "KM13268": {
+    "forklaring": "Du har flere måter å regne på, også med brøk, og kan forklare hvordan du tenker.",
+    "ideer": [
+      "Løs samme stykke på to ulike måter og forklar begge høyt for en voksen.",
+      "Fordoble eller halver en oppskrift og vis regnestykkene."
+    ]
+  },
+  "KM13269": {
+    "forklaring": "Du kan lage og løse egne regneoppgaver der brøk er med.",
+    "ideer": [
+      "Lag tre tekstoppgaver med brøk til noen i familien.",
+      "Del opp et lommepengebudsjett i brøkdeler: sparing, godteri, gave."
+    ]
+  },
+  "KM13270": {
+    "forklaring": "Du undersøker hvor sannsynlig noe er i spill og hverdag, og skriver det som brøk.",
+    "ideer": [
+      "Kast en terning 60 ganger, før statistikk og sammenlign med 1/6.",
+      "Hva er sjansen for å trekke rødt fra en pose med kuler? Test det."
+    ]
+  },
+  "KM13274": {
+    "forklaring": "Du løser enkle ligninger ved å prøve, tegne og bruke ting – og sjekker om svaret stemmer.",
+    "ideer": [
+      "Bruk en vekt eller skålvekt: hvor mange klosser veier det samme som boksen?",
+      "Lag «hemmelig tall»-gåter: jeg tenker på et tall, legger til 7 og får 15."
+    ]
+  },
+  "KM13271": {
+    "forklaring": "Du bruker regneark til oppgaver om egne penger, som sparing og innkjøp.",
+    "ideer": [
+      "Før et regneark over lommepenger eller salg fra en liten bod.",
+      "Planlegg innkjøp til en fest med budsjett i regneark."
+    ]
+  },
+  "KM13273": {
+    "forklaring": "Du lager og løser oppgaver om tid: klokke, varighet, tidsplaner.",
+    "ideer": [
+      "Lag en tidsplan for en tur med tog- eller busstider.",
+      "Hvor lang tid bruker du på morgenrutinen? Mål og regn ut."
+    ]
+  },
+  "KM13272": {
+    "forklaring": "Du lager enkle programmer med variabler, «hvis»-regler og løkker.",
+    "ideer": [
+      "Lag et spill i Scratch der poengsum er en variabel.",
+      "Programmer en figur til å gå i mønster med løkke."
+    ]
+  },
+  "KM13275": {
+    "forklaring": "Du kan plassere desimaltall på tallinjen og vet at 0,5 er større enn 0,45.",
+    "ideer": [
+      "Sorter priser fra en butikkreklame på en tallinje.",
+      "Mål høyde eller lengder i meter med to desimaler og ranger dem."
+    ]
+  },
+  "KM13276": {
+    "forklaring": "Du regner med desimaltall på flere måter og ser likheten med vanlige tall.",
+    "ideer": [
+      "Regn ut totalsum på en handlelapp, først i hodet, så på papir.",
+      "Sammenlign 3 × 4 med 0,3 × 4 og forklar hva som skjer."
+    ]
+  },
+  "KM13277": {
+    "forklaring": "Du lager og løser oppgaver med desimaltall, brøk og prosent, og forklarer hvorfor svaret ditt er riktig.",
+    "ideer": [
+      "Regn ut salgspriser: hva koster en ting med 30 % avslag?",
+      "Lag en prisliste for egne produkter med rabatter."
+    ]
+  },
+  "KM13278": {
+    "forklaring": "Du undersøker figurer og former – flate og romlige – og forklarer hva som er likt og ulikt.",
+    "ideer": [
+      "Finn bokser, baller og sylindre hjemme og sorter dem etter egenskaper.",
+      "Bygg romfigurer av sugerør og hyssing eller leire."
+    ]
+  },
+  "KM13283": {
+    "forklaring": "Du finner og lager symmetri i mønstre.",
+    "ideer": [
+      "Lag et speilsymmetrisk mønster med perler eller fliser.",
+      "Finn symmetri i blader, sommerfugler og logoer."
+    ]
+  },
+  "KM13284": {
+    "forklaring": "Du flytter, speiler og roterer figurer, med og uten koordinatsystem.",
+    "ideer": [
+      "Tegn en figur på rutepapir og speil, flytt og roter den.",
+      "Lag et rapport-mønster til innpakningspapir eller stoff."
+    ]
+  },
+  "KM13279": {
+    "forklaring": "Du måler rundt og tvers over sirkler og oppdager at forholdet alltid er omtrent 3,14 (pi).",
+    "ideer": [
+      "Mål omkrets og diameter på fem runde ting med hyssing og regn ut forholdet.",
+      "Lag en tabell og se at svaret nærmer seg pi."
+    ]
+  },
+  "KM13280": {
+    "forklaring": "Du undersøker areal og volum i virkeligheten og velger riktig enhet.",
+    "ideer": [
+      "Hvor mange liter tar badekaret eller en blomsterkasse?",
+      "Mål gulvarealet på rommet ditt i kvadratmeter."
+    ]
+  },
+  "KM13285": {
+    "forklaring": "Du deler opp vanskelige flater i enklere biter for å finne arealet.",
+    "ideer": [
+      "Del en L-formet stue i to rektangler og regn ut arealet.",
+      "Planlegg et bed eller teppe med sammensatt form."
+    ]
+  },
+  "KM13281": {
+    "forklaring": "Du har strategier for å måle og regne ut areal og omkrets.",
+    "ideer": [
+      "Hvor mye list trengs rundt rommet? Hvor mye maling til en vegg?",
+      "Tegn ditt drømmerom i målestokk på rutepapir."
+    ]
+  },
+  "KM13282": {
+    "forklaring": "Du bruker programmering til å tegne figurer og mønstre.",
+    "ideer": [
+      "Tegn mangekanter med en skilpadde i Scratch eller Python turtle.",
+      "Programmer et blomstermønster med løkker og vinkler."
+    ]
+  },
+  "KM13286": {
+    "forklaring": "Du viser prosent på mange måter og bytter mellom brøk, desimaltall og prosent.",
+    "ideer": [
+      "Lag et kakediagram over hvordan du bruker døgnet.",
+      "Finn prosenter i nyheter eller på matvarer og tegn dem."
+    ]
+  },
+  "KM13288": {
+    "forklaring": "Du regner med brøk, desimaltall og prosent i hodet og på papir, og forklarer hvordan.",
+    "ideer": [
+      "Regn ut tips, mva eller rabatt i hodet ved kassa.",
+      "Forklar en regnestrategi i en kort video til en yngre elev."
+    ]
+  },
+  "KM13292": {
+    "forklaring": "Du forstår og bruker negative tall, som minusgrader og gjeld.",
+    "ideer": [
+      "Før temperaturen ute i en uke og regn ut forskjeller.",
+      "Lag et termometer-spill eller en heis som går under bakkenivå."
+    ]
+  },
+  "KM13287": {
+    "forklaring": "Du kan regnerekkefølgen (parentes, gange/dele før pluss/minus) og bruker den.",
+    "ideer": [
+      "Lag lengre regneuttrykk til noen og sjekk svarene deres.",
+      "Spill «24»: bruk fire tall og regnetegn for å få 24."
+    ]
+  },
+  "KM13291": {
+    "forklaring": "Du løser ligninger på flere måter og sjekker om svaret gir mening.",
+    "ideer": [
+      "Løs ligninger med skålvekt eller tegning av bokser.",
+      "Sett svaret inn igjen og kontroller."
+    ]
+  },
+  "KM13294": {
+    "forklaring": "Du lager og løser problemer der du må sette opp en ligning.",
+    "ideer": [
+      "Alderen til familiemedlemmer: lag gåter som løses med ligning.",
+      "Hvor mange salg trengs for å tjene nok til noe du vil kjøpe?"
+    ]
+  },
+  "KM13296": {
+    "forklaring": "Du jobber med «større enn / mindre enn»-oppgaver og forklarer løsningene.",
+    "ideer": [
+      "Hvor mange kan være med på turen hvis budsjettet er under 500 kr?",
+      "Tegn løsningene på en tallinje."
+    ]
+  },
+  "KM13289": {
+    "forklaring": "Du regner ut gjennomsnitt, median og typetall og velger det som passer best.",
+    "ideer": [
+      "Samle data om familien (høyde, skostørrelse) og finn sentralmålene.",
+      "Hvilken er mest rettferdig for lommepengene i klassen: snitt eller median?"
+    ]
+  },
+  "KM13290": {
+    "forklaring": "Du samler, sorterer og viser data i tabeller og diagrammer, og forklarer valget ditt.",
+    "ideer": [
+      "Tell fugler eller biler i en uke og lag søylediagram.",
+      "Lag en spørreundersøkelse og presenter svarene."
+    ]
+  },
+  "KM13295": {
+    "forklaring": "Du anslår, gjør overslag og vurderer løsninger når du jobber med penger.",
+    "ideer": [
+      "Gjør overslag på handlekurven før du betaler.",
+      "Sammenlign to mobilabonnement eller priser per kilo."
+    ]
+  },
+  "KM13293": {
+    "forklaring": "Du bruker programmering til å undersøke data i tabeller.",
+    "ideer": [
+      "Skriv et lite program som finner høyeste og laveste verdi i en liste.",
+      "Bruk formler i regneark til å sortere og telle data."
+    ]
+  },
+  "KM13297": {
+    "forklaring": "Du regner med potenser (som 2³) og kvadratrøtter og forklarer hvordan.",
+    "ideer": []
+  },
+  "KM13303": {
+    "forklaring": "Du bruker regneregler til å finne smarte strategier og forklarer dem.",
+    "ideer": []
+  },
+  "KM13298": {
+    "forklaring": "Du deler tall opp i faktorer og primtall og bruker det i brøkregning.",
+    "ideer": []
+  },
+  "KM13299": {
+    "forklaring": "Du finner regelen i mønstre og skriver den med ord og bokstaver.",
+    "ideer": []
+  },
+  "KM13301": {
+    "forklaring": "Du lager regneuttrykk med bokstaver for ukjente tall i hverdagssituasjoner.",
+    "ideer": []
+  },
+  "KM13304": {
+    "forklaring": "Du lager og løser ligninger fra virkeligheten og vurderer om svaret gir mening.",
+    "ideer": []
+  },
+  "KM13305": {
+    "forklaring": "Du løser ulikheter på flere måter og sjekker om løsningen stemmer.",
+    "ideer": []
+  },
+  "KM13302": {
+    "forklaring": "Du utforsker funksjoner – hvordan én ting endrer seg når en annen endrer seg.",
+    "ideer": []
+  },
+  "KM13306": {
+    "forklaring": "Du viser samme funksjon som situasjon, tabell, graf og formel.",
+    "ideer": []
+  },
+  "KM13300": {
+    "forklaring": "Du lager, tester og forbedrer algoritmer med programmering.",
+    "ideer": []
+  },
+  "KM13316": {
+    "forklaring": "Du løser oppgaver med sammensatte enheter som km/t og kr/kg.",
+    "ideer": []
+  },
+  "KM13308": {
+    "forklaring": "Du utforsker flate figurer og forklarer hva formlike og kongruente figurer er.",
+    "ideer": []
+  },
+  "KM13317": {
+    "forklaring": "Du bruker formlikhet og Pytagoras til å løse praktiske problemer.",
+    "ideer": []
+  },
+  "KM13307": {
+    "forklaring": "Du undersøker hvordan sidene i trekanter henger sammen.",
+    "ideer": []
+  },
+  "KM13309": {
+    "forklaring": "Du ser hva som skjer med svaret når du endrer noe i en geometrioppgave.",
+    "ideer": []
+  },
+  "KM13310": {
+    "forklaring": "Du bruker og forklarer formler for overflate og volum av romfigurer.",
+    "ideer": []
+  },
+  "KM13312": {
+    "forklaring": "Du vurderer kritisk diagrammer og statistikk i media.",
+    "ideer": []
+  },
+  "KM13313": {
+    "forklaring": "Du regner ut gjennomsnitt, median og spredning i ekte data og beskriver hva de viser.",
+    "ideer": []
+  },
+  "KM13314": {
+    "forklaring": "Du ser hvordan tall og diagrammer kan brukes til å overbevise.",
+    "ideer": []
+  },
+  "KM13315": {
+    "forklaring": "Du regner ut og vurderer sannsynlighet i statistikk og spill.",
+    "ideer": []
+  },
+  "KM13311": {
+    "forklaring": "Du programmerer simuleringer av tilfeldige forsøk for å finne sannsynligheter.",
+    "ideer": []
+  },
+  "KM13328": {
+    "forklaring": "Du bruker regneregler og skriver generelle sammenhenger med bokstaver.",
+    "ideer": []
+  },
+  "KM13318": {
+    "forklaring": "Du utforsker kvadratsetningene med figurer og algebra og bruker dem til å regne.",
+    "ideer": []
+  },
+  "KM13324": {
+    "forklaring": "Du lager og løser to ligninger med to ukjente fra virkeligheten.",
+    "ideer": []
+  },
+  "KM13319": {
+    "forklaring": "Du sammenligner ulike typer funksjoner med digitale verktøy.",
+    "ideer": []
+  },
+  "KM13320": {
+    "forklaring": "Du forklarer endring per enhet og finner stigningstallet til en rett linje.",
+    "ideer": []
+  },
+  "KM13322": {
+    "forklaring": "Du forstår hvordan fast prosentvis vekst gir eksponentiell vekst.",
+    "ideer": []
+  },
+  "KM13321": {
+    "forklaring": "Du tolker informasjon om kjøp, salg, renter, lån og kreditt og tenker over konsekvensene.",
+    "ideer": []
+  },
+  "KM13325": {
+    "forklaring": "Du planlegger og presenterer et eget prosjekt om personlig økonomi.",
+    "ideer": []
+  },
+  "KM13323": {
+    "forklaring": "Du lager matematiske modeller av virkeligheten og vurderer hvor gode de er.",
+    "ideer": []
+  },
+  "KM13326": {
+    "forklaring": "Du bruker programmering til å utforske matematiske sammenhenger.",
+    "ideer": []
+  },
+  "KM13327": {
+    "forklaring": "Du leser og forklarer Python-kode.",
+    "ideer": []
+  },
+  "KM14139": {
+    "forklaring": "Du hører på og snakker om fortellinger og faktabøker på bokmål og nynorsk.",
+    "ideer": []
+  },
+  "KM14151": {
+    "forklaring": "Du låner og leser bøker fra biblioteket.",
+    "ideer": []
+  },
+  "KM14141": {
+    "forklaring": "Du viser hva du synes om en tekst gjennom lek, sang, tegning og skriving.",
+    "ideer": []
+  },
+  "KM14149": {
+    "forklaring": "Du snakker om hvordan ord kan påvirke andre.",
+    "ideer": []
+  },
+  "KM14145": {
+    "forklaring": "Du leker med rim og rytme og hører lyder og stavelser i ord.",
+    "ideer": []
+  },
+  "KM14146": {
+    "forklaring": "Du trekker lyder sammen til ord når du leser og skriver.",
+    "ideer": []
+  },
+  "KM14140": {
+    "forklaring": "Du leser og forstår det du leser, på papir og skjerm.",
+    "ideer": []
+  },
+  "KM14142": {
+    "forklaring": "Du lytter, venter på tur og forklarer hva du mener.",
+    "ideer": []
+  },
+  "KM14143": {
+    "forklaring": "Du beskriver og forteller, både muntlig og skriftlig.",
+    "ideer": []
+  },
+  "KM14147": {
+    "forklaring": "Du skriver for hånd og på tastatur.",
+    "ideer": []
+  },
+  "KM14144": {
+    "forklaring": "Du bruker store og små bokstaver, punktum, spørsmålstegn og utropstegn.",
+    "ideer": []
+  },
+  "KM14152": {
+    "forklaring": "Du lager tekster med både ord og bilder.",
+    "ideer": []
+  },
+  "KM14148": {
+    "forklaring": "Du utforsker hvordan ord er bygget opp og hva de betyr.",
+    "ideer": []
+  },
+  "KM14150": {
+    "forklaring": "Du ser forskjellen på hvordan du snakker og hvordan vi skriver.",
+    "ideer": []
+  },
+  "KM14153": {
+    "forklaring": "Du leser og lytter til eventyr, sanger og faktabøker – også oversatt fra samisk og andre språk – og snakker om dem.",
+    "ideer": []
+  },
+  "KM14166": {
+    "forklaring": "Du velger bøker på biblioteket som passer interessene og lesenivået ditt.",
+    "ideer": []
+  },
+  "KM14164": {
+    "forklaring": "Du leser med flyt og forståelse og bruker lesestrategier for å lære.",
+    "ideer": []
+  },
+  "KM14158": {
+    "forklaring": "Du viser hva tekster handler om gjennom samtale, skriving, lek og bevegelse.",
+    "ideer": []
+  },
+  "KM14163": {
+    "forklaring": "Du skiller mellom meninger og fakta i tekster.",
+    "ideer": []
+  },
+  "KM14154": {
+    "forklaring": "Du holder muntlige presentasjoner, med og uten skjerm.",
+    "ideer": []
+  },
+  "KM14155": {
+    "forklaring": "Du lager tekster som blander ord, bilder og lyd.",
+    "ideer": []
+  },
+  "KM14167": {
+    "forklaring": "Du følger opp det andre sier og stiller gode spørsmål.",
+    "ideer": []
+  },
+  "KM14162": {
+    "forklaring": "Du beskriver, forteller og argumenterer og bruker språket kreativt.",
+    "ideer": []
+  },
+  "KM14156": {
+    "forklaring": "Du skriver leselig for hånd og på tastatur.",
+    "ideer": []
+  },
+  "KM14157": {
+    "forklaring": "Du bruker komma og andre skilletegn.",
+    "ideer": []
+  },
+  "KM14159": {
+    "forklaring": "Du bruker ord som verb, substantiv og adjektiv når du snakker om tekster.",
+    "ideer": []
+  },
+  "KM14160": {
+    "forklaring": "Du tenker over hvordan du snakker i ulike situasjoner og hvordan det påvirker andre.",
+    "ideer": []
+  },
+  "KM14168": {
+    "forklaring": "Du sammenligner ord og uttrykk på norsk og andre språk.",
+    "ideer": []
+  },
+  "KM14165": {
+    "forklaring": "Du utforsker språkene og dialektene rundt deg.",
+    "ideer": []
+  },
+  "KM14161": {
+    "forklaring": "Du ser likheter og forskjeller mellom bokmål og nynorsk.",
+    "ideer": []
+  },
+  "KM14176": {
+    "forklaring": "Du leser mange slags tekster – dikt, fortellinger, faktatekster – også på nynorsk, svensk og dansk, og snakker om dem.",
+    "ideer": [
+      "Les en svensk eller dansk barnebok og snakk om ord som er ulike.",
+      "Lag en lesesirkel: hva ville forfatteren, og hvordan er teksten bygget?"
+    ]
+  },
+  "KM14184": {
+    "forklaring": "Du leser samiske tekster på norsk, snakker om verdiene i dem og lærer å uttale samiske navn.",
+    "ideer": [
+      "Les et samisk eventyr og snakk om hva det sier om natur og familie.",
+      "Finn samiske stedsnavn på kartet og øv på uttalen."
+    ]
+  },
+  "KM14173": {
+    "forklaring": "Du finner fakta på biblioteket og nett, vurderer om kildene er til å stole på, og skriver hvor du fant dem.",
+    "ideer": [
+      "Lag et faktaark om et tema du liker og skriv kildeliste nederst.",
+      "Sammenlign tre nettsider om samme tema: hvem står bak?"
+    ]
+  },
+  "KM14185": {
+    "forklaring": "Du leser på ulike måter etter hva du trenger: skumme, lete, lese nøye.",
+    "ideer": [
+      "Finn et bestemt svar i en fagbok så raskt du kan.",
+      "Lag tankekart før og etter du leser et kapittel."
+    ]
+  },
+  "KM14180": {
+    "forklaring": "Du skriver leselig for hånd og raskt på tastatur.",
+    "ideer": [
+      "Skriv brev eller postkort for hånd.",
+      "Øv touch-metoden noen minutter om dagen."
+    ]
+  },
+  "KM14169": {
+    "forklaring": "Du lytter til andre, bygger videre på det de sier og begrunner dine egne meninger.",
+    "ideer": [
+      "Middagsdebatt: alle må si hva forrige person mente før de sier sitt.",
+      "Diskuter en film eller bok og begrunn hvorfor du liker den."
+    ]
+  },
+  "KM14182": {
+    "forklaring": "Du tenker over hvordan du viser deg selv og andre på nett.",
+    "ideer": [
+      "Snakk om: hvilke bilder er greit å dele av andre?",
+      "Lag regler for egen profil eller nettside."
+    ]
+  },
+  "KM14170": {
+    "forklaring": "Du forteller om et faglig tema muntlig, med og uten skjerm og bilder.",
+    "ideer": [
+      "Hold et foredrag for familien om noe du vet mye om.",
+      "Lag en kort video eller lysbildeserie og presenter."
+    ]
+  },
+  "KM14171": {
+    "forklaring": "Du leker med språket og prøver ulike virkemidler, som rim, overdrivelse og bilder.",
+    "ideer": [
+      "Skriv dikt, rap eller reklametekster med rim og overdrivelser.",
+      "Fortell samme historie som eventyr og som nyhetsmelding."
+    ]
+  },
+  "KM14181": {
+    "forklaring": "Du kan beskrive, fortelle, argumentere og reflektere i ulike tekster.",
+    "ideer": [
+      "Skriv en anmeldelse, en fortelling og et leserinnlegg om samme tema.",
+      "Lag en produktbeskrivelse til noe du har laget."
+    ]
+  },
+  "KM14172": {
+    "forklaring": "Du skriver tekster med tydelig begynnelse, midt og slutt, og med riktig rettskriving og tegnsetting.",
+    "ideer": [
+      "Skriv en tekst med overskrift og avsnitt og rett den sammen med en voksen.",
+      "Lag en bruksanvisning trinn for trinn."
+    ]
+  },
+  "KM14174": {
+    "forklaring": "Du gir andre tilbakemelding på tekstene deres og bruker tilbakemeldinger til å forbedre egne tekster.",
+    "ideer": [
+      "Bytt tekster med en venn: «to stjerner og ett ønske».",
+      "Skriv en tekst i to versjoner, før og etter tilbakemelding."
+    ]
+  },
+  "KM14177": {
+    "forklaring": "Du bruker ord som substantiv, verb og setning når du snakker om tekster.",
+    "ideer": [
+      "Finn alle adjektivene i en side og bytt dem ut – hva skjer med teksten?",
+      "Ordklassejakt i en tegneserie."
+    ]
+  },
+  "KM14183": {
+    "forklaring": "Du ser hvordan tekst og bilder jobber sammen, og lager egne tekster med bilder, lyd eller video.",
+    "ideer": [
+      "Lag en tegneserie, bildebok eller stop motion-film med tekst.",
+      "Lag en nettside der bilder og tekst forteller sammen."
+    ]
+  },
+  "KM14175": {
+    "forklaring": "Du prøver å skrive på sidemålet (nynorsk hvis du skriver bokmål).",
+    "ideer": [
+      "Skriv en kort tekst på nynorsk, for eksempel en oppskrift.",
+      "Oversett en kort tegneserie til nynorsk."
+    ]
+  },
+  "KM14178": {
+    "forklaring": "Du sammenligner dialekten din med andre dialekter og med svensk og dansk.",
+    "ideer": [
+      "Ta opp slektninger som snakker ulike dialekter og sammenlign ord.",
+      "Lag en ordliste: norsk, svensk, dansk."
+    ]
+  },
+  "KM14179": {
+    "forklaring": "Du tenker over hvordan språket du bruker henger sammen med hvem du er.",
+    "ideer": [
+      "Hvordan snakker du med venner, besteforeldre og på nett?",
+      "Intervju noen som snakker flere språk."
+    ]
+  },
+  "KM14193": {
+    "forklaring": "Du leser skjønnlitteratur og sakprosa og tenker over formål, sjanger og virkemidler.",
+    "ideer": []
+  },
+  "KM14197": {
+    "forklaring": "Du tolker romaner, noveller og dikt ut fra tiden de ble skrevet i og i dag.",
+    "ideer": []
+  },
+  "KM14201": {
+    "forklaring": "Du tenker over hvilke lesestrategier du bruker og hvorfor.",
+    "ideer": []
+  },
+  "KM14200": {
+    "forklaring": "Du leser og lytter til svensk og dansk og forklarer innhold og språk.",
+    "ideer": []
+  },
+  "KM14198": {
+    "forklaring": "Du utforsker hvordan tekster viser unges liv.",
+    "ideer": []
+  },
+  "KM14192": {
+    "forklaring": "Du kjenner igjen og bruker språklige virkemidler og overtalelsesteknikker (appellformer).",
+    "ideer": []
+  },
+  "KM14190": {
+    "forklaring": "Du bruker kilder kritisk og viser ærlig til dem i egne tekster.",
+    "ideer": []
+  },
+  "KM14199": {
+    "forklaring": "Du utforsker hvordan digitale medier endrer språk og kommunikasjon.",
+    "ideer": []
+  },
+  "KM14186": {
+    "forklaring": "Du argumenterer saklig og bruker fagspråk i diskusjoner og presentasjoner.",
+    "ideer": []
+  },
+  "KM14188": {
+    "forklaring": "Du informerer, forteller, argumenterer og reflekterer i ulike sjangre tilpasset mottakeren.",
+    "ideer": []
+  },
+  "KM14191": {
+    "forklaring": "Du skriver sammenhengende tekster med riktig rettskriving og tegnsetting på hovedmål og sidemål.",
+    "ideer": []
+  },
+  "KM14194": {
+    "forklaring": "Du bruker kunnskap om grammatikk, struktur og sjanger når du jobber med tekster.",
+    "ideer": []
+  },
+  "KM14187": {
+    "forklaring": "Du skriver i ulike sjangre og leker med dem.",
+    "ideer": []
+  },
+  "KM14189": {
+    "forklaring": "Du lager tekster med flere uttrykksformer og forklarer valgene dine.",
+    "ideer": []
+  },
+  "KM14195": {
+    "forklaring": "Du forklarer hvorfor vi har bokmål og nynorsk og tenker over språkene i Norge i dag.",
+    "ideer": []
+  },
+  "KM14196": {
+    "forklaring": "Du utforsker språklig mangfold i Norge og holdninger til ulike språk og dialekter.",
+    "ideer": []
+  },
+  "KM13338": {
+    "forklaring": "Du hører og bruker ekte engelsk gjennom digitale ressurser.",
+    "ideer": []
+  },
+  "KM13329": {
+    "forklaring": "Du hører lyder og stavelser i engelske ord.",
+    "ideer": []
+  },
+  "KM13330": {
+    "forklaring": "Du kobler engelske lyder til bokstaver og trekker dem sammen til ord.",
+    "ideer": []
+  },
+  "KM13331": {
+    "forklaring": "Du lærer det engelske alfabetet og uttale gjennom lek og sang.",
+    "ideer": []
+  },
+  "KM13334": {
+    "forklaring": "Du oppdager vanlige engelske ord og fraser i tekster.",
+    "ideer": []
+  },
+  "KM13332": {
+    "forklaring": "Du stiller og svarer på enkle spørsmål, følger instruksjoner og sier «please» og «thank you».",
+    "ideer": []
+  },
+  "KM13333": {
+    "forklaring": "Du deltar i enkle samtaler om hva du trenger, føler og liker.",
+    "ideer": []
+  },
+  "KM13335": {
+    "forklaring": "Du oppdager ord som er like på engelsk og andre språk du kan.",
+    "ideer": []
+  },
+  "KM13336": {
+    "forklaring": "Du leser og snakker om enkle engelske tekster og bildebøker.",
+    "ideer": []
+  },
+  "KM13339": {
+    "forklaring": "Du leser og prøver å skrive kjente engelske ord og korte setninger.",
+    "ideer": []
+  },
+  "KM13337": {
+    "forklaring": "Du lærer ord og kultur gjennom engelske barnebøker og barnekultur.",
+    "ideer": []
+  },
+  "KM13343": {
+    "forklaring": "Du utforsker ordbøker og hvordan de hjelper deg å lære.",
+    "ideer": []
+  },
+  "KM13351": {
+    "forklaring": "Du bruker digitale ressurser til å utforske engelsk og snakke med andre.",
+    "ideer": []
+  },
+  "KM13340": {
+    "forklaring": "Du øver på alfabetet og uttale gjennom lek, sang og språkaktiviteter.",
+    "ideer": []
+  },
+  "KM13354": {
+    "forklaring": "Du lytter og forstår ord og uttrykk i tilpassede tekster.",
+    "ideer": []
+  },
+  "KM13341": {
+    "forklaring": "Du bruker småord og enkle fraser for å forstå og bli forstått.",
+    "ideer": []
+  },
+  "KM13342": {
+    "forklaring": "Du snakker om behov, følelser, hverdag og interesser og følger samtaleregler.",
+    "ideer": []
+  },
+  "KM13346": {
+    "forklaring": "Du leker med ord som er like på engelsk og andre språk.",
+    "ideer": []
+  },
+  "KM13344": {
+    "forklaring": "Du finner ordklasser, som substantiv og verb, i engelske tekster.",
+    "ideer": []
+  },
+  "KM13345": {
+    "forklaring": "Du følger enkle regler for staving og setninger.",
+    "ideer": []
+  },
+  "KM13347": {
+    "forklaring": "Du leser engelske tekster med både lydrette og kjente ordbilder.",
+    "ideer": []
+  },
+  "KM13348": {
+    "forklaring": "Du gjetter hva ukjente ord betyr ut fra sammenhengen i tekster du har valgt selv.",
+    "ideer": []
+  },
+  "KM13349": {
+    "forklaring": "Du leser og snakker om ulike engelske tekster og bildebøker.",
+    "ideer": []
+  },
+  "KM13352": {
+    "forklaring": "Du skriver enkle tekster om hva du tenker og mener.",
+    "ideer": []
+  },
+  "KM13353": {
+    "forklaring": "Du snakker om levemåter og tradisjoner i engelskspråklige land og i Norge.",
+    "ideer": []
+  },
+  "KM13350": {
+    "forklaring": "Du lærer ord og kultur gjennom engelsk litteratur og barnekultur.",
+    "ideer": []
+  },
+  "KM13359": {
+    "forklaring": "Du bruker enkle triks for å lære engelsk, skrive og snakke.",
+    "ideer": [
+      "Lag ordkort med bilder av ord du trenger.",
+      "Bruk ord du kan når du ikke finner det riktige – omskriv."
+    ]
+  },
+  "KM13364": {
+    "forklaring": "Du bruker ordbøker og digitale hjelpemidler når du lærer, skriver og samarbeider på engelsk.",
+    "ideer": [
+      "Slå opp ukjente ord fra en engelsk bok og lag en egen ordliste.",
+      "Bruk en nettordbok til å finne uttale."
+    ]
+  },
+  "KM13355": {
+    "forklaring": "Du øver på uttale, ord og uttrykk gjennom lek, sang og rollespill.",
+    "ideer": [
+      "Syng med på engelske sanger og lær en hel sang.",
+      "Spill butikk eller restaurant på engelsk."
+    ]
+  },
+  "KM13356": {
+    "forklaring": "Du lytter og forstår ord og uttrykk, både i tilpassede og ekte engelske tekster.",
+    "ideer": [
+      "Se en serie eller video på engelsk med engelsk teksting.",
+      "Lytt til en engelsk lydbok eller podkast om noe du liker."
+    ]
+  },
+  "KM13357": {
+    "forklaring": "Du uttrykker deg forståelig med mange ord og høflige fraser som passer situasjonen.",
+    "ideer": [
+      "Bestill mat eller spør om veien på engelsk på ferie.",
+      "Skriv en høflig e-post på engelsk."
+    ]
+  },
+  "KM13358": {
+    "forklaring": "Du kan starte, holde i gang og avslutte samtaler om ting du er interessert i.",
+    "ideer": [
+      "Ha en ukentlig engelsk samtale om en hobby.",
+      "Videosamtale med noen som snakker engelsk."
+    ]
+  },
+  "KM13361": {
+    "forklaring": "Du ser likheter mellom engelsk og andre språk du kan, og bruker det når du lærer.",
+    "ideer": [
+      "Finn ord som er nesten like på engelsk, norsk og svensk.",
+      "Lag en tabell over «falske venner»."
+    ]
+  },
+  "KM13370": {
+    "forklaring": "Du finner ledd i setninger og bøyer verb, substantiv og adjektiv riktig i egne tekster.",
+    "ideer": [
+      "Finn verbene i en tekst og sett dem i fortid.",
+      "Lag regler for flertall (cat–cats, mouse–mice)."
+    ]
+  },
+  "KM13360": {
+    "forklaring": "Du følger regler for rettskriving, bøying og setningsbygning på engelsk.",
+    "ideer": [
+      "Skriv en kort tekst og sjekk stavingen med ordbok.",
+      "Lag en «feil-jakt»-tekst til en voksen."
+    ]
+  },
+  "KM13362": {
+    "forklaring": "Du leser ulike tekster, også selvvalgte, og forteller videre hva de handler om.",
+    "ideer": [
+      "Les en engelsk bok du velger selv og fortell om den.",
+      "Lag en kort anmeldelse av en engelsk video."
+    ]
+  },
+  "KM13363": {
+    "forklaring": "Du leser og lytter til engelske faktatekster og barnebøker og skriver og snakker om dem.",
+    "ideer": [
+      "Les en engelsk faktabok om et tema du liker og lag faktaark.",
+      "Snakk om en engelsk bok med en voksen."
+    ]
+  },
+  "KM13365": {
+    "forklaring": "Du snakker om hvilke kilder som er pålitelige og velger kilder selv.",
+    "ideer": [
+      "Sammenlign to engelske nettsider om samme tema.",
+      "Hvem står bak en engelsk YouTube-kanal?"
+    ]
+  },
+  "KM13366": {
+    "forklaring": "Du skriver sammenhengende tekster på engelsk som forteller, spør og viser meninger, tilpasset hvem som skal lese.",
+    "ideer": [
+      "Skriv en blogg eller nettside på engelsk.",
+      "Skriv produkttekster på engelsk til noe du selger eller lager."
+    ]
+  },
+  "KM13367": {
+    "forklaring": "Du forbedrer egne engelske tekster etter tilbakemelding.",
+    "ideer": [
+      "Skriv, få tilbakemelding, og skriv en ny versjon.",
+      "Hold en «før og etter»-mappe."
+    ]
+  },
+  "KM13368": {
+    "forklaring": "Du tenker over og snakker om hvilken rolle engelsk har i livet ditt.",
+    "ideer": [
+      "Før logg i en uke over hvor du møter engelsk.",
+      "Snakk om spill, videoer og sanger du bruker på engelsk."
+    ]
+  },
+  "KM13369": {
+    "forklaring": "Du utforsker levemåter og tradisjoner i engelskspråklige land og i Norge, og tenker over identitet og tilhørighet.",
+    "ideer": [
+      "Lag mat eller feir en høytid fra et engelskspråklig land.",
+      "Sammenlign skolehverdag i Norge og et engelskspråklig land."
+    ]
+  },
+  "KM13374": {
+    "forklaring": "Du bruker mange ulike strategier for å lære, skrive og snakke engelsk.",
+    "ideer": []
+  },
+  "KM13380": {
+    "forklaring": "Du bruker digitale ressurser og hjelpemidler i språklæring og skriving.",
+    "ideer": []
+  },
+  "KM13388": {
+    "forklaring": "Du bruker viktige uttalemønstre når du snakker.",
+    "ideer": []
+  },
+  "KM13371": {
+    "forklaring": "Du forstår ulike varianter av engelsk, for eksempel britisk, amerikansk og indisk.",
+    "ideer": []
+  },
+  "KM13372": {
+    "forklaring": "Du snakker flytende med variert ordforråd og idiomer tilpasset situasjonen.",
+    "ideer": []
+  },
+  "KM13373": {
+    "forklaring": "Du stiller spørsmål og følger opp i samtaler om ulike emner.",
+    "ideer": []
+  },
+  "KM13376": {
+    "forklaring": "Du sammenligner engelsk med andre språk du kan og bruker det når du lærer.",
+    "ideer": []
+  },
+  "KM13389": {
+    "forklaring": "Du bruker kunnskap om ordklasser og setninger når du skriver og snakker.",
+    "ideer": []
+  },
+  "KM13375": {
+    "forklaring": "Du følger regler for rettskriving, bøying, setninger og tekststruktur.",
+    "ideer": []
+  },
+  "KM13377": {
+    "forklaring": "Du leser, diskuterer og forteller videre fra ulike tekster, også selvvalgte.",
+    "ideer": []
+  },
+  "KM13378": {
+    "forklaring": "Du leser og tolker engelsk skjønnlitteratur, også ungdomsbøker.",
+    "ideer": []
+  },
+  "KM13379": {
+    "forklaring": "Du leser engelske faktatekster og vurderer om kildene er pålitelige.",
+    "ideer": []
+  },
+  "KM13381": {
+    "forklaring": "Du bruker kilder kritisk og ærlig.",
+    "ideer": []
+  },
+  "KM13382": {
+    "forklaring": "Du skriver formelle og uformelle tekster med god struktur tilpasset mottakeren.",
+    "ideer": []
+  },
+  "KM13383": {
+    "forklaring": "Du forbedrer tekstene dine ut fra tilbakemeldinger og det du vet om språk.",
+    "ideer": []
+  },
+  "KM13384": {
+    "forklaring": "Du tenker over hvilken rolle engelsk har i Norge og i verden.",
+    "ideer": []
+  },
+  "KM13385": {
+    "forklaring": "Du utforsker situasjonen til urfolk i engelskspråklige land og i Norge.",
+    "ideer": []
+  },
+  "KM13387": {
+    "forklaring": "Du utforsker levemåter, tenkemåter og mangfold i den engelskspråklige verden.",
+    "ideer": []
+  },
+  "KM13386": {
+    "forklaring": "Du utforsker engelskspråklig kultur fra ulike medier knyttet til interessene dine.",
+    "ideer": []
+  },
+  "KM13806": {
+    "forklaring": "Du undrer deg over naturen, lager spørsmål og kobler dem til det du har opplevd.",
+    "ideer": []
+  },
+  "KM13807": {
+    "forklaring": "Du viser hva du fant ut, og forteller hvordan du fant det ut.",
+    "ideer": []
+  },
+  "KM13808": {
+    "forklaring": "Du finner på egne oppfinnelser og forteller om dem.",
+    "ideer": []
+  },
+  "KM13809": {
+    "forklaring": "Du undersøker hvordan ting og stoffer ser ut og kjennes, og sorterer dem.",
+    "ideer": []
+  },
+  "KM13815": {
+    "forklaring": "Du snakker om miljøvennlige valg og gjør noe for miljøet der du bor.",
+    "ideer": []
+  },
+  "KM13810": {
+    "forklaring": "Du utforsker et naturområde og ser hvordan dyr og planter passer til stedet og hverandre.",
+    "ideer": []
+  },
+  "KM13811": {
+    "forklaring": "Du opplever naturen gjennom året og lærer hvordan året deles inn i norsk og samisk tradisjon.",
+    "ideer": []
+  },
+  "KM13812": {
+    "forklaring": "Du måler og følger med på vær og himmel gjennom året.",
+    "ideer": []
+  },
+  "KM13813": {
+    "forklaring": "Du utforsker sansene og hvordan vi bruker dem til å finne ut ting.",
+    "ideer": []
+  },
+  "KM13814": {
+    "forklaring": "Du lærer om vanlige sykdommer og hvordan vi beskytter oss mot smitte.",
+    "ideer": []
+  },
+  "KM13816": {
+    "forklaring": "Du stiller spørsmål, gjetter svaret og undersøker om du hadde rett.",
+    "ideer": []
+  },
+  "KM13817": {
+    "forklaring": "Du ordner data i tabeller og figurer og forklarer hva de viser.",
+    "ideer": []
+  },
+  "KM13818": {
+    "forklaring": "Du sammenligner modeller med det du faktisk ser, og snakker om hvorfor vi bruker modeller.",
+    "ideer": []
+  },
+  "KM13820": {
+    "forklaring": "Du undersøker ting som består av flere deler og hvordan delene virker sammen.",
+    "ideer": []
+  },
+  "KM13821": {
+    "forklaring": "Du lager et produkt som skal oppfylle bestemte krav.",
+    "ideer": []
+  },
+  "KM13822": {
+    "forklaring": "Du undersøker hva som skjer når stoffer blandes.",
+    "ideer": []
+  },
+  "KM13823": {
+    "forklaring": "Du utforsker fart og temperatur og kobler dem til energi.",
+    "ideer": []
+  },
+  "KM13824": {
+    "forklaring": "Du snakker om hva energi er og følger energien fra én form til en annen.",
+    "ideer": []
+  },
+  "KM13819": {
+    "forklaring": "Du utforsker et naturområde og diskuterer hvordan det kan brukes uten å ødelegges.",
+    "ideer": []
+  },
+  "KM13825": {
+    "forklaring": "Du sammenligner hvordan dyr og planter er tilpasset der de bor, og hvorfor noen arter dør ut.",
+    "ideer": []
+  },
+  "KM13827": {
+    "forklaring": "Du er med på å høste fra naturen og diskuterer hvordan vi kan bruke den bærekraftig.",
+    "ideer": []
+  },
+  "KM13826": {
+    "forklaring": "Du lærer hva god dyrevelferd er og hvordan dyrs behov kan dekkes.",
+    "ideer": []
+  },
+  "KM13828": {
+    "forklaring": "Du forklarer vannets kretsløp og hvorfor vann er viktig for livet.",
+    "ideer": []
+  },
+  "KM13832": {
+    "forklaring": "Du snakker om fysisk og psykisk helse og hva som påvirker den.",
+    "ideer": []
+  },
+  "KM13829": {
+    "forklaring": "Du snakker om kjønn, kjønnsidentitet og hvordan mennesker får barn.",
+    "ideer": []
+  },
+  "KM13831": {
+    "forklaring": "Du forklarer hvordan muskler og skjelett gjør at vi kan bevege oss.",
+    "ideer": []
+  },
+  "KM13830": {
+    "forklaring": "Du forklarer hvordan hud og slimhinner beskytter kroppen mot sykdom.",
+    "ideer": []
+  },
+  "KM13833": {
+    "forklaring": "Du stiller spørsmål om naturen, gjetter hva som skjer, finner ut hva som påvirker resultatet og samler data.",
+    "ideer": [
+      "Hvilken papirfly-form flyr lengst? Endre én ting om gangen.",
+      "Spirer bønner raskere i lys eller mørke? Mål hver dag."
+    ]
+  },
+  "KM13834": {
+    "forklaring": "Du skiller mellom hva du ser og hva du tror, ordner data, forklarer årsaker og ser på feilkilder.",
+    "ideer": [
+      "Skriv forsøksrapport: observasjon, slutning, feilkilder.",
+      "Lag et diagram av målingene dine og forklar hva det viser."
+    ]
+  },
+  "KM13835": {
+    "forklaring": "Du bruker modeller for ting vi ikke kan se direkte, som atomer og jordens indre, og forklarer hvorfor vi trenger modeller.",
+    "ideer": [
+      "Lag en modell av jordens lag i leire.",
+      "Vis partikler i fast stoff, væske og gass med kuler eller personer."
+    ]
+  },
+  "KM13836": {
+    "forklaring": "Du leser farevarsler på produkter og forstår hvorfor de er der.",
+    "ideer": [
+      "Let etter faresymboler under vasken og forklar dem.",
+      "Lag en plakat over farepiktogrammene."
+    ]
+  },
+  "KM13837": {
+    "forklaring": "Du gir eksempler på hvordan vitenskapelig kunnskap har utviklet seg og fortsatt endrer seg.",
+    "ideer": [
+      "Hvordan fant vi ut at jorda er rund, eller at bakterier gjør oss syke?",
+      "Lag en tidslinje over en oppdagelse."
+    ]
+  },
+  "KM13851": {
+    "forklaring": "Du gir eksempler på hvordan tradisjonell kunnskap har bidratt til naturvitenskap.",
+    "ideer": [
+      "Hvordan brukte folk før tegn i naturen til å spå vær?",
+      "Lær om samisk reindriftskunnskap."
+    ]
+  },
+  "KM13838": {
+    "forklaring": "Du utforsker, lager og programmerer systemer med deler som virker sammen.",
+    "ideer": [
+      "Bygg en enkel robot eller en micro:bit med sensor.",
+      "Ta fra hverandre en gammel ting og finn ut hvordan delene virker sammen."
+    ]
+  },
+  "KM13839": {
+    "forklaring": "Du designer og lager et produkt ut fra hva noen trenger.",
+    "ideer": [
+      "Lag et produkt til et dyr, for eksempel leke eller matskål, etter behovene dets.",
+      "Intervju en bruker, lag prototype, test og forbedre."
+    ]
+  },
+  "KM13840": {
+    "forklaring": "Du tenker over hvordan teknologi kan løse problemer, men også skape nye.",
+    "ideer": [
+      "Diskuter fordeler og ulemper med mobiltelefoner eller elsparkesykler.",
+      "Hva ville skje hvis internett forsvant i en uke?"
+    ]
+  },
+  "KM13841": {
+    "forklaring": "Du utforsker smelting, fordamping og kjemiske reaksjoner, og beskriver hva som kjennetegner dem.",
+    "ideer": [
+      "Lag karamell, is eller hjemmelaget ost og observer hva som skjer.",
+      "Brus og natron: hva skjer, og hvordan vet vi at det er en reaksjon?"
+    ]
+  },
+  "KM13852": {
+    "forklaring": "Du bruker partikkelmodellen til å forklare hvorfor stoffer er faste, flytende eller gass.",
+    "ideer": [
+      "Tegn partikler i is, vann og damp.",
+      "Hvorfor sprekker en full flaske i fryseren?"
+    ]
+  },
+  "KM13842": {
+    "forklaring": "Du gjør forsøk med strøm og magneter og snakker om hvordan vi bruker strøm.",
+    "ideer": [
+      "Lag en elektromagnet med spiker, ledning og batteri.",
+      "Lag en strømkrets med lampe og bryter."
+    ]
+  },
+  "KM13843": {
+    "forklaring": "Du deler levende ting inn i hovedgrupper og gir eksempler på hva som er spesielt med dem.",
+    "ideer": [
+      "Lag en bestemmelsesnøkkel for dyr eller planter i hagen.",
+      "Hvor hører katten, fluesoppen og mosen til?"
+    ]
+  },
+  "KM13853": {
+    "forklaring": "Du forklarer hvorfor mange ulike arter er viktig, og gjør noe for å ta vare på naturen i nærmiljøet.",
+    "ideer": [
+      "Lag et insekthotell eller så blomster for bier.",
+      "Tell arter på en kvadratmeter i skogen."
+    ]
+  },
+  "KM13844": {
+    "forklaring": "Du foreslår tiltak for naturen i nord og gir eksempler på tradisjonell kunnskap i naturforvaltning.",
+    "ideer": [
+      "Les om isbjørn, rein eller torsk og hvordan de beskyttes.",
+      "Hva kan samisk kunnskap lære oss om bærekraft?"
+    ]
+  },
+  "KM13845": {
+    "forklaring": "Du utforsker hvem som spiser hvem i naturen og bruker det til å forklare samspill.",
+    "ideer": [
+      "Tegn et næringsnett fra en skog eller dam.",
+      "Hva skjer hvis én art forsvinner?"
+    ]
+  },
+  "KM13846": {
+    "forklaring": "Du forklarer og viser hvordan døgn, månefaser og årstider oppstår, og hvordan de påvirker livet.",
+    "ideer": [
+      "Vis døgn og årstider med lommelykt og en ball.",
+      "Tegn månen hver kveld i en måned."
+    ]
+  },
+  "KM13847": {
+    "forklaring": "Du forklarer hva som gjør jorda levelig og sammenligner med andre planeter.",
+    "ideer": [
+      "Lag en «planetguide»: kunne vi bodd her?",
+      "Sammenlign jorda og Mars i en tabell."
+    ]
+  },
+  "KM13848": {
+    "forklaring": "Du forklarer hvordan fjell, daler og kyster formes og endres over lang tid.",
+    "ideer": [
+      "Se etter spor etter isbreer eller elver på tur.",
+      "Vis platetektonikk med kjeks eller leire."
+    ]
+  },
+  "KM13849": {
+    "forklaring": "Du lærer om endringer i kropp og følelser i puberteten og hvordan de kan påvirke deg.",
+    "ideer": [
+      "Les en god faktabok om pubertet sammen med en voksen.",
+      "Lag spørsmålsboks der du kan spørre anonymt."
+    ]
+  },
+  "KM13850": {
+    "forklaring": "Du forklarer noen av kroppens systemer, som blodomløp og fordøyelse, og hvordan de virker sammen.",
+    "ideer": [
+      "Mål pulsen før og etter løping og forklar hvorfor den endres.",
+      "Tegn fordøyelsen fra munn til tarm på et stort ark."
+    ]
+  },
+  "KM13854": {
+    "forklaring": "Du lager hypoteser, finner variabler som påvirker hverandre og samler data.",
+    "ideer": []
+  },
+  "KM13855": {
+    "forklaring": "Du analyserer data, forklarer med teori og vurderer kvaliteten på undersøkelser.",
+    "ideer": []
+  },
+  "KM13856": {
+    "forklaring": "Du bruker og lager modeller for å forutsi og beskrive prosesser, og ser styrker og svakheter.",
+    "ideer": []
+  },
+  "KM13857": {
+    "forklaring": "Du vurderer risiko ved forsøk og følger sikkerhetsreglene.",
+    "ideer": []
+  },
+  "KM13858": {
+    "forklaring": "Du gir eksempler på ny forskning og hvordan kunnskap blir til gjennom samarbeid og kritikk.",
+    "ideer": []
+  },
+  "KM13859": {
+    "forklaring": "Du utforsker og lager systemer med sender og mottaker.",
+    "ideer": []
+  },
+  "KM13860": {
+    "forklaring": "Du bruker programmering til å utforske fenomener i naturen.",
+    "ideer": []
+  },
+  "KM13861": {
+    "forklaring": "Du utforsker kjemiske reaksjoner, massebevaring og forbrenning.",
+    "ideer": []
+  },
+  "KM13862": {
+    "forklaring": "Du bruker atommodeller og periodesystemet til å forklare stoffers egenskaper.",
+    "ideer": []
+  },
+  "KM13863": {
+    "forklaring": "Du forklarer drivhuseffekten og hva som kan gi klimaendringer.",
+    "ideer": []
+  },
+  "KM13864": {
+    "forklaring": "Du forklarer at energi ikke forsvinner, og utforsker hvordan den omdannes, fraktes og lagres.",
+    "ideer": []
+  },
+  "KM13865": {
+    "forklaring": "Du diskuterer hvordan energibruk påvirker miljøet lokalt og globalt.",
+    "ideer": []
+  },
+  "KM13866": {
+    "forklaring": "Du forklarer hvordan evolusjonsteorien ble til og hvordan den forklarer artsmangfoldet.",
+    "ideer": []
+  },
+  "KM13867": {
+    "forklaring": "Du sammenligner celler og ser sammenhengen mellom oppbygning og funksjon.",
+    "ideer": []
+  },
+  "KM13868": {
+    "forklaring": "Du utforsker hvordan levende og ikke-levende faktorer henger sammen i et økosystem.",
+    "ideer": []
+  },
+  "KM13875": {
+    "forklaring": "Du diskuterer dilemmaer rundt bruk av naturressurser og tap av arter.",
+    "ideer": []
+  },
+  "KM13869": {
+    "forklaring": "Du gir eksempler på samisk naturkunnskap og hvordan den kan hjelpe naturforvaltning.",
+    "ideer": []
+  },
+  "KM13870": {
+    "forklaring": "Du forklarer fotosyntese, celleånding og karbonkretsløpet.",
+    "ideer": []
+  },
+  "KM13871": {
+    "forklaring": "Du bruker platetektonikk til å forklare jordas utvikling.",
+    "ideer": []
+  },
+  "KM13872": {
+    "forklaring": "Du diskuterer spørsmål om seksuell og reproduktiv helse.",
+    "ideer": []
+  },
+  "KM13873": {
+    "forklaring": "Du sammenligner nervesystemet og hormonsystemet og hvordan rusmidler og medisiner påvirker dem.",
+    "ideer": []
+  },
+  "KM13874": {
+    "forklaring": "Du forklarer immunforsvaret, hvordan vaksiner virker og hva de betyr for folkehelsen.",
+    "ideer": []
+  },
+  "KM14717": {
+    "forklaring": "Du lager egne spørsmål om samfunnet og presenterer dem.",
+    "ideer": []
+  },
+  "KM14718": {
+    "forklaring": "Du snakker om hvordan kilder, også kart, kan gi svar på spørsmål om samfunnet.",
+    "ideer": []
+  },
+  "KM14719": {
+    "forklaring": "Du utforsker gamle bygninger, minnesmerker og landskapet der du bor.",
+    "ideer": []
+  },
+  "KM14720": {
+    "forklaring": "Du finner ut hvordan besteforeldre og oldeforeldre levde.",
+    "ideer": []
+  },
+  "KM14721": {
+    "forklaring": "Du tenker over hvorfor folk mener og velger forskjellig.",
+    "ideer": []
+  },
+  "KM14722": {
+    "forklaring": "Du snakker om vennskap og om å høre til.",
+    "ideer": []
+  },
+  "KM14728": {
+    "forklaring": "Du gir eksempler på mangfold i Norge, som ulike familier og folkegrupper, også samene.",
+    "ideer": []
+  },
+  "KM14723": {
+    "forklaring": "Du utforsker hvordan mennesker påvirker klima og miljø, og finner eksempler der du bor.",
+    "ideer": []
+  },
+  "KM14724": {
+    "forklaring": "Du lærer hvilke rettigheter barn har og hva du kan gjøre hvis de blir brutt.",
+    "ideer": []
+  },
+  "KM14725": {
+    "forklaring": "Du finner ut hvordan barn kan påvirke beslutninger og være med i demokratiet.",
+    "ideer": []
+  },
+  "KM14726": {
+    "forklaring": "Du snakker om det som er fint og vanskelig med å være sammen på nett.",
+    "ideer": []
+  },
+  "KM14727": {
+    "forklaring": "Du snakker om følelser, kropp og grenser, og hvordan du sier fra og respekterer andres grenser.",
+    "ideer": []
+  },
+  "KM14729": {
+    "forklaring": "Du finner eksempler på hvordan folk i ulike deler av verden påvirker hverandre.",
+    "ideer": []
+  },
+  "KM14673": {
+    "forklaring": "Du undersøker spørsmål om samfunnet, leter i kilder og vurderer hvor nyttige de er.",
+    "ideer": []
+  },
+  "KM14669": {
+    "forklaring": "Du utforsker kulturminner og sammenligner hvordan folk levde da med hvordan vi lever nå.",
+    "ideer": []
+  },
+  "KM14672": {
+    "forklaring": "Du beskriver landskap i Norge og hvordan kart og kilder kan fortelle om dem.",
+    "ideer": []
+  },
+  "KM14674": {
+    "forklaring": "Du snakker om hvorfor konflikter oppstår, lytter til andre og finner gode løsninger sammen.",
+    "ideer": []
+  },
+  "KM14670": {
+    "forklaring": "Du forteller om menneskerettigheter og barns rettigheter og hvorfor vi har dem.",
+    "ideer": []
+  },
+  "KM14671": {
+    "forklaring": "Du forklarer hvorfor samene er urfolk og hvordan samisk liv har vært og er.",
+    "ideer": []
+  },
+  "KM14679": {
+    "forklaring": "Du gir eksempler på hva bærekraftig utvikling er.",
+    "ideer": []
+  },
+  "KM14680": {
+    "forklaring": "Du tenker over sammenhengen mellom penger og forbruk.",
+    "ideer": []
+  },
+  "KM14668": {
+    "forklaring": "Du snakker om identitet og fellesskap og hvordan det føles å stå utenfor.",
+    "ideer": []
+  },
+  "KM14675": {
+    "forklaring": "Du snakker om personvern, hva som er greit å dele og hvordan du bruker dømmekraft på nett.",
+    "ideer": []
+  },
+  "KM14676": {
+    "forklaring": "Du lærer om grenser for kroppen, hva vold og overgrep er, og hvor du kan få hjelp.",
+    "ideer": []
+  },
+  "KM14677": {
+    "forklaring": "Du tenker over hvem som har makt, hva demokrati er, og hvordan du kan påvirke.",
+    "ideer": []
+  },
+  "KM14678": {
+    "forklaring": "Du snakker om viktige offentlige tjenester, som sykehus og skole, og hva de betyr for folk.",
+    "ideer": []
+  },
+  "KM14681": {
+    "forklaring": "Du gjør en egen undersøkelse om noe i samfunnet og presenterer resultatet digitalt.",
+    "ideer": [
+      "Spør naboer om hva de synes om nærmiljøet og lag diagrammer.",
+      "Kartlegg butikker eller lekeplasser i nabolaget."
+    ]
+  },
+  "KM14687": {
+    "forklaring": "Du presenterer en nyhetssak og skiller mellom fakta, meninger og reklame.",
+    "ideer": [
+      "Se barne-TV-nyhetene og presenter én sak for familien.",
+      "Finn reklame som ser ut som nyheter."
+    ]
+  },
+  "KM14686": {
+    "forklaring": "Du sammenligner hvordan ulike kilder forteller om samme sak, og ser hvordan kilder kan brukes til å påvirke.",
+    "ideer": [
+      "Les samme nyhet i tre aviser og sammenlign overskriftene.",
+      "Hvordan fremstiller en reklame og en nyhet samme produkt?"
+    ]
+  },
+  "KM14685": {
+    "forklaring": "Du utforsker hvordan folk levde og skaffet seg mat før, og hvordan endringer har påvirket hvor og hvordan vi bor.",
+    "ideer": [
+      "Besøk et folkemuseum eller gårdsmuseum.",
+      "Intervju besteforeldre om hvordan de levde som barn."
+    ]
+  },
+  "KM14688": {
+    "forklaring": "Du beskriver hovedtrekk ved ulike deler av verden og hvordan de påvirker folk som bor der.",
+    "ideer": [
+      "Lag et kart over et land du vil besøke, med klima, landskap og byer.",
+      "Hvorfor ligger Venezia i vannet? Undersøk en by og landskapet rundt."
+    ]
+  },
+  "KM14682": {
+    "forklaring": "Du tenker over hvorfor konflikter oppstår og hvordan de kan løses.",
+    "ideer": [
+      "Rollespill en krangel og prøv ulike måter å løse den på.",
+      "Les en bok om en konflikt og diskuter alternative utfall."
+    ]
+  },
+  "KM14683": {
+    "forklaring": "Du utforsker mangfold i Norge og tenker over behovet for å være seg selv og høre til.",
+    "ideer": [
+      "Snakk om ulike familier, språk og tradisjoner du kjenner.",
+      "Hva gjør at du føler at du hører til et sted?"
+    ]
+  },
+  "KM14684": {
+    "forklaring": "Du diskuterer likeverd og likestilling og foreslår hvordan man kan motarbeide fordommer og diskriminering.",
+    "ideer": [
+      "Les en bok om utenforskap eller rasisme og diskuter den.",
+      "Lag en plakat eller kampanje mot fordommer."
+    ]
+  },
+  "KM14689": {
+    "forklaring": "Du snakker om menneskeverd og sammenligner hvordan menneskerettigheter blir fulgt i ulike land.",
+    "ideer": [
+      "Les barnekonvensjonen i barnevennlig versjon og velg tre rettigheter.",
+      "Sammenlign barns rettigheter i Norge og et annet land."
+    ]
+  },
+  "KM14690": {
+    "forklaring": "Du lærer om historien til samene og de nasjonale minoritetene og hvilke rettigheter de har i dag.",
+    "ideer": [
+      "Besøk et samisk senter eller se en samisk film.",
+      "Lag en tidslinje over samisk historie."
+    ]
+  },
+  "KM14691": {
+    "forklaring": "Du tenker over hvordan reklame og påvirkning kan påvirke hva du kjøper, pengene dine og hvordan du ser på deg selv.",
+    "ideer": [
+      "Analyser influencer-reklame: hva prøver de å få deg til?",
+      "Før regnskap over «impulskjøp» i en måned."
+    ]
+  },
+  "KM14692": {
+    "forklaring": "Du utforsker en global miljø- eller samfunnsutfordring, konsekvensene av den, og foreslår løsninger.",
+    "ideer": [
+      "Undersøk plast i havet og lag en kampanje.",
+      "Hvordan påvirker klimaendringer en by ved havet?"
+    ]
+  },
+  "KM14693": {
+    "forklaring": "Du tenker over hvordan du og andre oppfører dere på nett, og hva god dømmekraft er.",
+    "ideer": [
+      "Lag nettvettregler for familien.",
+      "Diskuter hva du gjør hvis noen blir plaget i en chat."
+    ]
+  },
+  "KM14694": {
+    "forklaring": "Du tenker over ulike identiteter og kjønnsuttrykk, egne og andres grenser, og hva man gjør hvis grenser brytes.",
+    "ideer": [
+      "Snakk med en voksen om hvem du kan si fra til.",
+      "Les en bok eller se en film om vennskap og grenser og snakk om den."
+    ]
+  },
+  "KM14695": {
+    "forklaring": "Du beskriver viktige hendelser som ga oss demokratiet i Norge, og sammenligner med andre styresett.",
+    "ideer": [
+      "Besøk Eidsvollsbygningen eller Stortinget.",
+      "Lag et familievalg om noe og sammenlign med diktatur."
+    ]
+  },
+  "KM14696": {
+    "forklaring": "Du gir eksempler på lover, regler og normer, hva de er til for og hva som skjer hvis de brytes.",
+    "ideer": [
+      "Lag regler for et spill eller et hjem og diskuter hvorfor.",
+      "Hva er forskjellen på en lov og en uskreven regel?"
+    ]
+  },
+  "KM14697": {
+    "forklaring": "Du tenker over hvordan møter mellom folk har endret måter å tenke og organisere samfunn på.",
+    "ideer": [
+      "Hvordan påvirket handel mellom Venezia og Østen Europa?",
+      "Undersøk hvordan en rett eller et ord kom til Norge."
+    ]
+  },
+  "KM14698": {
+    "forklaring": "Du gjør egne undersøkelser med samfunnsfaglige metoder og vurderer hvor gode funnene er.",
+    "ideer": []
+  },
+  "KM14701": {
+    "forklaring": "Du vurderer kilder og hvordan algoritmer og ensidige kilder kan påvirke det vi tror.",
+    "ideer": []
+  },
+  "KM14700": {
+    "forklaring": "Du diskuterer hvordan måten fortiden og grupper framstilles på, påvirker holdninger.",
+    "ideer": []
+  },
+  "KM14702": {
+    "forklaring": "Du utforsker hvordan teknologi har endret og endrer mennesker, samfunn og natur.",
+    "ideer": []
+  },
+  "KM14714": {
+    "forklaring": "Du tenker over hvordan folk har kjempet for endringer, påvirket av sted og tid.",
+    "ideer": []
+  },
+  "KM14704": {
+    "forklaring": "Du sammenligner hvordan politikk, geografi og historie påvirker hvordan folk lever i ulike land.",
+    "ideer": []
+  },
+  "KM14699": {
+    "forklaring": "Du forklarer årsaker til og følger av viktige konflikter og om de kunne vært unngått.",
+    "ideer": []
+  },
+  "KM14705": {
+    "forklaring": "Du forklarer årsaker til terror og folkemord, som holocaust, og hvordan ekstremisme kan forebygges.",
+    "ideer": []
+  },
+  "KM14703": {
+    "forklaring": "Du utforsker hvordan menneskerettigheter og internasjonalt samarbeid påvirker politikk og liv.",
+    "ideer": []
+  },
+  "KM14706": {
+    "forklaring": "Du forklarer fornorskningen av samene og de nasjonale minoritetene og hva den har ført til.",
+    "ideer": []
+  },
+  "KM14708": {
+    "forklaring": "Du beskriver sidene ved bærekraftig utvikling og foreslår tiltak.",
+    "ideer": []
+  },
+  "KM14710": {
+    "forklaring": "Du vurderer hvordan arbeid, inntekt og forbruk påvirker økonomi og livskvalitet.",
+    "ideer": []
+  },
+  "KM14707": {
+    "forklaring": "Du tenker over mangfold i identiteter og kulturer, og muligheter og utfordringer ved det.",
+    "ideer": []
+  },
+  "KM14709": {
+    "forklaring": "Du utforsker dine digitale spor, personvern og opphavsrett.",
+    "ideer": []
+  },
+  "KM14711": {
+    "forklaring": "Du tenker over hvordan identitet og grenser utvikles i fellesskap, og hvordan du håndterer press.",
+    "ideer": []
+  },
+  "KM14712": {
+    "forklaring": "Du tenker over hvem som har makt i samfunnet og hvordan de begrunner meningene sine.",
+    "ideer": []
+  },
+  "KM14713": {
+    "forklaring": "Du utforsker hvordan digitale plattformer påvirker samfunnsdebatten.",
+    "ideer": []
+  },
+  "KM14715": {
+    "forklaring": "Du beskriver viktige lover og regler og hva brudd kan føre til.",
+    "ideer": []
+  },
+  "KM14716": {
+    "forklaring": "Du beskriver det politiske systemet og velferdssamfunnet i Norge og utfordringene.",
+    "ideer": []
+  },
+  "KM14586": {
+    "forklaring": "Du utforsker hvordan religioner og livssyn synes der du bor.",
+    "ideer": []
+  },
+  "KM14597": {
+    "forklaring": "Du forteller viktige fortellinger og tanker fra kristendommen.",
+    "ideer": []
+  },
+  "KM14598": {
+    "forklaring": "Du forteller viktige fortellinger og tanker fra andre religioner.",
+    "ideer": []
+  },
+  "KM14587": {
+    "forklaring": "Du sammenligner høytider og årstider i ulike religioner og livssyn.",
+    "ideer": []
+  },
+  "KM14588": {
+    "forklaring": "Du snakker om kunst, musikk og bygninger fra religioner og livssyn.",
+    "ideer": []
+  },
+  "KM14596": {
+    "forklaring": "Du bruker enkle fagord når du snakker om religioner.",
+    "ideer": []
+  },
+  "KM14589": {
+    "forklaring": "Du skiller mellom ulike kilder til kunnskap om religioner.",
+    "ideer": []
+  },
+  "KM14594": {
+    "forklaring": "Du snakker om ulike måter å leve sammen i familier og samfunn.",
+    "ideer": []
+  },
+  "KM14590": {
+    "forklaring": "Du deltar i filosofiske samtaler sammen med andre.",
+    "ideer": []
+  },
+  "KM14591": {
+    "forklaring": "Du finner og tenker over spørsmål om rett og galt.",
+    "ideer": []
+  },
+  "KM14593": {
+    "forklaring": "Du snakker om hva som er rett og galt i hvordan vi lever og bruker ressurser.",
+    "ideer": []
+  },
+  "KM14592": {
+    "forklaring": "Du setter deg inn i og forteller om egne og andres tanker og følelser.",
+    "ideer": []
+  },
+  "KM14595": {
+    "forklaring": "Du snakker om menneskeverd, respekt og toleranse.",
+    "ideer": []
+  },
+  "KM14599": {
+    "forklaring": "Du forklarer historien til kristendom og andre religioner og livssyn i Norge, også samisk og hos nasjonale minoriteter.",
+    "ideer": [
+      "Besøk en gammel kirke eller stavkirke og finn ut hvor gammel den er.",
+      "Lag tidslinje over religion i Norge."
+    ]
+  },
+  "KM14601": {
+    "forklaring": "Du beskriver og forteller om viktige ritualer og regler for godt liv i kristendommen.",
+    "ideer": [
+      "Hva skjer i dåp, konfirmasjon og bryllup?",
+      "Intervju noen om hvordan de feirer jul eller påske."
+    ]
+  },
+  "KM14609": {
+    "forklaring": "Du beskriver ritualer og etiske regler fra ulike religioner og livssyn.",
+    "ideer": [
+      "Besøk en moské, synagoge eller et tempel.",
+      "Sammenlign høytider fra tre religioner."
+    ]
+  },
+  "KM14600": {
+    "forklaring": "Du utforsker tekster, bygninger og gjenstander som kilder til kulturarv fra religioner og livssyn.",
+    "ideer": [
+      "Se på kunst i en kirke eller et museum og finn fortellingen bak.",
+      "Undersøk symboler i religiøs kunst og arkitektur."
+    ]
+  },
+  "KM14610": {
+    "forklaring": "Du utforsker og snakker om at det finnes mange retninger innenfor kristendom og andre religioner.",
+    "ideer": [
+      "Hva skiller katolikker, protestanter og ortodokse?",
+      "Snakk med noen som tror annerledes enn deg."
+    ]
+  },
+  "KM14607": {
+    "forklaring": "Du bruker riktige fagord når du snakker om religioner og livssyn.",
+    "ideer": [
+      "Lag en ordliste med fagord og tegn til hvert ord.",
+      "Forklar ord som ritual, profet og livssyn for en voksen."
+    ]
+  },
+  "KM14606": {
+    "forklaring": "Du forklarer ulike syn på barndom, familie og samliv i religioner og livssyn.",
+    "ideer": [
+      "Sammenlign navnefester og overgangsritualer.",
+      "Diskuter: hva er en familie?"
+    ]
+  },
+  "KM14602": {
+    "forklaring": "Du bruker filosofiske spørsmål og undring i samtaler.",
+    "ideer": [
+      "Filosofisk middagssamtale: kan en katt være lykkelig?",
+      "Hva er rettferdig? Tenk høyt sammen."
+    ]
+  },
+  "KM14603": {
+    "forklaring": "Du snakker om etiske ideer fra viktige personer i religioner og livssyn.",
+    "ideer": [
+      "Hva lærte Jesus, Buddha eller Muhammed om å behandle andre?",
+      "Finn felles regler, som den gylne regel."
+    ]
+  },
+  "KM14611": {
+    "forklaring": "Du snakker om etiske ideer fra kjente filosofer.",
+    "ideer": [
+      "Lær om Sokrates og prøv hans spørremetode.",
+      "Hva mente Aristoteles med et godt liv?"
+    ]
+  },
+  "KM14604": {
+    "forklaring": "Du utforsker egne og andres perspektiver i vanskelige valg i hverdagen og samfunnet.",
+    "ideer": [
+      "Diskuter dilemmaer: skal du si ifra hvis en venn jukser?",
+      "Skriv en historie der hovedpersonen må ta et vanskelig valg."
+    ]
+  },
+  "KM14605": {
+    "forklaring": "Du tenker over store spørsmål om hvordan vi lever og om jordas framtid.",
+    "ideer": [
+      "Hva er et godt liv? Hva trenger vi egentlig?",
+      "Skriv et brev til deg selv om 20 år."
+    ]
+  },
+  "KM14608": {
+    "forklaring": "Du forklarer hva menneskerettighetene betyr for ytringsfrihet, religionsfrihet og religiøse minoriteter i Norge.",
+    "ideer": [
+      "Hva betyr ytringsfrihet – og har den grenser?",
+      "Les om en religiøs minoritet i Norge."
+    ]
+  },
+  "KM14612": {
+    "forklaring": "Du utforsker hovedtrekk ved religioner og livssyn og hvor utbredt de er i dag.",
+    "ideer": []
+  },
+  "KM14623": {
+    "forklaring": "Du utforsker hvordan religioner har vært med på historiske endringer.",
+    "ideer": []
+  },
+  "KM14624": {
+    "forklaring": "Du presenterer ideer fra humanisme og andre ikke-religiøse livssyn.",
+    "ideer": []
+  },
+  "KM14613": {
+    "forklaring": "Du utforsker religiøst mangfold også utenfor de store trossamfunnene.",
+    "ideer": []
+  },
+  "KM14614": {
+    "forklaring": "Du forklarer samiske og andre urfolks religions- og livssynstradisjoner.",
+    "ideer": []
+  },
+  "KM14616": {
+    "forklaring": "Du bruker og diskuterer fagbegreper om religioner og livssyn.",
+    "ideer": []
+  },
+  "KM14617": {
+    "forklaring": "Du sammenligner og vurderer kilder om religioner kritisk.",
+    "ideer": []
+  },
+  "KM14615": {
+    "forklaring": "Du forklarer ulike syn på kjønn og seksualitet i religioner og livssyn.",
+    "ideer": []
+  },
+  "KM14622": {
+    "forklaring": "Du finner religiøse elementer i medier og populærkultur.",
+    "ideer": []
+  },
+  "KM14625": {
+    "forklaring": "Du sammenligner etiske ideer fra viktige religiøse personer.",
+    "ideer": []
+  },
+  "KM14626": {
+    "forklaring": "Du bruker ideer fra filosofer til å diskutere etiske spørsmål i dag.",
+    "ideer": []
+  },
+  "KM14618": {
+    "forklaring": "Du setter deg inn i andres syn og håndterer uenighet.",
+    "ideer": []
+  },
+  "KM14619": {
+    "forklaring": "Du tenker over store livsspørsmål ved å vokse opp i en mangfoldig verden.",
+    "ideer": []
+  },
+  "KM14620": {
+    "forklaring": "Du diskuterer etiske spørsmål rundt kommunikasjon.",
+    "ideer": []
+  },
+  "KM14621": {
+    "forklaring": "Du diskuterer etiske spørsmål om menneskerettigheter, bærekraft og fattigdom.",
+    "ideer": []
+  },
+  "KM13515": {
+    "forklaring": "Du bruker enkle teknikker og verktøy på tre, leire og tekstil, trygt og miljøvennlig.",
+    "ideer": []
+  },
+  "KM13516": {
+    "forklaring": "Du undersøker hvordan materialer kjennes og deler det med andre.",
+    "ideer": []
+  },
+  "KM13517": {
+    "forklaring": "Du utforsker ulike bilder og former og bygger videre på andres ideer.",
+    "ideer": []
+  },
+  "KM13518": {
+    "forklaring": "Du eksperimenterer med form, farge, rytme og kontrast.",
+    "ideer": []
+  },
+  "KM13519": {
+    "forklaring": "Du studerer former ved å tegne, male og fotografere.",
+    "ideer": []
+  },
+  "KM13522": {
+    "forklaring": "Du lager digitale fortellinger inspirert av kunstverk.",
+    "ideer": []
+  },
+  "KM13523": {
+    "forklaring": "Du tegner og bygger modeller av hvordan framtiden kan se ut.",
+    "ideer": []
+  },
+  "KM13520": {
+    "forklaring": "Du bygger med naturmaterialer, inspirert av samisk og lokal byggeskikk.",
+    "ideer": []
+  },
+  "KM13521": {
+    "forklaring": "Du viser fram ting du har laget eller samlet i en utstilling.",
+    "ideer": []
+  },
+  "KM13524": {
+    "forklaring": "Du bruker verktøy og måter å feste ting sammen i tre, leire og tekstil.",
+    "ideer": []
+  },
+  "KM13527": {
+    "forklaring": "Du lager noe av gjenbruksmaterialer og forteller hvordan du kan ta vare på miljøet.",
+    "ideer": []
+  },
+  "KM13525": {
+    "forklaring": "Du går gjennom en designprosess: finne inspirasjon, prøve ut, velge og lage.",
+    "ideer": []
+  },
+  "KM13526": {
+    "forklaring": "Du undersøker tradisjonshåndverk, også samisk, og lager enkle bruksting.",
+    "ideer": []
+  },
+  "KM13528": {
+    "forklaring": "Du snakker om bygninger og materialer og skisserer egne byggideer.",
+    "ideer": []
+  },
+  "KM13529": {
+    "forklaring": "Du tolker former og symboler fra ulike kulturer og bruker dem i egne bilder.",
+    "ideer": []
+  },
+  "KM13530": {
+    "forklaring": "Du tegner dybde ved å la ting overlappe og bli mindre bakover.",
+    "ideer": []
+  },
+  "KM13531": {
+    "forklaring": "Du bruker enkle komposisjonsregler i foto og digitale bilder.",
+    "ideer": []
+  },
+  "KM13532": {
+    "forklaring": "Du utforsker kunst fra ulike verdensdeler og lager en digital presentasjon.",
+    "ideer": []
+  },
+  "KM13533": {
+    "forklaring": "Du viser fram arbeidet ditt i en utstilling.",
+    "ideer": []
+  },
+  "KM13534": {
+    "forklaring": "Du bruker håndverktøy og elektriske verktøy trygt og miljøbevisst på tre, leire, stoff og andre materialer.",
+    "ideer": [
+      "Lag noe i tre med sag, bor og slipepapir.",
+      "Sy en nålepute eller en pose med symaskin."
+    ]
+  },
+  "KM13535": {
+    "forklaring": "Du undersøker hva ting er laget av, hvor holdbare de er og om de kan repareres eller gjenbrukes.",
+    "ideer": [
+      "Reparer en ødelagt ting eller et klesplagg.",
+      "Ta fra hverandre en gammel gjenstand og finn materialene."
+    ]
+  },
+  "KM13536": {
+    "forklaring": "Du bygger og eksperimenterer med stabile konstruksjoner.",
+    "ideer": [
+      "Bygg det høyeste tårnet av spagetti og marshmallows.",
+      "Lag en bro av papp som tåler mest vekt."
+    ]
+  },
+  "KM13538": {
+    "forklaring": "Du bruker ulike metoder for å få ideer og løse problemer.",
+    "ideer": [
+      "Lag moodboard eller skissebok før et prosjekt.",
+      "Tegn 10 raske ideer før du velger én."
+    ]
+  },
+  "KM13537": {
+    "forklaring": "Du bruker digitale verktøy til å planlegge og vise fram prosesser og produkter.",
+    "ideer": [
+      "Dokumenter et prosjekt med bilder og tekst på en nettside.",
+      "Lag en stop motion-film som viser hvordan noe blir til."
+    ]
+  },
+  "KM13539": {
+    "forklaring": "Du tegner former og rom med kontraster, skygge, riktige proporsjoner og perspektiv.",
+    "ideer": [
+      "Tegn et rom med ettpunktsperspektiv.",
+      "Tegn et egg eller en kopp med lys og skygge."
+    ]
+  },
+  "KM13540": {
+    "forklaring": "Du utforsker hvordan kunst viser følelser og meninger, og bruker farger og symboler i egne bilder.",
+    "ideer": [
+      "Mal samme motiv i «glad» og «trist» fargepalett.",
+      "Se på kjente malerier og snakk om stemningen."
+    ]
+  },
+  "KM13541": {
+    "forklaring": "Du analyserer virkemidler i bilder og medier og lager foto eller infografikk om et aktuelt tema.",
+    "ideer": [
+      "Lag en infografikk om noe du har undersøkt.",
+      "Ta en fotoserie om et tema, for eksempel plast i nærmiljøet."
+    ]
+  },
+  "KM13542": {
+    "forklaring": "Du beskriver mangfoldet i klær eller gjenstander, også samiske, og lager noe inspirert av kulturarv.",
+    "ideer": [
+      "Lag et produkt inspirert av bunadsbroderi eller samisk duodji.",
+      "Undersøk mønstre i et venetiansk glass eller en maske og lag eget."
+    ]
+  },
+  "KM13543": {
+    "forklaring": "Du undersøker hvordan kjønnsroller vises i kunst og kultur før og nå, og lager bilder som utfordrer stereotypier.",
+    "ideer": [
+      "Sammenlign gamle og nye reklamer for leker.",
+      "Lag et bilde eller en figur som bryter med en stereotypi."
+    ]
+  },
+  "KM13544": {
+    "forklaring": "Du bruker programmering til å lage interaktive eller visuelle uttrykk.",
+    "ideer": [
+      "Lag en interaktiv tegning eller animasjon i Scratch.",
+      "Programmer lys med micro:bit til en figur eller et kunstverk."
+    ]
+  },
+  "KM13545": {
+    "forklaring": "Du planlegger og lager en utstilling som viser både prosess og ferdig produkt.",
+    "ideer": [
+      "Lag en utstilling hjemme med skisser, bilder og ferdige ting.",
+      "Lag en digital utstilling på en nettside."
+    ]
+  },
+  "KM13546": {
+    "forklaring": "Du utforsker håndverksteknikker og teknologi på harde, myke og formbare materialer.",
+    "ideer": []
+  },
+  "KM13547": {
+    "forklaring": "Du vurderer holdbarhet, reparasjon og gjenbruk og bruker verktøy miljøbevisst.",
+    "ideer": []
+  },
+  "KM13548": {
+    "forklaring": "Du løser designoppgaver steg for steg og vurderer funksjon og utseende.",
+    "ideer": []
+  },
+  "KM13549": {
+    "forklaring": "Du utforsker hvordan digitale verktøy og ny teknologi kan brukes i skapende arbeid.",
+    "ideer": []
+  },
+  "KM13550": {
+    "forklaring": "Du viser former med frihåndstegning, arbeidstegninger, modeller og digitale verktøy.",
+    "ideer": []
+  },
+  "KM13552": {
+    "forklaring": "Du analyserer hvordan identitet vises i arkitektur, klær og kunst, og bruker det i eget arbeid.",
+    "ideer": []
+  },
+  "KM13553": {
+    "forklaring": "Du undersøker hvordan kunst kan kritisere samfunnet, og lager egen samfunnskritisk kunst.",
+    "ideer": []
+  },
+  "KM13554": {
+    "forklaring": "Du vurderer visuelle virkemidler kritisk og eksperimenterer med dem.",
+    "ideer": []
+  },
+  "KM13555": {
+    "forklaring": "Du skisserer forbedringer av nærmiljøet og lager modeller av løsninger.",
+    "ideer": []
+  },
+  "KM13551": {
+    "forklaring": "Du fordyper deg i én teknikk eller uttrykksform og viser veien fra idé til resultat.",
+    "ideer": []
+  },
+  "KM13712": {
+    "forklaring": "Du synger sangleker, sanger og danser fra din egen kultur og kulturarven.",
+    "ideer": []
+  },
+  "KM13714": {
+    "forklaring": "Du eksperimenterer med puls, rytme, tempo, melodi og styrke med stemme, kropp og instrumenter.",
+    "ideer": []
+  },
+  "KM13713": {
+    "forklaring": "Du leker med lyd og stemme, lager mønstre og setter dem sammen til egen musikk.",
+    "ideer": []
+  },
+  "KM13715": {
+    "forklaring": "Du forteller om musikkopplevelser med ord, tegning eller bevegelse.",
+    "ideer": []
+  },
+  "KM13716": {
+    "forklaring": "Du synger og danser fra ulike musikkulturer, også samisk.",
+    "ideer": []
+  },
+  "KM13718": {
+    "forklaring": "Du synger og spiller alene og sammen, på gehør og med enkle noter.",
+    "ideer": []
+  },
+  "KM13717": {
+    "forklaring": "Du lager egen musikk av rytmer og melodier, også digitalt, og forteller hvordan.",
+    "ideer": []
+  },
+  "KM13719": {
+    "forklaring": "Du forteller om musikkopplevelser med enkle fagord.",
+    "ideer": []
+  },
+  "KM13720": {
+    "forklaring": "Du snakker om hvordan musikk brukes i ulike sammenhenger, som fester og sport.",
+    "ideer": []
+  },
+  "KM13721": {
+    "forklaring": "Du synger, spiller og danser musikk fra i dag og fra historien.",
+    "ideer": [
+      "Lær en gammel folkesang og en ny poplåt.",
+      "Spill i korps eller kor."
+    ]
+  },
+  "KM13725": {
+    "forklaring": "Du utforsker hvordan gammel musikk påvirker musikk i dag.",
+    "ideer": [
+      "Finn en sang som låner fra klassisk musikk.",
+      "Lag en tidslinje fra blues til pop."
+    ]
+  },
+  "KM13723": {
+    "forklaring": "Du øver inn og framfører musikk, alene eller sammen, på gehør og med enkle noter.",
+    "ideer": [
+      "Øv inn et stykke på instrumentet ditt og framfør det.",
+      "Lær en melodi på gehør og skriv den ned."
+    ]
+  },
+  "KM13722": {
+    "forklaring": "Du lytter, eksperimenterer og lager ny musikk med instrumenter, kropp, stemme eller andre lyder – og viser resultatet.",
+    "ideer": [
+      "Lag et lydspor til en stop motion-film med ting fra kjøkkenet.",
+      "Lag en rytme med kroppsperkusjon."
+    ]
+  },
+  "KM13728": {
+    "forklaring": "Du bruker digitale verktøy til å lage, øve og bearbeide musikk.",
+    "ideer": [
+      "Lag en låt i en gratis musikkapp.",
+      "Ta opp deg selv og lytt etter hva du kan forbedre."
+    ]
+  },
+  "KM13729": {
+    "forklaring": "Du bruker fagord når du beskriver og tenker over musikk og øving.",
+    "ideer": [
+      "Beskriv en låt med ord som tempo, dynamikk og klang.",
+      "Før øvelogg med fagord."
+    ]
+  },
+  "KM13726": {
+    "forklaring": "Du utforsker og forteller om musikkopplevelser.",
+    "ideer": [
+      "Gå på konsert og skriv eller fortell om opplevelsen.",
+      "Lag en spilleliste og forklar valgene."
+    ]
+  },
+  "KM13727": {
+    "forklaring": "Du undersøker hvordan kjønn og kjønnsroller vises i musikk og dans, og lager uttrykk som utfordrer stereotypier.",
+    "ideer": [
+      "Sammenlign musikkvideoer: hvem gjør hva?",
+      "Lag en dans eller låt som bryter med forventninger."
+    ]
+  },
+  "KM13724": {
+    "forklaring": "Du tenker over hvordan musikk kan være viktig for identiteten til folk og grupper.",
+    "ideer": [
+      "Hva betyr korpsmusikk på 17. mai?",
+      "Intervju noen om musikken fra ungdomstiden deres."
+    ]
+  },
+  "KM13730": {
+    "forklaring": "Du framfører variert musikk, sang og dans.",
+    "ideer": []
+  },
+  "KM13735": {
+    "forklaring": "Du tenker over hvordan musikktradisjoner, også samiske, blir tatt vare på og fornyet.",
+    "ideer": []
+  },
+  "KM13732": {
+    "forklaring": "Du planlegger øving sammen med andre og framfører resultatet.",
+    "ideer": []
+  },
+  "KM13731": {
+    "forklaring": "Du lager og programmerer musikk med lyd fra ulike kilder.",
+    "ideer": []
+  },
+  "KM13736": {
+    "forklaring": "Du forteller om musikkopplevelser og hvordan virkemidler brukes.",
+    "ideer": []
+  },
+  "KM13737": {
+    "forklaring": "Du prøver ut ulike uttrykk og begrunner valgene fra idé til ferdig låt.",
+    "ideer": []
+  },
+  "KM13738": {
+    "forklaring": "Du bruker gehør og noter når du lager musikk.",
+    "ideer": []
+  },
+  "KM13734": {
+    "forklaring": "Du bruker fagord når du lager og snakker om musikk.",
+    "ideer": []
+  },
+  "KM13733": {
+    "forklaring": "Du utforsker hvordan musikk og dans henger sammen med historie og samfunn, og lager egne uttrykk om dagens utfordringer.",
+    "ideer": []
+  },
+  "KM13739": {
+    "forklaring": "Du diskuterer musikkens betydning i samfunnet og etiske spørsmål rundt musikk.",
+    "ideer": []
+  },
+  "KM13616": {
+    "forklaring": "Du holder god hygiene når du lager mat.",
+    "ideer": []
+  },
+  "KM13621": {
+    "forklaring": "Du bruker kjøkkenredskaper, måler og veier, og bruker enkle teknikker.",
+    "ideer": []
+  },
+  "KM13622": {
+    "forklaring": "Du kjenner igjen smaker og lurer på hvorfor vi smaker ulikt.",
+    "ideer": []
+  },
+  "KM13623": {
+    "forklaring": "Du forteller hva sunn og variert mat er og hvorfor det er viktig.",
+    "ideer": []
+  },
+  "KM13617": {
+    "forklaring": "Du bruker lokale råvarer og forteller om veien fra jord til bord.",
+    "ideer": []
+  },
+  "KM13618": {
+    "forklaring": "Du sorterer matavfall og forklarer hvorfor.",
+    "ideer": []
+  },
+  "KM13619": {
+    "forklaring": "Du lager enkle måltider og gjør det hyggelig rundt bordet.",
+    "ideer": []
+  },
+  "KM13624": {
+    "forklaring": "Du snakker om måltidsskikker fra ulike kulturer og verdien av å spise sammen.",
+    "ideer": []
+  },
+  "KM13620": {
+    "forklaring": "Du snakker om hvordan skolemåltidet kan gjøre skoledagen bedre.",
+    "ideer": []
+  },
+  "KM13625": {
+    "forklaring": "Du bruker kjøkkenredskaper og teknikker til å lage trygg, sunn og bærekraftig mat.",
+    "ideer": [
+      "Lag middag for familien én gang i uka.",
+      "Lær å koke egg, lage saus og steke fisk."
+    ]
+  },
+  "KM13634": {
+    "forklaring": "Du bruker sansene til å smake, kjenne tekstur og pynte maten.",
+    "ideer": [
+      "Blindtest av epler eller sjokolade.",
+      "Anrett en tallerken så den ser fin ut og ta bilde."
+    ]
+  },
+  "KM13627": {
+    "forklaring": "Du kjenner igjen grunnsmakene og snakker om hvordan smak påvirker hva vi velger å spise.",
+    "ideer": [
+      "Smakstest: søtt, surt, salt, bittert og umami.",
+      "Hvorfor liker barn og voksne ulik mat?"
+    ]
+  },
+  "KM13626": {
+    "forklaring": "Du bruker oppskrifter og regner ut hvor mye mat som trengs til porsjonene.",
+    "ideer": [
+      "Doble eller halver en oppskrift.",
+      "Planlegg mengder til et selskap."
+    ]
+  },
+  "KM13628": {
+    "forklaring": "Du viser sammenhenger mellom matvaregrupper og næringsstoffer kroppen trenger.",
+    "ideer": [
+      "Sorter maten i kjøleskapet etter matvaregrupper.",
+      "Lag plakat over hva kroppen bruker proteiner og karbohydrater til."
+    ]
+  },
+  "KM13629": {
+    "forklaring": "Du bruker matmerking og kostråd til å sette sammen varierte måltider, og tenker over valgene.",
+    "ideer": [
+      "Les innholdsfortegnelsen på tre frokostblandinger.",
+      "Planlegg en ukesmeny med tallerkenmodellen."
+    ]
+  },
+  "KM13630": {
+    "forklaring": "Du sammenligner produktinformasjon og matreklame på nett og i andre medier.",
+    "ideer": [
+      "Sammenlign reklame for en brus og faktisk innhold.",
+      "Hva betyr ord som «naturlig» og «sunn» på pakken?"
+    ]
+  },
+  "KM13631": {
+    "forklaring": "Du bruker rester og tenker over hvor mye mat du bruker og kaster.",
+    "ideer": [
+      "Lag en rett av rester i kjøleskapet.",
+      "Før oversikt over matsvinn en uke."
+    ]
+  },
+  "KM13632": {
+    "forklaring": "Du utforsker og presenterer gamle norske og samiske måter å konservere mat på.",
+    "ideer": [
+      "Lag syltetøy, tørk frukt eller sylt agurk og forklar metoden.",
+      "Lær om tørrfisk, spekemat eller samisk tørking av kjøtt."
+    ]
+  },
+  "KM13633": {
+    "forklaring": "Du lager mat fra ulike kulturer og utforsker hvordan måltider sammen styrker helse og fellesskap.",
+    "ideer": [
+      "Lag et italiensk måltid og inviter noen.",
+      "Lag mat fra landet til en venn eller nabo."
+    ]
+  },
+  "KM13635": {
+    "forklaring": "Du planlegger og lager trygg, sunn og bærekraftig mat med riktige redskaper og metoder.",
+    "ideer": []
+  },
+  "KM13636": {
+    "forklaring": "Du bruker sansene til å vurdere råvarer, kombinere smaker og forbedre oppskrifter.",
+    "ideer": []
+  },
+  "KM13637": {
+    "forklaring": "Du diskuterer hvordan kosthold påvirker helsen og vurderer ditt eget kosthold.",
+    "ideer": []
+  },
+  "KM13638": {
+    "forklaring": "Du vurderer kritisk påstander og råd om mat og helse.",
+    "ideer": []
+  },
+  "KM13639": {
+    "forklaring": "Du vurderer informasjon om matproduksjon og hvordan forbrukere kan påvirke den.",
+    "ideer": []
+  },
+  "KM13640": {
+    "forklaring": "Du undersøker klimaavtrykket til mat og hvordan matvalg påvirker miljøet.",
+    "ideer": []
+  },
+  "KM13641": {
+    "forklaring": "Du lager mat fra norsk, samisk og andre kulturer og sammenligner råvarer og metoder.",
+    "ideer": []
+  },
+  "KM13642": {
+    "forklaring": "Du viser gjennom mat og måltider hvordan identitet og fellesskap uttrykkes i ulike kulturer.",
+    "ideer": []
+  },
+  "KM13556": {
+    "forklaring": "Du utforsker hvordan kroppen kan bevege seg i lek, alene og med andre.",
+    "ideer": []
+  },
+  "KM13557": {
+    "forklaring": "Du kryper, går, løper, hinker, hopper, lander, snur og ruller i ulike miljøer.",
+    "ideer": []
+  },
+  "KM13558": {
+    "forklaring": "Du øver på å kaste, ta imot og leke med baller og redskaper.",
+    "ideer": []
+  },
+  "KM13559": {
+    "forklaring": "Du leker og er i aktivitet sammen med andre på ulike steder.",
+    "ideer": []
+  },
+  "KM13560": {
+    "forklaring": "Du blir kjent med vannet: dykker, flyter, glir og hopper uti.",
+    "ideer": []
+  },
+  "KM13561": {
+    "forklaring": "Du forstår og følger enkle regler i lek og spill.",
+    "ideer": []
+  },
+  "KM13562": {
+    "forklaring": "Du utforsker naturen i nærheten gjennom hele året.",
+    "ideer": []
+  },
+  "KM13563": {
+    "forklaring": "Du følger turregler og kler deg etter været.",
+    "ideer": []
+  },
+  "KM13564": {
+    "forklaring": "Du øver på å ferdes trygt i trafikken.",
+    "ideer": []
+  },
+  "KM13565": {
+    "forklaring": "Du øver på å være trygg ved vann og vet hvordan du tilkaller hjelp.",
+    "ideer": []
+  },
+  "KM13566": {
+    "forklaring": "Du prøver leker, idretter, dans og andre aktiviteter.",
+    "ideer": []
+  },
+  "KM13567": {
+    "forklaring": "Du bruker kroppen til å utforske aktiviteter og utvikler grunnleggende bevegelser.",
+    "ideer": []
+  },
+  "KM13568": {
+    "forklaring": "Du øver på å føre, kaste, sprette, sparke og ta imot ball.",
+    "ideer": []
+  },
+  "KM13569": {
+    "forklaring": "Du er svømmedyktig: faller uti på dypt vann, svømmer 100 m på magen, dykker, hviler 3 minutter og svømmer 100 m på ryggen.",
+    "ideer": []
+  },
+  "KM13570": {
+    "forklaring": "Du forstår og følger regler for samspill i spill og aktiviteter.",
+    "ideer": []
+  },
+  "KM13571": {
+    "forklaring": "Du forstår at kropper er ulike, og inkluderer andre i aktivitet.",
+    "ideer": []
+  },
+  "KM13572": {
+    "forklaring": "Du er ute og samarbeider med andre gjennom årstidene.",
+    "ideer": []
+  },
+  "KM13573": {
+    "forklaring": "Du lager og bruker kart for å finne fram der du kjenner deg igjen.",
+    "ideer": []
+  },
+  "KM13574": {
+    "forklaring": "Du øver på å ferdes trygt i naturen uten å etterlate spor.",
+    "ideer": []
+  },
+  "KM13575": {
+    "forklaring": "Du forstår og følger trafikkreglene.",
+    "ideer": []
+  },
+  "KM13576": {
+    "forklaring": "Du leker og spiller spill sammen med andre i ulike aktiviteter.",
+    "ideer": [
+      "Organiser et lekestevne for venner.",
+      "Prøv en ny ballsport."
+    ]
+  },
+  "KM13577": {
+    "forklaring": "Du øver på bevegelser som består av flere deler, alene og sammen med andre.",
+    "ideer": [
+      "Øv inn en kombinasjon i kickboksing, sirkus eller dans.",
+      "Lag en hinderløype."
+    ]
+  },
+  "KM13578": {
+    "forklaring": "Du gjør aktiviteter du selv er interessert i, som dans, friluftsliv og idrett.",
+    "ideer": [
+      "Delta fast i en idrett eller aktivitet du velger selv.",
+      "Prøv en ny aktivitet hver måned."
+    ]
+  },
+  "KM13579": {
+    "forklaring": "Du bruker kart, digitale verktøy og tegn i naturen for å finne fram.",
+    "ideer": [
+      "Gå en orienteringspost-tur eller turorientering.",
+      "Planlegg en tur med kart og følg ruten."
+    ]
+  },
+  "KM13580": {
+    "forklaring": "Du forstår og følger regler i spill og aktiviteter og respekterer resultatet.",
+    "ideer": [
+      "Lær reglene i en ny sport og forklar dem til andre.",
+      "Vær dommer i et spill."
+    ]
+  },
+  "KM13581": {
+    "forklaring": "Du forstår at folk er ulike og deltar i aktiviteter tilpasset både deg og andre.",
+    "ideer": [
+      "Lag en lek som yngre søsken eller venner også kan være med på.",
+      "Prøv en aktivitet med tilpassede regler."
+    ]
+  },
+  "KM13582": {
+    "forklaring": "Du svømmer på magen, på ryggen og under vann.",
+    "ideer": [
+      "Ta svømmemerker.",
+      "Øv på ryggsvømming og å svømme under vann."
+    ]
+  },
+  "KM13583": {
+    "forklaring": "Du vurderer sikkerhet ute og i naturen og kan berge deg selv i vann.",
+    "ideer": [
+      "Øv på å flyte og berge deg selv med klær på.",
+      "Lag sjekkliste før båttur eller skitur."
+    ]
+  },
+  "KM13584": {
+    "forklaring": "Du bruker nærmiljøet til friluftsliv og utforsker lokale friluftstradisjoner.",
+    "ideer": [
+      "Finn tre turmål i nærheten og besøk dem.",
+      "Lær om hvordan folk i området har brukt naturen."
+    ]
+  },
+  "KM13585": {
+    "forklaring": "Du forklarer allemannsretten: hva du har lov til når du ferdes og overnatter i naturen.",
+    "ideer": [
+      "Lag en plakat om allemannsretten.",
+      "Hvor kan du telte, og hvor lenge?"
+    ]
+  },
+  "KM13586": {
+    "forklaring": "Du drar på overnattingstur og tenker over opplevelsene dine i naturen.",
+    "ideer": [
+      "Sov i telt, lavvo eller gapahuk en natt.",
+      "Skriv eller tegn turdagbok etterpå."
+    ]
+  },
+  "KM13587": {
+    "forklaring": "Du utforsker hvordan du kan trene og ha det bra gjennom ulike aktiviteter.",
+    "ideer": []
+  },
+  "KM13588": {
+    "forklaring": "Du trener og blir bedre i mange ulike aktiviteter.",
+    "ideer": []
+  },
+  "KM13589": {
+    "forklaring": "Du øver på danser fra ungdomskultur og andre kulturer, og lager egne danser med andre.",
+    "ideer": []
+  },
+  "KM13590": {
+    "forklaring": "Du tenker over hvordan kroppsbilder i media påvirker selvbilde og aktivitet.",
+    "ideer": []
+  },
+  "KM13591": {
+    "forklaring": "Du planlegger aktiviteter som kan gjøres selv om man er skadet eller syk.",
+    "ideer": []
+  },
+  "KM13592": {
+    "forklaring": "Du bruker det du kan til å hjelpe andre til å bli bedre.",
+    "ideer": []
+  },
+  "KM13593": {
+    "forklaring": "Du anerkjenner at folk er ulike og inkluderer alle.",
+    "ideer": []
+  },
+  "KM13594": {
+    "forklaring": "Du bruker ulike kart og digitale verktøy til å finne fram, også på ukjente steder.",
+    "ideer": []
+  },
+  "KM13598": {
+    "forklaring": "Du svømmer ulike teknikker og en lengre distanse ut fra eget mål.",
+    "ideer": []
+  },
+  "KM13595": {
+    "forklaring": "Du kan redde andre i og ved vann ute i naturen.",
+    "ideer": []
+  },
+  "KM13599": {
+    "forklaring": "Du kan livreddende førstehjelp.",
+    "ideer": []
+  },
+  "KM13596": {
+    "forklaring": "Du er på tur til ulike årstider, også med overnatting, og tenker over hva naturen betyr.",
+    "ideer": []
+  },
+  "KM13597": {
+    "forklaring": "Du vurderer risiko ved uteaktiviteter og ferdes trygt og sporløst.",
+    "ideer": []
+  }
+}
