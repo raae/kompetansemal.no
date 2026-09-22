@@ -11,7 +11,7 @@ export function getStaticPaths() {
 interface Props { fag: Fag; navn: string; maal: Maal[] }
 const { fag, navn, maal } = Astro.props;
 ---
-<Base title={`${navn} – kjerneelement i ${fag.navn.toLowerCase()}`} description={`${maal.length} kompetansemål i ${fag.navn.toLowerCase()} med kjerneelementet «${navn}», på tvers av trinn.`} fag={fag.key}>
+<Base title={`${navn} – kjerneelement i ${fag.navn.toLowerCase()}`} description={`${maal.length} kompetansemål i ${fag.navn.toLowerCase()} med kjerneelementet «${navn}», på tvers av trinn.`}>
   <section style={`--fag:var(--${fag.key})`}>
     <div class="filterbar">
       <p class="kicker">Kjerneelement i {fag.navn}</p>

@@ -1,16 +1,13 @@
 ---
 import '../styles/global.css';
-import FagNav from '../components/FagNav.astro';
 import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description: string;
-  /** Aktivt fag i navigasjonen. */
-  fag?: string;
   /** Kompakt topp (alle sider unntatt forsiden). */
   kompakt?: boolean;
 }
-const { title, description, fag, kompakt = true } = Astro.props;
+const { title, description, kompakt = true } = Astro.props;
 const fullTittel = title ? `${title} – Hva betyr målet?` : 'Hva betyr målet? Alle kompetansemål i grunnskolen på vanlig norsk';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const sokUrl = new URL('/sok.json', Astro.site).pathname;
@@ -46,7 +43,6 @@ const sokUrl = new URL('/sok.json', Astro.site).pathname;
         </form>
       </div>
     </header>
-    <FagNav aktiv={fag} />
     <main>
       <div class="wrap" id="innhold"><slot /></div>
       <div class="wrap" id="sok-resultat" hidden aria-live="polite"></div>

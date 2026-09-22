@@ -9,7 +9,7 @@ export function getStaticPaths() {
 interface Props { fag: Fag }
 const { fag } = Astro.props;
 ---
-<Base title={fag.navn} description={`Alle ${fag.antall} kompetansemål i ${fag.navn.toLowerCase()} for 1.–10. trinn, forklart på vanlig norsk.`} fag={fag.key}>
+<Base title={fag.navn} description={`Alle ${fag.antall} kompetansemål i ${fag.navn.toLowerCase()} for 1.–10. trinn, forklart på vanlig norsk.`}>
   <section style={`--fag:var(--${fag.key})`}>
     <div class="fagHead">
       <h2>{fag.navn}</h2>
