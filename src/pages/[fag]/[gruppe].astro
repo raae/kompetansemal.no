@@ -8,7 +8,6 @@ export function getStaticPaths() {
 }
 interface Props { fag: Fag; gruppe: Gruppe }
 const { fag, gruppe } = Astro.props;
-const harIdeer = gruppe.maal.some((m) => m.ideer.length);
 ---
 <Base title={`${fag.navn} ${gruppe.label}`} description={`${gruppe.maal.length} kompetansemål i ${fag.navn.toLowerCase()} for ${gruppe.label}, forklart på vanlig norsk.`} fag={fag.key}>
   <section style={`--fag:var(--${fag.key})`}>
@@ -19,7 +18,6 @@ const harIdeer = gruppe.maal.some((m) => m.ideer.length);
         {fag.grupper.map((g) => <li><a href={gruppeUrl(fag, g)} aria-current={g.slug === gruppe.slug ? 'page' : undefined}>{g.label}</a></li>)}
       </ul>
     </div>
-    {harIdeer && <p class="ki">Forklaringene og idéene under er laget med KI og kan inneholde feil. Udirs egen tekst står i hvert kort.</p>}
     {gruppe.trinn.map((t) => (
       <>
         <h3 class="trinn" id={`trinn-${t.trinn}`}>{t.label}<a href={t.udirUrl} target="_blank" rel="noopener">Les hos Udir</a></h3>

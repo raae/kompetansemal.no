@@ -119,9 +119,6 @@ li.goal,article.goal{background:var(--card);border:1px solid var(--rule);border-
 .om h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:1.4rem;margin:0 0 .4rem;color:var(--ink)}
 .om p{margin:.3rem 0}
 
-/* Merknad om KI-genererte forklaringer */
-.ki{margin:0 0 1.2rem;padding:.55rem .8rem;border:1px dashed var(--rule);border-radius:8px;font-size:.9rem;color:var(--muted)}
-
 /* Ett mål: forrige/neste */
 .pn{display:flex;justify-content:space-between;gap:1rem;margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.95rem}
 .pn a{max-width:48%;text-decoration:none}
