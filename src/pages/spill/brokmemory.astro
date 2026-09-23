@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+import { gruppeForMaal, gruppeUrl, fagUrl, maalUrl, trinnLabel } from '../../lib/data';
+import { SPILL, maalForSpill } from '../../lib/spill';
+
+const spill = SPILL.find((s) => s.slug === 'brokmemory')!;
+const maal = maalForSpill(spill);
+const { fag, gruppe } = gruppeForMaal(maal);
+const trinn = trinnLabel(maal.fag, maal.trinn);
+
+const niva = [
+  { id: 'lett', navn: 'Lett', om: 'halve, tredjedeler, fjerdedeler og femtedeler. 6 par.' },
+  { id: 'middels', navn: 'Middels', om: 'også sjettedeler, åttendedeler og tideler. 8 par.' },
+  { id: 'vanskelig', navn: 'Vanskelig', om: 'kortene i et par kan vise ulike brøker med samme verdi, som 1/2 og 3/6. 10 par.' },
+];
+const typer = [
+  { id: 'tall', navn: 'Tall', eks: '3/4', paa: true },
+  { id: 'ord', navn: 'Ord', eks: 'tre fjerdedeler', paa: true },
+  { id: 'sirkel', navn: 'Sirkel', eks: 'kake delt i biter', paa: true },
+  { id: 'rektangel', navn: 'Rektangel', eks: 'sjokoladeplate', paa: true },
+  { id: 'tallinje', navn: 'Tallinje', eks: 'punkt mellom 0 og 1', paa: false },
+  { id: 'prikker', navn: 'Prikker', eks: '3 av 4 er fylt', paa: false },
+];
+---
+<Base title={`${spill.navn}: samme brøk på ulike måter`} description="Memory-spill for 5. trinn der kortene viser samme brøk som tall, ord, sirkel, rektangel, tallinje og prikker. Spill på skjermen eller skriv ut og klipp.">
+  <section class="bm" style={`--fag:var(--${fag.key})`}>
+    <p class="crumbs"><a href={fagUrl(fag)}>{fag.navn}</a> › <a href={gruppeUrl(fag, gruppe)}>{gruppe.label}</a> › <a href={maalUrl(maal)}>{maal.kode}</a> › {spill.navn}</p>
+    <div class="fagHead">
+      <h2>{spill.navn}</h2>
+      <p>Finn to kort som viser samme brøk. Hører til målet <a href={maalUrl(maal)}>{maal.kode}</a> ({trinn}): {maal.forklaring}</p>
+    </div>
+
+    <noscript><p class="bm-melding">Spillet trenger JavaScript. Slå det på i nettleseren for å spille eller skrive ut kortene.</p></noscript>
+
+    <form class="bm-valg" id="bm-valg">
+      <fieldset>
+        <legend>Vanskelighetsgrad</legend>
+        {niva.map((n, i) => (
+          <label><input type="radio" name="niva" value={n.id} checked={i === 0} /> <b>{n.navn}</b> <small>{n.om}</small></label>
+        ))}
+      </fieldset>
+      <fieldset>
+        <legend>Hva skal kortene vise?</legend>
+        <div class="bm-typer">
+          {typer.map((t) => (
+            <label><input type="checkbox" name="vis" value={t.id} checked={t.paa} /> <b>{t.navn}</b> <small>{t.eks}</small></label>
+          ))}
+        </div>
+      </fieldset>
+      <fieldset class="bm-spillere">
+        <legend>Spillere</legend>
+        <label><input type="radio" name="spillere" value="1" checked /> Én</label>
+        <label><input type="radio" name="spillere" value="2" /> To som bytter på</label>
+      </fieldset>
+      <p class="bm-feil" id="bm-feil" role="alert" hidden></p>
+      <div class="bm-knapper">
+        <button type="submit" class="clear">Stokk og start på nytt</button>
+        <button type="button" class="clear" id="bm-skriv-ut">Skriv ut kortene</button>
+      </div>
+    </form>
+
+    <p class="bm-status" id="bm-status"></p>
+    <p class="visually-hidden" id="bm-melding" aria-live="polite"></p>
+    <ol class="bm-brett" id="bm-brett" aria-label="Kortene"></ol>
+    <div class="bm-utskrift" id="bm-utskrift" aria-hidden="true"></div>
+
+    <section class="om">
+      <h2>Slik spiller du</h2>
+      <p>Trykk på to kort. Viser de samme brøk, er det et par, og de blir liggende oppe. Hvis ikke, snus de igjen. Prøv å huske hvor kortene ligger. Med to spillere får den som finner et par, en tur til.</p>
+      <p>Vil dere spille ved bordet? Trykk «Skriv ut kortene», klipp langs de stiplede linjene og stokk. Kortene skrives ut slik du har valgt dem over.</p>
+      <h2>Tips til voksne</h2>
+      <p>Det viktigste er samtalen. Spør «Hvordan vet du at disse to er like?» når barnet finner et par. Å forklare hvorfor en tegning og et tall er samme brøk, er akkurat det målet handler om.</p>
+      <p>Begynn med tall, ord og én tegning. Legg til tallinje og prikker når det går lett. Vanskelig nivå øver på likeverdige brøker, som at 2/4 er det samme som 1/2.</p>
+    </section>
+  </section>
+  <script>
+    import { startBrokmemory } from '../../scripts/brokmemory';
+    startBrokmemory();
+  </script>
+</Base>

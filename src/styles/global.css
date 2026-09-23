@@ -138,3 +138,69 @@ h4.trinn{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;
 h4.trinn a{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.9rem;color:var(--muted)}
 h3.trinn{scroll-margin-top:1rem}
 .trinn .under{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.95rem;color:var(--muted)}
+
+/* Idé med spill */
+.goal ul.ideas a.spill-lenke{font-weight:700;color:var(--fag);white-space:nowrap}
+
+/* Brøkmemory */
+.bm-valg{background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--fag);border-radius:4px 14px 14px 4px;padding:.9rem 1.1rem 1rem;margin:0 0 1.2rem}
+.bm-valg fieldset{border:0;margin:0 0 .8rem;padding:0;min-width:0}
+.bm-valg legend{font-weight:700;padding:0;margin-bottom:.3rem}
+.bm-valg label{display:block;padding:.15rem 0;cursor:pointer}
+.bm-valg small{color:var(--muted);font-size:.88rem}
+.bm-valg input{accent-color:var(--fag);width:1.05rem;height:1.05rem;vertical-align:-.12rem;margin:0 .3rem 0 0}
+.bm-typer{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:0 1rem}
+.bm-spillere label{display:inline-block;margin-right:1.2rem}
+.bm-knapper{display:flex;flex-wrap:wrap;gap:.5rem}
+.bm-knapper .clear{font-size:.95rem}
+.bm-feil{margin:0 0 .7rem;font-weight:700;color:var(--NOR)}
+.bm-feil[hidden]{display:none}
+.bm-status{min-height:1.55em;margin:0 0 .8rem}
+.bm-status.ferdig{font-weight:700;color:var(--fag);font-size:1.15rem}
+
+.bm-brett{--kol:4;list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(var(--kol),1fr);gap:clamp(.35rem,1.5vw,.7rem);max-width:36rem}
+.bm-kort{display:block;position:relative;width:100%;aspect-ratio:5/6;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer;perspective:40rem;-webkit-tap-highlight-color:transparent}
+.bm-kort[aria-disabled="true"]{cursor:default}
+.bm-kort > span{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.bm-bak{
+  border:2px solid var(--ink);
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:12px 12px;
+  display:flex;align-items:center;justify-content:center;
+}
+.bm-bak::after{content:"?";font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:clamp(1.4rem,6vw,2.2rem);color:var(--fag);background:var(--paper);padding:0 .2em;border-radius:6px}
+.bm-kort:hover:not([aria-disabled="true"]) .bm-bak{border-color:var(--fag)}
+.bm-kort .bm-flate{transform:rotateY(180deg)}
+.bm-kort.snudd .bm-flate{transform:none}
+.bm-kort.snudd .bm-bak{transform:rotateY(-180deg)}
+.bm-kort.funnet .bm-flate{border-color:var(--fag);box-shadow:inset 0 0 0 2px var(--fag)}
+@media (prefers-reduced-motion:no-preference){ .bm-kort > span{transition:transform .35s ease} }
+
+.bm-flate{background:var(--card);border:1px solid var(--rule);border-radius:10px;display:flex;align-items:center;justify-content:center;padding:8%;text-align:center}
+.bm-flate svg{width:100%;height:100%;max-height:100%;overflow:visible}
+.bm-vis-sirkel svg{width:90%}
+.bm-flate .bm-fylt{fill:var(--fag);stroke:var(--ink);stroke-width:1.2}
+.bm-flate .bm-tom{fill:var(--card);stroke:var(--ink);stroke-width:1.2}
+.bm-flate .bm-strek{stroke:var(--ink);stroke-width:1.6;stroke-linecap:round}
+.bm-flate .bm-punkt{stroke:var(--card);stroke-width:1.5}
+.bm-flate text{fill:var(--ink);font-size:13px;font-weight:700;text-anchor:middle;font-family:"Atkinson Hyperlegible",sans-serif}
+.bm-tall{display:inline-flex;flex-direction:column;align-items:center;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:clamp(1.3rem,6vw,2.1rem);line-height:1.05}
+.bm-tall span:first-child{border-bottom:.12em solid currentColor;padding:0 .2em .05em;min-width:1.4em}
+.bm-tall span:last-child{padding-top:.05em}
+.bm-ord{font-weight:700;font-size:clamp(.7rem,3vw,1.05rem);line-height:1.2;overflow-wrap:normal;hyphens:manual}
+.bm-utskrift{display:none}
+
+@media print{
+  :root,:root[data-theme="dark"]{--paper:#fff;--ink:#000;--muted:#444;--rule:#999;--card:#fff;--soft:#fff}
+  header.top,footer,.crumbs,.fagHead,.bm-valg,.bm-status,.bm-brett,.bm .om,#sok-resultat{display:none!important}
+  main{padding:0}
+  .wrap{max-width:none;padding:0}
+  .bm-utskrift{display:block}
+  .bm-utskrift-topp{font-size:9pt;margin:0 0 4mm;color:var(--muted)}
+  .bm-utskrift ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,44mm);grid-auto-rows:52mm}
+  .bm-utskrift li{border:1px dashed #666;border-radius:0;padding:6mm;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .bm-utskrift .bm-vis-sirkel svg{width:100%}
+  .bm-utskrift .bm-tall{font-size:30pt}
+  .bm-utskrift .bm-ord{font-size:13pt}
+}

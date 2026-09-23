@@ -1,5 +1,6 @@
 ---
 import Chain from './Chain.astro';
+import { spillForIde, spillUrl } from '../lib/spill';
 import { fagMedKey, fagUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel, type Maal } from '../lib/data';
 interface Props {
   maal: Maal;
@@ -31,7 +32,12 @@ const harTags = maal.kjerneelementer.length + maal.tverrfaglige_temaer.length > 
   {maal.ideer.length > 0 && (
     <>
       <h4>Idéer til aktiviteter</h4>
-      <ul class="ideas">{maal.ideer.map((i) => <li>{i}</li>)}</ul>
+      <ul class="ideas">
+        {maal.ideer.map((i) => {
+          const spill = spillForIde(maal, i);
+          return <li>{i}{spill && <> <a class="spill-lenke" href={spillUrl(spill)}>Spill {spill.navn.toLowerCase()} her →</a></>}</li>;
+        })}
+      </ul>
     </>
   )}
   {harTags && (
