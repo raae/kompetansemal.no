@@ -162,12 +162,15 @@ export function startBrokmemory(): void {
   const feil = document.getElementById('bm-feil');
   const utskrift = document.getElementById('bm-utskrift');
   const skrivUt = document.getElementById('bm-skriv-ut');
-  if (!form || !brett || !status || !melding || !feil || !utskrift || !skrivUt) return;
+  const seksjon = form?.closest('section');
+  if (!form || !seksjon || !brett || !status || !melding || !feil || !utskrift || !skrivUt) return;
 
   let kort: Kort[] = [];
   let knapper: HTMLButtonElement[] = [];
   let oppe: number[] = [];
   let funnet = new Set<number>();
+  // Hvem som fant hvert par (0 eller 1), så kortene får fargen til spilleren.
+  let finner = new Map<number, number>();
   let forsok = 0;
   let spillere = 1;
   let tur = 0;
@@ -212,9 +215,12 @@ export function startBrokmemory(): void {
       const [p1, p2] = poeng;
       status!.textContent = p1 === p2 ? `Uavgjort! Begge fant ${p1} par.` : `Spiller ${p1 > p2 ? 1 : 2} vant med ${Math.max(p1, p2)} par mot ${Math.min(p1, p2)}!`;
     } else {
-      status!.innerHTML = `<b>Spiller ${tur + 1} sin tur.</b> Spiller 1: ${poeng[0]} par. Spiller 2: ${poeng[1]} par.`;
+      status!.innerHTML = `<b>Spiller ${tur + 1} sin tur.</b> <span class="bm-s1">Spiller 1: ${poeng[0]} par.</span> <span class="bm-s2">Spiller 2: ${poeng[1]} par.</span>`;
     }
     status!.classList.toggle('ferdig', ferdig);
+    // Rød for spiller 1, blå for spiller 2. Settes på seksjonen, så både status og brett får fargen.
+    if (spillere === 2 && !ferdig) seksjon!.dataset.tur = String(tur + 1);
+    else delete seksjon!.dataset.tur;
   }
 
   function oppdaterKnapp(i: number) {
@@ -223,6 +229,8 @@ export function startBrokmemory(): void {
     const vises = oppe.includes(i) || funnet.has(k.par);
     knapp.classList.toggle('snudd', vises);
     knapp.classList.toggle('funnet', funnet.has(k.par));
+    if (spillere === 2 && finner.has(k.par)) knapp.dataset.spiller = String(finner.get(k.par)! + 1);
+    else delete knapp.dataset.spiller;
     knapp.setAttribute('aria-disabled', String(vises));
     knapp.setAttribute('aria-label', `Kort ${i + 1}: ${vises ? beskriv(k) : 'skjult'}${funnet.has(k.par) ? ', par funnet' : ''}`);
   }
@@ -248,6 +256,7 @@ export function startBrokmemory(): void {
     const [x, y] = oppe.map((j) => kort[j]);
     if (x.par === y.par) {
       funnet.add(x.par);
+      finner.set(x.par, tur);
       poeng[tur]++;
       oppe = [];
       knapper.forEach((_, j) => oppdaterKnapp(j));
@@ -287,6 +296,7 @@ export function startBrokmemory(): void {
     kort = lagKort(v.niva, v.typer);
     oppe = [];
     funnet = new Set();
+    finner = new Map();
     forsok = 0;
     tur = 0;
     poeng = [0, 0];
