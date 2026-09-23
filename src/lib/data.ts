@@ -286,13 +286,15 @@ export interface Kloss {
   kopi: boolean;
 }
 
-export type KlossVariant = 'tre' | 'traader' | 'merker' | 'kopier' | 'rutenett';
+export type KlossVariant = 'tre' | 'traader' | 'merker' | 'kopier' | 'bikube' | 'bro' | 'rutenett';
 
 export const KLOSS_VARIANTER: { slug: KlossVariant; navn: string; forklaring: string }[] = [
   { slug: 'tre', navn: 'Tre', forklaring: 'Hvert mål står oppå ett mål det bygger på, det med høyest trinn. Andre koblinger vises bare når du trykker på et mål.' },
   { slug: 'traader', navn: 'Tråder', forklaring: 'Som «Tre», men stiplede tråder går fra hvert mål ned til de andre målene det også bygger på.' },
   { slug: 'merker', navn: 'Merker', forklaring: 'Under hver kloss står merker for alle målene den bygger på. Det fylte merket er målet den står oppå. Trykk på et merke for å hoppe dit.' },
   { slug: 'kopier', navn: 'Kopier', forklaring: 'Et mål som bygger på flere, står oppå alle. Kopiene er stripete og har ikke noe oppå seg. Trykk på en kopi for å se originalen.' },
+  { slug: 'bikube', navn: 'Bikube', forklaring: 'Sekskanter, ett lag per trinn. Hver celle hviler på to celler under seg, så et mål som bygger på to mål ved siden av hverandre, sitter rett oppå begge. Strekene går bare til mål cellen ikke rører.' },
+  { slug: 'bro', navn: 'Bro', forklaring: 'Ett lag per trinn. Et mål spenner over alle målene det bygger på i laget under, som en bro, og er bredt nok til det som står oppå det. Strekene går bare til mål det ikke står over.' },
   { slug: 'rutenett', navn: 'Rutenett', forklaring: 'Én tabell per trinn. Hver rad er et mål, og en prikk viser hvilke mål fra trinnet under det bygger på. Flere prikker i en rad betyr at målet står på flere.' },
 ];
 

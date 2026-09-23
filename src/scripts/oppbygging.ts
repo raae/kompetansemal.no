@@ -15,8 +15,6 @@ export function startOppbygging(): void {
   for (const b of stabel.querySelectorAll<HTMLButtonElement>('.blokk:not(.kopi)')) blokker.set(b.dataset.kode!, b);
   // Kopier (klosser som står oppå flere) markeres likt med originalen.
   const kopier = [...stabel.querySelectorAll<HTMLButtonElement>('.blokk.kopi')];
-  // «andre»: bare tråder til de målene klossen ikke står oppå.
-  const bareAndre = stabel.dataset.traader === 'andre';
 
   const foreldre = new Map<string, string[]>();
   const barn = new Map<string, string[]>();
@@ -31,7 +29,8 @@ export function startOppbygging(): void {
   for (const [til, p] of svg ? foreldre : [])
     for (const fra of p) {
       if (Number(blokker.get(fra)!.dataset.trinn) >= Number(blokker.get(til)!.dataset.trinn)) continue;
-      if (bareAndre && blokker.get(til)!.dataset.hoved === fra) continue;
+      // data-uten-strek: mål klossen allerede står oppå eller rører, og som ikke trenger strek.
+      if ((blokker.get(til)!.dataset.utenStrek ?? '').split(' ').includes(fra)) continue;
       const sti = document.createElementNS(SVG, 'path');
       svg!.appendChild(sti);
       kanter.push({ fra, til, sti });

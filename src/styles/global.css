@@ -224,3 +224,23 @@ aside.valgtpanel .lukk{position:absolute;top:.4rem;right:.5rem;font:inherit;font
 .rutenett tbody th .blokk span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 .rutenett td{width:1.6rem;min-width:1.6rem;text-align:center;color:var(--fag);font-size:1rem}
 .rutenett tr.flere td{background:color-mix(in srgb,var(--fag) 7%,transparent)}
+
+/* Bikube og bro: fritt plasserte klosser, ett lag per trinn */
+.flate{--u:9rem;--rad:7.6rem;--h:7rem;position:relative;margin-top:1.2rem;padding-left:5.5rem;width:calc(var(--bredde) * var(--u) + 5.5rem);height:calc((var(--lag) - 1) * var(--rad) + var(--h))}
+.flate.bikube{--h:10.39rem;--rad:7.8rem}
+.flate .streker{position:absolute;inset:0;pointer-events:none;overflow:visible;z-index:2}
+.flate .streker path{stroke:var(--muted);stroke-dasharray:4 4;opacity:.6}
+.flate .streker path.paa{stroke:var(--fag);opacity:1;stroke-dasharray:none}
+.flate ol{list-style:none;margin:0;padding:0}
+.flate li{position:absolute;left:calc(5.5rem + var(--x) * var(--u));top:calc(var(--y) * var(--rad));width:calc(var(--b) * var(--u) - 4px);height:var(--h);display:flex;z-index:1}
+.flate-lagnavn{position:absolute;left:0;top:calc(var(--y) * var(--rad) + var(--h) / 2 - .7em);width:5rem;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:.85rem;line-height:1.15;color:var(--muted)}
+.flate .blokk span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.flate.bro li{height:calc(var(--rad) - 4px)}
+.flate.bro .blokk{border-radius:3px;border-bottom-width:4px}
+.flate .kontekst .blokk:not(.valgt){border-style:dashed;color:var(--muted)}
+/* Sekskant med spissen opp. Kanten er en litt større sekskant bak. */
+.flate.bikube li{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--rule);padding:2px}
+.flate.bikube li:has(.valgt),.flate.bikube li:has(.under),.flate.bikube li:has(.over){background:var(--fag)}
+.flate.bikube .blokk{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);border:0;border-radius:0;justify-content:center;align-items:center;text-align:center;padding:1.6rem .9rem;font-size:.76rem;line-height:1.25}
+.flate.bikube .blokk span{-webkit-line-clamp:5}
+.flate.bikube .kontekst .blokk:not(.valgt){background:var(--soft)}

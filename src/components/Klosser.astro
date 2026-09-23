@@ -6,7 +6,7 @@ const { variant } = Astro.props;
 const { kolonner, rader, klosser: alle } = klosser(Astro.props.lag, { kopier: variant === 'kopier' });
 ---
 <div class="klosser-rulle">
-  <div class="klosser-flate" id="stabel" data-traader={variant === 'traader' ? 'andre' : undefined}>
+  <div class="klosser-flate" id="stabel">
     {variant === 'traader' && <svg class="streker traader" aria-hidden="true"></svg>}
     <ol class="klosser" style={`--kolonner:${kolonner};--rader:${rader}`}>
       {alle.map((k) => (
@@ -17,7 +17,7 @@ const { kolonner, rader, klosser: alle } = klosser(Astro.props.lag, { kopier: va
               <span>{k.maal.forklaring}</span>
             </button>
           ) : (
-            <button type="button" class="blokk" id={k.maal.kode} data-kode={k.maal.kode} data-hoved={k.hoved} data-bygger={byggerPaaKoder(k.maal).join(' ')} data-trinn={k.maal.trinn} data-url={maalUrl(k.maal)} data-udir={k.maal.udir} data-trinnlabel={trinnLabel(k.maal.fag, k.maal.trinn)}>
+            <button type="button" class="blokk" id={k.maal.kode} data-kode={k.maal.kode} data-uten-strek={variant === 'traader' ? k.hoved : undefined} data-bygger={byggerPaaKoder(k.maal).join(' ')} data-trinn={k.maal.trinn} data-url={maalUrl(k.maal)} data-udir={k.maal.udir} data-trinnlabel={trinnLabel(k.maal.fag, k.maal.trinn)}>
               <small>{k.maal.kode} · {trinnLabel(k.maal.fag, k.maal.trinn)}{variant !== 'merker' && k.paa.length > 1 && <b class="flere" title={`Bygger på ${k.paa.length} mål`}> · på {k.paa.length}</b>}</small>
               <span>{k.maal.forklaring}</span>
             </button>

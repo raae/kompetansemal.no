@@ -3,6 +3,7 @@ import Base from '../../../../layouts/Base.astro';
 import FagNav from '../../../../components/FagNav.astro';
 import KlossFaner from '../../../../components/KlossFaner.astro';
 import Klosser from '../../../../components/Klosser.astro';
+import Flate from '../../../../components/Flate.astro';
 import Rutenett from '../../../../components/Rutenett.astro';
 import { ALLE_FAG, KLOSS_VARIANTER, fagUrl, oppbyggingForGruppe, type Fag, type Gruppe, type KlossVariant } from '../../../../lib/data';
 
@@ -25,6 +26,6 @@ const lag = oppbyggingForGruppe(fag, gruppe);
       <FagNav fag={fag} gruppe={gruppe} visning="klosser" />
       <KlossFaner fag={fag} gruppe={gruppe} variant={variant} />
     </div>
-    {variant === 'rutenett' ? <Rutenett lag={lag} /> : <Klosser lag={lag} variant={variant} />}
+    {variant === 'rutenett' ? <Rutenett lag={lag} /> : variant === 'bikube' || variant === 'bro' ? <Flate lag={lag} form={variant} /> : <Klosser lag={lag} variant={variant} />}
   </section>
 </Base>
