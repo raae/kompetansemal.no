@@ -1,0 +1,24 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Goal from '../../../components/Goal.astro';
+import { ALLE_FAG, emnerForFag, fagUrl, type Fag, type Maal } from '../../../lib/data';
+
+export function getStaticPaths() {
+  return ALLE_FAG.flatMap((fag) =>
+    emnerForFag(fag).map((e) => ({ params: { fag: fag.slug, slug: e.slug }, props: { fag, navn: e.navn, maal: e.maal } })),
+  );
+}
+interface Props { fag: Fag; navn: string; maal: Maal[] }
+const { fag, navn, maal } = Astro.props;
+---
+<Base title={`${navn} – emne i ${fag.navn.toLowerCase()}`} description={`${maal.length} kompetansemål i ${fag.navn.toLowerCase()} om ${navn.toLowerCase()}, på tvers av trinn.`}>
+  <section style={`--fag:var(--${fag.key})`}>
+    <div class="filterbar">
+      <p class="kicker">Emne i {fag.navn}</p>
+      <h2 style="color:var(--fag)">{navn}</h2>
+      <p>{maal.length} mål fordelt på trinn. Emnene er vår egen inndeling, ikke Udirs.</p>
+      <a class="clear" href={fagUrl(fag)}>Tilbake til {fag.navn}</a>
+    </div>
+    <ol class="goals">{maal.map((m) => <Goal maal={m} visTrinn />)}</ol>
+  </section>
+</Base>

@@ -1,13 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GruppeInnhold from '../../components/GruppeInnhold.astro';
-import { ALLE_FAG, fagUrl, type Fag } from '../../lib/data';
+import { ALLE_FAG, emnerForFag, emneUrl, fagUrl, type Fag } from '../../lib/data';
 
 export function getStaticPaths() {
   return ALLE_FAG.map((fag) => ({ params: { fag: fag.slug }, props: { fag } }));
 }
 interface Props { fag: Fag }
 const { fag } = Astro.props;
+const emner = emnerForFag(fag);
 ---
 <Base title={fag.navn} description={`Alle ${fag.antall} kompetansemål i ${fag.navn.toLowerCase()} for 1.–10. trinn, forklart på vanlig norsk.`}>
   <section style={`--fag:var(--${fag.key})`}>
@@ -17,6 +18,10 @@ const { fag } = Astro.props;
       <ul class="jump" aria-label="Trinn">
         <li><a href={fagUrl(fag)} aria-current="page">Alle trinn</a></li>
         {fag.grupper.map((g) => <li><a href={`#${g.slug}`}>{g.label}</a></li>)}
+      </ul>
+      <p class="kicker emnekicker">Emner</p>
+      <ul class="tags emneliste" aria-label="Emner">
+        {emner.map((e) => <li><a class="emne" href={emneUrl(fag, e.navn)}>{e.navn} <span>{e.maal.length}</span></a></li>)}
       </ul>
     </div>
     {fag.grupper.map((g) => <GruppeInnhold gruppe={g} medGruppeOverskrift />)}

@@ -21,6 +21,7 @@ const BASE = 'https://data.udir.no/kl06/v201906';
 const ROT = new URL('../', import.meta.url);
 const UDIR_FIL = new URL('data/udir.json', ROT);
 const FORKLARINGER_FIL = new URL('data/forklaringer.json', ROT);
+const EMNER_FIL = new URL('data/emner.json', ROT);
 const STATUS_PUBLISERT = 'https://data.udir.no/kl06/v201906/status/status_publisert';
 
 // ---------- henting ----------
@@ -227,6 +228,9 @@ async function main() {
   const forklaringUtenMaal = Object.keys(forklaringer).filter((k) => !alleKoder.has(k));
   console.log(`Mål som mangler forklaring (${manglerForklaring.length}): ${manglerForklaring.join(', ') || '–'}`);
   console.log(`Forklaringer uten mål (${forklaringUtenMaal.length}): ${forklaringUtenMaal.join(', ') || '–'}`);
+  const emner = existsSync(EMNER_FIL) ? JSON.parse(await readFile(EMNER_FIL, 'utf8')) : {};
+  const manglerEmne = maal.filter((m) => !emner[m.fag]?.maal[m.kode]?.length).map((m) => m.kode);
+  console.log(`Mål som mangler emne i data/emner.json (${manglerEmne.length}): ${manglerEmne.join(', ') || '–'}`);
 }
 
 main().catch((feil) => {

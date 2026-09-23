@@ -73,6 +73,11 @@ li.goal,article.goal{background:var(--card);border:1px solid var(--rule);border-
 .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.8rem;padding:0;list-style:none}
 .tags a{display:inline-block;text-decoration:none;font:inherit;font-size:.8rem;border:1px solid var(--rule);background:transparent;border-radius:999px;padding:.15rem .6rem;color:var(--muted)}
 .tags a:hover{border-color:var(--fag);color:var(--ink)}
+.tags a.emne{border-color:var(--fag);color:var(--ink);font-weight:700}
+.tags a.emne:hover{background:var(--fag);color:var(--paper)}
+.tags a.emne span{font-weight:400;opacity:.7}
+.emnekicker{margin-top:.8rem}
+.emneliste{margin-top:.3rem}
 .tags a.tv{border-style:dashed}
 .tags a.tv::before{content:"◆ ";color:var(--fag)}
 .filterbar{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .9rem;margin:0 0 1rem}
