@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import { fagMedKey, fagUrl, gruppeUrl, maalUrl, trinnLabel } from '../../lib/data';
+import { ENGELSK_NAVN, maksStjerner, nivaerMedMaal } from '../../lib/engelsk';
+
+const fag = fagMedKey('ENG')!;
+const gruppe = fag.grupper.find((g) => g.slug === '5-7')!;
+const nivaer = nivaerMedMaal();
+const antallOrd = nivaer.reduce((n, { niva }) => n + niva.ord.length, 0);
+
+// Målene nivåene øver på, til klientskriptet (som ikke kan lese data.ts).
+const maalTilKlient = Object.fromEntries(
+  nivaer.map(({ maal }) => [maal.kode, { url: maalUrl(maal), forklaring: maal.forklaring, trinn: trinnLabel(maal.fag, maal.trinn) }]),
+);
+---
+<Base
+  title={`${ENGELSK_NAVN}: øv på engelsk nivå for nivå`}
+  description={`Øv på engelsk for 5.–7. trinn, litt som Duolingo: ${nivaer.length} nivåer med ord, setninger og grammatikk, poeng og stjerner. Uten konto, alt lagres bare i nettleseren.`}
+>
+  <section class="es" id="es" style={`--fag:var(--${fag.key})`}>
+    <p class="crumbs"><a href={fagUrl(fag)}>{fag.navn}</a> › <a href={gruppeUrl(fag, gruppe)}>{gruppe.label}</a> › {ENGELSK_NAVN}</p>
+    <div class="fagHead">
+      <h2>{ENGELSK_NAVN}</h2>
+      <p>Øv på engelsk nivå for nivå, litt som Duolingo, men uten stress. For {gruppe.label}. {nivaer.length} nivåer og {antallOrd} ord. Alt lagres bare i nettleseren.</p>
+    </div>
+
+    <noscript><p class="es-melding">Spillet trenger JavaScript. Slå det på i nettleseren for å spille. Nivåene står under.</p></noscript>
+
+    <script type="application/json" id="es-maal" set:html={JSON.stringify(maalTilKlient)} />
+
+    <div id="es-app" data-stjerner={maksStjerner()}>
+      <ol class="es-kart es-statisk" aria-label="Nivåene">
+        {nivaer.map(({ niva, maal }, i) => (
+          <li class="es-niva">
+            <span class="es-rund" aria-hidden="true">{niva.emoji}</span>
+            <div>
+              <b>{i + 1}. {niva.navn}</b>
+              <p class="es-om">{niva.om}</p>
+              <p class="es-maalref">Øver på <a href={maalUrl(maal)}>{maal.kode}</a>: {maal.forklaring}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <section class="om">
+      <h2>Slik virker det</h2>
+      <p>Velg navn og avatar, og start på det første nivået. Hver runde har ti oppgaver: velg riktig oversettelse, bygg setningen av ordbrikker, skriv ordet som mangler, eller lytt og velg det du hørte. Svarer du feil, kommer oppgaven tilbake senere i runden, så du får prøve igjen. Du kan ikke tape.</p>
+      <p>Du får poeng for hvert riktige svar og bonus for hver runde. Fullfører du en runde, får du én stjerne, og neste nivå låses opp. Åtte riktige på første forsøk gir to stjerner, og alle ti gir tre. Spill et nivå flere ganger: oppgavene blir litt vanskeligere for hver stjerne, og ord du har bommet på kommer oftere.</p>
+      <p>Opplesingen bruker stemmen som er innebygd i nettleseren. Er det ingen engelsk stemme, får du de andre oppgavetypene i stedet.</p>
+      <h2>Lagring</h2>
+      <p>Navn, avatar, poeng og stjerner lagres bare i nettleseren på denne enheten. Ingen konto, ingen innlogging, ingenting sendes noe sted. Bruker du en annen nettleser eller sletter nettleserdata, starter du på nytt.</p>
+      <h2>Tips til voksne</h2>
+      <p>Nivåene følger kompetansemålene i engelsk etter 7. trinn. Hvert nivå lenker til målet det øver på, så du kan lese hva Udir egentlig ber om. Ordforrådet og setningene er skrevet av oss med hjelp av KI og kan inneholde feil.</p>
+      <p>Sitt gjerne sammen den første runden. Spør «hvorfor ble det feil?» når en oppgave kommer tilbake, og les setningene høyt sammen. Det er lov å hoppe rett til et nivå barnet trenger, så snart det er låst opp.</p>
+    </section>
+  </section>
+  <script>
+    import { startEngelsk } from '../../scripts/engelsk';
+    startEngelsk();
+  </script>
+</Base>

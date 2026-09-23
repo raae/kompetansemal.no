@@ -20,6 +20,7 @@ Byggingen leser bare fra `data/` og gjør **ingen** nettverkskall.
 |---|---|
 | `data/forklaringer.json` | **Vårt eget innhold.** Nøkkel er kompetansemålkoden, verdien er `{ forklaring, ideer[] }`. Redigeres for hånd. Forklaringene og idéene er laget med hjelp av KI, og det står på siden. |
 | `data/udir.json` | Rådata fra Udirs Grep-API (NLOD), uten våre forklaringer. Skrives av `npm run hent-udir` og sjekkes inn. Har også `laereplaner` med versjon og gyldig-fra-dato per fag. |
+| `data/engelsk.json` | **Vårt eget innhold.** Nivåene i Engelskstigen (`/spill/engelsk/`): ord, setninger, utfyllinger og staveord, hvert nivå knyttet til et engelskmål. Redigeres for hånd. `src/lib/engelsk.ts` sjekker innholdet ved bygging og feiler høyt ved feil. |
 
 De to filene slås sammen ved bygging i `src/lib/data.ts`.
 
@@ -59,6 +60,7 @@ Andre ting å vite:
 | `/kjerneelement/[fag]/[slug]/` | Alle mål i faget med kjerneelementet |
 | `/tema/[slug]/` | Alle mål i alle fag med det tverrfaglige temaet |
 | `/sok.json` | Søkeindeks for søket på klientsiden |
+| `/spill/engelsk/` | Engelskstigen: øv på engelsk for 5.–7. trinn, litt som Duolingo. Nivåer, poeng, stjerner og avatar, lagret bare i nettleseren (`localStorage`). Opplesing bruker nettleserens `speechSynthesis`. |
 
 Trinngrupper: 1–2, 3–4, 5–7 og 8–10. KRLE og mat og helse har ikke mål etter 2. trinn og får 1–4, 5–7 og 8–10. Matte har mål per trinn og merkes «5. trinn». Andre fag merkes med gruppa, f.eks. «5.–7. trinn».
 

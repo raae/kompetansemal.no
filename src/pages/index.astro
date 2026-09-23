@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { ALLE_FAG, alleMaal, fagUrl, gruppeUrl, tverrfagligeTemaer, temaUrl } from '../lib/data';
+import { ENGELSK, ENGELSK_NAVN, ENGELSK_URL } from '../lib/engelsk';
 const antall = alleMaal().length;
 const temaer = tverrfagligeTemaer();
 ---
@@ -18,6 +19,10 @@ const temaer = tverrfagligeTemaer();
       </li>
     ))}
   </ul>
+  <section class="om">
+    <h2>Øv</h2>
+    <p><a href={ENGELSK_URL}>{ENGELSK_NAVN}</a>: øv på engelsk nivå for nivå, litt som Duolingo, men uten stress. {ENGELSK.nivaer.length} nivåer for 5.–7. trinn, med poeng, stjerner og egen avatar. Alt lagres bare i nettleseren.</p>
+  </section>
   <section class="om">
     <h2>Tverrfaglige temaer</h2>
     <p>

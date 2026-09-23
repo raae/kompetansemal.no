@@ -141,3 +141,126 @@ h4.trinn{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;
 h4.trinn a{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.9rem;color:var(--muted)}
 h3.trinn{scroll-margin-top:1rem}
 .trinn .under{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.95rem;color:var(--muted)}
+
+/* Engelskstigen (/spill/engelsk/) */
+.es{--ok:var(--NAT);--nei:var(--NOR)}
+.es-melding{font-weight:700;color:var(--NOR)}
+#es-app{margin:0 0 1.5rem}
+.es-knapp{display:inline-block;font:inherit;font-weight:700;cursor:pointer;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:.5rem 1.1rem;min-height:2.75rem;line-height:1.2}
+.es-knapp:hover{border-color:var(--fag)}
+.es-knapp.primar{background:var(--fag);border-color:var(--fag);color:var(--paper)}
+.es-knapp.primar:hover{filter:brightness(1.08)}
+.es-knapp.stor{font-size:1.15rem;padding:.7rem 1.6rem}
+.es-knapp.liten{font-size:.85rem;min-height:2.2rem;padding:.25rem .8rem}
+.es-knapp:disabled{opacity:.45;cursor:default}
+.es-lenkeknapp{font:inherit;font-size:.95rem;font-weight:700;background:none;border:0;padding:.3rem 0;color:var(--muted);text-decoration:underline;cursor:pointer}
+.es-lenkeknapp:hover{color:var(--ink)}
+.es-knapper{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem;align-items:center}
+.es-input{width:100%;font:inherit;font-size:1.15rem;padding:.6rem .9rem;border:2px solid var(--ink);border-radius:12px;background:var(--card);color:var(--ink)}
+.es-feil{margin:.6rem 0 0;font-weight:700;color:var(--nei)}
+.es-feil[hidden]{display:none}
+.es-om{margin:.15rem 0 0;color:var(--muted);font-size:.95rem;display:block}
+.es-hint{margin:.4rem 0 0;color:var(--muted);font-size:.95rem}
+.es-maalref{margin:.3rem 0 0;font-size:.9rem;color:var(--muted)}
+.es-maalref a{font-weight:700;color:var(--fag)}
+.es-hor{font:inherit;font-size:1.1rem;line-height:1;background:var(--soft);border:0;border-radius:999px;width:2.2rem;height:2.2rem;cursor:pointer;vertical-align:middle;color:var(--ink)}
+.es-hor:hover{background:var(--rule)}
+.es-hor.stor{width:4.2rem;height:4.2rem;font-size:2rem;border:2px solid var(--fag)}
+
+/* Profil */
+.es-profil{background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--fag);border-radius:4px 14px 14px 4px;padding:1rem 1.1rem 1.2rem}
+.es-profil h3,.es-ark h3,.es-ferdig h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:1.6rem;margin:0 0 .6rem;line-height:1.1}
+.es-profil label,.es-ledetekst{display:block;font-weight:700;margin:.8rem 0 .3rem}
+.es-avatarer{display:grid;grid-template-columns:repeat(auto-fill,minmax(3.4rem,1fr));gap:.5rem}
+.es-avatarvalg{font:inherit;font-size:2rem;line-height:1;aspect-ratio:1;border:2px solid var(--rule);border-radius:14px;background:var(--paper);cursor:pointer;padding:0}
+.es-avatarvalg:hover{border-color:var(--fag)}
+.es-avatarvalg[aria-checked="true"]{border-color:var(--fag);box-shadow:0 0 0 3px var(--fag);background:var(--card)}
+.es-nullstill{margin:1.2rem 0 0;font-size:.9rem}
+
+/* Topplinje */
+.es-topp{display:flex;align-items:center;gap:.7rem;background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:.35rem .6rem .35rem .45rem;margin:0 0 1rem}
+.es-avatar{font-size:1.7rem;line-height:1;width:2.6rem;height:2.6rem;display:grid;place-items:center;background:var(--soft);border-radius:999px;flex:none}
+.es-hvem{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.es-hvem b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.es-poeng{font-size:.85rem;color:var(--muted)}
+.es-stjerner{color:var(--SAF);letter-spacing:.05em;font-size:1.05rem;display:inline-block;margin-top:.15rem}
+.es-stjerner.stor{font-size:2.4rem;display:block;text-align:center;margin:.2rem 0}
+
+/* Kart */
+.es-kart{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.es-niva{display:flex;align-items:center;gap:.9rem;background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:.7rem .9rem}
+.es-niva.laast{opacity:.6;background:var(--soft)}
+.es-niva.ferdig{border-color:var(--SAF)}
+.es-nivaknapp{display:flex;align-items:center;gap:.9rem;width:100%;text-align:left;font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;border-radius:12px}
+.es-nivaknapp:hover .es-rund{border-color:var(--fag);transform:scale(1.05)}
+.es-nivatekst{display:flex;flex-direction:column;min-width:0}
+.es-rund{flex:none;width:3.4rem;height:3.4rem;display:grid;place-items:center;font-size:1.7rem;line-height:1;background:var(--paper);border:3px solid var(--rule);border-radius:999px}
+.es-rund.stor{width:4.4rem;height:4.4rem;font-size:2.3rem;border-color:var(--fag)}
+.es-niva:not(.laast) .es-rund{border-color:var(--fag)}
+@media (prefers-reduced-motion:no-preference){ .es-rund{transition:transform .15s,border-color .15s} }
+.es-kart.es-statisk .es-niva b{display:block}
+
+/* Nivåark */
+.es-ark{background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--fag);border-radius:4px 14px 14px 4px;padding:1rem 1.1rem 1.2rem}
+.es-tilbakelenke{margin:0 0 .6rem}
+.es-arkhode{display:flex;align-items:center;gap:1rem}
+.es-arkhode h3{margin-bottom:.2rem}
+.es-ordliste{margin-top:1.2rem;border-top:1px solid var(--rule);padding-top:.6rem}
+.es-ordliste summary{cursor:pointer;font-weight:700}
+.es-ordliste ul{margin:.5rem 0 0;padding:0;list-style:none;columns:2;column-gap:1.5rem;font-size:.95rem}
+.es-ordliste li{break-inside:avoid;padding:.15rem 0}
+.es-ordliste li [lang=en]{font-weight:700}
+@media (max-width:30rem){ .es-ordliste ul{columns:1} }
+
+/* Runde */
+.es-rundehode{display:flex;align-items:center;gap:.7rem;margin:0 0 1rem}
+.es-lukk{font:inherit;font-weight:700;font-size:1.1rem;background:none;border:0;color:var(--muted);cursor:pointer;width:2.4rem;height:2.4rem;border-radius:999px;flex:none}
+.es-lukk:hover{background:var(--soft);color:var(--ink)}
+.es-framdrift{flex:1;height:.9rem;background:var(--soft);border-radius:999px;overflow:hidden;border:1px solid var(--rule)}
+.es-framdrift span{display:block;height:100%;background:var(--fag);border-radius:999px;min-width:0}
+@media (prefers-reduced-motion:no-preference){ .es-framdrift span{transition:width .3s} }
+.es-rundepoeng{font-weight:700;color:var(--fag);flex:none;min-width:3ch;text-align:right}
+.es-oppgave{background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--fag);border-radius:4px 14px 14px 4px;padding:1rem 1.1rem 1.2rem}
+.es-instruks{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.05rem;margin:0 0 .6rem;color:var(--muted)}
+.es-tekst{font-size:1.45rem;font-weight:700;line-height:1.35;margin:0 0 .6rem}
+.es-lyd{display:flex;gap:.7rem;margin:.2rem 0 1rem}
+.es-valg{display:grid;gap:.5rem;margin-top:.8rem}
+.es-valgknapp{font:inherit;font-size:1.1rem;text-align:left;background:var(--paper);color:var(--ink);border:2px solid var(--rule);border-radius:12px;padding:.7rem .9rem;cursor:pointer;min-height:3rem}
+.es-valgknapp:hover:not(:disabled){border-color:var(--fag)}
+.es-valgknapp:disabled{cursor:default;opacity:.6}
+.es-valgknapp.riktigvalg:disabled{opacity:1;border-color:var(--ok);box-shadow:inset 0 0 0 1px var(--ok);font-weight:700}
+.es-valgknapp.feilvalg:disabled{opacity:1;border-color:var(--nei);box-shadow:inset 0 0 0 1px var(--nei);text-decoration:line-through}
+.es-svarrad.riktigvalg{border-bottom-color:var(--ok)}
+.es-svarrad.feilvalg{border-bottom-color:var(--nei)}
+.es-svarrad.feilvalg .es-brikke:disabled{border-color:var(--nei)}
+.es-svarrad.riktigvalg .es-brikke:disabled{border-color:var(--ok)}
+.es-input.riktigvalg:disabled{border-color:var(--ok)}
+.es-input.feilvalg:disabled{border-color:var(--nei)}
+.es-svarrad{min-height:3.4rem;display:flex;flex-wrap:wrap;gap:.4rem;align-content:flex-start;padding:.4rem 0 .5rem;border-bottom:2px solid var(--rule);margin:.2rem 0 .9rem}
+.es-brikker{display:flex;flex-wrap:wrap;gap:.4rem;min-height:3rem}
+.es-brikke{font:inherit;font-size:1.1rem;font-weight:700;background:var(--paper);color:var(--ink);border:2px solid var(--rule);border-bottom-width:4px;border-radius:10px;padding:.35rem .7rem;cursor:pointer;min-height:2.5rem}
+.es-brikke:hover:not(:disabled){border-color:var(--fag)}
+.es-svarrad .es-brikke{border-color:var(--fag)}
+.es-brikke:disabled{cursor:default}
+.es-skriv{margin-top:.6rem}
+.es-hopp{margin:1rem 0 0;font-size:.9rem}
+
+/* Tilbakemelding: fast nederst, som i Duolingo */
+.es-tilbake{position:sticky;bottom:0;margin:.8rem -1.1rem 0;padding:.9rem 1.1rem calc(1rem + env(safe-area-inset-bottom,0px));border-top:3px solid var(--ok);background:var(--card);box-shadow:0 -6px 20px rgba(0,0,0,.08)}
+.es-tilbake.feil{border-top-color:var(--nei)}
+.es-tilbake .es-ros{margin:0;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:1.3rem;color:var(--ok)}
+.es-tilbake.feil .es-ros{color:var(--nei)}
+.es-tilbake .es-fasit{margin:.25rem 0 0;font-size:1.15rem;font-weight:700}
+.es-tilbake .es-knapper{margin-top:.7rem}
+.es-tilbake.riktig .es-knapp.primar{background:var(--ok);border-color:var(--ok)}
+.es-tilbake.feil .es-knapp.primar{background:var(--nei);border-color:var(--nei)}
+
+/* Ferdig */
+.es-ferdig{text-align:center;background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:1.4rem 1.1rem 1.5rem}
+.es-storavatar{font-size:3.4rem;line-height:1;margin:0 0 .5rem}
+.es-ferdig .es-tall{margin:.2rem 0;font-weight:700;font-size:1.15rem}
+.es-ferdig .es-tall .es-hint{font-weight:400}
+.es-ferdig .es-om{margin:.6rem auto 0;max-width:30rem}
+.es-ferdig .es-knapper{justify-content:center;margin-top:1.2rem}
+.spilltips{margin:0 0 1rem;padding:.6rem .9rem;background:var(--card);border:1px solid var(--rule);border-left:6px solid var(--fag);border-radius:4px 12px 12px 4px}
+.spilltips a{font-weight:700}
