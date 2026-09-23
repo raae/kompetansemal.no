@@ -1,0 +1,37 @@
+---
+// Én rad med filterpiller. «Alle» først, så et skille, så ett valg per verdi.
+// Uten `href` blir valgene knapper som filtrerer lista på siden (se scripts/filter.ts),
+// og valget lagres i URL-en som ?navn=a,b så det kan bokmerkes.
+// Med `href` blir valgene vanlige lenker (brukt på trinnsidene).
+interface Valg {
+  verdi: string;
+  label: string;
+  href?: string;
+  valgt?: boolean;
+}
+interface Props {
+  /** Navnet i URL-en, f.eks. «trinn» gir ?trinn=5-7. */
+  navn: string;
+  /** Overskrift for skjermlesere, f.eks. «Trinn». */
+  tittel: string;
+  alle: { label: string; href?: string; valgt?: boolean };
+  valg: Valg[];
+}
+const { navn, tittel, alle, valg } = Astro.props;
+const lenker = alle.href !== undefined;
+---
+<div class="filter" role="group" aria-label={tittel} data-filter={lenker ? undefined : navn}>
+  {lenker ? (
+    <a href={alle.href} data-alle aria-current={alle.valgt ? 'page' : undefined} data-behold-filter>{alle.label}</a>
+  ) : (
+    <button type="button" data-alle aria-pressed="true">{alle.label}</button>
+  )}
+  <span class="skille" aria-hidden="true"></span>
+  {valg.map((v) =>
+    lenker ? (
+      <a href={v.href} aria-current={v.valgt ? 'page' : undefined} data-behold-filter>{v.label}</a>
+    ) : (
+      <button type="button" data-verdi={v.verdi} aria-pressed="false">{v.label}</button>
+    ),
+  )}
+</div>
