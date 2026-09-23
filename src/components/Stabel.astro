@@ -1,0 +1,36 @@
+---
+import { byggerPaaKoder, maalUrl, type Lag } from '../lib/data';
+interface Props { lag: Lag[] }
+// Tidligste trinn nederst, som byggeklosser.
+const lag = [...Astro.props.lag].reverse();
+---
+<div class="stabel" id="stabel">
+  <svg class="streker" aria-hidden="true"></svg>
+  {lag.map((l) => (
+    <div class:list={['lag', { kontekst: l.kontekst }]}>
+      <h3 class="lagnavn">{l.label}{l.kontekst && <span class="under"> – det gruppa bygger på</span>}</h3>
+      <ol>
+        {l.maal.map((m) => (
+          <li>
+            <button type="button" class="blokk" id={m.kode} data-kode={m.kode} data-bygger={byggerPaaKoder(m).join(' ')} data-trinn={m.trinn} data-url={maalUrl(m)} data-udir={m.udir} data-trinnlabel={l.label}>
+              <small>{m.kode}</small>
+              <span>{m.forklaring}</span>
+            </button>
+          </li>
+        ))}
+      </ol>
+    </div>
+  ))}
+</div>
+<aside class="valgtpanel" id="valgt" hidden aria-live="polite">
+  <button type="button" class="lukk" aria-label="Fjern markering">×</button>
+  <p class="meta"></p>
+  <p class="plain"></p>
+  <p class="udir"></p>
+  <p class="tall"></p>
+  <a class="aapne" href="#">Åpne målet →</a>
+</aside>
+<script>
+  import { startOppbygging } from '../scripts/oppbygging';
+  startOppbygging();
+</script>

@@ -141,7 +141,7 @@ h3.trinn{scroll-margin-top:1rem}
 
 /* Oppbygging: målene stablet trinn for trinn, tidligste nederst */
 .wrap.bred{max-width:92rem}
-.wrap.bred .fagHead{max-width:44rem}
+
 .stabel{position:relative;margin-top:1.4rem}
 .stabel .streker{position:absolute;inset:0;pointer-events:none;overflow:visible}
 .streker path{fill:none;stroke:var(--rule);stroke-width:1.5}
@@ -174,3 +174,13 @@ aside.valgtpanel .lukk{position:absolute;top:.4rem;right:.5rem;font:inherit;font
 .chain .stige a{color:var(--fag);font-weight:700;text-decoration:none}
 .chain .stige a:hover{text-decoration:underline}
 @media (max-width:30rem){ .lag li{width:calc(50% - .35rem)} }
+.fagnav{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 1rem;margin:.2rem 0 .4rem}
+.fagnav .jump{margin:0}
+.visning{display:inline-flex;margin:0;padding:2px;list-style:none;border:1px solid var(--rule);border-radius:999px;background:var(--card)}
+.visning a{display:inline-block;text-decoration:none;font-size:.88rem;font-weight:700;border-radius:999px;padding:.2rem .8rem;color:var(--muted)}
+.visning a:hover{color:var(--ink)}
+.visning a[aria-current]{background:var(--ink);color:var(--paper)}
+.wrap.bred .fagHead{max-width:none}
+.wrap.bred .fagHead p{max-width:44rem}
+.lag.kontekst .blokk{border-style:dashed;border-bottom-style:solid;border-bottom-color:var(--rule);color:var(--muted)}
+.lagnavn .under{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.9rem;color:var(--muted)}

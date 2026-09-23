@@ -123,6 +123,10 @@ export function gruppeUrl(fag: Fag, gruppe: Gruppe): string {
   return `/${fag.slug}/${gruppe.slug}/`;
 }
 
+export function oppbyggingUrl(fag: Fag, gruppe?: Gruppe): string {
+  return `${gruppe ? gruppeUrl(fag, gruppe) : fagUrl(fag)}oppbygging/`;
+}
+
 export function kjerneelementUrl(fag: Fag, navn: string): string {
   return `/kjerneelement/${fag.slug}/${slug(navn)}/`;
 }
@@ -190,6 +194,8 @@ export interface Lag {
   trinn: number;
   label: string;
   maal: Maal[];
+  /** Laget under en trinngruppe: vises tonet ned, bare med målene gruppa bygger på. */
+  kontekst?: boolean;
 }
 
 /** Hvilke mål i samme fag dette målet bygger på, som koder. */
@@ -244,6 +250,20 @@ export function oppbygging(fag: Fag): Lag[] {
     }
   }
   return best.map((maal) => ({ trinn: maal[0].trinn, label: trinnLabel(fag.key, maal[0].trinn), maal }));
+}
+
+/**
+ * Oppbyggingen for én trinngruppe: lagene i gruppa, og under dem målene fra laget
+ * rett under som gruppa bygger på direkte.
+ */
+export function oppbyggingForGruppe(fag: Fag, gruppe: Gruppe): Lag[] {
+  const alle = oppbygging(fag);
+  const iGruppe = alle.filter((l) => l.trinn >= gruppe.fra && l.trinn <= gruppe.til);
+  const under = alle.findLast((l) => l.trinn < gruppe.fra);
+  if (!under || !iGruppe.length) return iGruppe;
+  const trenger = new Set(iGruppe[0].maal.flatMap(byggerPaaKoder));
+  const maal = under.maal.filter((m) => trenger.has(m.kode));
+  return maal.length ? [{ ...under, maal, kontekst: true }, ...iGruppe] : iGruppe;
 }
 
 /** Når læreplanversjonene gjelder fra, som «1. august 2026», hvis alle er like. */
