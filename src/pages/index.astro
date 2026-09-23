@@ -4,8 +4,8 @@ import { ALLE_FAG, alleMaal, fagUrl, gruppeUrl, tverrfagligeTemaer, temaUrl } fr
 const antall = alleMaal().length;
 const temaer = tverrfagligeTemaer();
 ---
-<Base description={`Alle ${antall} kompetansemål i grunnskolen, 1.–10. trinn, oversatt til vanlig norsk. Med idéer til aktiviteter for 5.–7. trinn.`} kompakt={false}>
-  <p class="lede" slot="lede">Alle kompetansemålene i grunnskolen, 1.–10. trinn, oversatt til vanlig norsk. Idéer til aktiviteter finnes foreløpig for 5.–7. trinn. Titlene og idéene er laget med KI og kan inneholde feil.</p>
+<Base description={`Alle ${antall} kompetansemål i grunnskolen, 1.–10. trinn, oversatt til vanlig norsk, med idéer til aktiviteter.`} kompakt={false}>
+  <p class="lede" slot="lede">Alle kompetansemålene i grunnskolen, 1.–10. trinn, oversatt til vanlig norsk, med idéer til aktiviteter. Titlene og idéene er laget med KI og kan inneholde feil.</p>
   <h2 class="visually-hidden">Velg fag</h2>
   <ul class="fagliste">
     {ALLE_FAG.map((f) => (
