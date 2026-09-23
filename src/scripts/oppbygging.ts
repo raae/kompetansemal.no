@@ -8,11 +8,15 @@ export function startOppbygging(): void {
   if (!stabelEl || !panelEl) return;
   const stabel: HTMLElement = stabelEl;
   const panel: HTMLElement = panelEl;
-  // Klossene har ingen streker: der viser plasseringen hva som bygger på hva.
+  // Noen visninger har ingen streker: der viser plasseringen hva som bygger på hva.
   const svg = stabel.querySelector('svg');
 
   const blokker = new Map<string, HTMLButtonElement>();
-  for (const b of stabel.querySelectorAll<HTMLButtonElement>('.blokk')) blokker.set(b.dataset.kode!, b);
+  for (const b of stabel.querySelectorAll<HTMLButtonElement>('.blokk:not(.kopi)')) blokker.set(b.dataset.kode!, b);
+  // Kopier (klosser som står oppå flere) markeres likt med originalen.
+  const kopier = [...stabel.querySelectorAll<HTMLButtonElement>('.blokk.kopi')];
+  // «andre»: bare tråder til de målene klossen ikke står oppå.
+  const bareAndre = stabel.dataset.traader === 'andre';
 
   const foreldre = new Map<string, string[]>();
   const barn = new Map<string, string[]>();
@@ -27,6 +31,7 @@ export function startOppbygging(): void {
   for (const [til, p] of svg ? foreldre : [])
     for (const fra of p) {
       if (Number(blokker.get(fra)!.dataset.trinn) >= Number(blokker.get(til)!.dataset.trinn)) continue;
+      if (bareAndre && blokker.get(til)!.dataset.hoved === fra) continue;
       const sti = document.createElementNS(SVG, 'path');
       svg!.appendChild(sti);
       kanter.push({ fra, til, sti });
@@ -64,7 +69,7 @@ export function startOppbygging(): void {
     stabel.classList.toggle('har-valg', !!valgt);
     if (oppdaterHash) history.replaceState(null, '', valgt ? `#${valgt}` : location.pathname + location.search);
     if (!valgt) {
-      for (const b of blokker.values()) b.classList.remove('under', 'over', 'valgt'), b.removeAttribute('aria-pressed');
+      for (const b of [...blokker.values(), ...kopier]) b.classList.remove('under', 'over', 'valgt'), b.removeAttribute('aria-pressed');
       for (const k of kanter) k.sti.classList.remove('paa');
       panel.hidden = true;
       return;
@@ -76,6 +81,12 @@ export function startOppbygging(): void {
       b.classList.toggle('under', k !== valgt && under.has(k));
       b.classList.toggle('over', k !== valgt && over.has(k));
       b.setAttribute('aria-pressed', String(k === valgt));
+    }
+    for (const b of kopier) {
+      const k = b.dataset.kode!;
+      b.classList.toggle('valgt', k === valgt);
+      b.classList.toggle('under', k !== valgt && under.has(k));
+      b.classList.toggle('over', k !== valgt && over.has(k));
     }
     for (const k of kanter) k.sti.classList.toggle('paa', (under.has(k.fra) && under.has(k.til)) || (over.has(k.fra) && over.has(k.til)));
     // Løft de markerte strekene over de andre.

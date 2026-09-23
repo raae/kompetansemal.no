@@ -1,0 +1,12 @@
+---
+import { KLOSS_VARIANTER, klosserUrl, type Fag, type Gruppe, type KlossVariant } from '../lib/data';
+interface Props { fag: Fag; gruppe?: Gruppe; variant: KlossVariant }
+const { fag, gruppe, variant } = Astro.props;
+const valgt = KLOSS_VARIANTER.find((v) => v.slug === variant)!;
+---
+<div class="faner">
+  <ul role="list" aria-label="Måter å vise klossene på">
+    {KLOSS_VARIANTER.map((v) => <li><a href={klosserUrl(fag, gruppe, v.slug)} aria-current={v.slug === variant ? 'page' : undefined}>{v.navn}</a></li>)}
+  </ul>
+  <p>{valgt.forklaring}</p>
+</div>

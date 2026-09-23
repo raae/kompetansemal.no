@@ -1,0 +1,38 @@
+---
+import Valgtpanel from './Valgtpanel.astro';
+import { byggerPaaKoder, maalUrl, rutenett, trinnLabel, type Lag } from '../lib/data';
+interface Props { lag: Lag[] }
+// Nyeste trinn øverst, som i stablene.
+const tabeller = rutenett(Astro.props.lag).reverse();
+---
+<div id="stabel" class="rutenett">
+  {tabeller.map((t) => (
+    <section class="rutenett-lag">
+      <h3 class="lagnavn">{t.over.label} <span class="under">bygger på {t.under.label}</span></h3>
+      <div class="klosser-rulle">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" class="hjorne"><span class="visually-hidden">Mål</span></th>
+              {t.under.maal.map((u) => <th scope="col" class="kol" title={u.forklaring}><a href={maalUrl(u)}>{u.kode.replace('KM', '')}</a></th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {t.rader.map((r) => (
+              <tr class:list={[{ flere: t.under.maal.filter((u) => r.paa.has(u.kode)).length > 1 }]}>
+                <th scope="row">
+                  <button type="button" class="blokk" id={r.maal.kode} data-kode={r.maal.kode} data-bygger={byggerPaaKoder(r.maal).join(' ')} data-trinn={r.maal.trinn} data-url={maalUrl(r.maal)} data-udir={r.maal.udir} data-trinnlabel={trinnLabel(r.maal.fag, r.maal.trinn)}>
+                    <small>{r.maal.kode}</small>
+                    <span>{r.maal.forklaring}</span>
+                  </button>
+                </th>
+                {t.under.maal.map((u) => <td>{r.paa.has(u.kode) && <span class="prikk" title={`Bygger på ${u.kode}: ${u.forklaring}`}>●</span>}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ))}
+</div>
+<Valgtpanel />

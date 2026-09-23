@@ -56,7 +56,7 @@ Andre ting å vite:
 | `/[fag]/` | Alle målene i et fag, med hopp til hver trinngruppe |
 | `/[fag]/oppbygging/` | Alle målene i et fag stablet trinn for trinn, tidligste nederst, med streker for «bygger på». Trykk på et mål for å markere hele kjeden. `#KODE` i URL-en velger et mål |
 | `/[fag]/[gruppe]/oppbygging/` | Oppbyggingen for én trinngruppe. Under gruppa, tonet ned, står målene fra laget rett under som gruppa bygger på |
-| `/[fag]/klosser/`, `/[fag]/[gruppe]/klosser/` | Målene som klosser: hvert mål står oppå ett mål det bygger på (det med høyest trinn), og er like bredt som alt som står oppå det. Raden er høyden i stabelen, ikke trinnet |
+| `/[fag]/klosser/[variant]/`, `/[fag]/[gruppe]/klosser/[variant]/` | Målene som klosser: hvert mål står oppå ett mål det bygger på (det med høyest trinn), og er like bredt som alt som står oppå det. Raden er høyden i stabelen, ikke trinnet. Fanene (`KLOSS_VARIANTER` i `data.ts`) viser mål som bygger på flere på ulike måter: tre (uten variant i URL-en), tråder, merker, kopier og rutenett |
 | `/[fag]/[gruppe]/` | Målene i et fag for én trinngruppe, f.eks. `/matte/5-7/` |
 | `/mal/[kode]/` | Ett mål, med «Bygger på og fører til» åpent og lenker til forrige og neste |
 | `/kjerneelement/[fag]/[slug]/` | Alle mål i faget med kjerneelementet |

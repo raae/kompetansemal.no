@@ -1,0 +1,28 @@
+---
+import Base from '../../../layouts/Base.astro';
+import FagNav from '../../../components/FagNav.astro';
+import KlossFaner from '../../../components/KlossFaner.astro';
+import Klosser from '../../../components/Klosser.astro';
+import Rutenett from '../../../components/Rutenett.astro';
+import { ALLE_FAG, KLOSS_VARIANTER, fagUrl, oppbygging, type Fag, type KlossVariant } from '../../../lib/data';
+
+export function getStaticPaths() {
+  return ALLE_FAG.flatMap((fag) =>
+    KLOSS_VARIANTER.map((v) => ({ params: { fag: fag.slug, variant: v.slug === 'tre' ? undefined : v.slug }, props: { fag, variant: v.slug } })),
+  );
+}
+interface Props { fag: Fag; variant: KlossVariant }
+const { fag, variant } = Astro.props;
+const lag = oppbygging(fag);
+---
+<Base title={`Klosser i ${fag.navn.toLowerCase()}`} description={`Alle ${fag.antall} kompetansemål i ${fag.navn.toLowerCase()} som klosser: hvert mål står oppå det det bygger på.`} bred>
+  <section style={`--fag:var(--${fag.key})`}>
+    <div class="fagHead">
+      <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
+      <p>Hvert mål står oppå det det bygger på, og en kloss er like bred som alt som står oppå den. Fanene viser ulike måter å vise mål som bygger på flere mål. Trykk på et mål for å se hele kjeden.</p>
+      <FagNav fag={fag} visning="klosser" />
+      <KlossFaner fag={fag} variant={variant} />
+    </div>
+    {variant === 'rutenett' ? <Rutenett lag={lag} /> : <Klosser lag={lag} variant={variant} />}
+  </section>
+</Base>

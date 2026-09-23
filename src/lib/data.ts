@@ -127,8 +127,8 @@ export function oppbyggingUrl(fag: Fag, gruppe?: Gruppe): string {
   return `${gruppe ? gruppeUrl(fag, gruppe) : fagUrl(fag)}oppbygging/`;
 }
 
-export function klosserUrl(fag: Fag, gruppe?: Gruppe): string {
-  return `${gruppe ? gruppeUrl(fag, gruppe) : fagUrl(fag)}klosser/`;
+export function klosserUrl(fag: Fag, gruppe?: Gruppe, variant: KlossVariant = 'tre'): string {
+  return `${gruppe ? gruppeUrl(fag, gruppe) : fagUrl(fag)}klosser/${variant === 'tre' ? '' : `${variant}/`}`;
 }
 
 export function kjerneelementUrl(fag: Fag, navn: string): string {
@@ -278,48 +278,81 @@ export interface Kloss {
   /** Rad fra toppen (1-basert). Grunnmuren ligger i nederste rad. */
   rad: number;
   kontekst: boolean;
+  /** Målet klossen står oppå. */
+  hoved?: string;
+  /** Alle mål i visningen som målet bygger på, det klossen står oppå først. */
+  paa: string[];
+  /** En kopi av et mål som står oppå et annet mål det også bygger på. */
+  kopi: boolean;
 }
+
+export type KlossVariant = 'tre' | 'traader' | 'merker' | 'kopier' | 'rutenett';
+
+export const KLOSS_VARIANTER: { slug: KlossVariant; navn: string; forklaring: string }[] = [
+  { slug: 'tre', navn: 'Tre', forklaring: 'Hvert mål står oppå ett mål det bygger på, det med høyest trinn. Andre koblinger vises bare når du trykker på et mål.' },
+  { slug: 'traader', navn: 'Tråder', forklaring: 'Som «Tre», men stiplede tråder går fra hvert mål ned til de andre målene det også bygger på.' },
+  { slug: 'merker', navn: 'Merker', forklaring: 'Under hver kloss står merker for alle målene den bygger på. Det fylte merket er målet den står oppå. Trykk på et merke for å hoppe dit.' },
+  { slug: 'kopier', navn: 'Kopier', forklaring: 'Et mål som bygger på flere, står oppå alle. Kopiene er stripete og har ikke noe oppå seg. Trykk på en kopi for å se originalen.' },
+  { slug: 'rutenett', navn: 'Rutenett', forklaring: 'Én tabell per trinn. Hver rad er et mål, og en prikk viser hvilke mål fra trinnet under det bygger på. Flere prikker i en rad betyr at målet står på flere.' },
+];
 
 /**
  * Klosser: hvert mål står oppå ett mål det bygger på, og er like bredt som alt som
  * står oppå det. Et mål som bygger på flere, står oppå det siste av dem (høyest trinn).
+ * Med `kopier` står en smal kopi også oppå hvert av de andre.
  * Raden er hvor høyt i stabelen målet står, ikke trinnet.
  */
-export function klosser(lag: Lag[]): { kolonner: number; rader: number; klosser: Kloss[] } {
+export function klosser(lag: Lag[], { kopier = false } = {}): { kolonner: number; rader: number; klosser: Kloss[] } {
   const rekkefolge = lag.flatMap((l) => l.maal);
   const indeks = new Map(rekkefolge.map((m, i) => [m.kode, i]));
   const kontekst = new Set(lag.filter((l) => l.kontekst).flatMap((l) => l.maal.map((m) => m.kode)));
-  const oppaa = new Map<string, Maal[]>();
-  const roter: Maal[] = [];
+  type Node = { maal: Maal; kopi: boolean };
+  const oppaa = new Map<string, Node[]>();
+  const paa = new Map<string, string[]>();
+  const roter: Node[] = [];
   for (const m of rekkefolge) {
     const under = byggerPaaKoder(m)
       .map((k) => PER_KODE.get(k)!)
       .filter((p) => indeks.has(p.kode) && p.trinn < m.trinn)
-      .sort((a, b) => b.trinn - a.trinn || indeks.get(a.kode)! - indeks.get(b.kode)!)[0];
-    if (under) oppaa.set(under.kode, [...(oppaa.get(under.kode) ?? []), m]);
-    else roter.push(m);
+      .sort((a, b) => b.trinn - a.trinn || indeks.get(a.kode)! - indeks.get(b.kode)!);
+    paa.set(m.kode, under.map((p) => p.kode));
+    const legg = (p: Maal, n: Node) => oppaa.set(p.kode, [...(oppaa.get(p.kode) ?? []), n]);
+    if (under.length) legg(under[0], { maal: m, kopi: false });
+    else roter.push({ maal: m, kopi: false });
+    if (kopier) for (const p of under.slice(1)) legg(p, { maal: m, kopi: true });
   }
-  const bredde = new Map<string, number>();
-  const hoyde = new Map<string, number>();
-  const mal = (m: Maal): void => {
-    const barn = oppaa.get(m.kode) ?? [];
+  const barnAv = (n: Node) => (n.kopi ? [] : (oppaa.get(n.maal.kode) ?? []));
+  const bredde = new Map<Node, number>();
+  const hoyde = new Map<Node, number>();
+  const mal = (n: Node): void => {
+    const barn = barnAv(n);
     barn.forEach(mal);
-    bredde.set(m.kode, barn.reduce((s, b) => s + bredde.get(b.kode)!, 0) || 1);
-    hoyde.set(m.kode, 1 + Math.max(0, ...barn.map((b) => hoyde.get(b.kode)!)));
+    bredde.set(n, barn.reduce((s, b) => s + bredde.get(b)!, 0) || 1);
+    hoyde.set(n, 1 + Math.max(0, ...barn.map((b) => hoyde.get(b)!)));
   };
   roter.forEach(mal);
   // De bredeste stablene først, så mål som står alene samles til høyre.
-  roter.sort((a, b) => bredde.get(b.kode)! - bredde.get(a.kode)! || indeks.get(a.kode)! - indeks.get(b.kode)!);
-  const rader = Math.max(1, ...roter.map((r) => hoyde.get(r.kode)!));
+  roter.sort((a, b) => bredde.get(b)! - bredde.get(a)! || indeks.get(a.maal.kode)! - indeks.get(b.maal.kode)!);
+  const rader = Math.max(1, ...roter.map((r) => hoyde.get(r)!));
   const ut: Kloss[] = [];
-  const plasser = (m: Maal, kolonne: number, dybde: number): void => {
-    ut.push({ maal: m, kolonne, bredde: bredde.get(m.kode)!, rad: rader - dybde, kontekst: kontekst.has(m.kode) });
+  const plasser = (n: Node, kolonne: number, dybde: number): void => {
+    const p = paa.get(n.maal.kode)!;
+    ut.push({ maal: n.maal, kolonne, bredde: bredde.get(n)!, rad: rader - dybde, kontekst: kontekst.has(n.maal.kode), hoved: p[0], paa: p, kopi: n.kopi });
     let k = kolonne;
-    for (const b of oppaa.get(m.kode) ?? []) (plasser(b, k, dybde + 1), (k += bredde.get(b.kode)!));
+    for (const b of barnAv(n)) (plasser(b, k, dybde + 1), (k += bredde.get(b)!));
   };
   let k = 1;
-  for (const r of roter) (plasser(r, k, 0), (k += bredde.get(r.kode)!));
+  for (const r of roter) (plasser(r, k, 0), (k += bredde.get(r)!));
   return { kolonner: k - 1, rader, klosser: ut };
+}
+
+/** Rutenett: for hvert lag over det nederste, hvilke mål i laget under hvert mål bygger på. */
+export function rutenett(lag: Lag[]): { over: Lag; under: Lag; rader: { maal: Maal; paa: Set<string> }[] }[] {
+  return lag.slice(1).map((over, i) => ({
+    over,
+    under: lag[i],
+    rader: over.maal.map((m) => ({ maal: m, paa: new Set(byggerPaaKoder(m)) })),
+  }));
 }
 
 /** Når læreplanversjonene gjelder fra, som «1. august 2026», hvis alle er like. */

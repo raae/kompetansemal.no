@@ -143,7 +143,7 @@ h3.trinn{scroll-margin-top:1rem}
 .wrap.bred{max-width:92rem}
 
 .stabel{position:relative;margin-top:1.4rem}
-.stabel .streker{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.stabel .streker,.klosser-flate .streker{position:absolute;inset:0;pointer-events:none;overflow:visible}
 .streker path{fill:none;stroke:var(--rule);stroke-width:1.5}
 .streker path.paa{stroke:var(--fag);stroke-width:2.5}
 .lag{position:relative;padding:.4rem 0 3.2rem}
@@ -192,3 +192,35 @@ aside.valgtpanel .lukk{position:absolute;top:.4rem;right:.5rem;font:inherit;font
 .klosser .blokk{border-radius:4px;border-bottom-width:4px}
 .klosser .blokk span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
 .klosser .kontekst .blokk:not(.valgt){border-style:dashed;border-bottom-style:solid;border-bottom-color:var(--rule);color:var(--muted)}
+
+/* Klosser: faner for ulike måter å vise mål som bygger på flere */
+.faner{margin:.8rem 0 0}
+.faner ul{display:flex;flex-wrap:wrap;gap:0;margin:0;padding:0;list-style:none;border-bottom:2px solid var(--rule)}
+.faner a{display:inline-block;text-decoration:none;font-size:.92rem;font-weight:700;color:var(--muted);padding:.35rem .9rem;margin-bottom:-2px;border-bottom:3px solid transparent}
+.faner a:hover{color:var(--ink)}
+.faner a[aria-current]{color:var(--fag);border-bottom-color:var(--fag)}
+.faner p{margin:.6rem 0 0;font-size:.95rem}
+.klosser-flate{position:relative;min-width:min-content}
+.klosser-flate .streker.traader{z-index:2}
+.streker.traader path{stroke:var(--muted);stroke-dasharray:4 4;opacity:.55}
+.streker.traader path.paa{stroke:var(--fag);opacity:1;stroke-dasharray:6 3}
+.klosser li{flex-direction:column;position:relative;z-index:1}
+.klosser .blokk .flere{color:var(--fag)}
+.klosser .blokk.valgt .flere{color:var(--paper)}
+.klosser .blokk.kopi{background:repeating-linear-gradient(135deg,var(--card) 0 8px,var(--soft) 8px 16px);border-style:dashed;color:var(--muted)}
+.klosser .blokk.kopi.valgt{background:var(--fag);color:var(--paper)}
+.klosser .blokk.kopi small{font-style:italic}
+.klosser .merker{display:flex;flex-wrap:wrap;gap:3px;margin:3px 0 0;padding:0;list-style:none}
+.klosser .merke{display:inline-block;font-size:.68rem;font-weight:700;text-decoration:none;border:1.5px solid var(--fag);color:var(--fag);border-radius:3px 3px 8px 8px;padding:0 .35rem;background:var(--card)}
+.klosser .merke.hoved{background:var(--fag);color:var(--paper)}
+.rutenett-lag{margin-top:1.4rem}
+.rutenett table{border-collapse:collapse;font-size:.8rem}
+.rutenett th,.rutenett td{border:1px solid var(--rule);padding:0}
+.rutenett thead th.kol{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:700;padding:.3rem .15rem;color:var(--muted);white-space:nowrap}
+.rutenett thead th.kol a{text-decoration:none}
+.rutenett thead th.hjorne{border:0}
+.rutenett tbody th{width:18rem;min-width:14rem;text-align:left;font-weight:400}
+.rutenett tbody th .blokk{width:100%;border:0;border-radius:0;border-left:4px solid var(--fag)}
+.rutenett tbody th .blokk span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.rutenett td{width:1.6rem;min-width:1.6rem;text-align:center;color:var(--fag);font-size:1rem}
+.rutenett tr.flere td{background:color-mix(in srgb,var(--fag) 7%,transparent)}
