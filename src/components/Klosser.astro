@@ -1,0 +1,19 @@
+---
+import Valgtpanel from './Valgtpanel.astro';
+import { byggerPaaKoder, klosser, maalUrl, trinnLabel, type Lag } from '../lib/data';
+interface Props { lag: Lag[] }
+const { kolonner, rader, klosser: alle } = klosser(Astro.props.lag);
+---
+<div class="klosser-rulle">
+  <ol class="klosser" id="stabel" style={`--kolonner:${kolonner};--rader:${rader}`}>
+    {alle.map((k) => (
+      <li class:list={[{ kontekst: k.kontekst }]} style={`grid-column:${k.kolonne} / span ${k.bredde};grid-row:${k.rad}`}>
+        <button type="button" class="blokk" id={k.maal.kode} data-kode={k.maal.kode} data-bygger={byggerPaaKoder(k.maal).join(' ')} data-trinn={k.maal.trinn} data-url={maalUrl(k.maal)} data-udir={k.maal.udir} data-trinnlabel={trinnLabel(k.maal.fag, k.maal.trinn)}>
+          <small>{k.maal.kode} · {trinnLabel(k.maal.fag, k.maal.trinn)}</small>
+          <span>{k.maal.forklaring}</span>
+        </button>
+      </li>
+    ))}
+  </ol>
+</div>
+<Valgtpanel />

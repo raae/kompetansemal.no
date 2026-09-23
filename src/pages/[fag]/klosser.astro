@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import FagNav from '../../components/FagNav.astro';
+import Klosser from '../../components/Klosser.astro';
+import { ALLE_FAG, fagUrl, oppbygging, type Fag } from '../../lib/data';
+
+export function getStaticPaths() {
+  return ALLE_FAG.map((fag) => ({ params: { fag: fag.slug }, props: { fag } }));
+}
+interface Props { fag: Fag }
+const { fag } = Astro.props;
+---
+<Base title={`Klosser i ${fag.navn.toLowerCase()}`} description={`Alle ${fag.antall} kompetansemål i ${fag.navn.toLowerCase()} som klosser: hvert mål står oppå det det bygger på.`} bred>
+  <section style={`--fag:var(--${fag.key})`}>
+    <div class="fagHead">
+      <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
+      <p>Hvert mål står oppå et mål det bygger på, og en kloss er like bred som alt som står oppå den. De brede klossene nederst er grunnmuren. Trykk på et mål for å se hele kjeden, også koblinger klossene ikke viser.</p>
+      <FagNav fag={fag} visning="klosser" />
+    </div>
+    <Klosser lag={oppbygging(fag)} />
+  </section>
+</Base>

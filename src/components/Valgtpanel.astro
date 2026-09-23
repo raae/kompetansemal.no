@@ -1,0 +1,16 @@
+---
+// Panelet som viser målet man har trykket på, og skriptet som styrer markeringen.
+// Brukes av både oppbyggingen og klossene. Forventer et element med id="stabel".
+---
+<aside class="valgtpanel" id="valgt" hidden aria-live="polite">
+  <button type="button" class="lukk" aria-label="Fjern markering">×</button>
+  <p class="meta"></p>
+  <p class="plain"></p>
+  <p class="udir"></p>
+  <p class="tall"></p>
+  <a class="aapne" href="#">Åpne målet →</a>
+</aside>
+<script>
+  import { startOppbygging } from '../scripts/oppbygging';
+  startOppbygging();
+</script>

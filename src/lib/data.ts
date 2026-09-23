@@ -127,6 +127,10 @@ export function oppbyggingUrl(fag: Fag, gruppe?: Gruppe): string {
   return `${gruppe ? gruppeUrl(fag, gruppe) : fagUrl(fag)}oppbygging/`;
 }
 
+export function klosserUrl(fag: Fag, gruppe?: Gruppe): string {
+  return `${gruppe ? gruppeUrl(fag, gruppe) : fagUrl(fag)}klosser/`;
+}
+
 export function kjerneelementUrl(fag: Fag, navn: string): string {
   return `/kjerneelement/${fag.slug}/${slug(navn)}/`;
 }
@@ -264,6 +268,58 @@ export function oppbyggingForGruppe(fag: Fag, gruppe: Gruppe): Lag[] {
   const trenger = new Set(iGruppe[0].maal.flatMap(byggerPaaKoder));
   const maal = under.maal.filter((m) => trenger.has(m.kode));
   return maal.length ? [{ ...under, maal, kontekst: true }, ...iGruppe] : iGruppe;
+}
+
+export interface Kloss {
+  maal: Maal;
+  /** Første kolonne (1-basert) og hvor mange kolonner klossen dekker. */
+  kolonne: number;
+  bredde: number;
+  /** Rad fra toppen (1-basert). Grunnmuren ligger i nederste rad. */
+  rad: number;
+  kontekst: boolean;
+}
+
+/**
+ * Klosser: hvert mål står oppå ett mål det bygger på, og er like bredt som alt som
+ * står oppå det. Et mål som bygger på flere, står oppå det siste av dem (høyest trinn).
+ * Raden er hvor høyt i stabelen målet står, ikke trinnet.
+ */
+export function klosser(lag: Lag[]): { kolonner: number; rader: number; klosser: Kloss[] } {
+  const rekkefolge = lag.flatMap((l) => l.maal);
+  const indeks = new Map(rekkefolge.map((m, i) => [m.kode, i]));
+  const kontekst = new Set(lag.filter((l) => l.kontekst).flatMap((l) => l.maal.map((m) => m.kode)));
+  const oppaa = new Map<string, Maal[]>();
+  const roter: Maal[] = [];
+  for (const m of rekkefolge) {
+    const under = byggerPaaKoder(m)
+      .map((k) => PER_KODE.get(k)!)
+      .filter((p) => indeks.has(p.kode) && p.trinn < m.trinn)
+      .sort((a, b) => b.trinn - a.trinn || indeks.get(a.kode)! - indeks.get(b.kode)!)[0];
+    if (under) oppaa.set(under.kode, [...(oppaa.get(under.kode) ?? []), m]);
+    else roter.push(m);
+  }
+  const bredde = new Map<string, number>();
+  const hoyde = new Map<string, number>();
+  const mal = (m: Maal): void => {
+    const barn = oppaa.get(m.kode) ?? [];
+    barn.forEach(mal);
+    bredde.set(m.kode, barn.reduce((s, b) => s + bredde.get(b.kode)!, 0) || 1);
+    hoyde.set(m.kode, 1 + Math.max(0, ...barn.map((b) => hoyde.get(b.kode)!)));
+  };
+  roter.forEach(mal);
+  // De bredeste stablene først, så mål som står alene samles til høyre.
+  roter.sort((a, b) => bredde.get(b.kode)! - bredde.get(a.kode)! || indeks.get(a.kode)! - indeks.get(b.kode)!);
+  const rader = Math.max(1, ...roter.map((r) => hoyde.get(r.kode)!));
+  const ut: Kloss[] = [];
+  const plasser = (m: Maal, kolonne: number, dybde: number): void => {
+    ut.push({ maal: m, kolonne, bredde: bredde.get(m.kode)!, rad: rader - dybde, kontekst: kontekst.has(m.kode) });
+    let k = kolonne;
+    for (const b of oppaa.get(m.kode) ?? []) (plasser(b, k, dybde + 1), (k += bredde.get(b.kode)!));
+  };
+  let k = 1;
+  for (const r of roter) (plasser(r, k, 0), (k += bredde.get(r.kode)!));
+  return { kolonner: k - 1, rader, klosser: ut };
 }
 
 /** Når læreplanversjonene gjelder fra, som «1. august 2026», hvis alle er like. */

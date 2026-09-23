@@ -1,0 +1,23 @@
+---
+import Base from '../../../layouts/Base.astro';
+import FagNav from '../../../components/FagNav.astro';
+import Klosser from '../../../components/Klosser.astro';
+import { ALLE_FAG, fagUrl, oppbyggingForGruppe, type Fag, type Gruppe } from '../../../lib/data';
+
+export function getStaticPaths() {
+  return ALLE_FAG.flatMap((fag) => fag.grupper.map((gruppe) => ({ params: { fag: fag.slug, gruppe: gruppe.slug }, props: { fag, gruppe } })));
+}
+interface Props { fag: Fag; gruppe: Gruppe }
+const { fag, gruppe } = Astro.props;
+const lag = oppbyggingForGruppe(fag, gruppe);
+---
+<Base title={`Klosser i ${fag.navn.toLowerCase()} ${gruppe.label}`} description={`${gruppe.maal.length} kompetansemål i ${fag.navn.toLowerCase()} for ${gruppe.label} som klosser: hvert mål står oppå det det bygger på.`} bred>
+  <section style={`--fag:var(--${fag.key})`}>
+    <div class="fagHead">
+      <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
+      <p>Målene for {gruppe.label} som klosser. Hvert mål står oppå et mål det bygger på.{lag[0]?.kontekst && ' Grunnmuren med stiplet kant er målene fra trinnet før.'} Trykk på et mål for å se hele kjeden.</p>
+      <FagNav fag={fag} gruppe={gruppe} visning="klosser" />
+    </div>
+    <Klosser lag={lag} />
+  </section>
+</Base>

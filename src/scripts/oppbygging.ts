@@ -8,7 +8,8 @@ export function startOppbygging(): void {
   if (!stabelEl || !panelEl) return;
   const stabel: HTMLElement = stabelEl;
   const panel: HTMLElement = panelEl;
-  const svg = stabel.querySelector('svg') as SVGSVGElement;
+  // Klossene har ingen streker: der viser plasseringen hva som bygger på hva.
+  const svg = stabel.querySelector('svg');
 
   const blokker = new Map<string, HTMLButtonElement>();
   for (const b of stabel.querySelectorAll<HTMLButtonElement>('.blokk')) blokker.set(b.dataset.kode!, b);
@@ -23,15 +24,16 @@ export function startOppbygging(): void {
 
   // Bare streker mellom ulike trinn. Noen få mål er koblet innenfor samme trinn.
   const kanter: { fra: string; til: string; sti: SVGPathElement }[] = [];
-  for (const [til, p] of foreldre)
+  for (const [til, p] of svg ? foreldre : [])
     for (const fra of p) {
       if (Number(blokker.get(fra)!.dataset.trinn) >= Number(blokker.get(til)!.dataset.trinn)) continue;
       const sti = document.createElementNS(SVG, 'path');
-      svg.appendChild(sti);
+      svg!.appendChild(sti);
       kanter.push({ fra, til, sti });
     }
 
   function tegn(): void {
+    if (!svg) return;
     const r = stabel.getBoundingClientRect();
     svg.setAttribute('width', String(r.width));
     svg.setAttribute('height', String(r.height));
@@ -77,7 +79,7 @@ export function startOppbygging(): void {
     }
     for (const k of kanter) k.sti.classList.toggle('paa', (under.has(k.fra) && under.has(k.til)) || (over.has(k.fra) && over.has(k.til)));
     // Løft de markerte strekene over de andre.
-    for (const k of kanter) if (k.sti.classList.contains('paa')) svg.appendChild(k.sti);
+    for (const k of kanter) if (k.sti.classList.contains('paa')) svg!.appendChild(k.sti);
 
     const b = blokker.get(valgt)!;
     const [meta, plain, udir, tall] = panel.querySelectorAll('p');
