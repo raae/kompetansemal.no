@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import GruppeInnhold from '../../components/GruppeInnhold.astro';
 import Filter from '../../components/Filter.astro';
+import FilterStart from '../../components/FilterStart.astro';
 import { ALLE_FAG, kjerneelementerForFag, type Fag } from '../../lib/data';
 
 export function getStaticPaths() {
@@ -20,6 +21,7 @@ const kjerne = kjerneelementerForFag(fag);
       <Filter navn="kjerne" tittel="Kjerneelement" alle={{ label: 'Alle kjerneelementer' }} valg={kjerne.map((k) => ({ verdi: k.slug, label: k.navn }))} />
       <p class="filterstatus" data-filter-status aria-live="polite" hidden></p>
     </div>
+    <FilterStart />
     <div class="maalliste" data-filtrert>
       {fag.grupper.map((g) => <GruppeInnhold gruppe={g} medGruppeOverskrift />)}
     </div>

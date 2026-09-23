@@ -79,6 +79,8 @@ export function startFilter(): void {
 
   let valgt = lesUrl();
   vis(valgt);
+  // Forhåndsvisningen fra FilterStart.astro er ikke lenger nødvendig.
+  document.getElementById('filter-start')?.remove();
 
   for (const rad of rader) {
     rad.addEventListener('click', (e) => {
