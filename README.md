@@ -54,6 +54,7 @@ Andre ting å vite:
 |---|---|
 | `/` | Forside med søk og fagvalg |
 | `/[fag]/` | Alle målene i et fag, med hopp til hver trinngruppe |
+| `/[fag]/oppbygging/` | Alle målene i et fag stablet trinn for trinn, tidligste nederst, med streker for «bygger på». Trykk på et mål for å markere hele kjeden. `#KODE` i URL-en velger et mål |
 | `/[fag]/[gruppe]/` | Målene i et fag for én trinngruppe, f.eks. `/matte/5-7/` |
 | `/mal/[kode]/` | Ett mål, med «Bygger på og fører til» åpent og lenker til forrige og neste |
 | `/kjerneelement/[fag]/[slug]/` | Alle mål i faget med kjerneelementet |

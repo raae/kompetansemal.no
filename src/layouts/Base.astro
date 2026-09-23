@@ -6,8 +6,10 @@ interface Props {
   description: string;
   /** Kompakt topp (alle sider unntatt forsiden). */
   kompakt?: boolean;
+  /** Bredere innholdsflate (oppbyggingen). */
+  bred?: boolean;
 }
-const { title, description, kompakt = true } = Astro.props;
+const { title, description, kompakt = true, bred = false } = Astro.props;
 const fullTittel = title ? `${title} – Hva betyr målet?` : 'Hva betyr målet? Alle kompetansemål i grunnskolen på vanlig norsk';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const sokUrl = new URL('/sok.json', Astro.site).pathname;
@@ -44,7 +46,7 @@ const sokUrl = new URL('/sok.json', Astro.site).pathname;
       </div>
     </header>
     <main>
-      <div class="wrap" id="innhold"><slot /></div>
+      <div class:list={['wrap', { bred }]} id="innhold"><slot /></div>
       <div class="wrap" id="sok-resultat" hidden aria-live="polite"></div>
     </main>
     <Footer />

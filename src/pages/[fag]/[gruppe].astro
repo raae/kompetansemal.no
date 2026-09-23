@@ -17,6 +17,7 @@ const { fag, gruppe } = Astro.props;
       <ul class="jump" aria-label="Trinn">
         <li><a href={fagUrl(fag)}>Alle trinn</a></li>
         {fag.grupper.map((g) => <li><a href={gruppeUrl(fag, g)} aria-current={g.slug === gruppe.slug ? 'page' : undefined}>{g.label}</a></li>)}
+        <li><a href={`${fagUrl(fag)}oppbygging/`}>Oppbygging</a></li>
       </ul>
     </div>
     <GruppeInnhold gruppe={gruppe} />

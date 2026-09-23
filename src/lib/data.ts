@@ -186,6 +186,66 @@ export function tverrfagligeTemaer(): { navn: string; slug: string; maal: Maal[]
   return [...per].map(([navn, maal]) => ({ navn, slug: slug(navn), maal }));
 }
 
+export interface Lag {
+  trinn: number;
+  label: string;
+  maal: Maal[];
+}
+
+/** Hvilke mål i samme fag dette målet bygger på, som koder. */
+export function byggerPaaKoder(m: Maal): string[] {
+  return m.bygger_paa.filter((k) => PER_KODE.get(k)?.fag === m.fag);
+}
+
+/**
+ * Målene i et fag stablet i lag, ett lag per trinn, tidligste først.
+ * Rekkefølgen i hvert lag er valgt så strekene mellom lagene krysser minst mulig:
+ * hvert mål flyttes mot snittet av posisjonene til målene det henger sammen med
+ * (barysenter), noen runder opp og ned, og den beste rekkefølgen beholdes.
+ */
+export function oppbygging(fag: Fag): Lag[] {
+  const lag = fag.grupper.flatMap((g) => g.trinn.map((t) => [...t.maal]));
+  const pos = new Map<string, number>();
+  const oppdater = () => lag.forEach((l) => l.forEach((m, i) => pos.set(m.kode, (i + 0.5) / l.length)));
+  const barn = (m: Maal) => (BARN.get(m.kode) ?? []).filter((b) => b.fag === m.fag && b.trinn > m.trinn);
+  const foreldre = (m: Maal) => byggerPaaKoder(m).map((k) => PER_KODE.get(k)!).filter((p) => p.trinn < m.trinn);
+  const kryssinger = () => {
+    const kanter = lag.flatMap((l) => l.flatMap((m) => foreldre(m).map((p) => [pos.get(p.kode)!, pos.get(m.kode)!, p.trinn, m.trinn])));
+    let n = 0;
+    for (let i = 0; i < kanter.length; i++)
+      for (let j = i + 1; j < kanter.length; j++) {
+        const [a1, b1, fa, ta] = kanter[i];
+        const [a2, b2, fb, tb] = kanter[j];
+        if (fa === fb && ta === tb && (a1 - a2) * (b1 - b2) < 0) n++;
+      }
+    return n;
+  };
+  const sorterEtter = (l: Maal[], naboer: (m: Maal) => Maal[]) => {
+    const nokkel = new Map(
+      l.map((m) => {
+        const n = naboer(m);
+        return [m.kode, n.length ? n.reduce((s, x) => s + pos.get(x.kode)!, 0) / n.length : pos.get(m.kode)!];
+      }),
+    );
+    l.sort((a, b) => nokkel.get(a.kode)! - nokkel.get(b.kode)!);
+    oppdater();
+  };
+
+  oppdater();
+  let best = lag.map((l) => [...l]);
+  let minst = kryssinger();
+  for (let runde = 0; runde < 8; runde++) {
+    if (runde % 2 === 0) for (let i = 1; i < lag.length; i++) sorterEtter(lag[i], foreldre);
+    else for (let i = lag.length - 2; i >= 0; i--) sorterEtter(lag[i], barn);
+    const n = kryssinger();
+    if (n < minst) {
+      minst = n;
+      best = lag.map((l) => [...l]);
+    }
+  }
+  return best.map((maal) => ({ trinn: maal[0].trinn, label: trinnLabel(fag.key, maal[0].trinn), maal }));
+}
+
 /** Når læreplanversjonene gjelder fra, som «1. august 2026», hvis alle er like. */
 export function gyldigFraTekst(): string | null {
   const datoer = new Set(Object.values(udir.laereplaner).map((l) => l.gyldig_fra));
