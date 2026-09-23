@@ -110,8 +110,5 @@ export function startOppbygging(): void {
   if (blokker.has(fraHash)) {
     velg(fraHash, false);
     blokker.get(fraHash)!.scrollIntoView({ block: 'center' });
-  } else {
-    // Start nederst, der de første målene ligger.
-    stabel.lastElementChild?.scrollIntoView({ block: 'end' });
   }
 }
