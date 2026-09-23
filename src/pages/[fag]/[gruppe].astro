@@ -1,24 +1,43 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GruppeInnhold from '../../components/GruppeInnhold.astro';
-import { ALLE_FAG, fagUrl, gruppeUrl, type Fag, type Gruppe } from '../../lib/data';
+import Filter from '../../components/Filter.astro';
+import FilterStart from '../../components/FilterStart.astro';
+import { ALLE_FAG, fagUrl, kjerneelementerForFag, type Fag, type Gruppe } from '../../lib/data';
+import { slug } from '../../lib/fag.mjs';
 
 export function getStaticPaths() {
   return ALLE_FAG.flatMap((fag) => fag.grupper.map((gruppe) => ({ params: { fag: fag.slug, gruppe: gruppe.slug }, props: { fag, gruppe } })));
 }
 interface Props { fag: Fag; gruppe: Gruppe }
 const { fag, gruppe } = Astro.props;
+// Trinnpillene her er lenker til fagsiden med trinnfilter: en annen pille legges til
+// denne gruppa, denne pilla slås av (og gir alle trinn).
+const trinnValg = fag.grupper.map((g) => {
+  const valgt = g.slug === gruppe.slug;
+  const slugs = valgt ? [] : fag.grupper.filter((x) => x.slug === gruppe.slug || x.slug === g.slug).map((x) => x.slug);
+  return { verdi: g.slug, label: g.label, valgt, href: slugs.length ? `${fagUrl(fag)}?trinn=${slugs.join(',')}` : fagUrl(fag) };
+});
+// Bare kjerneelementer som finnes i denne gruppa.
+const kjerne = kjerneelementerForFag(fag)
+  .filter((k) => gruppe.maal.some((m) => m.kjerneelementer.some((ke) => slug(ke) === k.slug)));
 ---
 <Base title={`${fag.navn} ${gruppe.label}`} description={`${gruppe.maal.length} kompetansemål i ${fag.navn.toLowerCase()} for ${gruppe.label}, forklart på vanlig norsk.`}>
   <section style={`--fag:var(--${fag.key})`}>
     <div class="fagHead">
       <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
       <p>{fag.note}</p>
-      <ul class="jump" aria-label="Trinn">
-        <li><a href={fagUrl(fag)}>Alle trinn</a></li>
-        {fag.grupper.map((g) => <li><a href={gruppeUrl(fag, g)} aria-current={g.slug === gruppe.slug ? 'page' : undefined}>{g.label}</a></li>)}
-      </ul>
+      <Filter navn="trinn" tittel="Trinn" alle={{ label: 'Alle trinn', href: fagUrl(fag) }} valg={trinnValg} />
+      <Filter navn="kjerne" tittel="Kjerneelement" alle={{ label: 'Alle kjerneelementer' }} valg={kjerne.map((k) => ({ verdi: k.slug, label: k.navn }))} />
+      <p class="filterstatus" data-filter-status aria-live="polite" hidden></p>
     </div>
-    <GruppeInnhold gruppe={gruppe} />
+    <FilterStart />
+    <div class="maalliste" data-filtrert>
+      <GruppeInnhold gruppe={gruppe} />
+    </div>
   </section>
+  <script>
+    import { startFilter } from '../../scripts/filter';
+    startFilter();
+  </script>
 </Base>

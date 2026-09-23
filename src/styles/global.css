@@ -53,7 +53,15 @@ main{padding:1.6rem 0 3rem}
 .jump a[aria-current]{background:var(--fag);color:var(--paper);border-color:var(--fag)}
 h3.trinn{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.3rem;margin:2rem 0 .8rem;display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
 h3.trinn a{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.9rem;color:var(--muted)}
-h3.trinn:first-of-type{margin-top:.6rem}
+/* Filterpiller: «Alle» | valg. Samme form som trinnknappene på forsiden. */
+.filter{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:.2rem 0 .6rem}
+.filter button,.filter a{display:inline-block;text-decoration:none;font:inherit;font-size:.88rem;font-weight:700;cursor:pointer;background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:.25rem .75rem}
+.filter button:hover,.filter a:hover{border-color:var(--fag)}
+.filter [aria-pressed="true"],.filter [aria-current]{background:var(--fag);color:var(--paper);border-color:var(--fag)}
+.filter .skille{align-self:stretch;width:2px;margin:.15rem .2rem;background:var(--rule);border-radius:1px}
+.filterstatus{font-size:.95rem}
+.filterstatus[hidden],[data-seksjon][hidden],li.goal[hidden]{display:none}
+.maalliste > :first-child > .trinn:first-child,.maalliste > :first-child > :first-child > .trinn:first-child{margin-top:.6rem}
 
 ol.goals{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
 li.goal,article.goal{background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--fag);border-radius:4px 14px 14px 4px;padding:1rem 1.1rem 1.1rem}

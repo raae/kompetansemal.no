@@ -3,26 +3,29 @@ import Goal from './Goal.astro';
 import type { Gruppe } from '../lib/data';
 interface Props {
   gruppe: Gruppe;
-  /** På fagsiden (alle trinn) får gruppa egen overskrift med anker. */
+  /** På fagsiden (alle trinn) får gruppa egen overskrift. */
   medGruppeOverskrift?: boolean;
 }
 const { gruppe, medGruppeOverskrift = false } = Astro.props;
 // Andre fag enn matte har ett trinnavsnitt per gruppe, med samme navn som gruppa.
 // Da holder én overskrift. Matte har flere trinn per gruppe og får underoverskrifter.
 const flereTrinn = gruppe.trinn.length > 1;
+// data-f-trinn og data-seksjon brukes av trinnfilteret (scripts/filter.ts).
 ---
-{medGruppeOverskrift && flereTrinn && <h3 class="trinn" id={gruppe.slug}>{gruppe.label}</h3>}
-{gruppe.trinn.map((t) => {
-  const Overskrift = medGruppeOverskrift && flereTrinn ? 'h4' : 'h3';
-  const id = medGruppeOverskrift && !flereTrinn ? gruppe.slug : `trinn-${t.trinn}`;
-  return (
-    <>
-      <Overskrift class="trinn" id={id}>
-        {medGruppeOverskrift && !flereTrinn ? gruppe.label : t.label}
-        {medGruppeOverskrift && !flereTrinn && t.label !== gruppe.label && <span class="under">{t.label}</span>}
-        <a href={t.udirUrl} target="_blank" rel="noopener">Les hos Udir</a>
-      </Overskrift>
-      <ol class="goals">{t.maal.map((m) => <Goal maal={m} />)}</ol>
-    </>
-  );
-})}
+<div data-f-trinn={gruppe.slug} data-seksjon>
+  {medGruppeOverskrift && flereTrinn && <h3 class="trinn" id={gruppe.slug}>{gruppe.label}</h3>}
+  {gruppe.trinn.map((t) => {
+    const Overskrift = medGruppeOverskrift && flereTrinn ? 'h4' : 'h3';
+    const id = medGruppeOverskrift && !flereTrinn ? gruppe.slug : `trinn-${t.trinn}`;
+    return (
+      <div data-seksjon>
+        <Overskrift class="trinn" id={id}>
+          {medGruppeOverskrift && !flereTrinn ? gruppe.label : t.label}
+          {medGruppeOverskrift && !flereTrinn && t.label !== gruppe.label && <span class="under">{t.label}</span>}
+          <a href={t.udirUrl} target="_blank" rel="noopener">Les hos Udir</a>
+        </Overskrift>
+        <ol class="goals">{t.maal.map((m) => <Goal maal={m} />)}</ol>
+      </div>
+    );
+  })}
+</div>
