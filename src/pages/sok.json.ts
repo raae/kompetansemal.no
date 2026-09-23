@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { alleMaal, fagMedKey, fagUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel } from '../lib/data';
+import { alleMaal, emneUrl, fagMedKey, fagUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel } from '../lib/data';
 
 /** Søkeindeksen: alle mål i alle fag, liten nok til én JSON-fil. */
 export const GET: APIRoute = () => {
@@ -14,6 +14,7 @@ export const GET: APIRoute = () => {
       p: m.forklaring,
       u: m.udir,
       i: m.ideer,
+      e: m.emner.map((e) => [e, emneUrl(fag, e)]),
       ke: m.kjerneelementer.map((ke) => [ke, kjerneelementUrl(fag, ke)]),
       tv: m.tverrfaglige_temaer.map((t) => [t, temaUrl(t)]),
       url: maalUrl(m),

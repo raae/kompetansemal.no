@@ -2,6 +2,7 @@
 // (våre egne forklaringer og idéer) ved bygging. Ingen nettverkskall.
 import udirJson from '../../data/udir.json';
 import forklaringerJson from '../../data/forklaringer.json';
+import emnerJson from '../../data/emner.json';
 import { FAG, grupperForTrinn, slug } from './fag.mjs';
 
 export type FagKey = 'MAT' | 'NOR' | 'ENG' | 'NAT' | 'SAF' | 'KRLE' | 'KHV' | 'MUS' | 'MHE' | 'KRO';
@@ -15,6 +16,8 @@ export interface Maal {
   udir_forklaring?: string;
   forklaring: string;
   ideer: string[];
+  /** Våre egne faglige emner, f.eks. «Brøk». Fra data/emner.json. */
+  emner: string[];
   kjerneelementer: string[];
   tverrfaglige_temaer: string[];
   bygger_paa: string[];
@@ -51,18 +54,25 @@ export interface TrinnAvsnitt {
 interface UdirFil {
   kilde: string;
   laereplaner: Record<string, { kode: string; gyldig_fra: string | null }>;
-  maal: Omit<Maal, 'forklaring' | 'ideer'>[];
+  maal: Omit<Maal, 'forklaring' | 'ideer' | 'emner'>[];
 }
 
 const udir = udirJson as UdirFil;
 const forklaringer = forklaringerJson as Record<string, { forklaring: string; ideer: string[] }>;
+/** Per fag: emnelista i visningsrekkefølge, og emnene til hvert mål. */
+const emnerPerFag = emnerJson as Record<string, { emner: string[]; maal: Record<string, string[]> }>;
 const fagIndeks: Record<string, number> = Object.fromEntries(FAG.map((f, i) => [f.key, i]));
 
 const ALLE: Maal[] = udir.maal
   .map((m) => {
     const f = forklaringer[m.kode];
     if (!f?.forklaring) throw new Error(`Målet ${m.kode} mangler forklaring i data/forklaringer.json`);
-    return { ...(m as Maal), forklaring: f.forklaring, ideer: f.ideer ?? [] };
+    const e = emnerPerFag[m.fag];
+    const emner = e?.maal[m.kode];
+    if (!emner?.length) throw new Error(`Målet ${m.kode} mangler emner i data/emner.json`);
+    const ukjent = emner.find((x) => !e.emner.includes(x));
+    if (ukjent) throw new Error(`Målet ${m.kode} har emnet «${ukjent}», som ikke står i emnelista for ${m.fag} i data/emner.json`);
+    return { ...(m as Maal), forklaring: f.forklaring, ideer: f.ideer ?? [], emner };
   })
   .sort((a, b) => fagIndeks[a.fag] - fagIndeks[b.fag] || a.trinn - b.trinn || a.rekkefolge - b.rekkefolge);
 
@@ -127,6 +137,10 @@ export function kjerneelementUrl(fag: Fag, navn: string): string {
   return `/kjerneelement/${fag.slug}/${slug(navn)}/`;
 }
 
+export function emneUrl(fag: Fag, navn: string): string {
+  return `/emne/${fag.slug}/${slug(navn)}/`;
+}
+
 export function temaUrl(navn: string): string {
   return `/tema/${slug(navn)}/`;
 }
@@ -178,6 +192,12 @@ export function kjerneelementerForFag(fag: Fag): { navn: string; slug: string; m
   const per = new Map<string, Maal[]>();
   for (const m of ALLE) if (m.fag === fag.key) for (const ke of m.kjerneelementer) per.set(ke, [...(per.get(ke) ?? []), m]);
   return [...per].map(([navn, maal]) => ({ navn, slug: slug(navn), maal }));
+}
+
+/** Emnene i et fag, i rekkefølgen fra data/emner.json. */
+export function emnerForFag(fag: Fag): { navn: string; slug: string; maal: Maal[] }[] {
+  const iFag = ALLE.filter((m) => m.fag === fag.key);
+  return (emnerPerFag[fag.key]?.emner ?? []).map((navn) => ({ navn, slug: slug(navn), maal: iFag.filter((m) => m.emner.includes(navn)) }));
 }
 
 export function tverrfagligeTemaer(): { navn: string; slug: string; maal: Maal[] }[] {

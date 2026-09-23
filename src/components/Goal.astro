@@ -1,6 +1,6 @@
 ---
 import Chain from './Chain.astro';
-import { fagMedKey, fagUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel, type Maal } from '../lib/data';
+import { emneUrl, fagMedKey, fagUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel, type Maal } from '../lib/data';
 interface Props {
   maal: Maal;
   /** Vis fagnavn oppe til høyre (på tvers av fag). */
@@ -15,7 +15,7 @@ interface Props {
 const { maal, visFag = false, visTrinn = false, aapen = false, alene = false } = Astro.props;
 const fag = fagMedKey(maal.fag)!;
 const Tag = alene ? 'article' : 'li';
-const harTags = maal.kjerneelementer.length + maal.tverrfaglige_temaer.length > 0;
+const harTags = maal.emner.length + maal.kjerneelementer.length + maal.tverrfaglige_temaer.length > 0;
 ---
 <Tag class="goal" style={`--fag:var(--${fag.key})`} id={alene ? undefined : maal.kode}>
   <div class="meta">
@@ -36,6 +36,9 @@ const harTags = maal.kjerneelementer.length + maal.tverrfaglige_temaer.length > 
   )}
   {harTags && (
     <ul class="tags">
+      {maal.emner.map((e) => (
+        <li><a class="emne" href={emneUrl(fag, e)} title={`Vis alle mål i ${fag.navn} om dette emnet`}>{e}</a></li>
+      ))}
       {maal.kjerneelementer.map((ke) => (
         <li><a href={kjerneelementUrl(fag, ke)} title={`Vis alle mål i ${fag.navn} med dette kjerneelementet`}>{ke}</a></li>
       ))}

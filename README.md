@@ -19,9 +19,10 @@ Byggingen leser bare fra `data/` og gjør **ingen** nettverkskall.
 | Fil | Hva |
 |---|---|
 | `data/forklaringer.json` | **Vårt eget innhold.** Nøkkel er kompetansemålkoden, verdien er `{ forklaring, ideer[] }`. Redigeres for hånd. Forklaringene og idéene er laget med hjelp av KI, og det står på siden. |
+| `data/emner.json` | **Vårt eget innhold.** Faglige emner som «Brøk» eller «Friluftsliv», per fag. `emner` er den faste lista i visningsrekkefølge, `maal` gir hvert mål 1–3 emner fra lista. Udir har ikke noe slikt (bare kjerneelementer, tverrfaglige temaer, grunnleggende ferdigheter og verb). Byggingen feiler hvis et mål mangler emne eller bruker et emne som ikke står i lista. |
 | `data/udir.json` | Rådata fra Udirs Grep-API (NLOD), uten våre forklaringer. Skrives av `npm run hent-udir` og sjekkes inn. Har også `laereplaner` med versjon og gyldig-fra-dato per fag. |
 
-De to filene slås sammen ved bygging i `src/lib/data.ts`.
+Filene slås sammen ved bygging i `src/lib/data.ts`.
 
 ### Oppdatere fra Udir
 
@@ -57,6 +58,7 @@ Andre ting å vite:
 | `/[fag]/[gruppe]/` | Målene i et fag for én trinngruppe, f.eks. `/matte/5-7/` |
 | `/mal/[kode]/` | Ett mål, med «Bygger på og fører til» åpent og lenker til forrige og neste |
 | `/kjerneelement/[fag]/[slug]/` | Alle mål i faget med kjerneelementet |
+| `/emne/[fag]/[slug]/` | Alle mål i faget med emnet, f.eks. `/emne/matte/brok/` |
 | `/tema/[slug]/` | Alle mål i alle fag med det tverrfaglige temaet |
 | `/sok.json` | Søkeindeks for søket på klientsiden |
 
