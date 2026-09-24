@@ -239,8 +239,8 @@ aside.valgtpanel .lukk{position:absolute;top:.4rem;right:.5rem;font:inherit;font
 .flate.bro .blokk{border-radius:3px;border-bottom-width:4px}
 .flate .kontekst .blokk:not(.valgt){border-style:dashed;color:var(--muted)}
 /* Sekskant med spissen opp. Kanten er en litt større sekskant bak. */
-.flate.bikube li{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--rule);padding:2px}
+.flate.bikube li{clip-path:var(--omriss);background:var(--rule);padding:2px}
 .flate.bikube li:has(.valgt),.flate.bikube li:has(.under),.flate.bikube li:has(.over){background:var(--fag)}
-.flate.bikube .blokk{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);border:0;border-radius:0;justify-content:center;align-items:center;text-align:center;padding:1.6rem .9rem;font-size:.76rem;line-height:1.25}
+.flate.bikube .blokk{clip-path:var(--omriss);border:0;border-radius:0;justify-content:center;align-items:center;text-align:center;padding:1.6rem .9rem;font-size:.76rem;line-height:1.25}
 .flate.bikube .blokk span{-webkit-line-clamp:5}
 .flate.bikube .kontekst .blokk:not(.valgt){background:var(--soft)}

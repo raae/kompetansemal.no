@@ -36,6 +36,8 @@ export function startOppbygging(): void {
       kanter.push({ fra, til, sti });
     }
 
+  const midt = stabel.classList.contains('bikube');
+
   function tegn(): void {
     if (!svg) return;
     const r = stabel.getBoundingClientRect();
@@ -44,11 +46,12 @@ export function startOppbygging(): void {
     for (const { fra, til, sti } of kanter) {
       const a = blokker.get(fra)!.getBoundingClientRect();
       const b = blokker.get(til)!.getBoundingClientRect();
-      // Fra toppen av målet under til bunnen av målet over.
+      // Fra toppen av målet under til bunnen av målet over. I bikuben overlapper
+      // radene, så der går streken mellom midten av cellene i stedet.
       const x1 = a.left + a.width / 2 - r.left;
-      const y1 = a.top - r.top;
+      const y1 = (midt ? a.top + a.height / 2 : a.top) - r.top;
       const x2 = b.left + b.width / 2 - r.left;
-      const y2 = b.bottom - r.top;
+      const y2 = (midt ? b.top + b.height / 2 : b.bottom) - r.top;
       const dy = Math.max(24, (y1 - y2) / 2);
       sti.setAttribute('d', `M${x1},${y1} C${x1},${y1 - dy} ${x2},${y2 + dy} ${x2},${y2}`);
     }

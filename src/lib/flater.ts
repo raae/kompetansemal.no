@@ -44,34 +44,97 @@ function spre(onsket: number[], bredder: number[], rute = 0): number[] {
 }
 
 /**
- * Bikube: sekskanter der hver rad er forskjøvet en halv celle, så hver celle hviler på
- * to celler under seg. Et mål plasseres over snittet av målene det bygger på, og havner
- * dermed mellom to foreldre som ligger ved siden av hverandre.
+ * Bikube: sekskanter der hver rad er forskjøvet en halv celle. En celle rører de to
+ * cellene skrått under seg, og en kloss av k celler slått sammen rører k + 1 under seg.
+ * Hvert mål blir så bredt som trengs for å røre alle målene det bygger på i laget
+ * rett under (høyst MAKS_CELLER), og så bredt at målene som bygger på det, får plass.
+ * Det som likevel ikke rører, får strek.
  */
+const MAKS_CELLER = 4;
+
 export function bikube(lag: Lag[]): Flate {
   const foreldre = foreldreMedLag(lag);
   const kontekst = new Set(lag.filter((l) => l.kontekst).flatMap((l) => l.maal.map((m) => m.kode)));
-  const x = new Map<string, number>();
-  const brikker: Brikke[] = [];
+  const naere = (kode: string, i: number) => foreldre.get(kode)!.filter((f) => f.lag === i - 1).map((f) => f.kode);
+
+  // Egen bredde: én celle per barn i laget over (delt på hvor mange barnet står på).
+  const egen = new Map<string, number>();
   lag.forEach((l, i) => {
-    // Mål uten foreldre i visningen legges til høyre for det som alt er plassert.
-    const hoyre = i ? Math.max(...x.values()) + 1 : 0;
-    const onsket = l.maal.map((m, j) => {
-      const p = foreldre.get(m.kode)!.filter((f) => x.has(f.kode));
-      return { m, x: p.length ? p.reduce((s, f) => s + x.get(f.kode)!, 0) / p.length + (p.length === 1 ? 0.5 : 0) : hoyre + j / 1000 };
-    });
-    onsket.sort((a, b) => a.x - b.x);
+    for (const m of l.maal) {
+      const andel = (lag[i + 1]?.maal ?? []).filter((b) => naere(b.kode, i + 1).includes(m.kode)).reduce((s, b) => s + 1 / naere(b.kode, i + 1).length, 0);
+      egen.set(m.kode, Math.min(MAKS_CELLER, Math.max(1, Math.ceil(andel - 0.001))));
+    }
+  });
+
+  const pos = new Map<string, { x: number; k: number }>();
+  const brikker: Brikke[] = [];
+  // Rører en kloss på rad i (x, k celler) en kloss på raden under (y, m celler)?
+  const rorer = (x: number, k: number, y: number, m: number) => Math.max(x - 0.5, y) <= Math.min(x + k - 0.5, y + m - 1);
+
+  lag.forEach((l, i) => {
     const forskyv = i % 2 ? 0.5 : 0;
-    const plass = spre(onsket.map((o) => o.x - forskyv), onsket.map(() => 1), 1).map((v) => v + forskyv);
-    onsket.forEach((o, j) => x.set(o.m.kode, plass[j]));
+    const paaRute = (v: number) => Math.round(v - forskyv) + forskyv;
+    const hoyre = i ? Math.max(...[...pos.values()].map((p) => p.x + p.k)) + 1 : 0;
+    const onsket = l.maal.map((m, j) => {
+      let k = egen.get(m.kode)!;
+      let under = naere(m.kode, i).map((kode) => pos.get(kode)!);
+      if (!i) return { m, k, lo: 0, hi: 0 };
+      if (!under.length) {
+        // Ingen i laget rett under: over snittet av foreldre lenger ned, ellers til høyre.
+        const lenger = foreldre.get(m.kode)!.map((f) => pos.get(f.kode)!).filter(Boolean);
+        const midt = lenger.length ? lenger.reduce((s, p) => s + p.x + (p.k - 1) / 2, 0) / lenger.length : hoyre + j;
+        const x = paaRute(midt - (k - 1) / 2);
+        return { m, k, lo: x, hi: x };
+      }
+      // Minste bredde som rører alle: x må ligge i [A - (k-1), B] for hver forelder.
+      for (;;) {
+        const A = Math.max(...under.map((p) => p.x - 0.5));
+        const B = Math.min(...under.map((p) => p.x + p.k - 0.5));
+        const trengs = Math.max(k, 1 + Math.max(0, A - B));
+        if (trengs <= MAKS_CELLER || under.length === 1) {
+          k = Math.min(trengs, MAKS_CELLER);
+          // Alle x i [lo, hi] rører alle foreldrene som er igjen.
+          const lo = A - (k - 1);
+          return { m, k, lo: Math.min(lo, B), hi: B };
+        }
+        // For langt fra hverandre: slipp forelderen lengst fra midten, den får strek.
+        const midt = under.reduce((s, p) => s + p.x + p.k / 2, 0) / under.length;
+        under = [...under].sort((a, b) => Math.abs(b.x + b.k / 2 - midt) - Math.abs(a.x + a.k / 2 - midt)).slice(1);
+      }
+    });
+    if (!i) {
+      let x = 0;
+      for (const o of onsket) (o.lo = o.hi = x), (x += o.k);
+    }
+    // Legg klossene fra venstre, den med tidligste frist (hi) først, så langt til
+    // venstre som mulig innenfor [lo, hi]. Rekker en ikke fristen, havner den rett etter.
+    onsket.sort((a, b) => a.hi - b.hi || a.lo - b.lo);
+    let slutt = -Infinity;
     for (const o of onsket) {
-      const mx = x.get(o.m.kode)!;
-      // Rører: forelderen ligger i laget rett under, en halv celle til siden.
-      const rorer = foreldre.get(o.m.kode)!.filter((f) => f.lag === i - 1 && Math.abs(x.get(f.kode)! - mx) === 0.5).map((f) => f.kode);
-      brikker.push({ maal: o.m, x: mx, bredde: 1, lag: i, kontekst: kontekst.has(o.m.kode), utenStrek: rorer });
+      const x = Math.max(o.lo, paaRute(Math.ceil(slutt - forskyv - 1e-9) + forskyv));
+      pos.set(o.m.kode, { x, k: o.k });
+      slutt = x + o.k;
+    }
+    for (const o of onsket) {
+      const p = pos.get(o.m.kode)!;
+      const rort = naere(o.m.kode, i).filter((kode) => {
+        const q = pos.get(kode)!;
+        return rorer(p.x, p.k, q.x, q.k);
+      });
+      brikker.push({ maal: o.m, x: p.x, bredde: p.k, lag: i, kontekst: kontekst.has(o.m.kode), utenStrek: rort });
     }
   });
   return normaliser(brikker, lag.length);
+}
+
+/** Omriss for k sekskanter slått sammen side ved side, som clip-path i prosent. */
+export function sekskantOmriss(k: number): string {
+  const p = (x: number, y: number) => `${+((x / k) * 100).toFixed(3)}% ${y}%`;
+  const pkt = [p(0, 25)];
+  for (let i = 0; i < k; i++) pkt.push(p(i + 0.5, 0), p(i + 1, 25));
+  pkt.push(p(k, 75));
+  for (let i = k - 1; i >= 0; i--) pkt.push(p(i + 0.5, 100), p(i, 75));
+  return `polygon(${pkt.join(',')})`;
 }
 
 /**
