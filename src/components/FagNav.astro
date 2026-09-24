@@ -1,0 +1,25 @@
+---
+import { fagUrl, gruppeUrl, klosserUrl, oppbyggingUrl, type Fag, type Gruppe } from '../lib/data';
+interface Props {
+  fag: Fag;
+  /** Trinngruppa siden gjelder, eller ingen for alle trinn. */
+  gruppe?: Gruppe;
+  visning: 'liste' | 'oppbygging' | 'klosser';
+}
+const { fag, gruppe, visning } = Astro.props;
+// På fagsida (liste, alle trinn) hopper trinnknappene til ankre på samme side.
+const trinnUrl = (g?: Gruppe) =>
+  visning === 'oppbygging' ? oppbyggingUrl(fag, g) : visning === 'klosser' ? klosserUrl(fag, g) : g ? (gruppe ? gruppeUrl(fag, g) : `#${g.slug}`) : fagUrl(fag);
+const listeUrl = gruppe ? gruppeUrl(fag, gruppe) : fagUrl(fag);
+---
+<div class="fagnav">
+  <ul class="jump" aria-label="Trinn">
+    <li><a href={trinnUrl()} aria-current={!gruppe ? 'page' : undefined}>Alle trinn</a></li>
+    {fag.grupper.map((g) => <li><a href={trinnUrl(g)} aria-current={g.slug === gruppe?.slug ? 'page' : undefined}>{g.label}</a></li>)}
+  </ul>
+  <ul class="visning" aria-label="Visning">
+    <li><a href={listeUrl} aria-current={visning === 'liste' ? 'page' : undefined}>Liste</a></li>
+    <li><a href={oppbyggingUrl(fag, gruppe)} aria-current={visning === 'oppbygging' ? 'page' : undefined}>Oppbygging</a></li>
+    <li><a href={klosserUrl(fag, gruppe)} aria-current={visning === 'klosser' ? 'page' : undefined}>Klosser</a></li>
+  </ul>
+</div>

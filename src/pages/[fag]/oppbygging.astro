@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import FagNav from '../../components/FagNav.astro';
+import Stabel from '../../components/Stabel.astro';
+import { ALLE_FAG, fagUrl, oppbygging, type Fag } from '../../lib/data';
+
+export function getStaticPaths() {
+  return ALLE_FAG.map((fag) => ({ params: { fag: fag.slug }, props: { fag } }));
+}
+interface Props { fag: Fag }
+const { fag } = Astro.props;
+---
+<Base title={`Oppbygging i ${fag.navn.toLowerCase()}`} description={`Alle ${fag.antall} kompetansemål i ${fag.navn.toLowerCase()} stablet trinn for trinn, så du ser hva som bygger på hva.`} bred>
+  <section style={`--fag:var(--${fag.key})`}>
+    <div class="fagHead">
+      <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
+      <p>Målene er stablet med de tidligste nederst. Strekene viser hvilke mål som bygger på hvilke, slik Udir har koblet dem. Trykk på et mål for å se hele kjeden.</p>
+      <FagNav fag={fag} visning="oppbygging" />
+    </div>
+    <Stabel lag={oppbygging(fag)} />
+  </section>
+</Base>

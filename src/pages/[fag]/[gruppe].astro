@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GruppeInnhold from '../../components/GruppeInnhold.astro';
-import { ALLE_FAG, fagUrl, gruppeUrl, type Fag, type Gruppe } from '../../lib/data';
+import FagNav from '../../components/FagNav.astro';
+import { ALLE_FAG, fagUrl, type Fag, type Gruppe } from '../../lib/data';
 
 export function getStaticPaths() {
   return ALLE_FAG.flatMap((fag) => fag.grupper.map((gruppe) => ({ params: { fag: fag.slug, gruppe: gruppe.slug }, props: { fag, gruppe } })));
@@ -14,10 +15,7 @@ const { fag, gruppe } = Astro.props;
     <div class="fagHead">
       <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
       <p>{fag.note}</p>
-      <ul class="jump" aria-label="Trinn">
-        <li><a href={fagUrl(fag)}>Alle trinn</a></li>
-        {fag.grupper.map((g) => <li><a href={gruppeUrl(fag, g)} aria-current={g.slug === gruppe.slug ? 'page' : undefined}>{g.label}</a></li>)}
-      </ul>
+      <FagNav fag={fag} gruppe={gruppe} visning="liste" />
     </div>
     <GruppeInnhold gruppe={gruppe} />
   </section>

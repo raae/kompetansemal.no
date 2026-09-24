@@ -1,0 +1,23 @@
+---
+import Base from '../../../layouts/Base.astro';
+import FagNav from '../../../components/FagNav.astro';
+import Stabel from '../../../components/Stabel.astro';
+import { ALLE_FAG, fagUrl, oppbyggingForGruppe, type Fag, type Gruppe } from '../../../lib/data';
+
+export function getStaticPaths() {
+  return ALLE_FAG.flatMap((fag) => fag.grupper.map((gruppe) => ({ params: { fag: fag.slug, gruppe: gruppe.slug }, props: { fag, gruppe } })));
+}
+interface Props { fag: Fag; gruppe: Gruppe }
+const { fag, gruppe } = Astro.props;
+const lag = oppbyggingForGruppe(fag, gruppe);
+---
+<Base title={`Oppbygging i ${fag.navn.toLowerCase()} ${gruppe.label}`} description={`${gruppe.maal.length} kompetansemål i ${fag.navn.toLowerCase()} for ${gruppe.label}, stablet så du ser hva som bygger på hva.`} bred>
+  <section style={`--fag:var(--${fag.key})`}>
+    <div class="fagHead">
+      <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
+      <p>Målene for {gruppe.label} er stablet med de tidligste nederst.{lag[0]?.kontekst && ' Nederst, tonet ned, står målene fra trinnet før som de bygger på.'} Trykk på et mål for å se hele kjeden.</p>
+      <FagNav fag={fag} gruppe={gruppe} visning="oppbygging" />
+    </div>
+    <Stabel lag={lag} />
+  </section>
+</Base>

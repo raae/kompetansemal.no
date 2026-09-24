@@ -1,0 +1,25 @@
+---
+import Valgtpanel from './Valgtpanel.astro';
+import { bikube, bro, sekskantOmriss } from '../lib/flater';
+import { byggerPaaKoder, maalUrl, trinnLabel, type Lag } from '../lib/data';
+interface Props { lag: Lag[]; form: 'bikube' | 'bro' }
+const { lag, form } = Astro.props;
+const flate = form === 'bikube' ? bikube(lag) : bro(lag);
+---
+<div class="klosser-rulle">
+  <div class:list={['flate', form]} id="stabel" style={`--bredde:${flate.bredde};--lag:${flate.lag}`}>
+    <svg class="streker" aria-hidden="true"></svg>
+    {lag.map((l, i) => <span class="flate-lagnavn" style={`--y:${flate.lag - 1 - i}`}>{l.label}</span>)}
+    <ol>
+      {flate.brikker.map((b) => (
+        <li class:list={[{ kontekst: b.kontekst }]} style={`--x:${b.x};--y:${flate.lag - 1 - b.lag};--b:${b.bredde}${form === 'bikube' ? `;--omriss:${sekskantOmriss(b.bredde)}` : ''}`}>
+          <button type="button" class="blokk" id={b.maal.kode} data-kode={b.maal.kode} data-uten-strek={b.utenStrek.join(' ') || undefined} data-bygger={byggerPaaKoder(b.maal).join(' ')} data-trinn={b.maal.trinn} data-url={maalUrl(b.maal)} data-udir={b.maal.udir} data-trinnlabel={trinnLabel(b.maal.fag, b.maal.trinn)}>
+            <small>{b.maal.kode}</small>
+            <span>{b.maal.forklaring}</span>
+          </button>
+        </li>
+      ))}
+    </ol>
+  </div>
+</div>
+<Valgtpanel />

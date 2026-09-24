@@ -1,0 +1,31 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import FagNav from '../../../../components/FagNav.astro';
+import KlossFaner from '../../../../components/KlossFaner.astro';
+import Klosser from '../../../../components/Klosser.astro';
+import Flate from '../../../../components/Flate.astro';
+import Rutenett from '../../../../components/Rutenett.astro';
+import { ALLE_FAG, KLOSS_VARIANTER, fagUrl, oppbyggingForGruppe, type Fag, type Gruppe, type KlossVariant } from '../../../../lib/data';
+
+export function getStaticPaths() {
+  return ALLE_FAG.flatMap((fag) =>
+    fag.grupper.flatMap((gruppe) =>
+      KLOSS_VARIANTER.map((v) => ({ params: { fag: fag.slug, gruppe: gruppe.slug, variant: v.slug === 'tre' ? undefined : v.slug }, props: { fag, gruppe, variant: v.slug } })),
+    ),
+  );
+}
+interface Props { fag: Fag; gruppe: Gruppe; variant: KlossVariant }
+const { fag, gruppe, variant } = Astro.props;
+const lag = oppbyggingForGruppe(fag, gruppe);
+---
+<Base title={`Klosser i ${fag.navn.toLowerCase()} ${gruppe.label}`} description={`${gruppe.maal.length} kompetansemål i ${fag.navn.toLowerCase()} for ${gruppe.label} som klosser: hvert mål står oppå det det bygger på.`} bred>
+  <section style={`--fag:var(--${fag.key})`}>
+    <div class="fagHead">
+      <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
+      <p>Målene for {gruppe.label} som klosser.{lag[0]?.kontekst && ' Målene med stiplet kant er fra trinnet før.'} Fanene viser ulike måter å vise mål som bygger på flere mål. Trykk på et mål for å se hele kjeden.</p>
+      <FagNav fag={fag} gruppe={gruppe} visning="klosser" />
+      <KlossFaner fag={fag} gruppe={gruppe} variant={variant} />
+    </div>
+    {variant === 'rutenett' ? <Rutenett lag={lag} /> : variant === 'bikube' || variant === 'bro' ? <Flate lag={lag} form={variant} /> : <Klosser lag={lag} variant={variant} />}
+  </section>
+</Base>

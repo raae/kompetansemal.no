@@ -141,3 +141,109 @@ h4.trinn{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;
 h4.trinn a{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.9rem;color:var(--muted)}
 h3.trinn{scroll-margin-top:1rem}
 .trinn .under{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.95rem;color:var(--muted)}
+
+/* Oppbygging: målene stablet trinn for trinn, tidligste nederst */
+.wrap.bred{max-width:92rem}
+
+.stabel{position:relative;margin-top:1.4rem}
+.stabel .streker,.klosser-flate .streker{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.streker path{fill:none;stroke:var(--rule);stroke-width:1.5}
+.streker path.paa{stroke:var(--fag);stroke-width:2.5}
+.lag{position:relative;padding:.4rem 0 3.2rem}
+.lag:last-child{padding-bottom:0}
+.lagnavn{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.05rem;margin:0 0 .5rem;position:relative;z-index:1;display:inline-block;background:var(--paper);padding-right:.5rem}
+.lag ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem .7rem}
+.lag li{position:relative;z-index:1;width:11rem;display:flex}
+.blokk{flex:1;display:flex;flex-direction:column;gap:.15rem;text-align:left;font:inherit;font-size:.84rem;line-height:1.35;color:var(--ink);cursor:pointer;background:var(--card);border:1px solid var(--rule);border-bottom:5px solid var(--fag);border-radius:8px 8px 4px 4px;padding:.45rem .6rem .5rem}
+.blokk small{font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.blokk:hover{border-color:var(--fag)}
+.har-valg .blokk:not(.valgt,.under,.over){color:var(--muted);border-bottom-color:var(--rule)}
+.har-valg .blokk:not(.valgt,.under,.over) span{opacity:.6}
+.har-valg .blokk:is(.under,.over){border-color:var(--fag)}
+.blokk.valgt{background:var(--fag);color:var(--paper)}
+.blokk.valgt small{color:var(--paper)}
+aside.valgtpanel[hidden]{display:none}
+aside.valgtpanel{position:sticky;bottom:.8rem;z-index:2;max-width:40rem;margin:1.2rem auto 0;background:var(--card);border:1px solid var(--rule);border-left:8px solid var(--fag);border-radius:4px 14px 14px 4px;padding:.8rem 2.6rem .9rem 1rem;box-shadow:0 6px 24px rgb(0 0 0 / .18)}
+aside.valgtpanel p{margin:0 0 .4rem}
+aside.valgtpanel .meta{font-size:.85rem;font-weight:700;color:var(--muted)}
+aside.valgtpanel .plain{font-weight:700;font-size:1.05rem;line-height:1.4}
+aside.valgtpanel .udir{padding:.45rem .7rem;background:var(--soft);border-radius:8px;font-size:.9rem;color:var(--muted)}
+aside.valgtpanel .udir b{color:var(--ink)}
+aside.valgtpanel .tall{font-size:.9rem;color:var(--muted)}
+aside.valgtpanel .aapne{font-weight:700;text-decoration:none;color:var(--fag)}
+aside.valgtpanel .aapne:hover{text-decoration:underline}
+aside.valgtpanel .lukk{position:absolute;top:.4rem;right:.5rem;font:inherit;font-size:1.4rem;line-height:1;background:none;border:0;color:var(--muted);cursor:pointer;padding:.2rem .4rem}
+.chain .stige{margin:.7rem 0 0;font-size:.9rem}
+.chain .stige a{color:var(--fag);font-weight:700;text-decoration:none}
+.chain .stige a:hover{text-decoration:underline}
+@media (max-width:30rem){ .lag li{width:calc(50% - .35rem)} }
+.fagnav{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 1rem;margin:.2rem 0 .4rem}
+.fagnav .jump{margin:0}
+.visning{display:inline-flex;margin:0;padding:2px;list-style:none;border:1px solid var(--rule);border-radius:999px;background:var(--card)}
+.visning a{display:inline-block;text-decoration:none;font-size:.88rem;font-weight:700;border-radius:999px;padding:.2rem .8rem;color:var(--muted)}
+.visning a:hover{color:var(--ink)}
+.visning a[aria-current]{background:var(--ink);color:var(--paper)}
+.wrap.bred .fagHead{max-width:none}
+.wrap.bred .fagHead p{max-width:44rem}
+.lag.kontekst .blokk:not(.valgt){border-style:dashed;border-bottom-style:solid;border-bottom-color:var(--rule);color:var(--muted)}
+.lagnavn .under{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:.9rem;color:var(--muted)}
+
+/* Klosser: hvert mål står oppå det det bygger på, grunnmuren nederst */
+.klosser-rulle{overflow-x:auto;margin-top:1.4rem;padding-bottom:.4rem}
+.klosser{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--kolonner),minmax(8rem,1fr));gap:4px;min-width:min-content}
+.klosser li{display:flex;min-width:0}
+.klosser .blokk{border-radius:4px;border-bottom-width:4px}
+.klosser .blokk span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.klosser .kontekst .blokk:not(.valgt){border-style:dashed;border-bottom-style:solid;border-bottom-color:var(--rule);color:var(--muted)}
+
+/* Klosser: faner for ulike måter å vise mål som bygger på flere */
+.faner{margin:.8rem 0 0}
+.faner ul{display:flex;flex-wrap:wrap;gap:0;margin:0;padding:0;list-style:none;border-bottom:2px solid var(--rule)}
+.faner a{display:inline-block;text-decoration:none;font-size:.92rem;font-weight:700;color:var(--muted);padding:.35rem .9rem;margin-bottom:-2px;border-bottom:3px solid transparent}
+.faner a:hover{color:var(--ink)}
+.faner a[aria-current]{color:var(--fag);border-bottom-color:var(--fag)}
+.faner p{margin:.6rem 0 0;font-size:.95rem}
+.klosser-flate{position:relative;min-width:min-content}
+.klosser-flate .streker.traader{z-index:2}
+.streker.traader path{stroke:var(--muted);stroke-dasharray:4 4;opacity:.55}
+.streker.traader path.paa{stroke:var(--fag);opacity:1;stroke-dasharray:6 3}
+.klosser li{flex-direction:column;position:relative;z-index:1}
+.klosser .blokk .flere{color:var(--fag)}
+.klosser .blokk.valgt .flere{color:var(--paper)}
+.klosser .blokk.kopi{background:repeating-linear-gradient(135deg,var(--card) 0 8px,var(--soft) 8px 16px);border-style:dashed;color:var(--muted)}
+.klosser .blokk.kopi.valgt{background:var(--fag);color:var(--paper)}
+.klosser .blokk.kopi small{font-style:italic}
+.klosser .merker{display:flex;flex-wrap:wrap;gap:3px;margin:3px 0 0;padding:0;list-style:none}
+.klosser .merke{display:inline-block;font-size:.68rem;font-weight:700;text-decoration:none;border:1.5px solid var(--fag);color:var(--fag);border-radius:3px 3px 8px 8px;padding:0 .35rem;background:var(--card)}
+.klosser .merke.hoved{background:var(--fag);color:var(--paper)}
+.rutenett-lag{margin-top:1.4rem}
+.rutenett table{border-collapse:collapse;font-size:.8rem}
+.rutenett th,.rutenett td{border:1px solid var(--rule);padding:0}
+.rutenett thead th.kol{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:700;padding:.3rem .15rem;color:var(--muted);white-space:nowrap}
+.rutenett thead th.kol a{text-decoration:none}
+.rutenett thead th.hjorne{border:0}
+.rutenett tbody th{width:18rem;min-width:14rem;text-align:left;font-weight:400}
+.rutenett tbody th .blokk{width:100%;border:0;border-radius:0;border-left:4px solid var(--fag)}
+.rutenett tbody th .blokk span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.rutenett td{width:1.6rem;min-width:1.6rem;text-align:center;color:var(--fag);font-size:1rem}
+.rutenett tr.flere td{background:color-mix(in srgb,var(--fag) 7%,transparent)}
+
+/* Bikube og bro: fritt plasserte klosser, ett lag per trinn */
+.flate{--u:9rem;--rad:7.6rem;--h:7rem;position:relative;margin-top:1.2rem;padding-left:5.5rem;width:calc(var(--bredde) * var(--u) + 5.5rem);height:calc((var(--lag) - 1) * var(--rad) + var(--h))}
+.flate.bikube{--h:10.39rem;--rad:7.8rem}
+.flate .streker{position:absolute;inset:0;pointer-events:none;overflow:visible;z-index:2}
+.flate .streker path{stroke:var(--muted);stroke-dasharray:4 4;opacity:.6}
+.flate .streker path.paa{stroke:var(--fag);opacity:1;stroke-dasharray:none}
+.flate ol{list-style:none;margin:0;padding:0}
+.flate li{position:absolute;left:calc(5.5rem + var(--x) * var(--u));top:calc(var(--y) * var(--rad));width:calc(var(--b) * var(--u) - 4px);height:var(--h);display:flex;z-index:1}
+.flate-lagnavn{position:absolute;left:0;top:calc(var(--y) * var(--rad) + var(--h) / 2 - .7em);width:5rem;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:.85rem;line-height:1.15;color:var(--muted)}
+.flate .blokk span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.flate.bro li{height:calc(var(--rad) - 4px)}
+.flate.bro .blokk{border-radius:3px;border-bottom-width:4px}
+.flate .kontekst .blokk:not(.valgt){border-style:dashed;color:var(--muted)}
+/* Sekskant med spissen opp. Kanten er en litt større sekskant bak. */
+.flate.bikube li{clip-path:var(--omriss);background:var(--rule);padding:2px}
+.flate.bikube li:has(.valgt),.flate.bikube li:has(.under),.flate.bikube li:has(.over){background:var(--fag)}
+.flate.bikube .blokk{clip-path:var(--omriss);border:0;border-radius:0;justify-content:center;align-items:center;text-align:center;padding:1.6rem .9rem;font-size:.76rem;line-height:1.25}
+.flate.bikube .blokk span{-webkit-line-clamp:5}
+.flate.bikube .kontekst .blokk:not(.valgt){background:var(--soft)}
