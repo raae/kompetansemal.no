@@ -218,7 +218,7 @@ export function startBrokmemory(): void {
       status!.innerHTML = `<b>Spiller ${tur + 1} sin tur.</b> <span class="bm-s1">Spiller 1: ${poeng[0]} par.</span> <span class="bm-s2">Spiller 2: ${poeng[1]} par.</span>`;
     }
     status!.classList.toggle('ferdig', ferdig);
-    // Rød for spiller 1, blå for spiller 2. Settes på seksjonen, så både status og brett får fargen.
+    // Oransje for spiller 1, lilla for spiller 2. Settes på seksjonen, så både status og brett får fargen.
     if (spillere === 2 && !ferdig) seksjon!.dataset.tur = String(tur + 1);
     else delete seksjon!.dataset.tur;
   }

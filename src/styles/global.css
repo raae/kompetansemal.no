@@ -205,13 +205,17 @@ h3.trinn{scroll-margin-top:1rem}
   .bm-utskrift .bm-ord{font-size:13pt}
 }
 
-/* Brøkmemory med to spillere: rød for spiller 1, blå for spiller 2. */
-.bm[data-tur="1"]{--spiller:var(--NOR)}
-.bm[data-tur="2"]{--spiller:var(--MAT)}
+/* Brøkmemory med to spillere: oransje for spiller 1, lilla for spiller 2.
+   Egne farger, så de ikke blandes med fagfargen på brøkbitene. */
+.bm{--spiller1:#B04A14;--spiller2:#6B4FA0}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .bm{--spiller1:#F09A6C;--spiller2:#B9A5E8} }
+:root[data-theme="dark"] .bm{--spiller1:#F09A6C;--spiller2:#B9A5E8}
+.bm[data-tur="1"]{--spiller:var(--spiller1)}
+.bm[data-tur="2"]{--spiller:var(--spiller2)}
 .bm[data-tur] .bm-status{background:var(--spiller);color:var(--paper);border-radius:10px;padding:.45rem .8rem;font-size:1.05rem}
 .bm[data-tur] .bm-brett{box-shadow:0 0 0 4px var(--spiller),0 0 1.4rem var(--spiller);border-radius:14px;padding:.6rem}
 .bm[data-tur] .bm-kort:not([aria-disabled="true"]) .bm-bak{border-color:var(--spiller)}
 .bm[data-tur] .bm-bak::after{color:var(--spiller)}
-.bm-kort.funnet[data-spiller="1"] .bm-flate{border-color:var(--NOR);box-shadow:inset 0 0 0 3px var(--NOR)}
-.bm-kort.funnet[data-spiller="2"] .bm-flate{border-color:var(--MAT);box-shadow:inset 0 0 0 3px var(--MAT)}
+.bm-kort.funnet[data-spiller="1"] .bm-flate{border-color:var(--spiller1);box-shadow:inset 0 0 0 3px var(--spiller1)}
+.bm-kort.funnet[data-spiller="2"] .bm-flate{border-color:var(--spiller2);box-shadow:inset 0 0 0 3px var(--spiller2)}
 @media (prefers-reduced-motion:no-preference){ .bm-status,.bm-brett{transition:background-color .3s,box-shadow .3s} }
