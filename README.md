@@ -59,6 +59,9 @@ Andre ting å vite:
 | `/kjerneelement/[fag]/[slug]/` | Alle mål i faget med kjerneelementet |
 | `/tema/[slug]/` | Alle mål i alle fag med det tverrfaglige temaet |
 | `/sok.json` | Søkeindeks for søket på klientsiden |
+| `/spill/brokmemory/` | Brøkmemory til idéen på KM13267. Spilles på skjermen eller skrives ut. |
+
+Spill som hører til en idé, står i `src/lib/spill.ts`. Idéteksten må stå ordrett i `data/forklaringer.json`; da får idéen en lenke til spillet. Endres eller fjernes idéen, feiler byggingen.
 
 Trinngrupper: 1–2, 3–4, 5–7 og 8–10. KRLE og mat og helse har ikke mål etter 2. trinn og får 1–4, 5–7 og 8–10. Matte har mål per trinn og merkes «5. trinn». Andre fag merkes med gruppa, f.eks. «5.–7. trinn».
 
