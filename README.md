@@ -54,7 +54,7 @@ Andre ting å vite:
 | Rute | Hva |
 |---|---|
 | `/` | Forside med søk og fagvalg |
-| `/[fag]/` | Alle målene i et fag, med hopp til hver trinngruppe |
+| `/[fag]/` | Alle målene i et fag, med filter for trinn, emne og kjerneelement, f.eks. `/matte/?trinn=5-7&emne=brok` |
 | `/[fag]/[gruppe]/` | Målene i et fag for én trinngruppe, f.eks. `/matte/5-7/` |
 | `/mal/[kode]/` | Ett mål, med «Bygger på og fører til» åpent og lenker til forrige og neste |
 | `/kjerneelement/[fag]/[slug]/` | Alle mål i faget med kjerneelementet |
