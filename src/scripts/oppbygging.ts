@@ -41,11 +41,23 @@ export function lagMarkering(rot: HTMLElement, panel: HTMLElement): { nyttInnhol
       }
   }
 
+  /** Punktet der linjen fra midten av r mot (x, y) går ut av rektangelet. */
+  function kant(r: DOMRect, x: number, y: number, luft: number): [number, number] {
+    const cx = r.left + r.width / 2;
+    const cy = r.top + r.height / 2;
+    const dx = x - cx;
+    const dy = y - cy;
+    const t = Math.min(dx ? (r.width / 2 + luft) / Math.abs(dx) : Infinity, dy ? (r.height / 2 + luft) / Math.abs(dy) : Infinity);
+    return [cx + dx * Math.min(t, 1), cy + dy * Math.min(t, 1)];
+  }
+
   function tegn(): void {
     if (!svg || !stabel) return;
     // I bikuben overlapper radene, så der går streken mellom midten av cellene.
-    // Kraftgrafen har rette streker mellom midtene.
+    // Kraftgrafen har rette streker mellom midtene. Nettverket (kort) har piler som
+    // går fra kant til kant, fra målet som kommer først til målet som bygger på det.
     const rett = stabel.classList.contains('kraft');
+    const piler = stabel.classList.contains('kort');
     const midt = rett || stabel.classList.contains('bikube');
     const r = stabel.getBoundingClientRect();
     svg.setAttribute('width', String(r.width));
@@ -53,6 +65,12 @@ export function lagMarkering(rot: HTMLElement, panel: HTMLElement): { nyttInnhol
     for (const { fra, til, sti } of kanter) {
       const a = blokker.get(fra)!.getBoundingClientRect();
       const b = blokker.get(til)!.getBoundingClientRect();
+      if (piler) {
+        const [x1, y1] = kant(a, b.left + b.width / 2, b.top + b.height / 2, 2);
+        const [x2, y2] = kant(b, a.left + a.width / 2, a.top + a.height / 2, 5);
+        sti.setAttribute('d', `M${x1 - r.left},${y1 - r.top} L${x2 - r.left},${y2 - r.top}`);
+        continue;
+      }
       // Fra toppen av målet under til bunnen av målet over.
       const x1 = a.left + a.width / 2 - r.left;
       const y1 = (midt ? a.top + a.height / 2 : a.top) - r.top;
@@ -62,6 +80,7 @@ export function lagMarkering(rot: HTMLElement, panel: HTMLElement): { nyttInnhol
       sti.setAttribute('d', rett ? `M${x1},${y1} L${x2},${y2}` : `M${x1},${y1} C${x1},${y1 - dy} ${x2},${y2 + dy} ${x2},${y2}`);
     }
   }
+
 
   function samle(start: string, naboer: Map<string, string[]>): Set<string> {
     const sett = new Set([start]);

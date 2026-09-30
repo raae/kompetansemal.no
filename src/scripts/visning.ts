@@ -122,10 +122,12 @@ function kortgrafHtml(lag: Lag[], hoyder?: Map<string, number>): string {
   const li = kort.map((k) => {
     const tone = lag.length > 1 ? k.lag / (lag.length - 1) : 1;
     const stil = `--x:${k.x.toFixed(2)};--y:${k.y.toFixed(2)};--b:${k.b};--h:${k.h.toFixed(2)};--tone:${tone.toFixed(2)}`;
-    return `<li class="${k.kontekst ? 'kontekst' : ''}" style="${stil}">${blokk(k.maal, bygger(k.maal), { tekst: `${k.maal.kode} · ${k.maal.trinnLabel}` })}</li>`;
+    return `<li class="${k.kontekst ? 'kontekst' : ''}" style="${stil}">${blokk(k.maal, bygger(k.maal), { ekstra: `<em class="trinnmerke">${esc(k.maal.trinnLabel)}</em>` })}</li>`;
   });
+  // Pilspisser: én for vanlige streker og én for tråden til valgt mål.
+  const pil = (id: string) => `<marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker>`;
   return `<div class="klosser-rulle"><div class="kraft kort" id="stabel" style="--bredde:${bredde.toFixed(2)};--hoyde:${hoyde.toFixed(2)}">
-    <svg class="streker" aria-hidden="true"></svg><ol>${li.join('')}</ol>
+    <svg class="streker" aria-hidden="true"><defs>${pil('pil')}${pil('pil-paa')}</defs></svg><ol>${li.join('')}</ol>
   </div></div>`;
 }
 

@@ -300,3 +300,13 @@ aside.valgtpanel .lukk{position:absolute;top:.4rem;right:.5rem;font:inherit;font
 .kraft.kort .blokk small{color:var(--muted);font-weight:700}
 .kraft.kort .blokk span,.kraft.kort .blokk:is(.valgt,.under,.over) span{display:block;-webkit-line-clamp:none}
 .kraft.kort .blokk.valgt small{color:var(--paper)}
+/* Piler i nettverket: fra målet som kommer først til målet som bygger på det. */
+.kraft.kort .streker path{marker-end:url(#pil)}
+.kraft.kort .streker path.paa{marker-end:url(#pil-paa)}
+.kraft.kort .streker marker path{marker-end:none;stroke:none;fill:var(--muted)}
+.kraft.kort .streker #pil-paa path{fill:var(--fag)}
+.kraft.kort .streker path:not(marker path){stroke:var(--muted);opacity:.7}
+.kraft.kort .streker path.paa{stroke:var(--fag);opacity:1}
+.kraft.kort .blokk small{display:flex;justify-content:space-between;align-items:center;gap:.4rem}
+.kraft.kort .trinnmerke{font-style:normal;font-size:.7rem;font-weight:700;color:var(--paper);background:var(--fag);border-radius:999px;padding:.05rem .45rem;white-space:nowrap}
+.kraft.kort .blokk.valgt .trinnmerke{background:var(--paper);color:var(--fag)}

@@ -116,10 +116,11 @@ function kortHoyde(m: VMaal): number {
 }
 
 /**
- * Kraftgraf med hele målene som kort. Kortene står fritt (ingen trinnrader): koblingene
- * trekker målene som bygger på hverandre sammen, kortene skyver hverandre bort og kan
- * ikke overlappe. `hoyder` er målte korthøyder i rem; uten dem brukes et anslag.
- * Et svakt drag nedover for tidlige trinn holder retningen nedenfra og opp.
+ * Kraftgraf med hele målene som kort. Kortene står helt fritt: koblingene trekker
+ * målene som bygger på hverandre sammen, kortene skyver hverandre bort og kan ikke
+ * overlappe. Retningen vises med piler, ikke med plasseringen. Kortene starter i
+ * lagene (tidligste nederst), så grafen blir lik hver gang.
+ * `hoyder` er målte korthøyder i rem; uten dem brukes et anslag.
  */
 export function kortgraf(lag: Lag[], hoyder?: Map<string, number>): { kort: Kort[]; bredde: number; hoyde: number } {
   const hoyest = lag.length - 1;
@@ -162,6 +163,9 @@ export function kortgraf(lag: Lag[], hoyder?: Map<string, number>): { kort: Kort
 
   const vx = new Float64Array(n);
   const vy = new Float64Array(n);
+  const midtY = (hoyest * RAD) / 2;
+  const grad = new Uint16Array(n);
+  for (const [a, b] of kanter) grad[a]++, grad[b]++;
   const RUNDER = 500;
   for (let runde = 0; runde < RUNDER; runde++) {
     const varme = 1 - runde / RUNDER;
@@ -185,8 +189,11 @@ export function kortgraf(lag: Lag[], hoyder?: Map<string, number>): { kort: Kort
     }
     for (let i = 0; i < n; i++) {
       const k = kort[i];
-      vy[i] += ((hoyest - k.lag) * RAD - k.y) * 0.01;
-      vx[i] -= k.x * 0.002;
+      // Svakt drag mot midten, så løse mål ikke driver langt av gårde. Mål uten
+      // koblinger i visningen dras sterkere, ellers skyves de helt ut i kanten.
+      const drag = grad[i] ? 0.003 : 0.02;
+      vx[i] -= k.x * drag;
+      vy[i] -= (k.y - midtY) * drag;
       k.x += Math.max(-2, Math.min(2, vx[i])) * varme;
       k.y += Math.max(-2, Math.min(2, vy[i])) * varme;
       vx[i] *= 0.5;
