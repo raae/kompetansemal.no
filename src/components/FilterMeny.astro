@@ -1,0 +1,24 @@
+---
+// Filtre med mange valg (emner, kjerneelementer) ligger bak hver sin knapp.
+// Lukket viser knappen hva som er valgt, f.eks. «Emne: Brøk». Åpen viser den
+// pillene i et panel under knapperaden. scripts/filter.ts åpner og lukker og
+// holder teksten i knappen oppdatert. FilterStart.astro setter den før siden tegnes.
+import type { ComponentProps } from 'astro/types';
+import Filter from './Filter.astro';
+interface Props {
+  filtre: ComponentProps<typeof Filter>[];
+}
+const filtre = Astro.props.filtre.filter((f) => f.valg.length);
+---
+<div class="filtermeny">
+  {filtre.map((f) => (
+    <button type="button" aria-expanded="false" aria-controls={`filterpanel-${f.navn}`} data-filter-knapp={f.navn}>
+      <span class="navn">{f.tittel}:</span>{' '}<span class="oppsummering" data-oppsummering>Alle</span>
+    </button>
+  ))}
+</div>
+{filtre.map((f) => (
+  <div class="filterpanel" id={`filterpanel-${f.navn}`} hidden>
+    <Filter {...f} />
+  </div>
+))}

@@ -6,6 +6,8 @@
 interface Valg {
   verdi: string;
   label: string;
+  /** Antall mål med dette valget. Vises i parentes etter navnet. */
+  antall?: number;
   href?: string;
   valgt?: boolean;
 }
@@ -19,6 +21,7 @@ interface Props {
 }
 const { navn, tittel, alle, valg } = Astro.props;
 const lenker = alle.href !== undefined;
+const tekst = (v: Valg) => (v.antall === undefined ? v.label : `${v.label} (${v.antall})`);
 ---
 <div class="filter" role="group" aria-label={tittel} data-filter={lenker ? undefined : navn}>
   {lenker ? (
@@ -29,9 +32,9 @@ const lenker = alle.href !== undefined;
   <span class="skille" aria-hidden="true"></span>
   {valg.map((v) =>
     lenker ? (
-      <a href={v.href} aria-current={v.valgt ? 'page' : undefined} data-behold-filter>{v.label}</a>
+      <a href={v.href} aria-current={v.valgt ? 'page' : undefined} data-behold-filter>{tekst(v)}</a>
     ) : (
-      <button type="button" data-verdi={v.verdi} aria-pressed="false">{v.label}</button>
+      <button type="button" data-verdi={v.verdi} data-label={v.label} aria-pressed="false">{tekst(v)}</button>
     ),
   )}
 </div>

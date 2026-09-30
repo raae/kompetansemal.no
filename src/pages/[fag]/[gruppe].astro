@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import GruppeInnhold from '../../components/GruppeInnhold.astro';
 import Filter from '../../components/Filter.astro';
+import FilterMeny from '../../components/FilterMeny.astro';
 import FilterStart from '../../components/FilterStart.astro';
 import { ALLE_FAG, emnerForFag, fagUrl, kjerneelementerForFag, type Fag, type Gruppe } from '../../lib/data';
 import { slug } from '../../lib/fag.mjs';
@@ -32,8 +33,10 @@ const kjerne = kjerneelementerForFag(fag)
       <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
       <p>{fag.note}</p>
       <Filter navn="trinn" tittel="Trinn" alle={{ label: 'Alle trinn', href: fagUrl(fag) }} valg={trinnValg} />
-      <Filter navn="emne" tittel="Emne" alle={{ label: 'Alle emner' }} valg={emner.map((e) => ({ verdi: e.slug, label: `${e.navn} (${e.antall})` }))} />
-      <Filter navn="kjerne" tittel="Kjerneelement" alle={{ label: 'Alle kjerneelementer' }} valg={kjerne.map((k) => ({ verdi: k.slug, label: `${k.navn} (${k.antall})` }))} />
+      <FilterMeny filtre={[
+        { navn: 'emne', tittel: 'Emne', alle: { label: 'Alle emner' }, valg: emner.map((e) => ({ verdi: e.slug, label: e.navn, antall: e.antall })) },
+        { navn: 'kjerne', tittel: 'Kjerneelement', alle: { label: 'Alle kjerneelementer' }, valg: kjerne.map((k) => ({ verdi: k.slug, label: k.navn, antall: k.antall })) },
+      ]} />
       <p class="filterstatus" data-filter-status aria-live="polite" hidden></p>
     </div>
     <FilterStart />
