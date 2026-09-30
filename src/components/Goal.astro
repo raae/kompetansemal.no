@@ -1,6 +1,7 @@
 ---
 import Chain from './Chain.astro';
 import { fagMedKey, fagUrl, kjerneelementUrl, maalUrl, temaUrl, trinnLabel, type Maal } from '../lib/data';
+import { slug } from '../lib/fag.mjs';
 interface Props {
   maal: Maal;
   /** Vis fagnavn oppe til høyre (på tvers av fag). */
@@ -17,7 +18,7 @@ const fag = fagMedKey(maal.fag)!;
 const Tag = alene ? 'article' : 'li';
 const harTags = maal.kjerneelementer.length + maal.tverrfaglige_temaer.length > 0;
 ---
-<Tag class="goal" style={`--fag:var(--${fag.key})`} id={alene ? undefined : maal.kode}>
+<Tag class="goal" style={`--fag:var(--${fag.key})`} id={alene ? undefined : maal.kode} data-f-kjerne={maal.kjerneelementer.map(slug).join(' ')}>
   <div class="meta">
     <span class="code">
       {alene ? maal.kode : <a href={maalUrl(maal)} title="Åpne dette målet på egen side">{maal.kode}</a>}

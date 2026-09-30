@@ -1,0 +1,27 @@
+---
+// Legges rett etter filterradene og før lista. Kjører før siden tegnes, så
+// piller og skjulte mål stemmer med URL-en fra første stund (ingen blink av
+// «Alle»). scripts/filter.ts tar over og fjerner stilen etterpå.
+---
+<script is:inline>
+  (() => {
+    const params = new URLSearchParams(location.search);
+    const skjul = [];
+    for (const rad of document.querySelectorAll('[data-filter]')) {
+      const navn = rad.dataset.filter;
+      const knapper = [...rad.querySelectorAll('[data-verdi]')];
+      const lov = knapper.map((b) => b.dataset.verdi);
+      const valgt = (params.get(navn) || '').split(',').filter((v) => lov.includes(v));
+      if (!valgt.length) continue;
+      rad.querySelector('[data-alle]').setAttribute('aria-pressed', 'false');
+      for (const b of knapper) b.setAttribute('aria-pressed', String(valgt.includes(b.dataset.verdi)));
+      skjul.push(`[data-f-${navn}]${valgt.map((v) => `:not([data-f-${navn}~="${v}"])`).join('')}`);
+    }
+    if (!skjul.length) return;
+    const synligMaal = `li.goal${skjul.map((s) => `:not(${s})`).join('')}`;
+    const stil = document.createElement('style');
+    stil.id = 'filter-start';
+    stil.textContent = `${skjul.join(',')},[data-seksjon]:not(:has(${synligMaal})){display:none}`;
+    document.head.append(stil);
+  })();
+</script>
