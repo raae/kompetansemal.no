@@ -1,0 +1,2025 @@
+{
+  "MAT": {
+    "emner": [
+      "Tallforståelse",
+      "Addisjon og subtraksjon",
+      "Multiplikasjon og divisjon",
+      "Regnestrategier",
+      "Brøk",
+      "Desimaltall",
+      "Prosent",
+      "Algebra",
+      "Ligninger og ulikheter",
+      "Mønstre",
+      "Geometri",
+      "Måling",
+      "Tid",
+      "Koordinatsystem",
+      "Funksjoner",
+      "Statistikk",
+      "Sannsynlighet",
+      "Økonomi",
+      "Modellering",
+      "Programmering"
+    ],
+    "maal": {
+      "KM13228": [
+        "Tallforståelse"
+      ],
+      "KM13229": [
+        "Tallforståelse"
+      ],
+      "KM13241": [
+        "Tallforståelse"
+      ],
+      "KM13230": [
+        "Tallforståelse",
+        "Mønstre"
+      ],
+      "KM13231": [
+        "Tallforståelse"
+      ],
+      "KM13232": [
+        "Tallforståelse"
+      ],
+      "KM13233": [
+        "Tallforståelse"
+      ],
+      "KM13234": [
+        "Addisjon og subtraksjon"
+      ],
+      "KM13235": [
+        "Addisjon og subtraksjon",
+        "Regnestrategier"
+      ],
+      "KM13242": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13236": [
+        "Mønstre"
+      ],
+      "KM13237": [
+        "Geometri"
+      ],
+      "KM13240": [
+        "Måling"
+      ],
+      "KM13238": [
+        "Tid"
+      ],
+      "KM13239": [
+        "Programmering"
+      ],
+      "KM13243": [
+        "Addisjon og subtraksjon",
+        "Regnestrategier"
+      ],
+      "KM13244": [
+        "Addisjon og subtraksjon"
+      ],
+      "KM13245": [
+        "Multiplikasjon og divisjon"
+      ],
+      "KM13254": [
+        "Multiplikasjon og divisjon",
+        "Regnestrategier"
+      ],
+      "KM13246": [
+        "Multiplikasjon og divisjon"
+      ],
+      "KM13247": [
+        "Multiplikasjon og divisjon"
+      ],
+      "KM13248": [
+        "Multiplikasjon og divisjon",
+        "Regnestrategier"
+      ],
+      "KM13249": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13250": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13253": [
+        "Måling"
+      ],
+      "KM13251": [
+        "Koordinatsystem"
+      ],
+      "KM13252": [
+        "Koordinatsystem",
+        "Programmering"
+      ],
+      "KM13255": [
+        "Multiplikasjon og divisjon"
+      ],
+      "KM13256": [
+        "Multiplikasjon og divisjon"
+      ],
+      "KM13257": [
+        "Multiplikasjon og divisjon",
+        "Regnestrategier"
+      ],
+      "KM13258": [
+        "Regnestrategier"
+      ],
+      "KM13259": [
+        "Modellering"
+      ],
+      "KM13260": [
+        "Algebra"
+      ],
+      "KM13261": [
+        "Geometri"
+      ],
+      "KM13264": [
+        "Måling"
+      ],
+      "KM13262": [
+        "Mønstre"
+      ],
+      "KM13263": [
+        "Programmering"
+      ],
+      "KM13265": [
+        "Brøk",
+        "Desimaltall",
+        "Prosent"
+      ],
+      "KM13266": [
+        "Brøk"
+      ],
+      "KM13267": [
+        "Brøk"
+      ],
+      "KM13268": [
+        "Brøk",
+        "Regnestrategier"
+      ],
+      "KM13269": [
+        "Brøk"
+      ],
+      "KM13270": [
+        "Sannsynlighet",
+        "Brøk"
+      ],
+      "KM13274": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13271": [
+        "Økonomi"
+      ],
+      "KM13273": [
+        "Tid"
+      ],
+      "KM13272": [
+        "Programmering"
+      ],
+      "KM13275": [
+        "Desimaltall"
+      ],
+      "KM13276": [
+        "Desimaltall",
+        "Regnestrategier"
+      ],
+      "KM13277": [
+        "Brøk",
+        "Desimaltall",
+        "Prosent"
+      ],
+      "KM13278": [
+        "Geometri"
+      ],
+      "KM13283": [
+        "Geometri",
+        "Mønstre"
+      ],
+      "KM13284": [
+        "Geometri",
+        "Koordinatsystem"
+      ],
+      "KM13279": [
+        "Måling",
+        "Geometri"
+      ],
+      "KM13280": [
+        "Måling"
+      ],
+      "KM13285": [
+        "Måling"
+      ],
+      "KM13281": [
+        "Måling"
+      ],
+      "KM13282": [
+        "Programmering",
+        "Geometri"
+      ],
+      "KM13286": [
+        "Prosent",
+        "Brøk",
+        "Desimaltall"
+      ],
+      "KM13288": [
+        "Brøk",
+        "Desimaltall",
+        "Prosent"
+      ],
+      "KM13292": [
+        "Tallforståelse"
+      ],
+      "KM13287": [
+        "Algebra"
+      ],
+      "KM13291": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13294": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13296": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13289": [
+        "Statistikk"
+      ],
+      "KM13290": [
+        "Statistikk"
+      ],
+      "KM13295": [
+        "Økonomi",
+        "Modellering"
+      ],
+      "KM13293": [
+        "Programmering",
+        "Statistikk"
+      ],
+      "KM13297": [
+        "Tallforståelse"
+      ],
+      "KM13303": [
+        "Regnestrategier"
+      ],
+      "KM13298": [
+        "Tallforståelse",
+        "Brøk"
+      ],
+      "KM13299": [
+        "Mønstre",
+        "Algebra"
+      ],
+      "KM13301": [
+        "Algebra"
+      ],
+      "KM13304": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13305": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13302": [
+        "Funksjoner"
+      ],
+      "KM13306": [
+        "Funksjoner"
+      ],
+      "KM13300": [
+        "Programmering"
+      ],
+      "KM13316": [
+        "Måling"
+      ],
+      "KM13308": [
+        "Geometri"
+      ],
+      "KM13317": [
+        "Geometri"
+      ],
+      "KM13307": [
+        "Geometri"
+      ],
+      "KM13309": [
+        "Geometri"
+      ],
+      "KM13310": [
+        "Geometri",
+        "Måling"
+      ],
+      "KM13312": [
+        "Statistikk"
+      ],
+      "KM13313": [
+        "Statistikk"
+      ],
+      "KM13314": [
+        "Statistikk"
+      ],
+      "KM13315": [
+        "Sannsynlighet",
+        "Statistikk"
+      ],
+      "KM13311": [
+        "Sannsynlighet",
+        "Programmering"
+      ],
+      "KM13328": [
+        "Algebra"
+      ],
+      "KM13318": [
+        "Algebra",
+        "Geometri"
+      ],
+      "KM13324": [
+        "Ligninger og ulikheter"
+      ],
+      "KM13319": [
+        "Funksjoner"
+      ],
+      "KM13320": [
+        "Funksjoner"
+      ],
+      "KM13322": [
+        "Funksjoner",
+        "Prosent"
+      ],
+      "KM13321": [
+        "Økonomi"
+      ],
+      "KM13325": [
+        "Økonomi"
+      ],
+      "KM13323": [
+        "Modellering"
+      ],
+      "KM13326": [
+        "Programmering"
+      ],
+      "KM13327": [
+        "Programmering"
+      ]
+    }
+  },
+  "NOR": {
+    "emner": [
+      "Bokstaver og lyder",
+      "Lesing",
+      "Bibliotek",
+      "Skjønnlitteratur",
+      "Sakprosa",
+      "Nabospråk",
+      "Samtale",
+      "Muntlig framføring",
+      "Argumentasjon",
+      "Virkemidler og retorikk",
+      "Skriving",
+      "Håndskrift og tastatur",
+      "Rettskriving og tegnsetting",
+      "Grammatikk",
+      "Ord og uttrykk",
+      "Sjangre",
+      "Sammensatte tekster",
+      "Kilder og kildekritikk",
+      "Bokmål og nynorsk",
+      "Språkmangfold",
+      "Språkbruk",
+      "Digitale medier"
+    ],
+    "maal": {
+      "KM14139": [
+        "Skjønnlitteratur",
+        "Sakprosa",
+        "Bokmål og nynorsk"
+      ],
+      "KM14151": [
+        "Bibliotek"
+      ],
+      "KM14141": [
+        "Skjønnlitteratur"
+      ],
+      "KM14149": [
+        "Språkbruk"
+      ],
+      "KM14145": [
+        "Bokstaver og lyder"
+      ],
+      "KM14146": [
+        "Bokstaver og lyder",
+        "Lesing"
+      ],
+      "KM14140": [
+        "Lesing"
+      ],
+      "KM14142": [
+        "Samtale"
+      ],
+      "KM14143": [
+        "Skriving",
+        "Muntlig framføring"
+      ],
+      "KM14147": [
+        "Håndskrift og tastatur"
+      ],
+      "KM14144": [
+        "Rettskriving og tegnsetting"
+      ],
+      "KM14152": [
+        "Sammensatte tekster"
+      ],
+      "KM14148": [
+        "Ord og uttrykk"
+      ],
+      "KM14150": [
+        "Språkmangfold"
+      ],
+      "KM14153": [
+        "Skjønnlitteratur",
+        "Sakprosa"
+      ],
+      "KM14166": [
+        "Bibliotek"
+      ],
+      "KM14164": [
+        "Lesing"
+      ],
+      "KM14158": [
+        "Skjønnlitteratur"
+      ],
+      "KM14163": [
+        "Kilder og kildekritikk",
+        "Sakprosa"
+      ],
+      "KM14154": [
+        "Muntlig framføring"
+      ],
+      "KM14155": [
+        "Sammensatte tekster"
+      ],
+      "KM14167": [
+        "Samtale"
+      ],
+      "KM14162": [
+        "Skriving",
+        "Argumentasjon"
+      ],
+      "KM14156": [
+        "Håndskrift og tastatur"
+      ],
+      "KM14157": [
+        "Rettskriving og tegnsetting"
+      ],
+      "KM14159": [
+        "Grammatikk"
+      ],
+      "KM14160": [
+        "Språkbruk"
+      ],
+      "KM14168": [
+        "Ord og uttrykk",
+        "Språkmangfold"
+      ],
+      "KM14165": [
+        "Språkmangfold"
+      ],
+      "KM14161": [
+        "Bokmål og nynorsk"
+      ],
+      "KM14176": [
+        "Skjønnlitteratur",
+        "Sakprosa",
+        "Nabospråk"
+      ],
+      "KM14184": [
+        "Skjønnlitteratur",
+        "Språkmangfold"
+      ],
+      "KM14173": [
+        "Kilder og kildekritikk",
+        "Bibliotek"
+      ],
+      "KM14185": [
+        "Lesing"
+      ],
+      "KM14180": [
+        "Håndskrift og tastatur"
+      ],
+      "KM14169": [
+        "Samtale",
+        "Argumentasjon"
+      ],
+      "KM14182": [
+        "Digitale medier"
+      ],
+      "KM14170": [
+        "Muntlig framføring"
+      ],
+      "KM14171": [
+        "Virkemidler og retorikk",
+        "Skriving"
+      ],
+      "KM14181": [
+        "Sjangre",
+        "Skriving"
+      ],
+      "KM14172": [
+        "Skriving",
+        "Rettskriving og tegnsetting"
+      ],
+      "KM14174": [
+        "Skriving"
+      ],
+      "KM14177": [
+        "Grammatikk"
+      ],
+      "KM14183": [
+        "Sammensatte tekster"
+      ],
+      "KM14175": [
+        "Bokmål og nynorsk"
+      ],
+      "KM14178": [
+        "Språkmangfold",
+        "Nabospråk"
+      ],
+      "KM14179": [
+        "Språkmangfold"
+      ],
+      "KM14193": [
+        "Skjønnlitteratur",
+        "Sakprosa",
+        "Sjangre"
+      ],
+      "KM14197": [
+        "Skjønnlitteratur"
+      ],
+      "KM14201": [
+        "Lesing"
+      ],
+      "KM14200": [
+        "Nabospråk"
+      ],
+      "KM14198": [
+        "Skjønnlitteratur",
+        "Sakprosa"
+      ],
+      "KM14192": [
+        "Virkemidler og retorikk",
+        "Argumentasjon"
+      ],
+      "KM14190": [
+        "Kilder og kildekritikk"
+      ],
+      "KM14199": [
+        "Digitale medier"
+      ],
+      "KM14186": [
+        "Argumentasjon",
+        "Samtale"
+      ],
+      "KM14188": [
+        "Sjangre",
+        "Skriving",
+        "Muntlig framføring"
+      ],
+      "KM14191": [
+        "Rettskriving og tegnsetting",
+        "Skriving",
+        "Bokmål og nynorsk"
+      ],
+      "KM14194": [
+        "Grammatikk",
+        "Sjangre"
+      ],
+      "KM14187": [
+        "Sjangre",
+        "Skriving"
+      ],
+      "KM14189": [
+        "Sammensatte tekster"
+      ],
+      "KM14195": [
+        "Bokmål og nynorsk",
+        "Språkmangfold"
+      ],
+      "KM14196": [
+        "Språkmangfold"
+      ]
+    }
+  },
+  "ENG": {
+    "emner": [
+      "Uttale og lyder",
+      "Ord og uttrykk",
+      "Lytting",
+      "Samtale",
+      "Lesing",
+      "Litteratur",
+      "Skriving",
+      "Grammatikk og rettskriving",
+      "Kilder",
+      "Språklæringsstrategier",
+      "Digitale verktøy og ordbøker",
+      "Engelsk og andre språk",
+      "Engelsk i verden",
+      "Kultur og levemåter",
+      "Urfolk"
+    ],
+    "maal": {
+      "KM13338": [
+        "Digitale verktøy og ordbøker",
+        "Samtale"
+      ],
+      "KM13329": [
+        "Uttale og lyder"
+      ],
+      "KM13330": [
+        "Uttale og lyder",
+        "Lesing"
+      ],
+      "KM13331": [
+        "Uttale og lyder"
+      ],
+      "KM13334": [
+        "Ord og uttrykk"
+      ],
+      "KM13332": [
+        "Samtale"
+      ],
+      "KM13333": [
+        "Samtale"
+      ],
+      "KM13335": [
+        "Engelsk og andre språk"
+      ],
+      "KM13336": [
+        "Litteratur",
+        "Lesing"
+      ],
+      "KM13339": [
+        "Skriving",
+        "Lesing"
+      ],
+      "KM13337": [
+        "Litteratur",
+        "Kultur og levemåter"
+      ],
+      "KM13343": [
+        "Digitale verktøy og ordbøker"
+      ],
+      "KM13351": [
+        "Digitale verktøy og ordbøker"
+      ],
+      "KM13340": [
+        "Uttale og lyder"
+      ],
+      "KM13354": [
+        "Lytting",
+        "Ord og uttrykk"
+      ],
+      "KM13341": [
+        "Ord og uttrykk",
+        "Samtale"
+      ],
+      "KM13342": [
+        "Samtale"
+      ],
+      "KM13346": [
+        "Engelsk og andre språk",
+        "Ord og uttrykk"
+      ],
+      "KM13344": [
+        "Grammatikk og rettskriving"
+      ],
+      "KM13345": [
+        "Grammatikk og rettskriving"
+      ],
+      "KM13347": [
+        "Lesing"
+      ],
+      "KM13348": [
+        "Lesing",
+        "Ord og uttrykk"
+      ],
+      "KM13349": [
+        "Lesing"
+      ],
+      "KM13352": [
+        "Skriving"
+      ],
+      "KM13353": [
+        "Kultur og levemåter"
+      ],
+      "KM13350": [
+        "Litteratur",
+        "Kultur og levemåter"
+      ],
+      "KM13359": [
+        "Språklæringsstrategier"
+      ],
+      "KM13364": [
+        "Digitale verktøy og ordbøker"
+      ],
+      "KM13355": [
+        "Uttale og lyder",
+        "Ord og uttrykk"
+      ],
+      "KM13356": [
+        "Lytting"
+      ],
+      "KM13357": [
+        "Ord og uttrykk",
+        "Samtale"
+      ],
+      "KM13358": [
+        "Samtale"
+      ],
+      "KM13361": [
+        "Engelsk og andre språk"
+      ],
+      "KM13370": [
+        "Grammatikk og rettskriving"
+      ],
+      "KM13360": [
+        "Grammatikk og rettskriving"
+      ],
+      "KM13362": [
+        "Lesing"
+      ],
+      "KM13363": [
+        "Litteratur",
+        "Lesing"
+      ],
+      "KM13365": [
+        "Kilder"
+      ],
+      "KM13366": [
+        "Skriving"
+      ],
+      "KM13367": [
+        "Skriving"
+      ],
+      "KM13368": [
+        "Engelsk i verden"
+      ],
+      "KM13369": [
+        "Kultur og levemåter"
+      ],
+      "KM13374": [
+        "Språklæringsstrategier"
+      ],
+      "KM13380": [
+        "Digitale verktøy og ordbøker"
+      ],
+      "KM13388": [
+        "Uttale og lyder"
+      ],
+      "KM13371": [
+        "Lytting",
+        "Engelsk i verden"
+      ],
+      "KM13372": [
+        "Ord og uttrykk",
+        "Samtale"
+      ],
+      "KM13373": [
+        "Samtale"
+      ],
+      "KM13376": [
+        "Engelsk og andre språk"
+      ],
+      "KM13389": [
+        "Grammatikk og rettskriving"
+      ],
+      "KM13375": [
+        "Grammatikk og rettskriving",
+        "Skriving"
+      ],
+      "KM13377": [
+        "Lesing"
+      ],
+      "KM13378": [
+        "Litteratur"
+      ],
+      "KM13379": [
+        "Kilder",
+        "Lesing"
+      ],
+      "KM13381": [
+        "Kilder"
+      ],
+      "KM13382": [
+        "Skriving"
+      ],
+      "KM13383": [
+        "Skriving"
+      ],
+      "KM13384": [
+        "Engelsk i verden"
+      ],
+      "KM13385": [
+        "Urfolk",
+        "Kultur og levemåter"
+      ],
+      "KM13387": [
+        "Kultur og levemåter"
+      ],
+      "KM13386": [
+        "Kultur og levemåter"
+      ]
+    }
+  },
+  "NAT": {
+    "emner": [
+      "Naturvitenskapelig metode",
+      "Modeller",
+      "Forskning",
+      "Sikkerhet",
+      "Teknologi",
+      "Programmering",
+      "Stoffer og kjemi",
+      "Energi",
+      "Elektrisitet og magnetisme",
+      "Dyr og planter",
+      "Økosystemer",
+      "Biologisk mangfold",
+      "Evolusjon",
+      "Celler",
+      "Miljø og bærekraft",
+      "Klima",
+      "Vær og årstider",
+      "Jorda",
+      "Verdensrommet",
+      "Kroppen",
+      "Helse og sykdom",
+      "Kropp, kjønn og seksualitet",
+      "Samisk og tradisjonell kunnskap"
+    ],
+    "maal": {
+      "KM13806": [
+        "Naturvitenskapelig metode"
+      ],
+      "KM13807": [
+        "Naturvitenskapelig metode"
+      ],
+      "KM13808": [
+        "Teknologi"
+      ],
+      "KM13809": [
+        "Stoffer og kjemi"
+      ],
+      "KM13815": [
+        "Miljø og bærekraft"
+      ],
+      "KM13810": [
+        "Økosystemer",
+        "Dyr og planter"
+      ],
+      "KM13811": [
+        "Vær og årstider",
+        "Samisk og tradisjonell kunnskap"
+      ],
+      "KM13812": [
+        "Vær og årstider",
+        "Verdensrommet"
+      ],
+      "KM13813": [
+        "Kroppen"
+      ],
+      "KM13814": [
+        "Helse og sykdom"
+      ],
+      "KM13816": [
+        "Naturvitenskapelig metode"
+      ],
+      "KM13817": [
+        "Naturvitenskapelig metode"
+      ],
+      "KM13818": [
+        "Modeller"
+      ],
+      "KM13820": [
+        "Teknologi"
+      ],
+      "KM13821": [
+        "Teknologi"
+      ],
+      "KM13822": [
+        "Stoffer og kjemi"
+      ],
+      "KM13823": [
+        "Energi"
+      ],
+      "KM13824": [
+        "Energi"
+      ],
+      "KM13819": [
+        "Økosystemer",
+        "Miljø og bærekraft"
+      ],
+      "KM13825": [
+        "Dyr og planter",
+        "Biologisk mangfold"
+      ],
+      "KM13827": [
+        "Miljø og bærekraft"
+      ],
+      "KM13826": [
+        "Dyr og planter"
+      ],
+      "KM13828": [
+        "Jorda"
+      ],
+      "KM13832": [
+        "Helse og sykdom"
+      ],
+      "KM13829": [
+        "Kropp, kjønn og seksualitet"
+      ],
+      "KM13831": [
+        "Kroppen"
+      ],
+      "KM13830": [
+        "Kroppen",
+        "Helse og sykdom"
+      ],
+      "KM13833": [
+        "Naturvitenskapelig metode"
+      ],
+      "KM13834": [
+        "Naturvitenskapelig metode"
+      ],
+      "KM13835": [
+        "Modeller"
+      ],
+      "KM13836": [
+        "Sikkerhet",
+        "Stoffer og kjemi"
+      ],
+      "KM13837": [
+        "Forskning"
+      ],
+      "KM13851": [
+        "Samisk og tradisjonell kunnskap",
+        "Forskning"
+      ],
+      "KM13838": [
+        "Teknologi",
+        "Programmering"
+      ],
+      "KM13839": [
+        "Teknologi"
+      ],
+      "KM13840": [
+        "Teknologi"
+      ],
+      "KM13841": [
+        "Stoffer og kjemi"
+      ],
+      "KM13852": [
+        "Stoffer og kjemi",
+        "Modeller"
+      ],
+      "KM13842": [
+        "Elektrisitet og magnetisme",
+        "Energi"
+      ],
+      "KM13843": [
+        "Dyr og planter"
+      ],
+      "KM13853": [
+        "Biologisk mangfold"
+      ],
+      "KM13844": [
+        "Biologisk mangfold",
+        "Samisk og tradisjonell kunnskap"
+      ],
+      "KM13845": [
+        "Økosystemer"
+      ],
+      "KM13846": [
+        "Verdensrommet"
+      ],
+      "KM13847": [
+        "Verdensrommet",
+        "Jorda"
+      ],
+      "KM13848": [
+        "Jorda"
+      ],
+      "KM13849": [
+        "Kropp, kjønn og seksualitet"
+      ],
+      "KM13850": [
+        "Kroppen"
+      ],
+      "KM13854": [
+        "Naturvitenskapelig metode"
+      ],
+      "KM13855": [
+        "Naturvitenskapelig metode"
+      ],
+      "KM13856": [
+        "Modeller"
+      ],
+      "KM13857": [
+        "Sikkerhet"
+      ],
+      "KM13858": [
+        "Forskning"
+      ],
+      "KM13859": [
+        "Teknologi"
+      ],
+      "KM13860": [
+        "Programmering"
+      ],
+      "KM13861": [
+        "Stoffer og kjemi"
+      ],
+      "KM13862": [
+        "Stoffer og kjemi"
+      ],
+      "KM13863": [
+        "Klima"
+      ],
+      "KM13864": [
+        "Energi"
+      ],
+      "KM13865": [
+        "Energi",
+        "Miljø og bærekraft"
+      ],
+      "KM13866": [
+        "Evolusjon",
+        "Biologisk mangfold"
+      ],
+      "KM13867": [
+        "Celler"
+      ],
+      "KM13868": [
+        "Økosystemer"
+      ],
+      "KM13875": [
+        "Biologisk mangfold",
+        "Miljø og bærekraft"
+      ],
+      "KM13869": [
+        "Samisk og tradisjonell kunnskap",
+        "Miljø og bærekraft"
+      ],
+      "KM13870": [
+        "Celler",
+        "Økosystemer"
+      ],
+      "KM13871": [
+        "Jorda"
+      ],
+      "KM13872": [
+        "Kropp, kjønn og seksualitet"
+      ],
+      "KM13873": [
+        "Kroppen",
+        "Helse og sykdom"
+      ],
+      "KM13874": [
+        "Helse og sykdom"
+      ]
+    }
+  },
+  "SAF": {
+    "emner": [
+      "Undersøkelser og metode",
+      "Kilder og kildekritikk",
+      "Medier og nyheter",
+      "Historie",
+      "Kulturminner",
+      "Geografi",
+      "Teknologi",
+      "Demokrati og politikk",
+      "Lover og regler",
+      "Rettigheter",
+      "Likestilling og likeverd",
+      "Samer og nasjonale minoriteter",
+      "Identitet og mangfold",
+      "Fellesskap og relasjoner",
+      "Konflikter",
+      "Kropp, grenser og seksualitet",
+      "Digital samhandling",
+      "Bærekraft og miljø",
+      "Personlig økonomi"
+    ],
+    "maal": {
+      "KM14717": [
+        "Undersøkelser og metode"
+      ],
+      "KM14718": [
+        "Kilder og kildekritikk",
+        "Geografi"
+      ],
+      "KM14719": [
+        "Kulturminner",
+        "Geografi"
+      ],
+      "KM14720": [
+        "Historie"
+      ],
+      "KM14721": [
+        "Identitet og mangfold"
+      ],
+      "KM14722": [
+        "Fellesskap og relasjoner"
+      ],
+      "KM14728": [
+        "Identitet og mangfold",
+        "Samer og nasjonale minoriteter"
+      ],
+      "KM14723": [
+        "Bærekraft og miljø"
+      ],
+      "KM14724": [
+        "Rettigheter"
+      ],
+      "KM14725": [
+        "Demokrati og politikk"
+      ],
+      "KM14726": [
+        "Digital samhandling"
+      ],
+      "KM14727": [
+        "Kropp, grenser og seksualitet"
+      ],
+      "KM14729": [
+        "Geografi"
+      ],
+      "KM14673": [
+        "Undersøkelser og metode",
+        "Kilder og kildekritikk"
+      ],
+      "KM14669": [
+        "Kulturminner",
+        "Historie"
+      ],
+      "KM14672": [
+        "Geografi"
+      ],
+      "KM14674": [
+        "Konflikter",
+        "Fellesskap og relasjoner"
+      ],
+      "KM14670": [
+        "Rettigheter"
+      ],
+      "KM14671": [
+        "Samer og nasjonale minoriteter"
+      ],
+      "KM14679": [
+        "Bærekraft og miljø"
+      ],
+      "KM14680": [
+        "Personlig økonomi"
+      ],
+      "KM14668": [
+        "Identitet og mangfold",
+        "Fellesskap og relasjoner"
+      ],
+      "KM14675": [
+        "Digital samhandling"
+      ],
+      "KM14676": [
+        "Kropp, grenser og seksualitet"
+      ],
+      "KM14677": [
+        "Demokrati og politikk"
+      ],
+      "KM14678": [
+        "Demokrati og politikk"
+      ],
+      "KM14681": [
+        "Undersøkelser og metode"
+      ],
+      "KM14687": [
+        "Medier og nyheter"
+      ],
+      "KM14686": [
+        "Kilder og kildekritikk"
+      ],
+      "KM14685": [
+        "Historie",
+        "Teknologi",
+        "Geografi"
+      ],
+      "KM14688": [
+        "Geografi"
+      ],
+      "KM14682": [
+        "Konflikter"
+      ],
+      "KM14683": [
+        "Identitet og mangfold",
+        "Fellesskap og relasjoner"
+      ],
+      "KM14684": [
+        "Likestilling og likeverd",
+        "Demokrati og politikk"
+      ],
+      "KM14689": [
+        "Rettigheter",
+        "Likestilling og likeverd"
+      ],
+      "KM14690": [
+        "Samer og nasjonale minoriteter",
+        "Historie"
+      ],
+      "KM14691": [
+        "Personlig økonomi"
+      ],
+      "KM14692": [
+        "Bærekraft og miljø"
+      ],
+      "KM14693": [
+        "Digital samhandling"
+      ],
+      "KM14694": [
+        "Kropp, grenser og seksualitet",
+        "Identitet og mangfold"
+      ],
+      "KM14695": [
+        "Demokrati og politikk",
+        "Historie"
+      ],
+      "KM14696": [
+        "Lover og regler"
+      ],
+      "KM14697": [
+        "Historie"
+      ],
+      "KM14698": [
+        "Undersøkelser og metode"
+      ],
+      "KM14701": [
+        "Kilder og kildekritikk"
+      ],
+      "KM14700": [
+        "Historie"
+      ],
+      "KM14702": [
+        "Teknologi",
+        "Historie"
+      ],
+      "KM14714": [
+        "Historie"
+      ],
+      "KM14704": [
+        "Geografi"
+      ],
+      "KM14699": [
+        "Konflikter",
+        "Historie"
+      ],
+      "KM14705": [
+        "Konflikter",
+        "Historie"
+      ],
+      "KM14703": [
+        "Rettigheter",
+        "Likestilling og likeverd"
+      ],
+      "KM14706": [
+        "Samer og nasjonale minoriteter",
+        "Historie"
+      ],
+      "KM14708": [
+        "Bærekraft og miljø"
+      ],
+      "KM14710": [
+        "Personlig økonomi"
+      ],
+      "KM14707": [
+        "Identitet og mangfold"
+      ],
+      "KM14709": [
+        "Digital samhandling"
+      ],
+      "KM14711": [
+        "Identitet og mangfold"
+      ],
+      "KM14712": [
+        "Demokrati og politikk"
+      ],
+      "KM14713": [
+        "Digital samhandling",
+        "Medier og nyheter"
+      ],
+      "KM14715": [
+        "Lover og regler"
+      ],
+      "KM14716": [
+        "Demokrati og politikk"
+      ]
+    }
+  },
+  "KRLE": {
+    "emner": [
+      "Kristendom",
+      "Andre religioner",
+      "Livssyn og humanisme",
+      "Samer og urfolk",
+      "Fortellinger og tro",
+      "Ritualer og høytider",
+      "Religionshistorie",
+      "Kunst og kultur",
+      "Fagbegreper og kilder",
+      "Familie, kjønn og samliv",
+      "Filosofi",
+      "Etikk",
+      "Eksistensielle spørsmål",
+      "Respekt og toleranse",
+      "Menneskerettigheter"
+    ],
+    "maal": {
+      "KM14586": [
+        "Kristendom",
+        "Andre religioner"
+      ],
+      "KM14597": [
+        "Kristendom",
+        "Fortellinger og tro"
+      ],
+      "KM14598": [
+        "Andre religioner",
+        "Fortellinger og tro"
+      ],
+      "KM14587": [
+        "Ritualer og høytider"
+      ],
+      "KM14588": [
+        "Kunst og kultur"
+      ],
+      "KM14596": [
+        "Fagbegreper og kilder"
+      ],
+      "KM14589": [
+        "Fagbegreper og kilder"
+      ],
+      "KM14594": [
+        "Familie, kjønn og samliv"
+      ],
+      "KM14590": [
+        "Filosofi"
+      ],
+      "KM14591": [
+        "Etikk"
+      ],
+      "KM14593": [
+        "Etikk"
+      ],
+      "KM14592": [
+        "Respekt og toleranse"
+      ],
+      "KM14595": [
+        "Respekt og toleranse"
+      ],
+      "KM14599": [
+        "Religionshistorie",
+        "Samer og urfolk"
+      ],
+      "KM14601": [
+        "Kristendom",
+        "Ritualer og høytider",
+        "Etikk"
+      ],
+      "KM14609": [
+        "Andre religioner",
+        "Ritualer og høytider",
+        "Etikk"
+      ],
+      "KM14600": [
+        "Fagbegreper og kilder"
+      ],
+      "KM14610": [
+        "Kristendom",
+        "Andre religioner"
+      ],
+      "KM14607": [
+        "Fagbegreper og kilder"
+      ],
+      "KM14606": [
+        "Familie, kjønn og samliv"
+      ],
+      "KM14602": [
+        "Filosofi"
+      ],
+      "KM14603": [
+        "Etikk"
+      ],
+      "KM14611": [
+        "Filosofi",
+        "Etikk"
+      ],
+      "KM14604": [
+        "Etikk"
+      ],
+      "KM14605": [
+        "Eksistensielle spørsmål"
+      ],
+      "KM14608": [
+        "Menneskerettigheter"
+      ],
+      "KM14612": [
+        "Kristendom",
+        "Andre religioner"
+      ],
+      "KM14623": [
+        "Religionshistorie"
+      ],
+      "KM14624": [
+        "Livssyn og humanisme"
+      ],
+      "KM14613": [
+        "Andre religioner"
+      ],
+      "KM14614": [
+        "Samer og urfolk"
+      ],
+      "KM14616": [
+        "Fagbegreper og kilder"
+      ],
+      "KM14617": [
+        "Fagbegreper og kilder"
+      ],
+      "KM14615": [
+        "Familie, kjønn og samliv"
+      ],
+      "KM14622": [
+        "Kunst og kultur"
+      ],
+      "KM14625": [
+        "Etikk"
+      ],
+      "KM14626": [
+        "Filosofi",
+        "Etikk"
+      ],
+      "KM14618": [
+        "Respekt og toleranse"
+      ],
+      "KM14619": [
+        "Eksistensielle spørsmål"
+      ],
+      "KM14620": [
+        "Etikk"
+      ],
+      "KM14621": [
+        "Etikk",
+        "Menneskerettigheter"
+      ]
+    }
+  },
+  "KHV": {
+    "emner": [
+      "Håndverksteknikker",
+      "Materialer",
+      "Gjenbruk og bærekraft",
+      "Design",
+      "Konstruksjon",
+      "Arkitektur",
+      "Tegning og maling",
+      "Visuelle virkemidler",
+      "Foto og digitalt",
+      "Programmering",
+      "Kunst",
+      "Kulturarv og tradisjon",
+      "Utstilling"
+    ],
+    "maal": {
+      "KM13515": [
+        "Håndverksteknikker"
+      ],
+      "KM13516": [
+        "Materialer"
+      ],
+      "KM13517": [
+        "Visuelle virkemidler"
+      ],
+      "KM13518": [
+        "Visuelle virkemidler"
+      ],
+      "KM13519": [
+        "Tegning og maling",
+        "Foto og digitalt"
+      ],
+      "KM13522": [
+        "Foto og digitalt",
+        "Kunst"
+      ],
+      "KM13523": [
+        "Tegning og maling"
+      ],
+      "KM13520": [
+        "Arkitektur",
+        "Kulturarv og tradisjon"
+      ],
+      "KM13521": [
+        "Utstilling"
+      ],
+      "KM13524": [
+        "Håndverksteknikker"
+      ],
+      "KM13527": [
+        "Gjenbruk og bærekraft"
+      ],
+      "KM13525": [
+        "Design"
+      ],
+      "KM13526": [
+        "Kulturarv og tradisjon",
+        "Materialer"
+      ],
+      "KM13528": [
+        "Arkitektur"
+      ],
+      "KM13529": [
+        "Kulturarv og tradisjon",
+        "Visuelle virkemidler"
+      ],
+      "KM13530": [
+        "Tegning og maling"
+      ],
+      "KM13531": [
+        "Foto og digitalt",
+        "Visuelle virkemidler"
+      ],
+      "KM13532": [
+        "Kunst",
+        "Foto og digitalt"
+      ],
+      "KM13533": [
+        "Utstilling"
+      ],
+      "KM13534": [
+        "Håndverksteknikker"
+      ],
+      "KM13535": [
+        "Materialer",
+        "Gjenbruk og bærekraft"
+      ],
+      "KM13536": [
+        "Konstruksjon"
+      ],
+      "KM13538": [
+        "Design"
+      ],
+      "KM13537": [
+        "Foto og digitalt",
+        "Design"
+      ],
+      "KM13539": [
+        "Tegning og maling"
+      ],
+      "KM13540": [
+        "Kunst",
+        "Visuelle virkemidler"
+      ],
+      "KM13541": [
+        "Visuelle virkemidler",
+        "Foto og digitalt"
+      ],
+      "KM13542": [
+        "Kulturarv og tradisjon"
+      ],
+      "KM13543": [
+        "Kunst"
+      ],
+      "KM13544": [
+        "Programmering"
+      ],
+      "KM13545": [
+        "Utstilling"
+      ],
+      "KM13546": [
+        "Håndverksteknikker",
+        "Materialer"
+      ],
+      "KM13547": [
+        "Gjenbruk og bærekraft",
+        "Materialer"
+      ],
+      "KM13548": [
+        "Design"
+      ],
+      "KM13549": [
+        "Foto og digitalt"
+      ],
+      "KM13550": [
+        "Tegning og maling"
+      ],
+      "KM13552": [
+        "Arkitektur",
+        "Kulturarv og tradisjon"
+      ],
+      "KM13553": [
+        "Kunst"
+      ],
+      "KM13554": [
+        "Visuelle virkemidler"
+      ],
+      "KM13555": [
+        "Arkitektur"
+      ],
+      "KM13551": [
+        "Håndverksteknikker"
+      ]
+    }
+  },
+  "MUS": {
+    "emner": [
+      "Sang",
+      "Samspill og instrumenter",
+      "Dans",
+      "Musikkens grunnelementer",
+      "Komponere og skape",
+      "Gehør og notasjon",
+      "Musikkteknologi",
+      "Lytting og opplevelse",
+      "Fagbegreper",
+      "Musikkulturer og tradisjoner",
+      "Musikk og samfunn"
+    ],
+    "maal": {
+      "KM13712": [
+        "Sang",
+        "Dans"
+      ],
+      "KM13714": [
+        "Musikkens grunnelementer",
+        "Samspill og instrumenter",
+        "Dans"
+      ],
+      "KM13713": [
+        "Komponere og skape",
+        "Musikkens grunnelementer"
+      ],
+      "KM13715": [
+        "Lytting og opplevelse"
+      ],
+      "KM13716": [
+        "Sang",
+        "Dans",
+        "Musikkulturer og tradisjoner"
+      ],
+      "KM13718": [
+        "Sang",
+        "Samspill og instrumenter",
+        "Gehør og notasjon"
+      ],
+      "KM13717": [
+        "Komponere og skape",
+        "Musikkteknologi"
+      ],
+      "KM13719": [
+        "Lytting og opplevelse",
+        "Fagbegreper"
+      ],
+      "KM13720": [
+        "Musikk og samfunn"
+      ],
+      "KM13721": [
+        "Sang",
+        "Dans"
+      ],
+      "KM13725": [
+        "Musikkulturer og tradisjoner"
+      ],
+      "KM13723": [
+        "Sang",
+        "Samspill og instrumenter",
+        "Gehør og notasjon"
+      ],
+      "KM13722": [
+        "Komponere og skape"
+      ],
+      "KM13728": [
+        "Musikkteknologi"
+      ],
+      "KM13729": [
+        "Fagbegreper"
+      ],
+      "KM13726": [
+        "Lytting og opplevelse"
+      ],
+      "KM13727": [
+        "Musikk og samfunn"
+      ],
+      "KM13724": [
+        "Musikk og samfunn"
+      ],
+      "KM13730": [
+        "Sang",
+        "Dans"
+      ],
+      "KM13735": [
+        "Musikkulturer og tradisjoner"
+      ],
+      "KM13732": [
+        "Samspill og instrumenter",
+        "Sang",
+        "Dans"
+      ],
+      "KM13731": [
+        "Komponere og skape",
+        "Musikkteknologi"
+      ],
+      "KM13736": [
+        "Lytting og opplevelse"
+      ],
+      "KM13737": [
+        "Komponere og skape"
+      ],
+      "KM13738": [
+        "Gehør og notasjon"
+      ],
+      "KM13734": [
+        "Fagbegreper"
+      ],
+      "KM13733": [
+        "Musikk og samfunn",
+        "Musikkulturer og tradisjoner"
+      ],
+      "KM13739": [
+        "Musikk og samfunn"
+      ]
+    }
+  },
+  "MHE": {
+    "emner": [
+      "Matlaging",
+      "Oppskrifter og mengder",
+      "Hygiene og mattrygghet",
+      "Smak og sanser",
+      "Kosthold og helse",
+      "Råvarer og matproduksjon",
+      "Bærekraft og miljø",
+      "Forbruker og informasjon",
+      "Matkultur",
+      "Måltidsfellesskap"
+    ],
+    "maal": {
+      "KM13616": [
+        "Hygiene og mattrygghet"
+      ],
+      "KM13621": [
+        "Matlaging",
+        "Oppskrifter og mengder"
+      ],
+      "KM13622": [
+        "Smak og sanser"
+      ],
+      "KM13623": [
+        "Kosthold og helse"
+      ],
+      "KM13617": [
+        "Råvarer og matproduksjon"
+      ],
+      "KM13618": [
+        "Bærekraft og miljø"
+      ],
+      "KM13619": [
+        "Matlaging",
+        "Måltidsfellesskap"
+      ],
+      "KM13624": [
+        "Matkultur",
+        "Måltidsfellesskap"
+      ],
+      "KM13620": [
+        "Måltidsfellesskap"
+      ],
+      "KM13625": [
+        "Matlaging",
+        "Hygiene og mattrygghet",
+        "Bærekraft og miljø"
+      ],
+      "KM13634": [
+        "Smak og sanser"
+      ],
+      "KM13627": [
+        "Smak og sanser"
+      ],
+      "KM13626": [
+        "Oppskrifter og mengder"
+      ],
+      "KM13628": [
+        "Kosthold og helse"
+      ],
+      "KM13629": [
+        "Kosthold og helse",
+        "Forbruker og informasjon"
+      ],
+      "KM13630": [
+        "Forbruker og informasjon"
+      ],
+      "KM13631": [
+        "Bærekraft og miljø"
+      ],
+      "KM13632": [
+        "Matkultur",
+        "Råvarer og matproduksjon"
+      ],
+      "KM13633": [
+        "Matkultur",
+        "Måltidsfellesskap"
+      ],
+      "KM13635": [
+        "Matlaging",
+        "Hygiene og mattrygghet",
+        "Bærekraft og miljø"
+      ],
+      "KM13636": [
+        "Smak og sanser",
+        "Matlaging"
+      ],
+      "KM13637": [
+        "Kosthold og helse"
+      ],
+      "KM13638": [
+        "Kosthold og helse",
+        "Forbruker og informasjon"
+      ],
+      "KM13639": [
+        "Råvarer og matproduksjon",
+        "Forbruker og informasjon"
+      ],
+      "KM13640": [
+        "Bærekraft og miljø"
+      ],
+      "KM13641": [
+        "Matkultur",
+        "Råvarer og matproduksjon"
+      ],
+      "KM13642": [
+        "Matkultur",
+        "Måltidsfellesskap"
+      ]
+    }
+  },
+  "KRO": {
+    "emner": [
+      "Lek",
+      "Bevegelse",
+      "Ball og redskaper",
+      "Idrett og trening",
+      "Dans",
+      "Regler og samspill",
+      "Inkludering og samarbeid",
+      "Kropp og helse",
+      "Svømming",
+      "Sikkerhet og livredning",
+      "Friluftsliv",
+      "Orientering og kart",
+      "Trafikk"
+    ],
+    "maal": {
+      "KM13556": [
+        "Lek",
+        "Bevegelse"
+      ],
+      "KM13557": [
+        "Bevegelse"
+      ],
+      "KM13558": [
+        "Ball og redskaper"
+      ],
+      "KM13559": [
+        "Lek"
+      ],
+      "KM13560": [
+        "Svømming"
+      ],
+      "KM13561": [
+        "Regler og samspill"
+      ],
+      "KM13562": [
+        "Friluftsliv"
+      ],
+      "KM13563": [
+        "Friluftsliv"
+      ],
+      "KM13564": [
+        "Trafikk"
+      ],
+      "KM13565": [
+        "Sikkerhet og livredning"
+      ],
+      "KM13566": [
+        "Lek",
+        "Idrett og trening",
+        "Dans"
+      ],
+      "KM13567": [
+        "Bevegelse"
+      ],
+      "KM13568": [
+        "Ball og redskaper"
+      ],
+      "KM13569": [
+        "Svømming"
+      ],
+      "KM13570": [
+        "Regler og samspill"
+      ],
+      "KM13571": [
+        "Inkludering og samarbeid"
+      ],
+      "KM13572": [
+        "Friluftsliv"
+      ],
+      "KM13573": [
+        "Orientering og kart"
+      ],
+      "KM13574": [
+        "Friluftsliv",
+        "Sikkerhet og livredning"
+      ],
+      "KM13575": [
+        "Trafikk"
+      ],
+      "KM13576": [
+        "Lek"
+      ],
+      "KM13577": [
+        "Bevegelse"
+      ],
+      "KM13578": [
+        "Idrett og trening",
+        "Dans",
+        "Friluftsliv"
+      ],
+      "KM13579": [
+        "Orientering og kart"
+      ],
+      "KM13580": [
+        "Regler og samspill"
+      ],
+      "KM13581": [
+        "Inkludering og samarbeid"
+      ],
+      "KM13582": [
+        "Svømming"
+      ],
+      "KM13583": [
+        "Sikkerhet og livredning",
+        "Friluftsliv"
+      ],
+      "KM13584": [
+        "Friluftsliv"
+      ],
+      "KM13585": [
+        "Friluftsliv"
+      ],
+      "KM13586": [
+        "Friluftsliv"
+      ],
+      "KM13587": [
+        "Idrett og trening",
+        "Kropp og helse"
+      ],
+      "KM13588": [
+        "Idrett og trening",
+        "Bevegelse"
+      ],
+      "KM13589": [
+        "Dans"
+      ],
+      "KM13590": [
+        "Kropp og helse"
+      ],
+      "KM13591": [
+        "Kropp og helse"
+      ],
+      "KM13592": [
+        "Inkludering og samarbeid"
+      ],
+      "KM13593": [
+        "Inkludering og samarbeid"
+      ],
+      "KM13594": [
+        "Orientering og kart"
+      ],
+      "KM13598": [
+        "Svømming"
+      ],
+      "KM13595": [
+        "Sikkerhet og livredning"
+      ],
+      "KM13599": [
+        "Sikkerhet og livredning"
+      ],
+      "KM13596": [
+        "Friluftsliv"
+      ],
+      "KM13597": [
+        "Sikkerhet og livredning",
+        "Friluftsliv"
+      ]
+    }
+  }
+}

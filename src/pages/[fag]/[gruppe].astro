@@ -2,8 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import GruppeInnhold from '../../components/GruppeInnhold.astro';
 import Filter from '../../components/Filter.astro';
+import FilterMeny from '../../components/FilterMeny.astro';
 import FilterStart from '../../components/FilterStart.astro';
-import { ALLE_FAG, fagUrl, kjerneelementerForFag, type Fag, type Gruppe } from '../../lib/data';
+import { ALLE_FAG, emnerForFag, fagUrl, kjerneelementerForFag, type Fag, type Gruppe } from '../../lib/data';
 import { slug } from '../../lib/fag.mjs';
 
 export function getStaticPaths() {
@@ -18,9 +19,13 @@ const trinnValg = fag.grupper.map((g) => {
   const slugs = valgt ? [] : fag.grupper.filter((x) => x.slug === gruppe.slug || x.slug === g.slug).map((x) => x.slug);
   return { verdi: g.slug, label: g.label, valgt, href: slugs.length ? `${fagUrl(fag)}?trinn=${slugs.join(',')}` : fagUrl(fag) };
 });
-// Bare kjerneelementer som finnes i denne gruppa.
+// Bare emner og kjerneelementer som finnes i denne gruppa, med antall mål i gruppa.
+const emner = emnerForFag(fag)
+  .map((e) => ({ ...e, antall: gruppe.maal.filter((m) => m.emner.includes(e.navn)).length }))
+  .filter((e) => e.antall);
 const kjerne = kjerneelementerForFag(fag)
-  .filter((k) => gruppe.maal.some((m) => m.kjerneelementer.some((ke) => slug(ke) === k.slug)));
+  .map((k) => ({ ...k, antall: gruppe.maal.filter((m) => m.kjerneelementer.some((ke) => slug(ke) === k.slug)).length }))
+  .filter((k) => k.antall);
 ---
 <Base title={`${fag.navn} ${gruppe.label}`} description={`${gruppe.maal.length} kompetansemål i ${fag.navn.toLowerCase()} for ${gruppe.label}, forklart på vanlig norsk.`}>
   <section style={`--fag:var(--${fag.key})`}>
@@ -28,7 +33,10 @@ const kjerne = kjerneelementerForFag(fag)
       <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
       <p>{fag.note}</p>
       <Filter navn="trinn" tittel="Trinn" alle={{ label: 'Alle trinn', href: fagUrl(fag) }} valg={trinnValg} />
-      <Filter navn="kjerne" tittel="Kjerneelement" alle={{ label: 'Alle kjerneelementer' }} valg={kjerne.map((k) => ({ verdi: k.slug, label: k.navn }))} />
+      <FilterMeny filtre={[
+        { navn: 'emne', tittel: 'Emne', alle: { label: 'Alle emner' }, valg: emner.map((e) => ({ verdi: e.slug, label: e.navn, antall: e.antall })) },
+        { navn: 'kjerne', tittel: 'Kjerneelement', alle: { label: 'Alle kjerneelementer' }, valg: kjerne.map((k) => ({ verdi: k.slug, label: k.navn, antall: k.antall })) },
+      ]} />
       <p class="filterstatus" data-filter-status aria-live="polite" hidden></p>
     </div>
     <FilterStart />

@@ -9,6 +9,7 @@ interface Treff {
   p: string; // forklaring
   u: string; // udir-tekst
   i: string[]; // idéer
+  e: [string, string][]; // emner, [navn, url]
   ke: [string, string][]; // [navn, url]
   tv: [string, string][]; // [navn, url]
   url: string;
@@ -23,7 +24,7 @@ function kort(t: Treff): string {
     <p class="plain">${esc(t.p)}</p>
     <p class="udir"><b>Udir sier:</b> ${esc(t.u)}</p>
     ${t.i.length ? `<h4>Idéer til aktiviteter</h4><ul class="ideas">${t.i.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
-    ${t.ke.length + t.tv.length ? `<ul class="tags">${t.ke.map(([n, u]) => `<li><a href="${u}">${esc(n)}</a></li>`).join('')}${t.tv.map(([n, u]) => `<li><a class="tv" href="${u}">${esc(n)}</a></li>`).join('')}</ul>` : ''}
+    ${t.e.length + t.ke.length + t.tv.length ? `<ul class="tags">${t.e.map(([n, u]) => `<li><a class="emne" href="${u}">${esc(n)}</a></li>`).join('')}${t.ke.map(([n, u]) => `<li><a href="${u}">${esc(n)}</a></li>`).join('')}${t.tv.map(([n, u]) => `<li><a class="tv" href="${u}">${esc(n)}</a></li>`).join('')}</ul>` : ''}
     <p class="chain"><a href="${t.url}">Bygger på og fører til →</a></p>
   </li>`;
 }
@@ -53,7 +54,7 @@ export function startSok(): void {
       return;
     }
     const treff = indeks.filter((t) => {
-      const hay = `${t.p} ${t.u} ${t.i.join(' ')} ${t.k} ${t.fn}`.toLowerCase();
+      const hay = `${t.p} ${t.u} ${t.i.join(' ')} ${t.e.map(([n]) => n).join(' ')} ${t.k} ${t.fn}`.toLowerCase();
       return ord.every((w) => hay.includes(w));
     });
     innhold.hidden = true;

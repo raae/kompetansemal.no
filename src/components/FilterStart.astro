@@ -1,7 +1,7 @@
 ---
 // Legges rett etter filterradene og før lista. Kjører før siden tegnes, så
-// piller og skjulte mål stemmer med URL-en fra første stund (ingen blink av
-// «Alle»). scripts/filter.ts tar over og fjerner stilen etterpå.
+// piller, knappene i filtermenyen og skjulte mål stemmer med URL-en fra første
+// stund (ingen blink av «Alle»). scripts/filter.ts tar over og fjerner stilen etterpå.
 ---
 <script is:inline>
   (() => {
@@ -15,6 +15,14 @@
       if (!valgt.length) continue;
       rad.querySelector('[data-alle]').setAttribute('aria-pressed', 'false');
       for (const b of knapper) b.setAttribute('aria-pressed', String(valgt.includes(b.dataset.verdi)));
+      const meny = document.querySelector(`[data-filter-knapp="${navn}"]`);
+      if (meny) {
+        // Samme tekst som oppsummer() i scripts/filter.ts.
+        const labels = knapper.filter((b) => valgt.includes(b.dataset.verdi)).map((b) => b.dataset.label);
+        meny.querySelector('[data-oppsummering]').textContent = labels.length > 1 ? `${labels[0]} og ${labels.length - 1} til` : labels[0];
+        if (labels.length > 1) meny.title = labels.join(', ');
+        meny.setAttribute('data-aktiv', '');
+      }
       skjul.push(`[data-f-${navn}]${valgt.map((v) => `:not([data-f-${navn}~="${v}"])`).join('')}`);
     }
     if (!skjul.length) return;

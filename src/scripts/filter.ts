@@ -1,6 +1,39 @@
 // Filterpiller på fagsidene. Hver rad (`[data-filter="navn"]`) styrer elementer med
 // `data-f-navn="verdi ..."`. Flere valg i samme rad er «eller», flere rader er «og».
 // Valget ligger i URL-en (?trinn=1-2,5-7&kjerne=teknologi) så siden kan bokmerkes.
+// Rader i en filtermeny (FilterMeny.astro) ligger i et panel bak en knapp som viser valget.
+
+/** Teksten i menyknappen: «Alle», «Brøk» eller «Brøk og 2 til». Samme som i FilterStart.astro. */
+function oppsummer(knapp: HTMLElement, labels: string[]): void {
+  knapp.querySelector('[data-oppsummering]')!.textContent =
+    labels.length === 0 ? 'Alle' : labels.length === 1 ? labels[0] : `${labels[0]} og ${labels.length - 1} til`;
+  if (labels.length > 1) knapp.title = labels.join(', ');
+  else knapp.removeAttribute('title');
+  knapp.toggleAttribute('data-aktiv', labels.length > 0);
+}
+
+/** Menyknappene åpner og lukker hvert sitt panel. Bare ett panel er åpent om gangen. */
+function startMeny(): void {
+  const knapper = [...document.querySelectorAll<HTMLButtonElement>('[data-filter-knapp]')];
+  const panel = (k: HTMLElement) => document.getElementById(k.getAttribute('aria-controls')!)!;
+  const aapne = (valgt: HTMLElement | null) => {
+    for (const k of knapper) {
+      k.setAttribute('aria-expanded', String(k === valgt));
+      panel(k).hidden = k !== valgt;
+    }
+  };
+  for (const k of knapper) {
+    k.addEventListener('click', () => aapne(k.getAttribute('aria-expanded') === 'true' ? null : k));
+  }
+  // Escape lukker panelet når fokus er i det eller på knappen, og setter fokus tilbake på knappen.
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const aapen = knapper.find((k) => k.getAttribute('aria-expanded') === 'true');
+    if (!aapen || !(aapen === document.activeElement || panel(aapen).contains(document.activeElement))) return;
+    aapne(null);
+    aapen.focus();
+  });
+}
 
 export function startFilter(): void {
   const rader = [...document.querySelectorAll<HTMLElement>('[data-filter]')];
@@ -10,6 +43,29 @@ export function startFilter(): void {
   const lovlige = new Map(
     rader.map((r) => [r.dataset.filter!, new Set([...r.querySelectorAll<HTMLElement>('[data-verdi]')].map((b) => b.dataset.verdi!))]),
   );
+
+  // Verdiene hvert mål har i hvert filter. Trinn står på avsnittet rundt målet, resten på målet.
+  const maalVerdier = [...liste.querySelectorAll<HTMLElement>('li.goal')].map(
+    (m) => new Map([...lovlige.keys()].map((n) => [n, m.closest(`[data-f-${n}]`)?.getAttribute(`data-f-${n}`)?.split(' ') ?? []])),
+  );
+
+  /** Antallet i parentes følger de andre filtrene: mål med valget som også passer valgene i de andre radene. */
+  function tell(valgt: Map<string, Set<string>>): void {
+    for (const rad of rader) {
+      const navn = rad.dataset.filter!;
+      const passerAndre = maalVerdier.filter((mv) =>
+        [...valgt].every(([andre, sel]) => andre === navn || !sel.size || mv.get(andre)!.some((v) => sel.has(v))),
+      );
+      for (const b of rad.querySelectorAll<HTMLButtonElement>('button[data-verdi]')) {
+        const el = b.querySelector('[data-antall]');
+        if (!el) continue;
+        const antall = passerAndre.filter((mv) => mv.get(navn)!.includes(b.dataset.verdi!)).length;
+        el.textContent = `(${antall})`;
+        // Valg uten treff gråes ut, men et valgt valg må kunne slås av.
+        b.disabled = antall === 0 && !valgt.get(navn)!.has(b.dataset.verdi!);
+      }
+    }
+  }
 
   function lesUrl(): Map<string, Set<string>> {
     const params = new URLSearchParams(location.search);
@@ -36,7 +92,10 @@ export function startFilter(): void {
     for (const rad of rader) {
       const verdier = valgt.get(rad.dataset.filter!)!;
       rad.querySelector('[data-alle]')!.setAttribute('aria-pressed', String(!verdier.size));
-      for (const b of rad.querySelectorAll<HTMLElement>('[data-verdi]')) b.setAttribute('aria-pressed', String(verdier.has(b.dataset.verdi!)));
+      const knapper = [...rad.querySelectorAll<HTMLElement>('[data-verdi]')];
+      for (const b of knapper) b.setAttribute('aria-pressed', String(verdier.has(b.dataset.verdi!)));
+      const meny = document.querySelector<HTMLElement>(`[data-filter-knapp="${rad.dataset.filter}"]`);
+      if (meny) oppsummer(meny, knapper.filter((b) => verdier.has(b.dataset.verdi!)).map((b) => b.dataset.label!));
     }
 
     // Skjul alt som ikke passer, innenfra og ut.
@@ -59,6 +118,8 @@ export function startFilter(): void {
       s.hidden = !s.querySelector('li.goal:not([hidden])');
     }
 
+    tell(valgt);
+
     const aktiv = [...valgt.values()].some((v) => v.size);
     const status = document.querySelector<HTMLElement>('[data-filter-status]');
     if (status) {
@@ -77,6 +138,7 @@ export function startFilter(): void {
     }
   }
 
+  startMeny();
   let valgt = lesUrl();
   vis(valgt);
   // Forhåndsvisningen fra FilterStart.astro er ikke lenger nødvendig.

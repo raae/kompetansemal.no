@@ -2,14 +2,16 @@
 import Base from '../../layouts/Base.astro';
 import GruppeInnhold from '../../components/GruppeInnhold.astro';
 import Filter from '../../components/Filter.astro';
+import FilterMeny from '../../components/FilterMeny.astro';
 import FilterStart from '../../components/FilterStart.astro';
-import { ALLE_FAG, kjerneelementerForFag, type Fag } from '../../lib/data';
+import { ALLE_FAG, emnerForFag, kjerneelementerForFag, type Fag } from '../../lib/data';
 
 export function getStaticPaths() {
   return ALLE_FAG.map((fag) => ({ params: { fag: fag.slug }, props: { fag } }));
 }
 interface Props { fag: Fag }
 const { fag } = Astro.props;
+const emner = emnerForFag(fag);
 const kjerne = kjerneelementerForFag(fag);
 ---
 <Base title={fag.navn} description={`Alle ${fag.antall} kompetansemål i ${fag.navn.toLowerCase()} for 1.–10. trinn, forklart på vanlig norsk.`}>
@@ -18,7 +20,10 @@ const kjerne = kjerneelementerForFag(fag);
       <h2>{fag.navn}</h2>
       <p>{fag.note}</p>
       <Filter navn="trinn" tittel="Trinn" alle={{ label: 'Alle trinn' }} valg={fag.grupper.map((g) => ({ verdi: g.slug, label: g.label }))} />
-      <Filter navn="kjerne" tittel="Kjerneelement" alle={{ label: 'Alle kjerneelementer' }} valg={kjerne.map((k) => ({ verdi: k.slug, label: k.navn }))} />
+      <FilterMeny filtre={[
+        { navn: 'emne', tittel: 'Emne', alle: { label: 'Alle emner' }, valg: emner.map((e) => ({ verdi: e.slug, label: e.navn, antall: e.maal.length })) },
+        { navn: 'kjerne', tittel: 'Kjerneelement', alle: { label: 'Alle kjerneelementer' }, valg: kjerne.map((k) => ({ verdi: k.slug, label: k.navn, antall: k.maal.length })) },
+      ]} />
       <p class="filterstatus" data-filter-status aria-live="polite" hidden></p>
     </div>
     <FilterStart />

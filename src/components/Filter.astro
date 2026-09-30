@@ -6,6 +6,9 @@
 interface Valg {
   verdi: string;
   label: string;
+  /** Antall mål med dette valget. Vises i parentes etter navnet, og scripts/filter.ts
+   *  regner det om når andre filtre endres. */
+  antall?: number;
   href?: string;
   valgt?: boolean;
 }
@@ -29,9 +32,11 @@ const lenker = alle.href !== undefined;
   <span class="skille" aria-hidden="true"></span>
   {valg.map((v) =>
     lenker ? (
-      <a href={v.href} aria-current={v.valgt ? 'page' : undefined} data-behold-filter>{v.label}</a>
+      <a href={v.href} aria-current={v.valgt ? 'page' : undefined} data-behold-filter>{v.label}{v.antall !== undefined && ` (${v.antall})`}</a>
     ) : (
-      <button type="button" data-verdi={v.verdi} aria-pressed="false">{v.label}</button>
+      <button type="button" data-verdi={v.verdi} data-label={v.label} aria-pressed="false">
+        {v.label}{v.antall !== undefined && <>{' '}<span data-antall>({v.antall})</span></>}
+      </button>
     ),
   )}
 </div>
