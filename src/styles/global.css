@@ -271,3 +271,25 @@ aside.valgtpanel .lukk{position:absolute;top:.4rem;right:.5rem;font:inherit;font
 .flate.bikube .blokk{clip-path:var(--omriss);border:0;border-radius:0;justify-content:center;align-items:center;text-align:center;padding:1.6rem .9rem;font-size:.76rem;line-height:1.25}
 .flate.bikube .blokk span{-webkit-line-clamp:5}
 .flate.bikube .kontekst .blokk:not(.valgt){background:var(--soft)}
+
+/* Kraft og Nettverk: kraftgraf. Målene er små merker midt på punktet sitt; teksten vises i tråden til valgt mål. */
+.kraft{--u:7rem;--rad:6.5rem;--kant:4.5rem;position:relative;margin:1.2rem 0 0;width:calc(var(--bredde) * var(--u) + 2 * var(--kant));height:calc(var(--hoyde) * var(--rad) + 2rem)}
+.kraft.rader{--kant:9rem}
+.kraft .streker{position:absolute;inset:0;pointer-events:none;overflow:visible;z-index:1}
+.kraft .streker path{stroke:var(--rule);stroke-width:1.5}
+.kraft .streker path.paa{stroke:var(--fag);stroke-width:2.5}
+.kraft ol{list-style:none;margin:0;padding:0}
+.kraft li{position:absolute;left:calc(var(--kant) + var(--x) * var(--u));top:calc(var(--y) * var(--rad) + .5rem);transform:translateX(-50%);z-index:2}
+.kraft .flate-lagnavn{top:calc(var(--y) * var(--rad) + .9rem)}
+.kraft .blokk{font-size:.72rem;padding:.3rem .6rem;border-radius:999px;border-bottom-width:1px;align-items:center;text-align:center;white-space:nowrap;background:color-mix(in srgb,var(--fag) calc(8% + var(--tone) * 30%),var(--card))}
+.kraft .blokk small{color:var(--ink)}
+.kraft .blokk span{display:none}
+/* Tråden til valgt mål: vis teksten og løft den over resten. */
+.kraft li:has(.valgt),.kraft li:has(.under),.kraft li:has(.over){z-index:3;width:11rem}
+.kraft .blokk:is(.valgt,.under,.over){width:100%;border-radius:10px;text-align:left;align-items:stretch;white-space:normal}
+.kraft .blokk:is(.valgt,.under,.over) span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.kraft .blokk.valgt small{color:var(--paper)}
+.kraft .kontekst .blokk:not(.valgt){border-style:dashed;background:var(--card)}
+/* Med faste rader står nabomålene én enhet unna: kortene i tråden får plass side om side. */
+.kraft.rader li:has(.valgt),.kraft.rader li:has(.under),.kraft.rader li:has(.over){width:calc(var(--u) - .3rem)}
+.kraft.rader .blokk:is(.valgt,.under,.over) span{-webkit-line-clamp:4}

@@ -3,6 +3,7 @@
 // usynlig liste. Når filteret endres, leser vi hvilke stubber som er synlige,
 // bygger lagene på nytt og tegner visningen på nytt.
 import { bikube, bro, sekskantOmriss } from '../lib/visning/flater';
+import { kraft } from '../lib/visning/kraft';
 import { byggLag, byggerIVisning, klosser, rutenett, type KlossVariant, type Lag, type VMaal } from '../lib/visning/modell';
 import { lagMarkering } from './oppbygging';
 
@@ -101,6 +102,23 @@ function rutenettHtml(lag: Lag[]): string {
   return `<div id="stabel" class="rutenett">${tabeller.join('')}</div>`;
 }
 
+function kraftHtml(lag: Lag[], rader: boolean): string {
+  const bygger = byggerIVisning(lag);
+  const { punkter, bredde, hoyde } = kraft(lag, { rader });
+  // Trinnet som tone (0 = tidligst) i nettverket, og som radnavn med faste rader.
+  const navn = rader ? lag.map((l, i) => `<span class="flate-lagnavn" style="--y:${lag.length - 1 - i}">${esc(l.label)}</span>`).join('') : '';
+  const li = punkter.map((p) => {
+    const tone = lag.length > 1 ? p.lag / (lag.length - 1) : 1;
+    return `<li class="${p.kontekst ? 'kontekst' : ''}" style="--x:${p.x.toFixed(3)};--y:${p.y.toFixed(3)};--tone:${tone.toFixed(2)}">${blokk(p.maal, bygger(p.maal), {
+      // Med faste rader står trinnet i radnavnet; i nettverket står det på merket.
+      tekst: rader ? p.maal.kode : `${p.maal.kode} · ${p.maal.trinnLabel}`,
+    })}</li>`;
+  });
+  return `<div class="klosser-rulle"><div class="kraft${rader ? ' rader' : ''}" id="stabel" style="--bredde:${bredde.toFixed(3)};--hoyde:${hoyde.toFixed(3)}">
+    <svg class="streker" aria-hidden="true"></svg>${navn}<ol>${li.join('')}</ol>
+  </div></div>`;
+}
+
 function tegn(form: Form, lag: Lag[]): string {
   if (!lag.length) return '<p class="empty">Ingen mål passer valgene. Trykk «Alle» for å nullstille.</p>';
   switch (form) {
@@ -111,6 +129,9 @@ function tegn(form: Form, lag: Lag[]): string {
       return flateHtml(lag, form);
     case 'rutenett':
       return rutenettHtml(lag);
+    case 'kraft':
+    case 'nettverk':
+      return kraftHtml(lag, form === 'kraft');
     default:
       return klossHtml(lag, form);
   }

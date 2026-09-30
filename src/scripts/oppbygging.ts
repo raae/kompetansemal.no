@@ -44,7 +44,9 @@ export function lagMarkering(rot: HTMLElement, panel: HTMLElement): { nyttInnhol
   function tegn(): void {
     if (!svg || !stabel) return;
     // I bikuben overlapper radene, så der går streken mellom midten av cellene.
-    const midt = stabel.classList.contains('bikube');
+    // Kraftgrafen har rette streker mellom midtene.
+    const rett = stabel.classList.contains('kraft');
+    const midt = rett || stabel.classList.contains('bikube');
     const r = stabel.getBoundingClientRect();
     svg.setAttribute('width', String(r.width));
     svg.setAttribute('height', String(r.height));
@@ -57,7 +59,7 @@ export function lagMarkering(rot: HTMLElement, panel: HTMLElement): { nyttInnhol
       const x2 = b.left + b.width / 2 - r.left;
       const y2 = (midt ? b.top + b.height / 2 : b.bottom) - r.top;
       const dy = Math.max(24, (y1 - y2) / 2);
-      sti.setAttribute('d', `M${x1},${y1} C${x1},${y1 - dy} ${x2},${y2 + dy} ${x2},${y2}`);
+      sti.setAttribute('d', rett ? `M${x1},${y1} L${x2},${y2}` : `M${x1},${y1} C${x1},${y1 - dy} ${x2},${y2 + dy} ${x2},${y2}`);
     }
   }
 

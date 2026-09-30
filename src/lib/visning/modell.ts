@@ -27,7 +27,7 @@ export interface Lag {
   kontekst?: boolean;
 }
 
-export type KlossVariant = 'tre' | 'traader' | 'merker' | 'kopier' | 'bikube' | 'bro' | 'rutenett';
+export type KlossVariant = 'tre' | 'traader' | 'merker' | 'kopier' | 'bikube' | 'bro' | 'rutenett' | 'kraft' | 'nettverk';
 
 export const KLOSS_VARIANTER: { slug: KlossVariant; navn: string; forklaring: string }[] = [
   { slug: 'tre', navn: 'Tre', forklaring: 'Hvert mål står oppå ett mål det bygger på, det med høyest trinn. Andre koblinger vises bare når du trykker på et mål.' },
@@ -36,6 +36,8 @@ export const KLOSS_VARIANTER: { slug: KlossVariant; navn: string; forklaring: st
   { slug: 'kopier', navn: 'Kopier', forklaring: 'Et mål som bygger på flere, står oppå alle. Kopiene er stripete og har ikke noe oppå seg. Trykk på en kopi for å se originalen.' },
   { slug: 'bikube', navn: 'Bikube', forklaring: 'Sekskanter, ett lag per trinn. Et mål rører med en side alle målene det bygger på i trinnet under. Trengs det, blir målet flere celler slått sammen. Strekene går bare til mål det ikke rører, for eksempel fra trinn lenger ned.' },
   { slug: 'bro', navn: 'Bro', forklaring: 'Ett lag per trinn. Et mål spenner over alle målene det bygger på i laget under, som en bro, og er bredt nok til det som står oppå det. Strekene går bare til mål det ikke står over.' },
+  { slug: 'kraft', navn: 'Kraft', forklaring: 'Ett lag per trinn, men rekkefølgen i hvert lag bestemmes av krefter: koblingene trekker målene som bygger på hverandre mot hverandre, så trådene blir rettere og strekene krysser mindre. Trykk på et mål for å se teksten i hele tråden.' },
+  { slug: 'nettverk', navn: 'Nettverk', forklaring: 'En fri kraftgraf. Målene som bygger på hverandre, trekkes sammen til tråder, og tidlige mål dras nedover. Trinnet vises med farge. Trykk på et mål for å se teksten i hele tråden.' },
   { slug: 'rutenett', navn: 'Rutenett', forklaring: 'Én tabell per trinn. Hver rad er et mål, og en prikk viser hvilke mål fra trinnet under det bygger på. Flere prikker i en rad betyr at målet står på flere.' },
 ];
 
