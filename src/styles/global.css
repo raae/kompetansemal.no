@@ -293,3 +293,10 @@ aside.valgtpanel .lukk{position:absolute;top:.4rem;right:.5rem;font:inherit;font
 /* Med faste rader står nabomålene én enhet unna: kortene i tråden får plass side om side. */
 .kraft.rader li:has(.valgt),.kraft.rader li:has(.under),.kraft.rader li:has(.over){width:calc(var(--u) - .3rem)}
 .kraft.rader .blokk:is(.valgt,.under,.over) span{-webkit-line-clamp:4}
+/* Nettverk: hele målene som kort, plassert fritt. Posisjonene er midtpunkter i rem. */
+.kraft.kort{width:calc(var(--bredde) * 1rem + 1rem);height:calc(var(--hoyde) * 1rem + 1rem)}
+.kraft.kort li,.kraft.kort li:has(.valgt),.kraft.kort li:has(.under),.kraft.kort li:has(.over){left:calc(var(--x) * 1rem + .5rem);top:calc(var(--y) * 1rem + .5rem);width:calc(var(--b) * 1rem);transform:translate(-50%,-50%)}
+.kraft.kort .blokk{width:100%;font-size:.8rem;padding:.4rem .6rem .5rem;border-radius:8px;border-bottom-width:4px;border-bottom-color:var(--fag);text-align:left;align-items:stretch;white-space:normal}
+.kraft.kort .blokk small{color:var(--muted);font-weight:700}
+.kraft.kort .blokk span,.kraft.kort .blokk:is(.valgt,.under,.over) span{display:block;-webkit-line-clamp:none}
+.kraft.kort .blokk.valgt small{color:var(--paper)}

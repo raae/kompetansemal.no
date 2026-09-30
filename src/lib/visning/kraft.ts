@@ -95,3 +95,113 @@ export function kraft(lag: Lag[], { rader }: { rader: boolean }): { punkter: Pun
     hoyde: Math.max(...punkter.map((p) => p.y)) + 1,
   };
 }
+
+export interface Kort {
+  maal: VMaal;
+  /** Midtpunkt, bredde og høyde i rem. */
+  x: number;
+  y: number;
+  b: number;
+  h: number;
+  lag: number;
+  kontekst: boolean;
+}
+
+const KORT_BREDDE = 12;
+const LUFT = 0.8;
+
+/** Omtrentlig høyde på et kort med hele teksten (0,8 rem tekst, ca. 26 tegn per linje). */
+function kortHoyde(m: VMaal): number {
+  return 2.4 + Math.ceil(m.forklaring.length / 26) * 1.1;
+}
+
+/**
+ * Kraftgraf med hele målene som kort. Kortene står fritt (ingen trinnrader): koblingene
+ * trekker målene som bygger på hverandre sammen, kortene skyver hverandre bort og kan
+ * ikke overlappe. `hoyder` er målte korthøyder i rem; uten dem brukes et anslag.
+ * Et svakt drag nedover for tidlige trinn holder retningen nedenfra og opp.
+ */
+export function kortgraf(lag: Lag[], hoyder?: Map<string, number>): { kort: Kort[]; bredde: number; hoyde: number } {
+  const hoyest = lag.length - 1;
+  const RAD = 9;
+  const kort: Kort[] = [];
+  lag.forEach((l, i) =>
+    l.maal.forEach((m, j) =>
+      kort.push({ maal: m, x: (j - (l.maal.length - 1) / 2) * (KORT_BREDDE + 1), y: (hoyest - i) * RAD, b: KORT_BREDDE, h: hoyder?.get(m.kode) ?? kortHoyde(m), lag: i, kontekst: !!l.kontekst }),
+    ),
+  );
+  const indeks = new Map(kort.map((k, i) => [k.maal.kode, i]));
+  const kanter: [number, number][] = [];
+  for (const k of kort)
+    for (const kode of k.maal.bygger) {
+      const q = indeks.get(kode);
+      if (q !== undefined && kort[q].lag < k.lag) kanter.push([q, indeks.get(k.maal.kode)!]);
+    }
+  const n = kort.length;
+
+  // Skyv overlappende kort fra hverandre langs aksen med minst overlapp.
+  const skilt = (styrke: number) => {
+    for (let a = 0; a < n; a++)
+      for (let b = a + 1; b < n; b++) {
+        const A = kort[a];
+        const B = kort[b];
+        const dx = B.x - A.x;
+        const dy = B.y - A.y;
+        const ox = (A.b + B.b) / 2 + LUFT - Math.abs(dx);
+        const oy = (A.h + B.h) / 2 + LUFT - Math.abs(dy);
+        if (ox <= 0 || oy <= 0) continue;
+        if (ox < oy) {
+          const s = ((dx >= 0 ? 1 : -1) * ox * styrke) / 2;
+          (A.x -= s), (B.x += s);
+        } else {
+          const s = ((dy >= 0 ? 1 : -1) * oy * styrke) / 2;
+          (A.y -= s), (B.y += s);
+        }
+      }
+  };
+
+  const vx = new Float64Array(n);
+  const vy = new Float64Array(n);
+  const RUNDER = 500;
+  for (let runde = 0; runde < RUNDER; runde++) {
+    const varme = 1 - runde / RUNDER;
+    for (let a = 0; a < n; a++)
+      for (let b = a + 1; b < n; b++) {
+        const dx = kort[b].x - kort[a].x;
+        const dy = kort[b].y - kort[a].y;
+        const d2 = Math.max(dx * dx + dy * dy, 1);
+        const d = Math.sqrt(d2);
+        const f = 40 / d2;
+        (vx[a] -= (dx / d) * f), (vx[b] += (dx / d) * f);
+        (vy[a] -= (dy / d) * f), (vy[b] += (dy / d) * f);
+      }
+    for (const [a, b] of kanter) {
+      const dx = kort[b].x - kort[a].x;
+      const dy = kort[b].y - kort[a].y;
+      const d = Math.sqrt(dx * dx + dy * dy) || 1e-3;
+      const f = 0.04 * (d - 11);
+      (vx[a] += (dx / d) * f), (vx[b] -= (dx / d) * f);
+      (vy[a] += (dy / d) * f), (vy[b] -= (dy / d) * f);
+    }
+    for (let i = 0; i < n; i++) {
+      const k = kort[i];
+      vy[i] += ((hoyest - k.lag) * RAD - k.y) * 0.01;
+      vx[i] -= k.x * 0.002;
+      k.x += Math.max(-2, Math.min(2, vx[i])) * varme;
+      k.y += Math.max(-2, Math.min(2, vy[i])) * varme;
+      vx[i] *= 0.5;
+      vy[i] *= 0.5;
+    }
+    skilt(0.5);
+  }
+  for (let i = 0; i < 40; i++) skilt(1);
+
+  const minX = Math.min(...kort.map((k) => k.x - k.b / 2));
+  const minY = Math.min(...kort.map((k) => k.y - k.h / 2));
+  for (const k of kort) (k.x -= minX), (k.y -= minY);
+  return {
+    kort,
+    bredde: Math.max(...kort.map((k) => k.x + k.b / 2)),
+    hoyde: Math.max(...kort.map((k) => k.y + k.h / 2)),
+  };
+}

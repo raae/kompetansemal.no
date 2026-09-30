@@ -3,7 +3,7 @@
 // usynlig liste. Når filteret endres, leser vi hvilke stubber som er synlige,
 // bygger lagene på nytt og tegner visningen på nytt.
 import { bikube, bro, sekskantOmriss } from '../lib/visning/flater';
-import { kraft } from '../lib/visning/kraft';
+import { kortgraf, kraft } from '../lib/visning/kraft';
 import { byggLag, byggerIVisning, klosser, rutenett, type KlossVariant, type Lag, type VMaal } from '../lib/visning/modell';
 import { lagMarkering } from './oppbygging';
 
@@ -102,20 +102,30 @@ function rutenettHtml(lag: Lag[]): string {
   return `<div id="stabel" class="rutenett">${tabeller.join('')}</div>`;
 }
 
-function kraftHtml(lag: Lag[], rader: boolean): string {
+function kraftHtml(lag: Lag[]): string {
   const bygger = byggerIVisning(lag);
-  const { punkter, bredde, hoyde } = kraft(lag, { rader });
-  // Trinnet som tone (0 = tidligst) i nettverket, og som radnavn med faste rader.
-  const navn = rader ? lag.map((l, i) => `<span class="flate-lagnavn" style="--y:${lag.length - 1 - i}">${esc(l.label)}</span>`).join('') : '';
+  const { punkter, bredde, hoyde } = kraft(lag, { rader: true });
+  const navn = lag.map((l, i) => `<span class="flate-lagnavn" style="--y:${lag.length - 1 - i}">${esc(l.label)}</span>`).join('');
+  // Trinnet står i radnavnet, så merket viser bare koden.
   const li = punkter.map((p) => {
     const tone = lag.length > 1 ? p.lag / (lag.length - 1) : 1;
-    return `<li class="${p.kontekst ? 'kontekst' : ''}" style="--x:${p.x.toFixed(3)};--y:${p.y.toFixed(3)};--tone:${tone.toFixed(2)}">${blokk(p.maal, bygger(p.maal), {
-      // Med faste rader står trinnet i radnavnet; i nettverket står det på merket.
-      tekst: rader ? p.maal.kode : `${p.maal.kode} · ${p.maal.trinnLabel}`,
-    })}</li>`;
+    return `<li class="${p.kontekst ? 'kontekst' : ''}" style="--x:${p.x.toFixed(3)};--y:${p.y.toFixed(3)};--tone:${tone.toFixed(2)}">${blokk(p.maal, bygger(p.maal))}</li>`;
   });
-  return `<div class="klosser-rulle"><div class="kraft${rader ? ' rader' : ''}" id="stabel" style="--bredde:${bredde.toFixed(3)};--hoyde:${hoyde.toFixed(3)}">
+  return `<div class="klosser-rulle"><div class="kraft rader" id="stabel" style="--bredde:${bredde.toFixed(3)};--hoyde:${hoyde.toFixed(3)}">
     <svg class="streker" aria-hidden="true"></svg>${navn}<ol>${li.join('')}</ol>
+  </div></div>`;
+}
+
+function kortgrafHtml(lag: Lag[], hoyder?: Map<string, number>): string {
+  const bygger = byggerIVisning(lag);
+  const { kort, bredde, hoyde } = kortgraf(lag, hoyder);
+  const li = kort.map((k) => {
+    const tone = lag.length > 1 ? k.lag / (lag.length - 1) : 1;
+    const stil = `--x:${k.x.toFixed(2)};--y:${k.y.toFixed(2)};--b:${k.b};--h:${k.h.toFixed(2)};--tone:${tone.toFixed(2)}`;
+    return `<li class="${k.kontekst ? 'kontekst' : ''}" style="${stil}">${blokk(k.maal, bygger(k.maal), { tekst: `${k.maal.kode} · ${k.maal.trinnLabel}` })}</li>`;
+  });
+  return `<div class="klosser-rulle"><div class="kraft kort" id="stabel" style="--bredde:${bredde.toFixed(2)};--hoyde:${hoyde.toFixed(2)}">
+    <svg class="streker" aria-hidden="true"></svg><ol>${li.join('')}</ol>
   </div></div>`;
 }
 
@@ -130,8 +140,9 @@ function tegn(form: Form, lag: Lag[]): string {
     case 'rutenett':
       return rutenettHtml(lag);
     case 'kraft':
+      return kraftHtml(lag);
     case 'nettverk':
-      return kraftHtml(lag, form === 'kraft');
+      return kortgrafHtml(lag);
     default:
       return klossHtml(lag, form);
   }
@@ -155,7 +166,15 @@ export function startVisualisering(): void {
     const nokkel = `${[...synlige].join(',')}|${medKontekst}`;
     if (nokkel === forrige) return;
     forrige = nokkel;
-    rot.innerHTML = tegn(form, byggLag(alle, synlige, medKontekst));
+    const lag = byggLag(alle, synlige, medKontekst);
+    rot.innerHTML = tegn(form, lag);
+    if (form === 'nettverk') {
+      // Kortene er plassert etter anslått høyde. Mål de ekte høydene og plasser på nytt,
+      // så ingen kort overlapper.
+      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const hoyder = new Map([...rot.querySelectorAll<HTMLElement>('.blokk')].map((b) => [b.dataset.kode!, b.offsetHeight / rem + 0.3]));
+      rot.innerHTML = kortgrafHtml(lag, hoyder);
+    }
     markering.nyttInnhold();
   };
   // Filteret sender «filter-endret» første gang det har lest URL-en, og ved hver endring.
