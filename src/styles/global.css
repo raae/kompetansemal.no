@@ -58,6 +58,7 @@ h3.trinn a{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-s
 .filter button,.filter a{display:inline-block;text-decoration:none;font:inherit;font-size:.88rem;font-weight:700;cursor:pointer;background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:.3rem .85rem}
 .filter button:hover,.filter a:hover{border-color:var(--fag)}
 .filter [aria-pressed="true"],.filter [aria-current]{background:var(--fag);color:var(--paper);border-color:var(--fag)}
+.filter button:disabled{opacity:.45;cursor:default;border-color:var(--rule)}
 .filter .skille{align-self:stretch;width:2px;margin:.2rem .4rem;background:var(--rule);border-radius:1px}
 /* Filtermeny: knapper som åpner et panel med filterpiller. Lukket viser knappen valget, og er fylt når noe er valgt. */
 .filtermeny{display:flex;flex-wrap:wrap;gap:.55rem .5rem;margin:0 0 1.1rem}

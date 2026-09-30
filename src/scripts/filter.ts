@@ -44,6 +44,29 @@ export function startFilter(): void {
     rader.map((r) => [r.dataset.filter!, new Set([...r.querySelectorAll<HTMLElement>('[data-verdi]')].map((b) => b.dataset.verdi!))]),
   );
 
+  // Verdiene hvert mål har i hvert filter. Trinn står på avsnittet rundt målet, resten på målet.
+  const maalVerdier = [...liste.querySelectorAll<HTMLElement>('li.goal')].map(
+    (m) => new Map([...lovlige.keys()].map((n) => [n, m.closest(`[data-f-${n}]`)?.getAttribute(`data-f-${n}`)?.split(' ') ?? []])),
+  );
+
+  /** Antallet i parentes følger de andre filtrene: mål med valget som også passer valgene i de andre radene. */
+  function tell(valgt: Map<string, Set<string>>): void {
+    for (const rad of rader) {
+      const navn = rad.dataset.filter!;
+      const passerAndre = maalVerdier.filter((mv) =>
+        [...valgt].every(([andre, sel]) => andre === navn || !sel.size || mv.get(andre)!.some((v) => sel.has(v))),
+      );
+      for (const b of rad.querySelectorAll<HTMLButtonElement>('button[data-verdi]')) {
+        const el = b.querySelector('[data-antall]');
+        if (!el) continue;
+        const antall = passerAndre.filter((mv) => mv.get(navn)!.includes(b.dataset.verdi!)).length;
+        el.textContent = `(${antall})`;
+        // Valg uten treff gråes ut, men et valgt valg må kunne slås av.
+        b.disabled = antall === 0 && !valgt.get(navn)!.has(b.dataset.verdi!);
+      }
+    }
+  }
+
   function lesUrl(): Map<string, Set<string>> {
     const params = new URLSearchParams(location.search);
     const valgt = new Map<string, Set<string>>();
@@ -94,6 +117,8 @@ export function startFilter(): void {
     for (const s of liste!.querySelectorAll<HTMLElement>('[data-seksjon]')) {
       s.hidden = !s.querySelector('li.goal:not([hidden])');
     }
+
+    tell(valgt);
 
     const aktiv = [...valgt.values()].some((v) => v.size);
     const status = document.querySelector<HTMLElement>('[data-filter-status]');
