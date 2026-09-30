@@ -1,9 +1,9 @@
 // Fritt plasserte visninger av klossene: bikube og bro. Begge har ett lag per trinn,
 // tidligste nederst, og regner ut x-posisjon og bredde i «enheter» (én kloss bred).
-import { byggerPaaKoder, type Lag, type Maal } from './data';
+import type { Lag, VMaal } from './modell';
 
 export interface Brikke {
-  maal: Maal;
+  maal: VMaal;
   /** Venstre kant og bredde i enheter. */
   x: number;
   bredde: number;
@@ -25,7 +25,7 @@ function foreldreMedLag(lag: Lag[]): Map<string, { kode: string; lag: number }[]
   const lagFor = new Map(lag.flatMap((l, i) => l.maal.map((m) => [m.kode, i] as const)));
   return new Map(
     lag.flatMap((l, i) =>
-      l.maal.map((m) => [m.kode, byggerPaaKoder(m).filter((k) => (lagFor.get(k) ?? i) < i).map((k) => ({ kode: k, lag: lagFor.get(k)! }))] as const),
+      l.maal.map((m) => [m.kode, m.bygger.filter((k) => (lagFor.get(k) ?? i) < i).map((k) => ({ kode: k, lag: lagFor.get(k)! }))] as const),
     ),
   );
 }

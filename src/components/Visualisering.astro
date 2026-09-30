@@ -1,0 +1,26 @@
+---
+// Flaten visualiseringen tegnes i, målene som JSON og panelet for valgt mål.
+// scripts/visning.ts gjør resten.
+import { visningsMaal, type Fag } from '../lib/data';
+import type { KlossVariant } from '../lib/visning/modell';
+interface Props { fag: Fag; form: 'oppbygging' | KlossVariant }
+const { fag, form } = Astro.props;
+---
+<div id="visning" data-form={form}>
+  <noscript><p class="empty">Denne visningen trenger JavaScript. Se <a href={`/${fag.slug}/`}>lista over målene</a> i stedet.</p></noscript>
+</div>
+<script type="application/json" id="visningsdata" set:html={JSON.stringify(visningsMaal(fag)).replace(/</g, '\\u003c')} />
+<aside class="valgtpanel" id="valgt" hidden aria-live="polite">
+  <button type="button" class="lukk" aria-label="Fjern markering">×</button>
+  <p class="meta"></p>
+  <p class="plain"></p>
+  <p class="udir"></p>
+  <p class="tall"></p>
+  <a class="aapne" href="#">Åpne målet →</a>
+</aside>
+<script>
+  import { startVisualisering } from '../scripts/visning';
+  import { startFilter } from '../scripts/filter';
+  startVisualisering();
+  startFilter();
+</script>

@@ -1,53 +1,57 @@
-// Oppbyggingen: tegner streker mellom målene som bygger på hverandre, og markerer
-// hele kjeden (alt under og alt over) når man trykker på et mål.
+// Markering i visualiseringene: tegner streker mellom målene som bygger på hverandre,
+// og markerer hele kjeden (alt under og alt over) når man trykker på et mål.
+// `rot` får nytt innhold hver gang filteret endres; da kalles nyttInnhold().
 const SVG = 'http://www.w3.org/2000/svg';
 
-export function startOppbygging(): void {
-  const stabelEl = document.getElementById('stabel');
-  const panelEl = document.getElementById('valgt');
-  if (!stabelEl || !panelEl) return;
-  const stabel: HTMLElement = stabelEl;
-  const panel: HTMLElement = panelEl;
-  // Noen visninger har ingen streker: der viser plasseringen hva som bygger på hva.
-  const svg = stabel.querySelector('svg');
+export function lagMarkering(rot: HTMLElement, panel: HTMLElement): { nyttInnhold(): void } {
+  let stabel: HTMLElement | null = null;
+  let svg: SVGSVGElement | null = null;
+  let blokker = new Map<string, HTMLButtonElement>();
+  let kopier: HTMLButtonElement[] = [];
+  let foreldre = new Map<string, string[]>();
+  let barn = new Map<string, string[]>();
+  let kanter: { fra: string; til: string; sti: SVGPathElement }[] = [];
+  let valgt: string | null = null;
 
-  const blokker = new Map<string, HTMLButtonElement>();
-  for (const b of stabel.querySelectorAll<HTMLButtonElement>('.blokk:not(.kopi)')) blokker.set(b.dataset.kode!, b);
-  // Kopier (klosser som står oppå flere) markeres likt med originalen.
-  const kopier = [...stabel.querySelectorAll<HTMLButtonElement>('.blokk.kopi')];
-
-  const foreldre = new Map<string, string[]>();
-  const barn = new Map<string, string[]>();
-  for (const [kode, b] of blokker) {
-    const p = (b.dataset.bygger ?? '').split(' ').filter((k) => blokker.has(k));
-    foreldre.set(kode, p);
-    for (const k of p) barn.set(k, [...(barn.get(k) ?? []), kode]);
+  function les(): void {
+    stabel = rot.querySelector<HTMLElement>('#stabel');
+    // Noen visninger har ingen streker: der viser plasseringen hva som bygger på hva.
+    svg = stabel?.querySelector('svg') ?? null;
+    blokker = new Map();
+    for (const b of rot.querySelectorAll<HTMLButtonElement>('.blokk:not(.kopi)')) blokker.set(b.dataset.kode!, b);
+    // Kopier (klosser som står oppå flere) markeres likt med originalen.
+    kopier = [...rot.querySelectorAll<HTMLButtonElement>('.blokk.kopi')];
+    foreldre = new Map();
+    barn = new Map();
+    for (const [kode, b] of blokker) {
+      const p = (b.dataset.bygger ?? '').split(' ').filter((k) => blokker.has(k));
+      foreldre.set(kode, p);
+      for (const k of p) barn.set(k, [...(barn.get(k) ?? []), kode]);
+    }
+    // Bare streker mellom ulike trinn. Noen få mål er koblet innenfor samme trinn.
+    kanter = [];
+    for (const [til, p] of svg ? foreldre : [])
+      for (const fra of p) {
+        if (Number(blokker.get(fra)!.dataset.trinn) >= Number(blokker.get(til)!.dataset.trinn)) continue;
+        // data-uten-strek: mål klossen allerede står oppå eller rører, og som ikke trenger strek.
+        if ((blokker.get(til)!.dataset.utenStrek ?? '').split(' ').includes(fra)) continue;
+        const sti = document.createElementNS(SVG, 'path');
+        svg!.appendChild(sti);
+        kanter.push({ fra, til, sti });
+      }
   }
 
-  // Bare streker mellom ulike trinn. Noen få mål er koblet innenfor samme trinn.
-  const kanter: { fra: string; til: string; sti: SVGPathElement }[] = [];
-  for (const [til, p] of svg ? foreldre : [])
-    for (const fra of p) {
-      if (Number(blokker.get(fra)!.dataset.trinn) >= Number(blokker.get(til)!.dataset.trinn)) continue;
-      // data-uten-strek: mål klossen allerede står oppå eller rører, og som ikke trenger strek.
-      if ((blokker.get(til)!.dataset.utenStrek ?? '').split(' ').includes(fra)) continue;
-      const sti = document.createElementNS(SVG, 'path');
-      svg!.appendChild(sti);
-      kanter.push({ fra, til, sti });
-    }
-
-  const midt = stabel.classList.contains('bikube');
-
   function tegn(): void {
-    if (!svg) return;
+    if (!svg || !stabel) return;
+    // I bikuben overlapper radene, så der går streken mellom midten av cellene.
+    const midt = stabel.classList.contains('bikube');
     const r = stabel.getBoundingClientRect();
     svg.setAttribute('width', String(r.width));
     svg.setAttribute('height', String(r.height));
     for (const { fra, til, sti } of kanter) {
       const a = blokker.get(fra)!.getBoundingClientRect();
       const b = blokker.get(til)!.getBoundingClientRect();
-      // Fra toppen av målet under til bunnen av målet over. I bikuben overlapper
-      // radene, så der går streken mellom midten av cellene i stedet.
+      // Fra toppen av målet under til bunnen av målet over.
       const x1 = a.left + a.width / 2 - r.left;
       const y1 = (midt ? a.top + a.height / 2 : a.top) - r.top;
       const x2 = b.left + b.width / 2 - r.left;
@@ -64,12 +68,12 @@ export function startOppbygging(): void {
     return sett;
   }
 
-  let valgt: string | null = null;
+  const antall = (n: number) => (n === 1 ? '1 mål' : `${n} mål`);
 
   function velg(kode: string | null, oppdaterHash = true): void {
     valgt = kode && blokker.has(kode) ? kode : null;
-    stabel.classList.toggle('har-valg', !!valgt);
-    if (oppdaterHash) history.replaceState(null, '', valgt ? `#${valgt}` : location.pathname + location.search);
+    stabel?.classList.toggle('har-valg', !!valgt);
+    if (oppdaterHash) history.replaceState(history.state, '', `${location.pathname}${location.search}${valgt ? `#${valgt}` : ''}`);
     if (!valgt) {
       for (const b of [...blokker.values(), ...kopier]) b.classList.remove('under', 'over', 'valgt'), b.removeAttribute('aria-pressed');
       for (const k of kanter) k.sti.classList.remove('paa');
@@ -78,17 +82,12 @@ export function startOppbygging(): void {
     }
     const under = samle(valgt, foreldre);
     const over = samle(valgt, barn);
-    for (const [k, b] of blokker) {
-      b.classList.toggle('valgt', k === valgt);
-      b.classList.toggle('under', k !== valgt && under.has(k));
-      b.classList.toggle('over', k !== valgt && over.has(k));
-      b.setAttribute('aria-pressed', String(k === valgt));
-    }
-    for (const b of kopier) {
+    for (const b of [...blokker.values(), ...kopier]) {
       const k = b.dataset.kode!;
       b.classList.toggle('valgt', k === valgt);
       b.classList.toggle('under', k !== valgt && under.has(k));
       b.classList.toggle('over', k !== valgt && over.has(k));
+      if (!b.classList.contains('kopi')) b.setAttribute('aria-pressed', String(k === valgt));
     }
     for (const k of kanter) k.sti.classList.toggle('paa', (under.has(k.fra) && under.has(k.til)) || (over.has(k.fra) && over.has(k.til)));
     // Løft de markerte strekene over de andre.
@@ -100,30 +99,34 @@ export function startOppbygging(): void {
     plain.textContent = b.querySelector('span')!.textContent;
     udir.innerHTML = '';
     udir.append(Object.assign(document.createElement('b'), { textContent: 'Udir sier: ' }), b.dataset.udir ?? '');
-    tall.textContent = `Bygger på ${antall(under.size - 1)} · Fører til ${antall(over.size - 1)}`;
+    tall.textContent = `Bygger på ${antall(under.size - 1)} · Fører til ${antall(over.size - 1)} (blant målene som vises)`;
     (panel.querySelector('a.aapne') as HTMLAnchorElement).href = b.dataset.url!;
     panel.hidden = false;
   }
 
-  const antall = (n: number) => (n === 1 ? '1 mål' : `${n} mål`);
-
-  stabel.addEventListener('click', (e) => {
+  rot.addEventListener('click', (e) => {
     const b = (e.target as Element).closest<HTMLButtonElement>('.blokk');
-    velg(b && b.dataset.kode !== valgt ? b.dataset.kode! : null);
+    if (b) velg(b.dataset.kode !== valgt ? b.dataset.kode! : null);
+    else if ((e.target as Element).closest('#stabel')) velg(null);
   });
   panel.querySelector('.lukk')!.addEventListener('click', () => velg(null));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && valgt) velg(null);
   });
   window.addEventListener('hashchange', () => velg(location.hash.slice(1).toUpperCase(), false));
-
-  new ResizeObserver(tegn).observe(stabel);
+  new ResizeObserver(tegn).observe(rot);
   document.fonts?.ready.then(tegn);
-  tegn();
 
-  const fraHash = location.hash.slice(1).toUpperCase();
-  if (blokker.has(fraHash)) {
-    velg(fraHash, false);
-    blokker.get(fraHash)!.scrollIntoView({ block: 'center' });
-  }
+  let forste = true;
+  return {
+    nyttInnhold() {
+      les();
+      tegn();
+      // Behold markeringen hvis målet fortsatt vises. Første gang: målet i URL-en.
+      const kode = forste ? location.hash.slice(1).toUpperCase() : valgt;
+      velg(kode, !forste);
+      if (forste && valgt) blokker.get(valgt)!.scrollIntoView({ block: 'center' });
+      forste = false;
+    },
+  };
 }
