@@ -1,0 +1,21 @@
+---
+// Bryteren Liste | Oppbygging | Klosser. Lenkene tar med seg filtrene i URL-en
+// (data-behold-filter, se scripts/filter.ts).
+import { fagUrl, klosserUrl, oppbyggingUrl, type Fag, type Gruppe } from '../lib/data';
+interface Props {
+  fag: Fag;
+  visning: 'liste' | 'oppbygging' | 'klosser';
+  /** På en trinnside: trinngruppa, så visualiseringene åpner med samme trinnfilter. */
+  gruppe?: Gruppe;
+}
+const { fag, visning, gruppe } = Astro.props;
+const trinn = gruppe ? `?trinn=${gruppe.slug}` : '';
+const valg = [
+  { navn: 'Liste', href: gruppe ? `${fagUrl(fag)}${gruppe.slug}/` : fagUrl(fag), aktiv: visning === 'liste' },
+  { navn: 'Oppbygging', href: `${oppbyggingUrl(fag)}${trinn}`, aktiv: visning === 'oppbygging' },
+  { navn: 'Klosser', href: `${klosserUrl(fag)}${trinn}`, aktiv: visning === 'klosser' },
+];
+---
+<ul class="visning" aria-label="Visning">
+  {valg.map((v) => <li><a href={v.href} aria-current={v.aktiv ? 'page' : undefined} data-behold-filter>{v.navn}</a></li>)}
+</ul>

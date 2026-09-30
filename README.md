@@ -55,6 +55,8 @@ Andre ting å vite:
 |---|---|
 | `/` | Forside med søk og fagvalg |
 | `/[fag]/` | Alle målene i et fag, med filter for trinn, emne og kjerneelement, f.eks. `/matte/?trinn=5-7&emne=brok` |
+| `/[fag]/oppbygging/` | Målene i et fag stablet trinn for trinn, tidligste nederst, med streker for «bygger på». Samme filter som fagsida (`?trinn=5-7&emne=brok`); med trinnfilter står det de valgte målene bygger på nederst, tonet ned. Trykk på et mål for å markere hele kjeden. `#KODE` i URL-en velger et mål |
+| `/[fag]/klosser/[variant]/` | Målene som klosser: hvert mål står oppå ett mål det bygger på (det med høyest trinn), og er like bredt som alt som står oppå det. Raden er høyden i stabelen, ikke trinnet. Fanene (`KLOSS_VARIANTER` i `src/lib/visning/modell.ts`) viser mål som bygger på flere på ulike måter: tre (uten variant i URL-en), tråder, merker, kopier, bikube, bro, kraft, nettverk og rutenett. Kraft og nettverk er kraftgrafer (`src/lib/visning/kraft.ts`); nettverk viser hele målene som kort plassert helt fritt, med piler fra målet som kommer først til målet som bygger på det. Samme filter som Oppbygging. Visualiseringene tegnes i nettleseren (`src/scripts/visning.ts`) ut fra målene som JSON; oppsettet regnes ut i `src/lib/visning/` |
 | `/[fag]/[gruppe]/` | Målene i et fag for én trinngruppe, f.eks. `/matte/5-7/` |
 | `/mal/[kode]/` | Ett mål, med «Bygger på og fører til» åpent og lenker til forrige og neste |
 | `/kjerneelement/[fag]/[slug]/` | Alle mål i faget med kjerneelementet |
@@ -63,6 +65,8 @@ Andre ting å vite:
 | `/sok.json` | Søkeindeks for søket på klientsiden |
 
 Trinngrupper: 1–2, 3–4, 5–7 og 8–10. KRLE og mat og helse har ikke mål etter 2. trinn og får 1–4, 5–7 og 8–10. Matte har mål per trinn og merkes «5. trinn». Andre fag merkes med gruppa, f.eks. «5.–7. trinn».
+
+Fagsida og trinnsidene har en bryter mellom «Liste», «Oppbygging» og «Klosser» som tar med seg filtrene.
 
 ## Netlify
 

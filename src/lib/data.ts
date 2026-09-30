@@ -4,6 +4,7 @@ import udirJson from '../../data/udir.json';
 import forklaringerJson from '../../data/forklaringer.json';
 import emnerJson from '../../data/emner.json';
 import { FAG, grupperForTrinn, slug } from './fag.mjs';
+import type { KlossVariant, VMaal } from './visning/modell';
 
 export type FagKey = 'MAT' | 'NOR' | 'ENG' | 'NAT' | 'SAF' | 'KRLE' | 'KHV' | 'MUS' | 'MHE' | 'KRO';
 
@@ -133,6 +134,14 @@ export function gruppeUrl(fag: Fag, gruppe: Gruppe): string {
   return `/${fag.slug}/${gruppe.slug}/`;
 }
 
+export function oppbyggingUrl(fag: Fag): string {
+  return `${fagUrl(fag)}oppbygging/`;
+}
+
+export function klosserUrl(fag: Fag, variant: KlossVariant = 'tre'): string {
+  return `${fagUrl(fag)}klosser/${variant === 'tre' ? '' : `${variant}/`}`;
+}
+
 export function kjerneelementUrl(fag: Fag, navn: string): string {
   return `/kjerneelement/${fag.slug}/${slug(navn)}/`;
 }
@@ -204,6 +213,27 @@ export function tverrfagligeTemaer(): { navn: string; slug: string; maal: Maal[]
   const per = new Map<string, Maal[]>();
   for (const m of ALLE) for (const t of m.tverrfaglige_temaer) per.set(t, [...(per.get(t) ?? []), m]);
   return [...per].map(([navn, maal]) => ({ navn, slug: slug(navn), maal }));
+}
+
+/** Hvilke mål i samme fag dette målet bygger på, som koder. */
+export function byggerPaaKoder(m: Maal): string[] {
+  return m.bygger_paa.filter((k) => PER_KODE.get(k)?.fag === m.fag);
+}
+
+/** Målene i et fag slik visualiseringene trenger dem (se lib/visning/modell.ts). */
+export function visningsMaal(fag: Fag): VMaal[] {
+  return ALLE.filter((m) => m.fag === fag.key).map((m) => ({
+    kode: m.kode,
+    trinn: m.trinn,
+    gruppe: gruppeForMaal(m).gruppe.slug,
+    trinnLabel: trinnLabel(m.fag, m.trinn),
+    forklaring: m.forklaring,
+    udir: m.udir,
+    url: maalUrl(m),
+    bygger: byggerPaaKoder(m),
+    emner: m.emner.map(slug),
+    kjerne: m.kjerneelementer.map(slug),
+  }));
 }
 
 /** Når læreplanversjonene gjelder fra, som «1. august 2026», hvis alle er like. */

@@ -1,0 +1,25 @@
+---
+// Filterradene på visualiseringene: samme trinn-, emne- og kjerneelementfilter som
+// fagsida, og med samme URL (?trinn=5-7&emne=brok). Filteret virker på en usynlig
+// liste med én «stubb» per mål; scripts/visning.ts tegner visningen ut fra hvilke
+// stubber som er synlige.
+import Filter from './Filter.astro';
+import FilterMeny from './FilterMeny.astro';
+import FilterStart from './FilterStart.astro';
+import { emnerForFag, kjerneelementerForFag, visningsMaal, type Fag } from '../lib/data';
+interface Props { fag: Fag }
+const { fag } = Astro.props;
+const emner = emnerForFag(fag);
+const kjerne = kjerneelementerForFag(fag);
+const maal = visningsMaal(fag);
+---
+<Filter navn="trinn" tittel="Trinn" alle={{ label: 'Alle trinn' }} valg={fag.grupper.map((g) => ({ verdi: g.slug, label: g.label }))} />
+<FilterMeny filtre={[
+  { navn: 'emne', tittel: 'Emne', alle: { label: 'Alle emner' }, valg: emner.map((e) => ({ verdi: e.slug, label: e.navn, antall: e.maal.length })) },
+  { navn: 'kjerne', tittel: 'Kjerneelement', alle: { label: 'Alle kjerneelementer' }, valg: kjerne.map((k) => ({ verdi: k.slug, label: k.navn, antall: k.maal.length })) },
+]} />
+<p class="filterstatus" data-filter-status aria-live="polite" hidden></p>
+<FilterStart />
+<ul data-filtrert hidden>
+  {maal.map((m) => <li class="goal" data-kode={m.kode} data-f-trinn={m.gruppe} data-f-emne={m.emner.join(' ')} data-f-kjerne={m.kjerne.join(' ')}></li>)}
+</ul>

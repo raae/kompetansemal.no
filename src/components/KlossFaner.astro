@@ -1,0 +1,13 @@
+---
+import { klosserUrl, type Fag } from '../lib/data';
+import { KLOSS_VARIANTER, type KlossVariant } from '../lib/visning/modell';
+interface Props { fag: Fag; variant: KlossVariant }
+const { fag, variant } = Astro.props;
+const valgt = KLOSS_VARIANTER.find((v) => v.slug === variant)!;
+---
+<div class="faner">
+  <ul role="list" aria-label="Måter å vise klossene på">
+    {KLOSS_VARIANTER.map((v) => <li><a href={klosserUrl(fag, v.slug)} aria-current={v.slug === variant ? 'page' : undefined} data-behold-filter>{v.navn}</a></li>)}
+  </ul>
+  <p>{valgt.forklaring}</p>
+</div>

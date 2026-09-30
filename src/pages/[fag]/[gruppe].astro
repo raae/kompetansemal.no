@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GruppeInnhold from '../../components/GruppeInnhold.astro';
+import Visningsvalg from '../../components/Visningsvalg.astro';
 import Filter from '../../components/Filter.astro';
 import FilterMeny from '../../components/FilterMeny.astro';
 import FilterStart from '../../components/FilterStart.astro';
@@ -30,7 +31,10 @@ const kjerne = kjerneelementerForFag(fag)
 <Base title={`${fag.navn} ${gruppe.label}`} description={`${gruppe.maal.length} kompetansemål i ${fag.navn.toLowerCase()} for ${gruppe.label}, forklart på vanlig norsk.`}>
   <section style={`--fag:var(--${fag.key})`}>
     <div class="fagHead">
-      <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
+      <div class="fagtopp">
+        <h2><a href={fagUrl(fag)}>{fag.navn}</a></h2>
+        <Visningsvalg fag={fag} gruppe={gruppe} visning="liste" />
+      </div>
       <p>{fag.note}</p>
       <Filter navn="trinn" tittel="Trinn" alle={{ label: 'Alle trinn', href: fagUrl(fag) }} valg={trinnValg} />
       <FilterMeny filtre={[

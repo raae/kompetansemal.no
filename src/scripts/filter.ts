@@ -136,6 +136,9 @@ export function startFilter(): void {
       }
       a.href = url.pathname + url.search.replace(/%2C/gi, ',');
     }
+
+    // Visualiseringene (scripts/visning.ts) tegner seg på nytt ut fra de synlige målene.
+    document.dispatchEvent(new CustomEvent('filter-endret'));
   }
 
   startMeny();

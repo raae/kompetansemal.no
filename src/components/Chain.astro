@@ -1,9 +1,10 @@
 ---
-import { byggerPaa, forerTil, maalUrl, tomByggerPaa, tomForerTil, trinnLabel, type Maal } from '../lib/data';
+import { byggerPaa, fagMedKey, fagUrl, forerTil, maalUrl, tomByggerPaa, tomForerTil, trinnLabel, type Maal } from '../lib/data';
 interface Props { maal: Maal; open?: boolean }
 const { maal, open = false } = Astro.props;
 const opp = byggerPaa(maal);
 const ned = forerTil(maal);
+const stige = `${fagUrl(fagMedKey(maal.fag)!)}oppbygging/#${maal.kode}`;
 const seksjoner = [
   { tittel: 'Bygger på', liste: opp, tom: tomByggerPaa(maal) },
   { tittel: 'Fører til', liste: ned, tom: tomForerTil(maal) },
@@ -25,4 +26,5 @@ const seksjoner = [
       )}
     </div>
   ))}
+  <p class="stige"><a href={stige}>Se hele oppbyggingen i faget →</a></p>
 </details>
